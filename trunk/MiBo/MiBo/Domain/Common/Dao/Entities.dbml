@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MiBoDB" Class="EntitiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=MiBoDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MiBoDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AcceptDetailIOs" Member="AcceptDetailIOs">
+    <Type Name="AcceptDetailIO">
+      <Column Name="AcceptSlipNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SlipHistoryNo" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailNo" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UnitCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DetailQtty" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DetailPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DetailAmt" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DetailNotes" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AcceptIO_AcceptDetailIO" Member="AcceptIO" ThisKey="AcceptSlipNo,SlipHistoryNo" OtherKey="AcceptSlipNo,SlipHistoryNo" Type="AcceptIO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_Profile" Member="Profile" ThisKey="UserCd" OtherKey="UserCd" Type="Profile" Cardinality="One" />
+      <Association Name="User_UserGroup" Member="UserGroups" ThisKey="UserCd" OtherKey="UserCd" Type="UserGroup" />
+      <Association Name="User_UserLike" Member="UserLikes" ThisKey="UserCd" OtherKey="UserCd" Type="UserLike" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AcceptDetails" Member="AcceptDetails">
+    <Type Name="AcceptDetail">
+      <Column Name="AcceptSlipNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailNo" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UnitCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DetailQtty" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DetailPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DetailAmt" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DetailNotes" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Accept_AcceptDetail" Member="Accept" ThisKey="AcceptSlipNo" OtherKey="AcceptSlipNo" Type="Accept" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AcceptIOs" Member="AcceptIOs">
+    <Type Name="AcceptIO">
+      <Column Name="AcceptSlipNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SlipHistoryNo" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="correctionDiv" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SlipStatus" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="AcceptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WishDeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ClientCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ClientName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ClientAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ClientTel" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DeliveryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DeliveryName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DeliveryAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DeliveryTel" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PaymentMethods" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AcceptIO_AcceptDetailIO" Member="AcceptDetailIOs" ThisKey="AcceptSlipNo,SlipHistoryNo" OtherKey="AcceptSlipNo,SlipHistoryNo" Type="AcceptDetailIO" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Accepts" Member="Accepts">
+    <Type Name="Accept">
+      <Column Name="AcceptSlipNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SlipStatus" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="AcceptDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WishDeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ClientCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ClientName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ClientAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ClientTel" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DeliveryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DeliveryName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DeliveryAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DeliveryTel" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PaymentMethods" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Accept_AcceptDetail" Member="AcceptDetails" ThisKey="AcceptSlipNo" OtherKey="AcceptSlipNo" Type="AcceptDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ages" Member="Ages">
+    <Type Name="Age">
+      <Column Name="AgeCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AgeName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Age_Item" Member="Items" ThisKey="AgeCd" OtherKey="AgeCd" Type="Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Banners" Member="Banners">
+    <Type Name="Banner">
+      <Column Name="BannerCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BannerName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Brands" Member="Brands">
+    <Type Name="Brand">
+      <Column Name="BrandCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BrandName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Category_Item" Member="Items" ThisKey="CategoryCd" OtherKey="CategoryCd" Type="Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cities" Member="Cities">
+    <Type Name="City">
+      <Column Name="CityCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="City_District" Member="Districts" ThisKey="CityCd" OtherKey="CityCd" Type="District" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CompanyInfos" Member="CompanyInfos">
+    <Type Name="CompanyInfo">
+      <Column Name="InfoCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InfoName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="InfoValue" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Countries" Member="Countries">
+    <Type Name="Country">
+      <Column Name="CountryCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CountryName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Country_Item" Member="Items" ThisKey="CountryCd" OtherKey="CountryCd" Type="Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Deliveries" Member="Deliveries">
+    <Type Name="Delivery">
+      <Column Name="CustomerCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DeliveryCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DeliveryName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Districts" Member="Districts">
+    <Type Name="District">
+      <Column Name="DistrictCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DistrictName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CityCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="City_District" Member="City" ThisKey="CityCd" OtherKey="CityCd" Type="City" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FAQs" Member="FAQs">
+    <Type Name="FAQ">
+      <Column Name="FAQCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="Answer" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Genders" Member="Genders">
+    <Type Name="Gender">
+      <Column Name="GenderCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GenderName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Gender_Item" Member="Items" ThisKey="GenderCd" OtherKey="GenderCd" Type="Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupRoles" Member="GroupRoles">
+    <Type Name="GroupRole">
+      <Column Name="GroupCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Group_GroupRole" Member="Group" ThisKey="GroupCd" OtherKey="GroupCd" Type="Group" IsForeignKey="true" />
+      <Association Name="Role_GroupRole" Member="Role" ThisKey="RoleCd" OtherKey="RoleCd" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Groups" Member="Groups">
+    <Type Name="Group">
+      <Column Name="GroupCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Group_GroupRole" Member="GroupRoles" ThisKey="GroupCd" OtherKey="GroupCd" Type="GroupRole" />
+      <Association Name="Group_UserGroup" Member="UserGroups" ThisKey="GroupCd" OtherKey="GroupCd" Type="UserGroup" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Helps" Member="Helps">
+    <Type Name="Help">
+      <Column Name="HelpCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemImages" Member="ItemImages">
+    <Type Name="ItemImage">
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Item_ItemImage" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MCodes" Member="MCodes">
+    <Type Name="MCode">
+      <Column Name="CodeGroupCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodeCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodeName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MNumbers" Member="MNumbers">
+    <Type Name="MNumber">
+      <Column Name="Code" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Year" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Month" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SlipNo" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Digits" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MParameters" Member="MParameters">
+    <Type Name="MParameter">
+      <Column Name="ParamCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ParamName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ParamValue" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ParamType" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OfferItems" Member="OfferItems">
+    <Type Name="OfferItem">
+      <Column Name="OfferCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailNo" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OfferItemCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="OfferItemQtty" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Offer_OfferItem" Member="Offer" ThisKey="OfferCd" OtherKey="OfferCd" Type="Offer" IsForeignKey="true" />
+      <Association Name="Item_OfferItem" Member="Item" ThisKey="OfferItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Prices" Member="Prices">
+    <Type Name="Price">
+      <Column Name="PriceCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PriceName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PriceDiv" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="PriceStart" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="PriceEnd" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Profiles" Member="Profiles">
+    <Type Name="Profile">
+      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_Profile" Member="User" ThisKey="UserCd" OtherKey="UserCd" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Role_GroupRole" Member="GroupRoles" ThisKey="RoleCd" OtherKey="RoleCd" Type="GroupRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stocks" Member="Stocks">
+    <Type Name="Stock">
+      <Column Name="SlipNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DetailNo" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="StockQtty" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Suppliers" Member="Suppliers">
+    <Type Name="Supplier">
+      <Column Name="SupplierCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Units" Member="Units">
+    <Type Name="Unit">
+      <Column Name="UnitCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Unit_Item" Member="Items" ThisKey="UnitCd" OtherKey="UnitCd" Type="Item" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserComments" Member="UserComments">
+    <Type Name="UserComment">
+      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CommentCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Contents" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Item_UserComment" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserGroups" Member="UserGroups">
+    <Type Name="UserGroup">
+      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GroupCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Group_UserGroup" Member="Group" ThisKey="GroupCd" OtherKey="GroupCd" Type="Group" IsForeignKey="true" />
+      <Association Name="User_UserGroup" Member="User" ThisKey="UserCd" OtherKey="UserCd" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserLikes" Member="UserLikes">
+    <Type Name="UserLike">
+      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_UserLike" Member="User" ThisKey="UserCd" OtherKey="UserCd" Type="User" IsForeignKey="true" />
+      <Association Name="Item_UserLike" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Offers" Member="Offers">
+    <Type Name="Offer">
+      <Column Name="OfferCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OfferDiv" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Offer_OfferItem" Member="OfferItems" ThisKey="OfferCd" OtherKey="OfferCd" Type="OfferItem" />
+      <Association Name="Item_Offer" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Items" Member="Items">
+    <Type Name="Item">
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CategoryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="AgeCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="GenderCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CountryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UnitCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SalesPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="BuyingPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ItemNew" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Viewer" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Item_ItemImage" Member="ItemImages" ThisKey="ItemCd" OtherKey="ItemCd" Type="ItemImage" />
+      <Association Name="Item_OfferItem" Member="OfferItems" ThisKey="ItemCd" OtherKey="OfferItemCd" Type="OfferItem" />
+      <Association Name="Item_UserComment" Member="UserComments" ThisKey="ItemCd" OtherKey="ItemCd" Type="UserComment" />
+      <Association Name="Item_UserLike" Member="UserLikes" ThisKey="ItemCd" OtherKey="ItemCd" Type="UserLike" />
+      <Association Name="Item_Offer" Member="Offers" ThisKey="ItemCd" OtherKey="ItemCd" Type="Offer" />
+      <Association Name="Age_Item" Member="Age" ThisKey="AgeCd" OtherKey="AgeCd" Type="Age" IsForeignKey="true" />
+      <Association Name="Category_Item" Member="Category" ThisKey="CategoryCd" OtherKey="CategoryCd" Type="Category" IsForeignKey="true" />
+      <Association Name="Country_Item" Member="Country" ThisKey="CountryCd" OtherKey="CountryCd" Type="Country" IsForeignKey="true" />
+      <Association Name="Gender_Item" Member="Gender" ThisKey="GenderCd" OtherKey="GenderCd" Type="Gender" IsForeignKey="true" />
+      <Association Name="Unit_Item" Member="Unit" ThisKey="UnitCd" OtherKey="UnitCd" Type="Unit" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
