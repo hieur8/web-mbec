@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="pages\cln\test.aspx" />
     <Content Include="pages\common\error.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -132,11 +133,24 @@
     <Compile Include="Domain\Logic\Client\Index\InitLogic.cs" />
     <Compile Include="Domain\Logic\Client\Index\InitOperateLogic.cs" />
     <Compile Include="Domain\Model\Client\Index\InitDataModel.cs" />
+    <Compile Include="Domain\Web\Client\Index\OutputBannerModel.cs" />
     <Compile Include="Domain\Web\Client\Index\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Index\InitResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\Index\ItemOutputModel.cs" />
+    <Compile Include="Domain\Web\Client\Index\OutputItemModel.cs" />
+    <Compile Include="Domain\Web\Client\ItemDetails\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\ItemDetails\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Items\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\Items\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Items\OutputItemModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\common\error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
@@ -153,7 +167,6 @@
     <Folder Include="Domain\Model\Admin\" />
     <Folder Include="Domain\Web\Admin\" />
     <Folder Include="pages\administer\" />
-    <Folder Include="pages\cln\" />
     <Folder Include="pages\media\email\" />
     <Folder Include="pages\media\images\" />
     <Folder Include="pages\resources\fonts\" />

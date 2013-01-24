@@ -5,6 +5,9 @@ namespace MiBo.Domain.Web.Client.Index
 {
     public class InitResponseModel : MessageResponse
     {
-        public IList<ItemOutputModel> ListNewItems { get; set; }
+        public IList<OutputBannerModel> ListBanners { get; set; }
+        public IList<OutputItemModel> ListNewItems { get; set; }
+        public IList<OutputItemModel> ListHotItems { get; set; }
+        public IList<OutputItemModel> ListOfferItems { get; set; }
     }
 }

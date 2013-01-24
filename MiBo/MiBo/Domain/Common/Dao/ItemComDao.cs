@@ -16,7 +16,7 @@ namespace MiBo.Domain.Common.Dao
                              && tbl.StartDate <= currentDate
                              && tbl.EndDate > currentDate
                              && tbl.DeleteFlag == false
-                             orderby tbl.SortKey descending
+                             orderby tbl.SortKey ascending
                              select tbl;
 
             // Get long count
@@ -37,7 +37,7 @@ namespace MiBo.Domain.Common.Dao
                              && tbl.StartDate <= currentDate
                              && tbl.EndDate > currentDate
                              && tbl.DeleteFlag == false
-                             orderby tbl.SortKey descending
+                             orderby tbl.SortKey ascending
                              select tbl;
 
             // Return value
