@@ -34,11 +34,11 @@ namespace MiBo.Domain.Common.Controller
         {
             get
             {
-                if (Session["AccountId"] == null) return false;
-                var strAccountId = Convert.ToString(Session["AccountId"]);
-                if (DataCheckHelper.IsGuid(strAccountId) == false) return false;
-                var accountId = DataHelper.ConvertInputGuid(strAccountId);
-                return !DataCheckHelper.IsNull(accountId);
+                if (Session["UserCd"] == null) return false;
+                var strUserCd = Convert.ToString(Session["UserCd"]);
+                if (DataCheckHelper.IsGuid(strUserCd) == false) return false;
+                var userCd = DataHelper.ConvertInputGuid(strUserCd);
+                return !DataCheckHelper.IsNull(userCd);
             }
         }
 

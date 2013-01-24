@@ -1,6 +1,6 @@
 ﻿namespace MiBo.Domain.Web.Client.Index
 {
-    public class ItemOutputModel
+    public class OutputItemModel
     {
         public string ItemCd { get; set; }
         public string ItemName { get; set; }

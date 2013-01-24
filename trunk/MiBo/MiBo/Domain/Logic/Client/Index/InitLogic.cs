@@ -53,30 +53,81 @@ namespace MiBo.Domain.Logic.Client.Index
         {
             // Local variable declaration
             InitResponseModel responseModel = null;
-            IList<ItemOutputModel> listNewItems = null;
-            ItemOutputModel newItem = null;
+            IList<OutputBannerModel> listBanners = null;
+            IList<OutputItemModel> listNewItems = null;
+            IList<OutputItemModel> listHotItems = null;
+            IList<OutputItemModel> listOfferItems = null;
+            OutputBannerModel banner = null;
+            OutputItemModel newItem = null;
+            OutputItemModel hotItem = null;
+            OutputItemModel offerItem = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
-            listNewItems = new List<ItemOutputModel();
+            listBanners = new List<OutputBannerModel>();
+            listNewItems = new List<OutputItemModel>();
+            listHotItems = new List<OutputItemModel>();
+            listOfferItems = new List<OutputItemModel>();
 
             // Get value
+            foreach (var obj in resultObject.ListBanners)
+            {
+                banner = new OutputBannerModel();
+
+                banner.BannerCd = DataHelper.ToString(obj.BannerCd);
+                banner.BannerName = DataHelper.ToString(obj.BannerName);
+                banner.Image = DataHelper.ToString(obj.Image);
+
+                listBanners.Add(banner);
+            }
+
             foreach (var obj in resultObject.ListNewItems)
             {
-                newItem = new ItemOutputModel();
+                newItem = new OutputItemModel();
 
                 newItem.ItemCd = DataHelper.ToString(obj.ItemCd);
                 newItem.ItemName = DataHelper.ToString(obj.ItemName);
                 newItem.ItemImage = DataHelper.ToString(obj.ItemImages);
                 newItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
                 newItem.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
-                newItem.Notes = DataHelper.ToSubString(obj.Notes, 20);
+                newItem.Notes = DataHelper.ToString(obj.Notes);
 
                 listNewItems.Add(newItem);
             }
 
+            foreach (var obj in resultObject.ListHotItems)
+            {
+                hotItem = new OutputItemModel();
+
+                hotItem.ItemCd = DataHelper.ToString(obj.ItemCd);
+                hotItem.ItemName = DataHelper.ToString(obj.ItemName);
+                hotItem.ItemImage = DataHelper.ToString(obj.ItemImages);
+                hotItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
+                hotItem.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
+                hotItem.Notes = DataHelper.ToString(obj.Notes);
+
+                listHotItems.Add(hotItem);
+            }
+
+            foreach (var obj in resultObject.ListOfferItems)
+            {
+                offerItem = new OutputItemModel();
+
+                offerItem.ItemCd = DataHelper.ToString(obj.ItemCd);
+                offerItem.ItemName = DataHelper.ToString(obj.ItemName);
+                offerItem.ItemImage = DataHelper.ToString(obj.ItemImages);
+                offerItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
+                offerItem.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
+                offerItem.Notes = DataHelper.ToString(obj.Notes);
+
+                listOfferItems.Add(offerItem);
+            }
+
             // Set value
+            responseModel.ListBanners = listBanners;
             responseModel.ListNewItems = listNewItems;
+            responseModel.ListHotItems = listHotItems;
+            responseModel.ListOfferItems = listOfferItems;
 
             // Return value
             return responseModel;
@@ -127,10 +178,16 @@ namespace MiBo.Domain.Logic.Client.Index
             itemCom = new ItemCom();
 
             // Get data
-            var listNewItems = itemCom.ToListItemModel(clientIndexDao.GetListNewItems());
+            var listBanners = clientIndexDao.GetListBanners();
+            var listNewItems = clientIndexDao.GetListNewItems();
+            var listHotItems = clientIndexDao.GetListHotItems();
+            var listOfferItems = clientIndexDao.GetListOfferItems();
 
             // Set value
-            getResult.ListNewItems = listNewItems;
+            getResult.ListBanners = listBanners;
+            getResult.ListNewItems = itemCom.ToListItemModel(listNewItems);
+            getResult.ListHotItems = itemCom.ToListItemModel(listHotItems);
+            getResult.ListOfferItems = itemCom.ToListItemModel(listOfferItems);
 
             // Return value
             return getResult;
