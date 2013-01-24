@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD9A198F-D657-4025-8C76-4722ACF94680}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MiBo</RootNamespace>
+    <AssemblyName>MiBo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="pages\common\error.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Formats.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formats.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Messages.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Parameters.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Parameters.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Common\Constants\Logics.cs" />
+    <Compile Include="Domain\Common\Controller\BaseMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Controller\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Dao\AbstractDao.cs" />
+    <Compile Include="Domain\Common\Dao\DataComDao.cs" />
+    <Compile Include="Domain\Common\Dao\Entities.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entities.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Common\Dao\ItemComDao.cs" />
+    <Compile Include="Domain\Common\Dao\MCodeComDao.cs" />
+    <Compile Include="Domain\Common\Dao\MNumberComDao.cs" />
+    <Compile Include="Domain\Common\Dao\MParameterComDao.cs" />
+    <Compile Include="Domain\Common\Dao\UserComDao.cs" />
+    <Compile Include="Domain\Common\Enum\MessageType.cs" />
+    <Compile Include="Domain\Common\Enum\RatioType.cs" />
+    <Compile Include="Domain\Common\Exceptions\DataExistException.cs" />
+    <Compile Include="Domain\Common\Exceptions\DataNotExistException.cs" />
+    <Compile Include="Domain\Common\Exceptions\ExecuteException.cs" />
+    <Compile Include="Domain\Common\Exceptions\ParamInvalidException.cs" />
+    <Compile Include="Domain\Common\Exceptions\SysRuntimeException.cs" />
+    <Compile Include="Domain\Common\Helper\DataCheckHelper.cs" />
+    <Compile Include="Domain\Common\Helper\DataHelper.cs" />
+    <Compile Include="Domain\Common\Helper\FileHelper.cs" />
+    <Compile Include="Domain\Common\Helper\ImageHelper.cs" />
+    <Compile Include="Domain\Common\Helper\JsonHelper.cs" />
+    <Compile Include="Domain\Common\Helper\MailHelper.cs" />
+    <Compile Include="Domain\Common\Helper\MessageHelper.cs" />
+    <Compile Include="Domain\Common\Helper\PageHelper.cs" />
+    <Compile Include="Domain\Common\Helper\ParameterHelper.cs" />
+    <Compile Include="Domain\Common\Helper\UploadHelper.cs" />
+    <Compile Include="Domain\Common\Logic\IOperateLogic.cs" />
+    <Compile Include="Domain\Common\Model\CartItem.cs" />
+    <Compile Include="Domain\Common\Model\ItemModel.cs" />
+    <Compile Include="Domain\Common\Model\Message.cs" />
+    <Compile Include="Domain\Common\Model\MessageResponse.cs" />
+    <Compile Include="Domain\Common\Model\UploadModel.cs" />
+    <Compile Include="Domain\Common\Utils\DataCom.cs" />
+    <Compile Include="Domain\Common\Utils\ItemCom.cs" />
+    <Compile Include="Domain\Common\Utils\MCodeCom.cs" />
+    <Compile Include="Domain\Common\Utils\MNumberCom.cs" />
+    <Compile Include="Domain\Common\Utils\MParameterCom.cs" />
+    <Compile Include="Domain\Common\Utils\UserCom.cs" />
+    <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
+    <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
+    <Compile Include="Domain\Dao\ClientIndexDao.cs" />
+    <Compile Include="Domain\Logic\Client\Index\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Index\InitOperateLogic.cs" />
+    <Compile Include="Domain\Model\Client\Index\InitDataModel.cs" />
+    <Compile Include="Domain\Web\Client\Index\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\Index\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Index\ItemOutputModel.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="pages\common\error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\common\error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Domain\Logic\Admin\" />
+    <Folder Include="Domain\Model\Admin\" />
+    <Folder Include="Domain\Web\Admin\" />
+    <Folder Include="pages\administer\" />
+    <Folder Include="pages\cln\" />
+    <Folder Include="pages\media\email\" />
+    <Folder Include="pages\media\images\" />
+    <Folder Include="pages\resources\fonts\" />
+    <Folder Include="pages\resources\images\" />
+    <Folder Include="pages\resources\scripts\" />
+    <Folder Include="pages\resources\styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Formats.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Formats.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Messages.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Messages.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Parameters.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Parameters.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Domain\Common\Dao\Entities.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Entities.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Domain\Common\Dao\Entities.dbml.layout">
+      <DependentUpon>Entities.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2593</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
