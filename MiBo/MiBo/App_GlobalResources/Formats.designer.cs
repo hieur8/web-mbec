@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0:#.###} VND.
+        ///   Looks up a localized string similar to {0:#,# VND}.
         /// </summary>
         internal static string CURRENCY {
             get {
@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0:#.###,##}.
+        ///   Looks up a localized string similar to {0:#,#.#}.
         /// </summary>
         internal static string NUMBER {
             get {

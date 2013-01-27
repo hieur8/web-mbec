@@ -5,6 +5,7 @@ using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Enum;
 using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Validate;
+using System;
 
 namespace MiBo.Domain.Common.Helper
 {
@@ -57,5 +58,15 @@ namespace MiBo.Domain.Common.Helper
                     break;
             }
         }
+
+        public static void SetMessage(Exception ex)
+        {
+            // Add message to session
+            HttpContext.Current.Session["err-title"] = "Error";
+            HttpContext.Current.Session["err-head"] = "Exception";
+            HttpContext.Current.Session["err-content"] = ex.Message;
+            //HttpContext.Current.Response.Redirect(Pages.ERROR_PAGE);
+        }
+        
     }
 }

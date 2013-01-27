@@ -6,6 +6,7 @@ using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Common.Model;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.Domain.Common.Utils
 {
@@ -29,6 +30,29 @@ namespace MiBo.Domain.Common.Utils
         }
 
         /// <summary>
+        /// Get offer price
+        /// </summary>
+        /// <param name="salesPrice">SalesPrice</param>
+        /// <param name="offerPercent">oOfferPercent</param>
+        /// <returns>Offer price</returns>
+        public decimal? GetOfferPrice(decimal? salesPrice, decimal? offerPercent)
+        {
+            // Local variable declaration
+            var priceOffer = decimal.Zero;
+
+            // Check param
+            if (DataCheckHelper.IsNull(salesPrice)
+                || DataCheckHelper.IsNull(offerPercent))
+                throw new ParamInvalidException();
+
+            // Get infomation
+            priceOffer = decimal.Multiply(salesPrice.Value, offerPercent.Value / 100);
+
+            // Return value
+            return decimal.Subtract(salesPrice.Value, priceOffer);
+        }
+
+        /// <summary>
         /// Convert item to item model
         /// </summary>
         /// <param name="item">Item</param>
@@ -42,15 +66,29 @@ namespace MiBo.Domain.Common.Utils
             itemModel = new ItemModel();
 
             // Copy infomation
-            DataHelper.CopyObject(itemModel, item);
+            DataHelper.CopyObject(item, itemModel);
 
+            // Get value
+            var salesPrice = _comDao.GetSalesPrice(itemModel.ItemCd, itemModel.UnitCd);
+            var itemImage = _comDao.GetItemImage(itemModel.ItemCd);
+
+            // Set value
+            itemModel.SalesPrice = salesPrice;
+            itemModel.ItemImage = itemImage;
+
+            // Check offer
             if (_comDao.HasOffer(itemModel.ItemCd))
             {
                 var offer = _comDao.GetOffer(itemModel.ItemCd);
 
                 itemModel.OfferDiv = offer.OfferDiv;
-                itemModel.SalesPriceOld = item.SalesPrice;
-                itemModel.SalesPrice = offer.Price;
+                itemModel.ItemDiv = Logics.TEXT_BLANK;
+
+                if (itemModel.OfferDiv == Logics.CD_OFFER_DIV_DISCOUNT)
+                {
+                    itemModel.SalesPriceOld = salesPrice;
+                    itemModel.SalesPrice = GetOfferPrice(salesPrice, offer.Percent);
+                }
             }
 
             // Return value
