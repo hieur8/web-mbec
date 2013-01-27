@@ -87,7 +87,9 @@ namespace MiBo.Domain.Logic.Client.Index
 
                 newItem.ItemCd = DataHelper.ToString(obj.ItemCd);
                 newItem.ItemName = DataHelper.ToString(obj.ItemName);
-                newItem.ItemImage = DataHelper.ToString(obj.ItemImages);
+                newItem.ItemImage = DataHelper.ToString(obj.ItemImage);
+                newItem.ItemDiv = DataHelper.ToString(obj.ItemDiv);
+                newItem.OfferDiv = DataHelper.ToString(obj.OfferDiv);
                 newItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
                 newItem.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
                 newItem.Notes = DataHelper.ToString(obj.Notes);
@@ -101,7 +103,9 @@ namespace MiBo.Domain.Logic.Client.Index
 
                 hotItem.ItemCd = DataHelper.ToString(obj.ItemCd);
                 hotItem.ItemName = DataHelper.ToString(obj.ItemName);
-                hotItem.ItemImage = DataHelper.ToString(obj.ItemImages);
+                hotItem.ItemImage = DataHelper.ToString(obj.ItemImage);
+                hotItem.ItemDiv = DataHelper.ToString(obj.ItemDiv);
+                hotItem.OfferDiv = DataHelper.ToString(obj.OfferDiv);
                 hotItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
                 hotItem.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
                 hotItem.Notes = DataHelper.ToString(obj.Notes);
@@ -115,7 +119,9 @@ namespace MiBo.Domain.Logic.Client.Index
 
                 offerItem.ItemCd = DataHelper.ToString(obj.ItemCd);
                 offerItem.ItemName = DataHelper.ToString(obj.ItemName);
-                offerItem.ItemImage = DataHelper.ToString(obj.ItemImages);
+                offerItem.ItemImage = DataHelper.ToString(obj.ItemImage);
+                offerItem.ItemDiv = DataHelper.ToString(obj.ItemDiv);
+                offerItem.OfferDiv = DataHelper.ToString(obj.OfferDiv);
                 offerItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
                 offerItem.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
                 offerItem.Notes = DataHelper.ToString(obj.Notes);

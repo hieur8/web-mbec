@@ -53,8 +53,39 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="pages\cln\index.aspx" />
     <Content Include="pages\cln\test.aspx" />
     <Content Include="pages\common\error.aspx" />
+    <Content Include="pages\media\images\banners\03.jpg" />
+    <Content Include="pages\media\images\banners\01.jpg" />
+    <Content Include="pages\media\images\banners\02.jpg" />
+    <Content Include="pages\media\images\banners\04.jpg" />
+    <Content Include="pages\media\images\items\01\larger\01.jpg" />
+    <Content Include="pages\media\images\items\01\larger\02.jpg" />
+    <Content Include="pages\media\images\items\01\small\01.jpg" />
+    <Content Include="pages\media\images\items\01\small\02.jpg" />
+    <Content Include="pages\media\images\items\02\larger\01.jpg" />
+    <Content Include="pages\media\images\items\02\small\01.jpg" />
+    <Content Include="pages\media\images\items\03\larger\01.jpg" />
+    <Content Include="pages\media\images\items\03\small\01.jpg" />
+    <Content Include="pages\media\images\items\04\larger\01.jpg" />
+    <Content Include="pages\media\images\items\04\small\01.jpg" />
+    <Content Include="pages\media\images\items\05\larger\01.jpg" />
+    <Content Include="pages\media\images\items\05\small\01.jpg" />
+    <Content Include="pages\media\images\items\06\larger\01.jpg" />
+    <Content Include="pages\media\images\items\06\small\01.jpg" />
+    <Content Include="pages\resources\images\arrow.png" />
+    <Content Include="pages\resources\images\bg_direction_nav.png" />
+    <Content Include="pages\resources\images\new.png" />
+    <Content Include="pages\resources\images\offer.png" />
+    <Content Include="pages\resources\images\sale.png" />
+    <Content Include="pages\resources\scripts\jquery-1.9.0.min.js" />
+    <Content Include="pages\resources\scripts\jquery-migrate-1.0.0.min.js" />
+    <Content Include="pages\resources\scripts\jquery.flexslider-min.js" />
+    <Content Include="pages\resources\scripts\jquery.jtslider.min.js" />
+    <Content Include="pages\resources\styles\client.css" />
+    <Content Include="pages\resources\styles\flexslider.css" />
+    <Content Include="pages\resources\styles\jtslider.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -145,12 +176,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="pages\cln\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\cln\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pages\cln\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\common\administer.Master.cs">
+      <DependentUpon>administer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\common\administer.Master.designer.cs">
+      <DependentUpon>administer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\common\client.Master.cs">
+      <DependentUpon>client.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\common\client.Master.designer.cs">
+      <DependentUpon>client.Master</DependentUpon>
     </Compile>
     <Compile Include="pages\common\error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
@@ -168,11 +220,7 @@
     <Folder Include="Domain\Web\Admin\" />
     <Folder Include="pages\administer\" />
     <Folder Include="pages\media\email\" />
-    <Folder Include="pages\media\images\" />
     <Folder Include="pages\resources\fonts\" />
-    <Folder Include="pages\resources\images\" />
-    <Folder Include="pages\resources\scripts\" />
-    <Folder Include="pages\resources\styles\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -190,6 +238,10 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Parameters.designer.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pages\common\client.Master" />
+    <Content Include="pages\common\administer.Master" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Domain\Common\Dao\Entities.dbml">

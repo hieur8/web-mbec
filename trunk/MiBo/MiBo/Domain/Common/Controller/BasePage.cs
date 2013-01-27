@@ -52,12 +52,18 @@ namespace MiBo.Domain.Common.Controller
                 PageHelper.Validate(obj);
 
                 // Invoke processing
-                responseModel = (T) logic.Invoke(obj);
+                responseModel = (T)logic.Invoke(obj);
             }
             catch (SysRuntimeException ex)
             {
                 // Set message
                 PageHelper.SetMessage(ex.Message);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                // Set message
+                PageHelper.SetMessage(ex);
                 return null;
             }
 
@@ -99,6 +105,12 @@ namespace MiBo.Domain.Common.Controller
             {
                 // Set message
                 PageHelper.SetMessage(ex.Message);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                // Set message
+                PageHelper.SetMessage(ex);
                 return null;
             }
 

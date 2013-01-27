@@ -100,10 +100,10 @@
 	</resheader>
 
   <data name="CURRENCY" xml:space="preserve">
-    <value>{0:#.###} VND</value>
+    <value>{0:#,# VND}</value>
   </data>
   <data name="NUMBER" xml:space="preserve">
-    <value>{0:#.###,##}</value>
+    <value>{0:#,#.#}</value>
   </data>
   <data name="DATE" xml:space="preserve">
     <value>{0:dd-MM-yyyy}</value>

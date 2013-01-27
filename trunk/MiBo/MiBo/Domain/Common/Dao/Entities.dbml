@@ -317,6 +317,37 @@
       <Association Name="Item_ItemImage" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Items" Member="Items">
+    <Type Name="Item">
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CategoryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="AgeCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="GenderCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CountryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UnitCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ItemDiv" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Viewer" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Item_ItemImage" Member="ItemImages" ThisKey="ItemCd" OtherKey="ItemCd" Type="ItemImage" />
+      <Association Name="Item_OfferItem" Member="OfferItems" ThisKey="ItemCd" OtherKey="OfferItemCd" Type="OfferItem" />
+      <Association Name="Item_Offer" Member="Offers" ThisKey="ItemCd" OtherKey="ItemCd" Type="Offer" />
+      <Association Name="Item_Pack" Member="Packs" ThisKey="ItemCd" OtherKey="ItemCd" Type="Pack" />
+      <Association Name="Item_UserComment" Member="UserComments" ThisKey="ItemCd" OtherKey="ItemCd" Type="UserComment" />
+      <Association Name="Item_UserLike" Member="UserLikes" ThisKey="ItemCd" OtherKey="ItemCd" Type="UserLike" />
+      <Association Name="Age_Item" Member="Age" ThisKey="AgeCd" OtherKey="AgeCd" Type="Age" IsForeignKey="true" />
+      <Association Name="Category_Item" Member="Category" ThisKey="CategoryCd" OtherKey="CategoryCd" Type="Category" IsForeignKey="true" />
+      <Association Name="Country_Item" Member="Country" ThisKey="CountryCd" OtherKey="CountryCd" Type="Country" IsForeignKey="true" />
+      <Association Name="Gender_Item" Member="Gender" ThisKey="GenderCd" OtherKey="GenderCd" Type="Gender" IsForeignKey="true" />
+      <Association Name="Unit_Item" Member="Unit" ThisKey="UnitCd" OtherKey="UnitCd" Type="Unit" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.MCodes" Member="MCodes">
     <Type Name="MCode">
       <Column Name="CodeGroupCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -369,8 +400,44 @@
       <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Offer_OfferItem" Member="Offer" ThisKey="OfferCd" OtherKey="OfferCd" Type="Offer" IsForeignKey="true" />
       <Association Name="Item_OfferItem" Member="Item" ThisKey="OfferItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
+      <Association Name="Offer_OfferItem" Member="Offer" ThisKey="OfferCd" OtherKey="OfferCd" Type="Offer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Offers" Member="Offers">
+    <Type Name="Offer">
+      <Column Name="OfferCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OfferDiv" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Percent]" Member="Percent" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Offer_OfferItem" Member="OfferItems" ThisKey="OfferCd" OtherKey="OfferCd" Type="OfferItem" />
+      <Association Name="Item_Offer" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Packs" Member="Packs">
+    <Type Name="Pack">
+      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UnitCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SalesPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="BuyingPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Item_Pack" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
+      <Association Name="Unit_Pack" Member="Unit" ThisKey="UnitCd" OtherKey="UnitCd" Type="Unit" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Prices" Member="Prices">
@@ -459,6 +526,7 @@
       <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Unit_Item" Member="Items" ThisKey="UnitCd" OtherKey="UnitCd" Type="Item" />
+      <Association Name="Unit_Pack" Member="Packs" ThisKey="UnitCd" OtherKey="UnitCd" Type="Pack" />
     </Type>
   </Table>
   <Table Name="dbo.UserComments" Member="UserComments">
@@ -497,59 +565,8 @@
       <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="User_UserLike" Member="User" ThisKey="UserCd" OtherKey="UserCd" Type="User" IsForeignKey="true" />
       <Association Name="Item_UserLike" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Offers" Member="Offers">
-    <Type Name="Offer">
-      <Column Name="OfferCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="OfferDiv" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Offer_OfferItem" Member="OfferItems" ThisKey="OfferCd" OtherKey="OfferCd" Type="OfferItem" />
-      <Association Name="Item_Offer" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Items" Member="Items">
-    <Type Name="Item">
-      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ItemName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="CategoryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="AgeCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="GenderCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CountryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="UnitCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="SalesPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="BuyingPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="ItemNew" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Viewer" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Item_ItemImage" Member="ItemImages" ThisKey="ItemCd" OtherKey="ItemCd" Type="ItemImage" />
-      <Association Name="Item_OfferItem" Member="OfferItems" ThisKey="ItemCd" OtherKey="OfferItemCd" Type="OfferItem" />
-      <Association Name="Item_UserComment" Member="UserComments" ThisKey="ItemCd" OtherKey="ItemCd" Type="UserComment" />
-      <Association Name="Item_UserLike" Member="UserLikes" ThisKey="ItemCd" OtherKey="ItemCd" Type="UserLike" />
-      <Association Name="Item_Offer" Member="Offers" ThisKey="ItemCd" OtherKey="ItemCd" Type="Offer" />
-      <Association Name="Age_Item" Member="Age" ThisKey="AgeCd" OtherKey="AgeCd" Type="Age" IsForeignKey="true" />
-      <Association Name="Category_Item" Member="Category" ThisKey="CategoryCd" OtherKey="CategoryCd" Type="Category" IsForeignKey="true" />
-      <Association Name="Country_Item" Member="Country" ThisKey="CountryCd" OtherKey="CountryCd" Type="Country" IsForeignKey="true" />
-      <Association Name="Gender_Item" Member="Gender" ThisKey="GenderCd" OtherKey="GenderCd" Type="Gender" IsForeignKey="true" />
-      <Association Name="Unit_Item" Member="Unit" ThisKey="UnitCd" OtherKey="UnitCd" Type="Unit" IsForeignKey="true" />
+      <Association Name="User_UserLike" Member="User" ThisKey="UserCd" OtherKey="UserCd" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

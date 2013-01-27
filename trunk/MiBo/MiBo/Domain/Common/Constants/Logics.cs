@@ -41,8 +41,8 @@
         public const string GROUP_DELETE_FLAG = "sys-delete-flag";
 
         // Description for master code
-        public const string CD_ITEM_NEW_OFF = "0";
-        public const string CD_ITEM_NEW_ON = "1";
+        public const string CD_ITEM_DIV_NONE = "01";
+        public const string CD_ITEM_DIV_NEW = "02";
         public const string CD_OFFER_DIV_DISCOUNT = "01";
         public const string CD_OFFER_DIV_ITEM = "02";
     }
