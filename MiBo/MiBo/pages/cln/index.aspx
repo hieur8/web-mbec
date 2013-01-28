@@ -6,8 +6,6 @@
     <link href="/pages/resources/styles/flexslider.css" rel="stylesheet" type="text/css" />
     <script src="/pages/resources/scripts/jquery.flexslider-min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        // Basic SliderJSHTML
-        // Can also be used with $(document).ready()
         jQuery(document).ready(function () {
             $('.flexslider').flexslider({
                 animation: "slide"
