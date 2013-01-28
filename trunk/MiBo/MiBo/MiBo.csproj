@@ -54,7 +54,6 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="pages\cln\index.aspx" />
-    <Content Include="pages\cln\test.aspx" />
     <Content Include="pages\common\error.aspx" />
     <Content Include="pages\media\images\banners\03.jpg" />
     <Content Include="pages\media\images\banners\01.jpg" />
@@ -74,18 +73,30 @@
     <Content Include="pages\media\images\items\05\small\01.jpg" />
     <Content Include="pages\media\images\items\06\larger\01.jpg" />
     <Content Include="pages\media\images\items\06\small\01.jpg" />
-    <Content Include="pages\resources\images\arrow.png" />
-    <Content Include="pages\resources\images\bg_direction_nav.png" />
+    <Content Include="pages\resources\images\mgmenu-arrow.png" />
+    <Content Include="pages\resources\images\mgmenu-arrow_off.png" />
+    <Content Include="pages\resources\images\mgmenu-arrow_on.png" />
+    <Content Include="pages\resources\images\mgmenu-bg_light_blue.png" />
+    <Content Include="pages\resources\images\mgmenu-bg_mega_hdr.png" />
+    <Content Include="pages\resources\images\mgmenu-bg_mega_hdr_full.png" />
+    <Content Include="pages\resources\images\mgmenu-bg_mega_hdr_on.png" />
+    <Content Include="pages\resources\images\mgmenu-bg_sub.png" />
+    <Content Include="pages\resources\images\mgmenu-bg_sub_left.png" />
+    <Content Include="pages\resources\images\jtslider-arrow.png" />
+    <Content Include="pages\resources\images\flexslider-bg_direction_nav.png" />
     <Content Include="pages\resources\images\new.png" />
     <Content Include="pages\resources\images\offer.png" />
     <Content Include="pages\resources\images\sale.png" />
     <Content Include="pages\resources\scripts\jquery-1.9.0.min.js" />
     <Content Include="pages\resources\scripts\jquery-migrate-1.0.0.min.js" />
+    <Content Include="pages\resources\scripts\jquery.dcmegamenu.1.3.3.min.js" />
     <Content Include="pages\resources\scripts\jquery.flexslider-min.js" />
+    <Content Include="pages\resources\scripts\jquery.hoverIntent.minified.js" />
     <Content Include="pages\resources\scripts\jquery.jtslider.min.js" />
     <Content Include="pages\resources\styles\client.css" />
     <Content Include="pages\resources\styles\flexslider.css" />
     <Content Include="pages\resources\styles\jtslider.css" />
+    <Content Include="pages\resources\styles\mgmenu.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -161,9 +172,17 @@
     <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
     <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
     <Compile Include="Domain\Dao\ClientIndexDao.cs" />
+    <Compile Include="Domain\Dao\ClientItemDetailsDao.cs" />
+    <Compile Include="Domain\Dao\ClientMasterDao.cs" />
+    <Compile Include="Domain\Logic\Client\ItemDetails\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Client\ItemDetails\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Master\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Master\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Index\InitLogic.cs" />
     <Compile Include="Domain\Logic\Client\Index\InitOperateLogic.cs" />
     <Compile Include="Domain\Model\Client\Index\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\ItemDetails\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Master\InitDataModel.cs" />
     <Compile Include="Domain\Web\Client\Index\OutputBannerModel.cs" />
     <Compile Include="Domain\Web\Client\Index\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Index\InitResponseModel.cs" />
@@ -173,6 +192,9 @@
     <Compile Include="Domain\Web\Client\Items\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Items\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Items\OutputItemModel.cs" />
+    <Compile Include="Domain\Web\Client\Master\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\Master\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Master\OutputCategoryModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,13 +204,6 @@
     </Compile>
     <Compile Include="pages\cln\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\cln\test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\cln\test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\common\administer.Master.cs">
       <DependentUpon>administer.Master</DependentUpon>
