@@ -90,9 +90,6 @@ namespace MiBo.Domain.Common.Dao
     partial void InsertItemImage(ItemImage instance);
     partial void UpdateItemImage(ItemImage instance);
     partial void DeleteItemImage(ItemImage instance);
-    partial void InsertItem(Item instance);
-    partial void UpdateItem(Item instance);
-    partial void DeleteItem(Item instance);
     partial void InsertMCode(MCode instance);
     partial void UpdateMCode(MCode instance);
     partial void DeleteMCode(MCode instance);
@@ -138,6 +135,9 @@ namespace MiBo.Domain.Common.Dao
     partial void InsertUserLike(UserLike instance);
     partial void UpdateUserLike(UserLike instance);
     partial void DeleteUserLike(UserLike instance);
+    partial void InsertItem(Item instance);
+    partial void UpdateItem(Item instance);
+    partial void DeleteItem(Item instance);
     #endregion
 		
 		public EntitiesDataContext() : 
@@ -330,14 +330,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		public System.Data.Linq.Table<Item> Items
-		{
-			get
-			{
-				return this.GetTable<Item>();
-			}
-		}
-		
 		public System.Data.Linq.Table<MCode> MCodes
 		{
 			get
@@ -455,6 +447,14 @@ namespace MiBo.Domain.Common.Dao
 			get
 			{
 				return this.GetTable<UserLike>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Item> Items
+		{
+			get
+			{
+				return this.GetTable<Item>();
 			}
 		}
 	}
@@ -3409,6 +3409,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private System.Nullable<bool> _DeleteFlag;
 		
+		private EntitySet<Item> _Items;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3435,6 +3437,7 @@ namespace MiBo.Domain.Common.Dao
 		
 		public Brand()
 		{
+			this._Items = new EntitySet<Item>(new Action<Item>(this.attach_Items), new Action<Item>(this.detach_Items));
 			OnCreated();
 		}
 		
@@ -3618,6 +3621,19 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Brand_Item", Storage="_Items", ThisKey="BrandCd", OtherKey="BrandCd")]
+		public EntitySet<Item> Items
+		{
+			get
+			{
+				return this._Items;
+			}
+			set
+			{
+				this._Items.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3636,6 +3652,18 @@ namespace MiBo.Domain.Common.Dao
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Items(Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Brand = this;
+		}
+		
+		private void detach_Items(Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Brand = null;
 		}
 	}
 	
@@ -7067,801 +7095,6 @@ namespace MiBo.Domain.Common.Dao
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Items")]
-	public partial class Item : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _ItemCd;
-		
-		private string _ItemName;
-		
-		private string _CategoryCd;
-		
-		private string _AgeCd;
-		
-		private string _GenderCd;
-		
-		private string _CountryCd;
-		
-		private string _UnitCd;
-		
-		private string _ItemDiv;
-		
-		private System.Nullable<decimal> _Viewer;
-		
-		private string _Notes;
-		
-		private System.Nullable<decimal> _SortKey;
-		
-		private string _CreateUser;
-		
-		private System.Nullable<System.DateTime> _CreateDate;
-		
-		private string _UpdateUser;
-		
-		private System.Nullable<System.DateTime> _UpdateDate;
-		
-		private System.Nullable<bool> _DeleteFlag;
-		
-		private EntitySet<ItemImage> _ItemImages;
-		
-		private EntitySet<OfferItem> _OfferItems;
-		
-		private EntitySet<Offer> _Offers;
-		
-		private EntitySet<Pack> _Packs;
-		
-		private EntitySet<UserComment> _UserComments;
-		
-		private EntitySet<UserLike> _UserLikes;
-		
-		private EntityRef<Age> _Age;
-		
-		private EntityRef<Category> _Category;
-		
-		private EntityRef<Country> _Country;
-		
-		private EntityRef<Gender> _Gender;
-		
-		private EntityRef<Unit> _Unit;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnItemCdChanging(string value);
-    partial void OnItemCdChanged();
-    partial void OnItemNameChanging(string value);
-    partial void OnItemNameChanged();
-    partial void OnCategoryCdChanging(string value);
-    partial void OnCategoryCdChanged();
-    partial void OnAgeCdChanging(string value);
-    partial void OnAgeCdChanged();
-    partial void OnGenderCdChanging(string value);
-    partial void OnGenderCdChanged();
-    partial void OnCountryCdChanging(string value);
-    partial void OnCountryCdChanged();
-    partial void OnUnitCdChanging(string value);
-    partial void OnUnitCdChanged();
-    partial void OnItemDivChanging(string value);
-    partial void OnItemDivChanged();
-    partial void OnViewerChanging(System.Nullable<decimal> value);
-    partial void OnViewerChanged();
-    partial void OnNotesChanging(string value);
-    partial void OnNotesChanged();
-    partial void OnSortKeyChanging(System.Nullable<decimal> value);
-    partial void OnSortKeyChanged();
-    partial void OnCreateUserChanging(string value);
-    partial void OnCreateUserChanged();
-    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreateDateChanged();
-    partial void OnUpdateUserChanging(string value);
-    partial void OnUpdateUserChanged();
-    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdateDateChanged();
-    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
-    partial void OnDeleteFlagChanged();
-    #endregion
-		
-		public Item()
-		{
-			this._ItemImages = new EntitySet<ItemImage>(new Action<ItemImage>(this.attach_ItemImages), new Action<ItemImage>(this.detach_ItemImages));
-			this._OfferItems = new EntitySet<OfferItem>(new Action<OfferItem>(this.attach_OfferItems), new Action<OfferItem>(this.detach_OfferItems));
-			this._Offers = new EntitySet<Offer>(new Action<Offer>(this.attach_Offers), new Action<Offer>(this.detach_Offers));
-			this._Packs = new EntitySet<Pack>(new Action<Pack>(this.attach_Packs), new Action<Pack>(this.detach_Packs));
-			this._UserComments = new EntitySet<UserComment>(new Action<UserComment>(this.attach_UserComments), new Action<UserComment>(this.detach_UserComments));
-			this._UserLikes = new EntitySet<UserLike>(new Action<UserLike>(this.attach_UserLikes), new Action<UserLike>(this.detach_UserLikes));
-			this._Age = default(EntityRef<Age>);
-			this._Category = default(EntityRef<Category>);
-			this._Country = default(EntityRef<Country>);
-			this._Gender = default(EntityRef<Gender>);
-			this._Unit = default(EntityRef<Unit>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCd", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ItemCd
-		{
-			get
-			{
-				return this._ItemCd;
-			}
-			set
-			{
-				if ((this._ItemCd != value))
-				{
-					this.OnItemCdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemCd = value;
-					this.SendPropertyChanged("ItemCd");
-					this.OnItemCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemName", DbType="NVarChar(255)")]
-		public string ItemName
-		{
-			get
-			{
-				return this._ItemName;
-			}
-			set
-			{
-				if ((this._ItemName != value))
-				{
-					this.OnItemNameChanging(value);
-					this.SendPropertyChanging();
-					this._ItemName = value;
-					this.SendPropertyChanged("ItemName");
-					this.OnItemNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryCd", DbType="VarChar(255)")]
-		public string CategoryCd
-		{
-			get
-			{
-				return this._CategoryCd;
-			}
-			set
-			{
-				if ((this._CategoryCd != value))
-				{
-					if (this._Category.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCategoryCdChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryCd = value;
-					this.SendPropertyChanged("CategoryCd");
-					this.OnCategoryCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeCd", DbType="VarChar(255)")]
-		public string AgeCd
-		{
-			get
-			{
-				return this._AgeCd;
-			}
-			set
-			{
-				if ((this._AgeCd != value))
-				{
-					if (this._Age.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnAgeCdChanging(value);
-					this.SendPropertyChanging();
-					this._AgeCd = value;
-					this.SendPropertyChanged("AgeCd");
-					this.OnAgeCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GenderCd", DbType="VarChar(255)")]
-		public string GenderCd
-		{
-			get
-			{
-				return this._GenderCd;
-			}
-			set
-			{
-				if ((this._GenderCd != value))
-				{
-					if (this._Gender.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnGenderCdChanging(value);
-					this.SendPropertyChanging();
-					this._GenderCd = value;
-					this.SendPropertyChanged("GenderCd");
-					this.OnGenderCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryCd", DbType="VarChar(255)")]
-		public string CountryCd
-		{
-			get
-			{
-				return this._CountryCd;
-			}
-			set
-			{
-				if ((this._CountryCd != value))
-				{
-					if (this._Country.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCountryCdChanging(value);
-					this.SendPropertyChanging();
-					this._CountryCd = value;
-					this.SendPropertyChanged("CountryCd");
-					this.OnCountryCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitCd", DbType="VarChar(255)")]
-		public string UnitCd
-		{
-			get
-			{
-				return this._UnitCd;
-			}
-			set
-			{
-				if ((this._UnitCd != value))
-				{
-					if (this._Unit.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUnitCdChanging(value);
-					this.SendPropertyChanging();
-					this._UnitCd = value;
-					this.SendPropertyChanged("UnitCd");
-					this.OnUnitCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemDiv", DbType="VarChar(255)")]
-		public string ItemDiv
-		{
-			get
-			{
-				return this._ItemDiv;
-			}
-			set
-			{
-				if ((this._ItemDiv != value))
-				{
-					this.OnItemDivChanging(value);
-					this.SendPropertyChanging();
-					this._ItemDiv = value;
-					this.SendPropertyChanged("ItemDiv");
-					this.OnItemDivChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Viewer", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> Viewer
-		{
-			get
-			{
-				return this._Viewer;
-			}
-			set
-			{
-				if ((this._Viewer != value))
-				{
-					this.OnViewerChanging(value);
-					this.SendPropertyChanging();
-					this._Viewer = value;
-					this.SendPropertyChanged("Viewer");
-					this.OnViewerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(MAX)")]
-		public string Notes
-		{
-			get
-			{
-				return this._Notes;
-			}
-			set
-			{
-				if ((this._Notes != value))
-				{
-					this.OnNotesChanging(value);
-					this.SendPropertyChanging();
-					this._Notes = value;
-					this.SendPropertyChanged("Notes");
-					this.OnNotesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SortKey", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> SortKey
-		{
-			get
-			{
-				return this._SortKey;
-			}
-			set
-			{
-				if ((this._SortKey != value))
-				{
-					this.OnSortKeyChanging(value);
-					this.SendPropertyChanging();
-					this._SortKey = value;
-					this.SendPropertyChanged("SortKey");
-					this.OnSortKeyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
-		public string CreateUser
-		{
-			get
-			{
-				return this._CreateUser;
-			}
-			set
-			{
-				if ((this._CreateUser != value))
-				{
-					this.OnCreateUserChanging(value);
-					this.SendPropertyChanging();
-					this._CreateUser = value;
-					this.SendPropertyChanged("CreateUser");
-					this.OnCreateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this.OnCreateDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreateDate = value;
-					this.SendPropertyChanged("CreateDate");
-					this.OnCreateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
-		public string UpdateUser
-		{
-			get
-			{
-				return this._UpdateUser;
-			}
-			set
-			{
-				if ((this._UpdateUser != value))
-				{
-					this.OnUpdateUserChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateUser = value;
-					this.SendPropertyChanged("UpdateUser");
-					this.OnUpdateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdateDate
-		{
-			get
-			{
-				return this._UpdateDate;
-			}
-			set
-			{
-				if ((this._UpdateDate != value))
-				{
-					this.OnUpdateDateChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateDate = value;
-					this.SendPropertyChanged("UpdateDate");
-					this.OnUpdateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
-		public System.Nullable<bool> DeleteFlag
-		{
-			get
-			{
-				return this._DeleteFlag;
-			}
-			set
-			{
-				if ((this._DeleteFlag != value))
-				{
-					this.OnDeleteFlagChanging(value);
-					this.SendPropertyChanging();
-					this._DeleteFlag = value;
-					this.SendPropertyChanged("DeleteFlag");
-					this.OnDeleteFlagChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_ItemImage", Storage="_ItemImages", ThisKey="ItemCd", OtherKey="ItemCd")]
-		public EntitySet<ItemImage> ItemImages
-		{
-			get
-			{
-				return this._ItemImages;
-			}
-			set
-			{
-				this._ItemImages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_OfferItem", Storage="_OfferItems", ThisKey="ItemCd", OtherKey="OfferItemCd")]
-		public EntitySet<OfferItem> OfferItems
-		{
-			get
-			{
-				return this._OfferItems;
-			}
-			set
-			{
-				this._OfferItems.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Offer", Storage="_Offers", ThisKey="ItemCd", OtherKey="ItemCd")]
-		public EntitySet<Offer> Offers
-		{
-			get
-			{
-				return this._Offers;
-			}
-			set
-			{
-				this._Offers.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Pack", Storage="_Packs", ThisKey="ItemCd", OtherKey="ItemCd")]
-		public EntitySet<Pack> Packs
-		{
-			get
-			{
-				return this._Packs;
-			}
-			set
-			{
-				this._Packs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserComment", Storage="_UserComments", ThisKey="ItemCd", OtherKey="ItemCd")]
-		public EntitySet<UserComment> UserComments
-		{
-			get
-			{
-				return this._UserComments;
-			}
-			set
-			{
-				this._UserComments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserLike", Storage="_UserLikes", ThisKey="ItemCd", OtherKey="ItemCd")]
-		public EntitySet<UserLike> UserLikes
-		{
-			get
-			{
-				return this._UserLikes;
-			}
-			set
-			{
-				this._UserLikes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Age_Item", Storage="_Age", ThisKey="AgeCd", OtherKey="AgeCd", IsForeignKey=true)]
-		public Age Age
-		{
-			get
-			{
-				return this._Age.Entity;
-			}
-			set
-			{
-				Age previousValue = this._Age.Entity;
-				if (((previousValue != value) 
-							|| (this._Age.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Age.Entity = null;
-						previousValue.Items.Remove(this);
-					}
-					this._Age.Entity = value;
-					if ((value != null))
-					{
-						value.Items.Add(this);
-						this._AgeCd = value.AgeCd;
-					}
-					else
-					{
-						this._AgeCd = default(string);
-					}
-					this.SendPropertyChanged("Age");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Item", Storage="_Category", ThisKey="CategoryCd", OtherKey="CategoryCd", IsForeignKey=true)]
-		public Category Category
-		{
-			get
-			{
-				return this._Category.Entity;
-			}
-			set
-			{
-				Category previousValue = this._Category.Entity;
-				if (((previousValue != value) 
-							|| (this._Category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category.Entity = null;
-						previousValue.Items.Remove(this);
-					}
-					this._Category.Entity = value;
-					if ((value != null))
-					{
-						value.Items.Add(this);
-						this._CategoryCd = value.CategoryCd;
-					}
-					else
-					{
-						this._CategoryCd = default(string);
-					}
-					this.SendPropertyChanged("Category");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Country_Item", Storage="_Country", ThisKey="CountryCd", OtherKey="CountryCd", IsForeignKey=true)]
-		public Country Country
-		{
-			get
-			{
-				return this._Country.Entity;
-			}
-			set
-			{
-				Country previousValue = this._Country.Entity;
-				if (((previousValue != value) 
-							|| (this._Country.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Country.Entity = null;
-						previousValue.Items.Remove(this);
-					}
-					this._Country.Entity = value;
-					if ((value != null))
-					{
-						value.Items.Add(this);
-						this._CountryCd = value.CountryCd;
-					}
-					else
-					{
-						this._CountryCd = default(string);
-					}
-					this.SendPropertyChanged("Country");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gender_Item", Storage="_Gender", ThisKey="GenderCd", OtherKey="GenderCd", IsForeignKey=true)]
-		public Gender Gender
-		{
-			get
-			{
-				return this._Gender.Entity;
-			}
-			set
-			{
-				Gender previousValue = this._Gender.Entity;
-				if (((previousValue != value) 
-							|| (this._Gender.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Gender.Entity = null;
-						previousValue.Items.Remove(this);
-					}
-					this._Gender.Entity = value;
-					if ((value != null))
-					{
-						value.Items.Add(this);
-						this._GenderCd = value.GenderCd;
-					}
-					else
-					{
-						this._GenderCd = default(string);
-					}
-					this.SendPropertyChanged("Gender");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_Item", Storage="_Unit", ThisKey="UnitCd", OtherKey="UnitCd", IsForeignKey=true)]
-		public Unit Unit
-		{
-			get
-			{
-				return this._Unit.Entity;
-			}
-			set
-			{
-				Unit previousValue = this._Unit.Entity;
-				if (((previousValue != value) 
-							|| (this._Unit.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Unit.Entity = null;
-						previousValue.Items.Remove(this);
-					}
-					this._Unit.Entity = value;
-					if ((value != null))
-					{
-						value.Items.Add(this);
-						this._UnitCd = value.UnitCd;
-					}
-					else
-					{
-						this._UnitCd = default(string);
-					}
-					this.SendPropertyChanged("Unit");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ItemImages(ItemImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_ItemImages(ItemImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_OfferItems(OfferItem entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_OfferItems(OfferItem entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_Offers(Offer entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_Offers(Offer entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_Packs(Pack entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_Packs(Pack entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_UserComments(UserComment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_UserComments(UserComment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_UserLikes(UserLike entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_UserLikes(UserLike entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MCodes")]
 	public partial class MCode : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -8652,9 +7885,9 @@ namespace MiBo.Domain.Common.Dao
 		
 		private System.Nullable<bool> _DeleteFlag;
 		
-		private EntityRef<Item> _Item;
-		
 		private EntityRef<Offer> _Offer;
+		
+		private EntityRef<Item> _Item;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -8686,8 +7919,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		public OfferItem()
 		{
-			this._Item = default(EntityRef<Item>);
 			this._Offer = default(EntityRef<Offer>);
+			this._Item = default(EntityRef<Item>);
 			OnCreated();
 		}
 		
@@ -8919,40 +8152,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_OfferItem", Storage="_Item", ThisKey="OfferItemCd", OtherKey="ItemCd", IsForeignKey=true)]
-		public Item Item
-		{
-			get
-			{
-				return this._Item.Entity;
-			}
-			set
-			{
-				Item previousValue = this._Item.Entity;
-				if (((previousValue != value) 
-							|| (this._Item.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Item.Entity = null;
-						previousValue.OfferItems.Remove(this);
-					}
-					this._Item.Entity = value;
-					if ((value != null))
-					{
-						value.OfferItems.Add(this);
-						this._OfferItemCd = value.ItemCd;
-					}
-					else
-					{
-						this._OfferItemCd = default(string);
-					}
-					this.SendPropertyChanged("Item");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Offer_OfferItem", Storage="_Offer", ThisKey="OfferCd", OtherKey="OfferCd", IsForeignKey=true)]
 		public Offer Offer
 		{
@@ -8983,6 +8182,40 @@ namespace MiBo.Domain.Common.Dao
 						this._OfferCd = default(string);
 					}
 					this.SendPropertyChanged("Offer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_OfferItem", Storage="_Item", ThisKey="OfferItemCd", OtherKey="ItemCd", IsForeignKey=true)]
+		public Item Item
+		{
+			get
+			{
+				return this._Item.Entity;
+			}
+			set
+			{
+				Item previousValue = this._Item.Entity;
+				if (((previousValue != value) 
+							|| (this._Item.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Item.Entity = null;
+						previousValue.OfferItems.Remove(this);
+					}
+					this._Item.Entity = value;
+					if ((value != null))
+					{
+						value.OfferItems.Add(this);
+						this._OfferItemCd = value.ItemCd;
+					}
+					else
+					{
+						this._OfferItemCd = default(string);
+					}
+					this.SendPropertyChanged("Item");
 				}
 			}
 		}
@@ -9455,9 +8688,9 @@ namespace MiBo.Domain.Common.Dao
 		
 		private System.Nullable<bool> _DeleteFlag;
 		
-		private EntityRef<Item> _Item;
-		
 		private EntityRef<Unit> _Unit;
+		
+		private EntityRef<Item> _Item;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -9489,8 +8722,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		public Pack()
 		{
-			this._Item = default(EntityRef<Item>);
 			this._Unit = default(EntityRef<Unit>);
+			this._Item = default(EntityRef<Item>);
 			OnCreated();
 		}
 		
@@ -9722,40 +8955,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Pack", Storage="_Item", ThisKey="ItemCd", OtherKey="ItemCd", IsForeignKey=true)]
-		public Item Item
-		{
-			get
-			{
-				return this._Item.Entity;
-			}
-			set
-			{
-				Item previousValue = this._Item.Entity;
-				if (((previousValue != value) 
-							|| (this._Item.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Item.Entity = null;
-						previousValue.Packs.Remove(this);
-					}
-					this._Item.Entity = value;
-					if ((value != null))
-					{
-						value.Packs.Add(this);
-						this._ItemCd = value.ItemCd;
-					}
-					else
-					{
-						this._ItemCd = default(string);
-					}
-					this.SendPropertyChanged("Item");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_Pack", Storage="_Unit", ThisKey="UnitCd", OtherKey="UnitCd", IsForeignKey=true)]
 		public Unit Unit
 		{
@@ -9786,6 +8985,40 @@ namespace MiBo.Domain.Common.Dao
 						this._UnitCd = default(string);
 					}
 					this.SendPropertyChanged("Unit");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Pack", Storage="_Item", ThisKey="ItemCd", OtherKey="ItemCd", IsForeignKey=true)]
+		public Item Item
+		{
+			get
+			{
+				return this._Item.Entity;
+			}
+			set
+			{
+				Item previousValue = this._Item.Entity;
+				if (((previousValue != value) 
+							|| (this._Item.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Item.Entity = null;
+						previousValue.Packs.Remove(this);
+					}
+					this._Item.Entity = value;
+					if ((value != null))
+					{
+						value.Packs.Add(this);
+						this._ItemCd = value.ItemCd;
+					}
+					else
+					{
+						this._ItemCd = default(string);
+					}
+					this.SendPropertyChanged("Item");
 				}
 			}
 		}
@@ -11342,9 +10575,9 @@ namespace MiBo.Domain.Common.Dao
 		
 		private System.Nullable<bool> _DeleteFlag;
 		
-		private EntitySet<Item> _Items;
-		
 		private EntitySet<Pack> _Packs;
+		
+		private EntitySet<Item> _Items;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -11372,8 +10605,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		public Unit()
 		{
-			this._Items = new EntitySet<Item>(new Action<Item>(this.attach_Items), new Action<Item>(this.detach_Items));
 			this._Packs = new EntitySet<Pack>(new Action<Pack>(this.attach_Packs), new Action<Pack>(this.detach_Packs));
+			this._Items = new EntitySet<Item>(new Action<Item>(this.attach_Items), new Action<Item>(this.detach_Items));
 			OnCreated();
 		}
 		
@@ -11557,19 +10790,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_Item", Storage="_Items", ThisKey="UnitCd", OtherKey="UnitCd")]
-		public EntitySet<Item> Items
-		{
-			get
-			{
-				return this._Items;
-			}
-			set
-			{
-				this._Items.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_Pack", Storage="_Packs", ThisKey="UnitCd", OtherKey="UnitCd")]
 		public EntitySet<Pack> Packs
 		{
@@ -11580,6 +10800,19 @@ namespace MiBo.Domain.Common.Dao
 			set
 			{
 				this._Packs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_Item", Storage="_Items", ThisKey="UnitCd", OtherKey="UnitCd")]
+		public EntitySet<Item> Items
+		{
+			get
+			{
+				return this._Items;
+			}
+			set
+			{
+				this._Items.Assign(value);
 			}
 		}
 		
@@ -11603,18 +10836,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		private void attach_Items(Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Unit = this;
-		}
-		
-		private void detach_Items(Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Unit = null;
-		}
-		
 		private void attach_Packs(Pack entity)
 		{
 			this.SendPropertyChanging();
@@ -11622,6 +10843,18 @@ namespace MiBo.Domain.Common.Dao
 		}
 		
 		private void detach_Packs(Pack entity)
+		{
+			this.SendPropertyChanging();
+			entity.Unit = null;
+		}
+		
+		private void attach_Items(Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Unit = this;
+		}
+		
+		private void detach_Items(Item entity)
 		{
 			this.SendPropertyChanging();
 			entity.Unit = null;
@@ -12231,9 +11464,9 @@ namespace MiBo.Domain.Common.Dao
 		
 		private System.Nullable<bool> _DeleteFlag;
 		
-		private EntityRef<Item> _Item;
-		
 		private EntityRef<User> _User;
+		
+		private EntityRef<Item> _Item;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -12257,8 +11490,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		public UserLike()
 		{
-			this._Item = default(EntityRef<Item>);
 			this._User = default(EntityRef<User>);
+			this._Item = default(EntityRef<Item>);
 			OnCreated();
 		}
 		
@@ -12410,40 +11643,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserLike", Storage="_Item", ThisKey="ItemCd", OtherKey="ItemCd", IsForeignKey=true)]
-		public Item Item
-		{
-			get
-			{
-				return this._Item.Entity;
-			}
-			set
-			{
-				Item previousValue = this._Item.Entity;
-				if (((previousValue != value) 
-							|| (this._Item.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Item.Entity = null;
-						previousValue.UserLikes.Remove(this);
-					}
-					this._Item.Entity = value;
-					if ((value != null))
-					{
-						value.UserLikes.Add(this);
-						this._ItemCd = value.ItemCd;
-					}
-					else
-					{
-						this._ItemCd = default(string);
-					}
-					this.SendPropertyChanged("Item");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserLike", Storage="_User", ThisKey="UserCd", OtherKey="UserCd", IsForeignKey=true)]
 		public User User
 		{
@@ -12478,6 +11677,40 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserLike", Storage="_Item", ThisKey="ItemCd", OtherKey="ItemCd", IsForeignKey=true)]
+		public Item Item
+		{
+			get
+			{
+				return this._Item.Entity;
+			}
+			set
+			{
+				Item previousValue = this._Item.Entity;
+				if (((previousValue != value) 
+							|| (this._Item.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Item.Entity = null;
+						previousValue.UserLikes.Remove(this);
+					}
+					this._Item.Entity = value;
+					if ((value != null))
+					{
+						value.UserLikes.Add(this);
+						this._ItemCd = value.ItemCd;
+					}
+					else
+					{
+						this._ItemCd = default(string);
+					}
+					this.SendPropertyChanged("Item");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -12496,6 +11729,866 @@ namespace MiBo.Domain.Common.Dao
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Items")]
+	public partial class Item : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _ItemCd;
+		
+		private string _ItemName;
+		
+		private string _CategoryCd;
+		
+		private string _AgeCd;
+		
+		private string _GenderCd;
+		
+		private string _BrandCd;
+		
+		private string _CountryCd;
+		
+		private string _UnitCd;
+		
+		private string _ItemDiv;
+		
+		private System.Nullable<decimal> _Viewer;
+		
+		private string _Notes;
+		
+		private System.Nullable<decimal> _SortKey;
+		
+		private string _CreateUser;
+		
+		private System.Nullable<System.DateTime> _CreateDate;
+		
+		private string _UpdateUser;
+		
+		private System.Nullable<System.DateTime> _UpdateDate;
+		
+		private System.Nullable<bool> _DeleteFlag;
+		
+		private EntitySet<ItemImage> _ItemImages;
+		
+		private EntitySet<OfferItem> _OfferItems;
+		
+		private EntitySet<Offer> _Offers;
+		
+		private EntitySet<Pack> _Packs;
+		
+		private EntitySet<UserComment> _UserComments;
+		
+		private EntitySet<UserLike> _UserLikes;
+		
+		private EntityRef<Age> _Age;
+		
+		private EntityRef<Brand> _Brand;
+		
+		private EntityRef<Category> _Category;
+		
+		private EntityRef<Country> _Country;
+		
+		private EntityRef<Gender> _Gender;
+		
+		private EntityRef<Unit> _Unit;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnItemCdChanging(string value);
+    partial void OnItemCdChanged();
+    partial void OnItemNameChanging(string value);
+    partial void OnItemNameChanged();
+    partial void OnCategoryCdChanging(string value);
+    partial void OnCategoryCdChanged();
+    partial void OnAgeCdChanging(string value);
+    partial void OnAgeCdChanged();
+    partial void OnGenderCdChanging(string value);
+    partial void OnGenderCdChanged();
+    partial void OnBrandCdChanging(string value);
+    partial void OnBrandCdChanged();
+    partial void OnCountryCdChanging(string value);
+    partial void OnCountryCdChanged();
+    partial void OnUnitCdChanging(string value);
+    partial void OnUnitCdChanged();
+    partial void OnItemDivChanging(string value);
+    partial void OnItemDivChanged();
+    partial void OnViewerChanging(System.Nullable<decimal> value);
+    partial void OnViewerChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    partial void OnSortKeyChanging(System.Nullable<decimal> value);
+    partial void OnSortKeyChanged();
+    partial void OnCreateUserChanging(string value);
+    partial void OnCreateUserChanged();
+    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateDateChanged();
+    partial void OnUpdateUserChanging(string value);
+    partial void OnUpdateUserChanged();
+    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnUpdateDateChanged();
+    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
+    partial void OnDeleteFlagChanged();
+    #endregion
+		
+		public Item()
+		{
+			this._ItemImages = new EntitySet<ItemImage>(new Action<ItemImage>(this.attach_ItemImages), new Action<ItemImage>(this.detach_ItemImages));
+			this._OfferItems = new EntitySet<OfferItem>(new Action<OfferItem>(this.attach_OfferItems), new Action<OfferItem>(this.detach_OfferItems));
+			this._Offers = new EntitySet<Offer>(new Action<Offer>(this.attach_Offers), new Action<Offer>(this.detach_Offers));
+			this._Packs = new EntitySet<Pack>(new Action<Pack>(this.attach_Packs), new Action<Pack>(this.detach_Packs));
+			this._UserComments = new EntitySet<UserComment>(new Action<UserComment>(this.attach_UserComments), new Action<UserComment>(this.detach_UserComments));
+			this._UserLikes = new EntitySet<UserLike>(new Action<UserLike>(this.attach_UserLikes), new Action<UserLike>(this.detach_UserLikes));
+			this._Age = default(EntityRef<Age>);
+			this._Brand = default(EntityRef<Brand>);
+			this._Category = default(EntityRef<Category>);
+			this._Country = default(EntityRef<Country>);
+			this._Gender = default(EntityRef<Gender>);
+			this._Unit = default(EntityRef<Unit>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCd", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ItemCd
+		{
+			get
+			{
+				return this._ItemCd;
+			}
+			set
+			{
+				if ((this._ItemCd != value))
+				{
+					this.OnItemCdChanging(value);
+					this.SendPropertyChanging();
+					this._ItemCd = value;
+					this.SendPropertyChanged("ItemCd");
+					this.OnItemCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemName", DbType="NVarChar(255)")]
+		public string ItemName
+		{
+			get
+			{
+				return this._ItemName;
+			}
+			set
+			{
+				if ((this._ItemName != value))
+				{
+					this.OnItemNameChanging(value);
+					this.SendPropertyChanging();
+					this._ItemName = value;
+					this.SendPropertyChanged("ItemName");
+					this.OnItemNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryCd", DbType="VarChar(255)")]
+		public string CategoryCd
+		{
+			get
+			{
+				return this._CategoryCd;
+			}
+			set
+			{
+				if ((this._CategoryCd != value))
+				{
+					if (this._Category.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCategoryCdChanging(value);
+					this.SendPropertyChanging();
+					this._CategoryCd = value;
+					this.SendPropertyChanged("CategoryCd");
+					this.OnCategoryCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeCd", DbType="VarChar(255)")]
+		public string AgeCd
+		{
+			get
+			{
+				return this._AgeCd;
+			}
+			set
+			{
+				if ((this._AgeCd != value))
+				{
+					if (this._Age.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAgeCdChanging(value);
+					this.SendPropertyChanging();
+					this._AgeCd = value;
+					this.SendPropertyChanged("AgeCd");
+					this.OnAgeCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GenderCd", DbType="VarChar(255)")]
+		public string GenderCd
+		{
+			get
+			{
+				return this._GenderCd;
+			}
+			set
+			{
+				if ((this._GenderCd != value))
+				{
+					if (this._Gender.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGenderCdChanging(value);
+					this.SendPropertyChanging();
+					this._GenderCd = value;
+					this.SendPropertyChanged("GenderCd");
+					this.OnGenderCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrandCd", DbType="VarChar(255)")]
+		public string BrandCd
+		{
+			get
+			{
+				return this._BrandCd;
+			}
+			set
+			{
+				if ((this._BrandCd != value))
+				{
+					if (this._Brand.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBrandCdChanging(value);
+					this.SendPropertyChanging();
+					this._BrandCd = value;
+					this.SendPropertyChanged("BrandCd");
+					this.OnBrandCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryCd", DbType="VarChar(255)")]
+		public string CountryCd
+		{
+			get
+			{
+				return this._CountryCd;
+			}
+			set
+			{
+				if ((this._CountryCd != value))
+				{
+					if (this._Country.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCountryCdChanging(value);
+					this.SendPropertyChanging();
+					this._CountryCd = value;
+					this.SendPropertyChanged("CountryCd");
+					this.OnCountryCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitCd", DbType="VarChar(255)")]
+		public string UnitCd
+		{
+			get
+			{
+				return this._UnitCd;
+			}
+			set
+			{
+				if ((this._UnitCd != value))
+				{
+					if (this._Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUnitCdChanging(value);
+					this.SendPropertyChanging();
+					this._UnitCd = value;
+					this.SendPropertyChanged("UnitCd");
+					this.OnUnitCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemDiv", DbType="VarChar(255)")]
+		public string ItemDiv
+		{
+			get
+			{
+				return this._ItemDiv;
+			}
+			set
+			{
+				if ((this._ItemDiv != value))
+				{
+					this.OnItemDivChanging(value);
+					this.SendPropertyChanging();
+					this._ItemDiv = value;
+					this.SendPropertyChanged("ItemDiv");
+					this.OnItemDivChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Viewer", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> Viewer
+		{
+			get
+			{
+				return this._Viewer;
+			}
+			set
+			{
+				if ((this._Viewer != value))
+				{
+					this.OnViewerChanging(value);
+					this.SendPropertyChanging();
+					this._Viewer = value;
+					this.SendPropertyChanged("Viewer");
+					this.OnViewerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(MAX)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SortKey", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> SortKey
+		{
+			get
+			{
+				return this._SortKey;
+			}
+			set
+			{
+				if ((this._SortKey != value))
+				{
+					this.OnSortKeyChanging(value);
+					this.SendPropertyChanging();
+					this._SortKey = value;
+					this.SendPropertyChanged("SortKey");
+					this.OnSortKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
+		public string CreateUser
+		{
+			get
+			{
+				return this._CreateUser;
+			}
+			set
+			{
+				if ((this._CreateUser != value))
+				{
+					this.OnCreateUserChanging(value);
+					this.SendPropertyChanging();
+					this._CreateUser = value;
+					this.SendPropertyChanged("CreateUser");
+					this.OnCreateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
+		public string UpdateUser
+		{
+			get
+			{
+				return this._UpdateUser;
+			}
+			set
+			{
+				if ((this._UpdateUser != value))
+				{
+					this.OnUpdateUserChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateUser = value;
+					this.SendPropertyChanged("UpdateUser");
+					this.OnUpdateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
+		public System.Nullable<bool> DeleteFlag
+		{
+			get
+			{
+				return this._DeleteFlag;
+			}
+			set
+			{
+				if ((this._DeleteFlag != value))
+				{
+					this.OnDeleteFlagChanging(value);
+					this.SendPropertyChanging();
+					this._DeleteFlag = value;
+					this.SendPropertyChanged("DeleteFlag");
+					this.OnDeleteFlagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_ItemImage", Storage="_ItemImages", ThisKey="ItemCd", OtherKey="ItemCd")]
+		public EntitySet<ItemImage> ItemImages
+		{
+			get
+			{
+				return this._ItemImages;
+			}
+			set
+			{
+				this._ItemImages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_OfferItem", Storage="_OfferItems", ThisKey="ItemCd", OtherKey="OfferItemCd")]
+		public EntitySet<OfferItem> OfferItems
+		{
+			get
+			{
+				return this._OfferItems;
+			}
+			set
+			{
+				this._OfferItems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Offer", Storage="_Offers", ThisKey="ItemCd", OtherKey="ItemCd")]
+		public EntitySet<Offer> Offers
+		{
+			get
+			{
+				return this._Offers;
+			}
+			set
+			{
+				this._Offers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Pack", Storage="_Packs", ThisKey="ItemCd", OtherKey="ItemCd")]
+		public EntitySet<Pack> Packs
+		{
+			get
+			{
+				return this._Packs;
+			}
+			set
+			{
+				this._Packs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserComment", Storage="_UserComments", ThisKey="ItemCd", OtherKey="ItemCd")]
+		public EntitySet<UserComment> UserComments
+		{
+			get
+			{
+				return this._UserComments;
+			}
+			set
+			{
+				this._UserComments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserLike", Storage="_UserLikes", ThisKey="ItemCd", OtherKey="ItemCd")]
+		public EntitySet<UserLike> UserLikes
+		{
+			get
+			{
+				return this._UserLikes;
+			}
+			set
+			{
+				this._UserLikes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Age_Item", Storage="_Age", ThisKey="AgeCd", OtherKey="AgeCd", IsForeignKey=true)]
+		public Age Age
+		{
+			get
+			{
+				return this._Age.Entity;
+			}
+			set
+			{
+				Age previousValue = this._Age.Entity;
+				if (((previousValue != value) 
+							|| (this._Age.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Age.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Age.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._AgeCd = value.AgeCd;
+					}
+					else
+					{
+						this._AgeCd = default(string);
+					}
+					this.SendPropertyChanged("Age");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Brand_Item", Storage="_Brand", ThisKey="BrandCd", OtherKey="BrandCd", IsForeignKey=true)]
+		public Brand Brand
+		{
+			get
+			{
+				return this._Brand.Entity;
+			}
+			set
+			{
+				Brand previousValue = this._Brand.Entity;
+				if (((previousValue != value) 
+							|| (this._Brand.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Brand.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Brand.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._BrandCd = value.BrandCd;
+					}
+					else
+					{
+						this._BrandCd = default(string);
+					}
+					this.SendPropertyChanged("Brand");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Item", Storage="_Category", ThisKey="CategoryCd", OtherKey="CategoryCd", IsForeignKey=true)]
+		public Category Category
+		{
+			get
+			{
+				return this._Category.Entity;
+			}
+			set
+			{
+				Category previousValue = this._Category.Entity;
+				if (((previousValue != value) 
+							|| (this._Category.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Category.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._CategoryCd = value.CategoryCd;
+					}
+					else
+					{
+						this._CategoryCd = default(string);
+					}
+					this.SendPropertyChanged("Category");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Country_Item", Storage="_Country", ThisKey="CountryCd", OtherKey="CountryCd", IsForeignKey=true)]
+		public Country Country
+		{
+			get
+			{
+				return this._Country.Entity;
+			}
+			set
+			{
+				Country previousValue = this._Country.Entity;
+				if (((previousValue != value) 
+							|| (this._Country.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Country.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Country.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._CountryCd = value.CountryCd;
+					}
+					else
+					{
+						this._CountryCd = default(string);
+					}
+					this.SendPropertyChanged("Country");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gender_Item", Storage="_Gender", ThisKey="GenderCd", OtherKey="GenderCd", IsForeignKey=true)]
+		public Gender Gender
+		{
+			get
+			{
+				return this._Gender.Entity;
+			}
+			set
+			{
+				Gender previousValue = this._Gender.Entity;
+				if (((previousValue != value) 
+							|| (this._Gender.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Gender.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Gender.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._GenderCd = value.GenderCd;
+					}
+					else
+					{
+						this._GenderCd = default(string);
+					}
+					this.SendPropertyChanged("Gender");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Unit_Item", Storage="_Unit", ThisKey="UnitCd", OtherKey="UnitCd", IsForeignKey=true)]
+		public Unit Unit
+		{
+			get
+			{
+				return this._Unit.Entity;
+			}
+			set
+			{
+				Unit previousValue = this._Unit.Entity;
+				if (((previousValue != value) 
+							|| (this._Unit.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Unit.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Unit.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._UnitCd = value.UnitCd;
+					}
+					else
+					{
+						this._UnitCd = default(string);
+					}
+					this.SendPropertyChanged("Unit");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ItemImages(ItemImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_ItemImages(ItemImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+		
+		private void attach_OfferItems(OfferItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_OfferItems(OfferItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+		
+		private void attach_Offers(Offer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_Offers(Offer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+		
+		private void attach_Packs(Pack entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_Packs(Pack entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+		
+		private void attach_UserComments(UserComment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_UserComments(UserComment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+		
+		private void attach_UserLikes(UserLike entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_UserLikes(UserLike entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
 		}
 	}
 }

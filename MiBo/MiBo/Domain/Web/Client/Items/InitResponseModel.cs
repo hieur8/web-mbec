@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Web.Client.Items
 {
-    public class InitResponseModel
+    public class InitResponseModel : MessageResponse
     {
+        public IList<OutputItemModel> ListItems { get; set; }
     }
 }

@@ -45,5 +45,6 @@
         public const string CD_ITEM_DIV_NEW = "02";
         public const string CD_OFFER_DIV_DISCOUNT = "01";
         public const string CD_OFFER_DIV_ITEM = "02";
+        public const string CD_PRICE_DIV_MORE = "03";
     }
 }

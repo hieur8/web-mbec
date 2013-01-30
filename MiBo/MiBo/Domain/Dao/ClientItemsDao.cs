@@ -3,19 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Dao;
+using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Model.Client.Items;
 
 namespace MiBo.Domain.Dao
 {
-    public class ClientIndexDao : AbstractDao
+    public class ClientItemsDao : AbstractDao
     {
-        public IList<Banner> GetListBanners()
+        public IList<Item> GetListItems(InitDataModel inputObject)
         {
-            var listResult = from tbl in EntityManager.Banners
-                             where tbl.DeleteFlag == false
+            if (inputObject.IsNew.Value)
+                return GetListNewItems();
+            if (inputObject.IsOffer.Value)
+                return GetListOfferItems();
+            if (inputObject.IsHot.Value)
+                return GetListHotItems();
+
+            // Get price
+            var price = (from tbl in EntityManager.Prices
+                             where tbl.PriceCd == inputObject.PriceCd
+                             && tbl.DeleteFlag == false
+                             select tbl).SingleOrDefault();
+
+            var listResult = from tbl in EntityManager.Items
+                             where (tbl.CategoryCd == inputObject.CategoryCd 
+                             || DataCheckHelper.IsNull(inputObject.CategoryCd))
+                             && (tbl.AgeCd == inputObject.AgeCd 
+                             || DataCheckHelper.IsNull(inputObject.AgeCd))
+                             && (tbl.GenderCd == inputObject.GenderCd 
+                             || DataCheckHelper.IsNull(inputObject.GenderCd))
+                             && (tbl.BrandCd == inputObject.BrandCd 
+                             || DataCheckHelper.IsNull(inputObject.BrandCd))
+                             && (DataCheckHelper.IsNull(inputObject.PriceCd) 
+                             || (from sub in tbl.Packs 
+                                 where sub.SalesPrice >= price.PriceStart
+                                 && (sub.SalesPrice < price.PriceEnd 
+                                 || price.PriceDiv == Logics.CD_PRICE_DIV_MORE)
+                                 select sub.ItemCd).Contains(tbl.ItemCd))
+                             && tbl.DeleteFlag == false
                              orderby tbl.SortKey ascending
                              select tbl;
 
             return listResult.ToList();
+
         }
 
         public IList<Item> GetListNewItems()
