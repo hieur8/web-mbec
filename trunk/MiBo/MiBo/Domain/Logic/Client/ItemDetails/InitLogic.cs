@@ -4,6 +4,7 @@ using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.ItemDetails;
 using MiBo.Domain.Web.Client.ItemDetails;
 using Resources;
+using System.Collections.Generic;
 
 namespace MiBo.Domain.Logic.Client.ItemDetails
 {
@@ -52,9 +53,11 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
         {
             // Local variable declaration
             InitResponseModel responseModel = null;
+            IList<string> listImages = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
+            listImages = new List<string>();
 
             // Get value
             var item = resultObject.Item;
@@ -63,6 +66,11 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             responseModel.ItemCd = DataHelper.ToString(item.ItemCd);
             responseModel.ItemName = DataHelper.ToString(item.ItemName);
             responseModel.ItemImage = DataHelper.ToString(item.ItemImage);
+            foreach (var obj in item.ItemImages)
+            {
+                listImages.Add(obj.Image);
+            }
+            responseModel.ListImages = listImages;
             responseModel.ItemDiv = DataHelper.ToString(item.ItemDiv);
             responseModel.OfferDiv = DataHelper.ToString(item.OfferDiv);
             responseModel.Price = DataHelper.ToString(Formats.CURRENCY, item.SalesPrice);

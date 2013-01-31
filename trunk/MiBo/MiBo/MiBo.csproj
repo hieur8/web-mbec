@@ -54,6 +54,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="pages\cln\index.aspx" />
+    <Content Include="pages\cln\item-details.aspx" />
     <Content Include="pages\common\error.aspx" />
     <Content Include="pages\media\images\banners\03.jpg" />
     <Content Include="pages\media\images\banners\01.jpg" />
@@ -208,6 +209,13 @@
     </Compile>
     <Compile Include="pages\cln\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\item-details.aspx.cs">
+      <DependentUpon>item-details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\item-details.aspx.designer.cs">
+      <DependentUpon>item-details.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\common\administer.Master.cs">
       <DependentUpon>administer.Master</DependentUpon>
