@@ -8,7 +8,7 @@ namespace MiBo.Domain.Web.Client.ItemDetails
         public string ItemCd { get; set; }
         public string ItemName { get; set; }
         public string ItemImage { get; set; }
-        public IList<string> ItemImages { get; set; }
+        public IList<string> ListImages { get; set; }
         public string ItemDiv { get; set; }
         public string OfferDiv { get; set; }
         public string Price { get; set; }

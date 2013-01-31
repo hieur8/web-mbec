@@ -104,7 +104,7 @@
                         <li>
                             <div class="block-item">
                                 <div class="item-name">
-                                    <h3><a href='#<%# Eval("ItemCd") %>'><%# Eval("ItemName") %></a></h3>
+                                    <h3><a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>&pnm=<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a></h3>
                                 </div>
                                 <div class="item-image">
                                     <div class="new-offer">
@@ -112,7 +112,7 @@
                                         <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<img src='/pages/resources/images/sale.png' alt='sale'>" : ""%>
                                         <%# Equals("", Eval("ItemDiv")) && Equals("02", Eval("OfferDiv")) ? "<img src='/pages/resources/images/offer.png' alt='offer'>" : ""%>
                                     </div>
-                                    <span><a href="#">
+                                    <span><a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>&pnm=<%# Eval("ItemName") %>'>
                                         <img alt="<%# Eval("ItemName") %>" title="<%# Eval("ItemName") %>" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'></a>
                                     </span>
                                 </div>
@@ -142,7 +142,7 @@
                         <li>
                             <div class="block-item">
                                 <div class="item-name">
-                                    <h3><a href='#<%# Eval("ItemCd") %>'><%# Eval("ItemName") %></a></h3>
+                                    <h3><a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>&pnm=<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a></h3>
                                 </div>
                                 <div class="item-image">
                                     <div class="new-offer">
@@ -152,7 +152,7 @@
                                         <%# Equals("", Eval("ItemDiv")) && Equals("02", Eval("OfferDiv")) ? "<img src='/pages/resources/images/offer.png' alt='offer'>" : ""%>
                                     </div>
                                     </div>
-                                    <span><a href="#">
+                                    <span><a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>&pnm=<%# Eval("ItemName") %>'>
                                         <img alt="<%# Eval("ItemName") %>" title="<%# Eval("ItemName") %>" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'></a>
                                     </span>
                                 </div>
@@ -182,7 +182,7 @@
                         <li>
                             <div class="block-item">
                                 <div class="item-name">
-                                    <h3><a href='#<%# Eval("ItemCd") %>'><%# Eval("ItemName") %></a></h3>
+                                    <h3><a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>&pnm=<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a></h3>
                                 </div>
                                 <div class="item-image">
                                     <div class="new-offer">
@@ -192,7 +192,7 @@
                                         <%# Equals("", Eval("ItemDiv")) && Equals("02", Eval("OfferDiv")) ? "<img src='/pages/resources/images/offer.png' alt='offer'>" : ""%>
                                     </div>
                                     </div>
-                                    <span><a href="#">
+                                    <span><a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>&pnm=<%# Eval("ItemName") %>'>
                                         <img alt="<%# Eval("ItemName") %>" title="<%# Eval("ItemName") %>" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'></a>
                                     </span>
                                 </div>
