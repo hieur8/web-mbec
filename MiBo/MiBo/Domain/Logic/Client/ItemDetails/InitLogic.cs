@@ -2,7 +2,7 @@
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.ItemDetails;
-using MiBo.Domain.Web.Client.ItemDetails;
+using MiBo.Domain.Web.Client.Login;
 using Resources;
 using System.Collections.Generic;
 
