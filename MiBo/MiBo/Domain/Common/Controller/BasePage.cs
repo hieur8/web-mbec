@@ -89,6 +89,16 @@ namespace MiBo.Domain.Common.Controller
             Response.Redirect(url);
         }
 
+        protected bool HasError
+        {
+            get
+            {
+                if (Session["error"] == null) return false;
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "Lỗi", string.Format("alert({0})", Session["error"]), true);
+                return true;
+            }
+        }
+
         protected static T InvokeStatic<T>(IOperateLogic<T> logic, object obj) where T : class
         {
             // Local variable declaration

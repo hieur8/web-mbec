@@ -1,4 +1,4 @@
-﻿namespace MiBo.Domain.Web.Client.Login
+﻿namespace MiBo.Domain.Web.Client.ItemDetails
 {
     public class InitRequestModel
     {

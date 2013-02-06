@@ -1,5 +1,5 @@
+C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\bin\MiBo.dll
 C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\bin\MiBo.pdb
-C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\obj\Debug\MiBo.dll
 C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\obj\Debug\MiBo.pdb

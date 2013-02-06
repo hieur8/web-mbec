@@ -10,13 +10,35 @@ namespace MiBo.Domain.Dao
 {
     public class ClientItemsDao : AbstractDao
     {
+        public bool IsExistItem(string itemCd)
+        {
+            return IsExist<Item>(itemCd, false);
+        }
+
+        public IList<Offer> GetListOffers()
+        {
+            // Get sysdate
+            var currentDate = DateTime.Now;
+
+            // Get value
+            var listResult = from tbl in EntityManager.Offers
+                             where tbl.StartDate <= currentDate
+                             && tbl.EndDate > currentDate
+                             && tbl.DeleteFlag == false
+                             orderby tbl.SortKey ascending
+                             select tbl;
+
+            // Return value
+            return listResult.ToList();
+        }
+
         public IList<Item> GetListItems(InitDataModel inputObject)
         {
-            if (inputObject.IsNew.Value)
+            if (inputObject.ShowCd == Logics.CD_SHOW_ITEMS_NEW)
                 return GetListNewItems();
-            if (inputObject.IsOffer.Value)
+            if (inputObject.ShowCd == Logics.CD_SHOW_ITEMS_OFFER)
                 return GetListOfferItems();
-            if (inputObject.IsHot.Value)
+            if (inputObject.ShowCd == Logics.CD_SHOW_ITEMS_HOT)
                 return GetListHotItems();
 
             // Get price
@@ -24,6 +46,16 @@ namespace MiBo.Domain.Dao
                              where tbl.PriceCd == inputObject.PriceCd
                              && tbl.DeleteFlag == false
                              select tbl).SingleOrDefault();
+            if (price == null) price = new Price();
+
+            var listItemOfferByPrice = from tbl in GetListOffers()
+                     where tbl.OfferDiv == Logics.CD_OFFER_DIV_DISCOUNT
+                     && EntityManager.Packs.Any(sub => sub.ItemCd == tbl.ItemCd
+                         && sub.UnitCd == tbl.Item.UnitCd
+                         && decimal.Subtract(sub.SalesPrice.Value, decimal.Multiply(sub.SalesPrice.Value, tbl.Percent.Value / 100)) >= price.PriceStart
+                         && (decimal.Subtract(sub.SalesPrice.Value, decimal.Multiply(sub.SalesPrice.Value, tbl.Percent.Value / 100)) < price.PriceEnd 
+                         || price.PriceDiv == Logics.CD_PRICE_DIV_MORE))
+                     select tbl.ItemCd;
 
             var listResult = from tbl in EntityManager.Items
                              where (tbl.CategoryCd == inputObject.CategoryCd 
@@ -34,12 +66,16 @@ namespace MiBo.Domain.Dao
                              || DataCheckHelper.IsNull(inputObject.GenderCd))
                              && (tbl.BrandCd == inputObject.BrandCd 
                              || DataCheckHelper.IsNull(inputObject.BrandCd))
-                             && (DataCheckHelper.IsNull(inputObject.PriceCd) 
-                             || (from sub in tbl.Packs 
-                                 where sub.SalesPrice >= price.PriceStart
-                                 && (sub.SalesPrice < price.PriceEnd 
-                                 || price.PriceDiv == Logics.CD_PRICE_DIV_MORE)
-                                 select sub.ItemCd).Contains(tbl.ItemCd))
+                             && (DataCheckHelper.IsNull(inputObject.PriceCd)
+                             || (tbl.Packs.Any(sub => sub.ItemCd == tbl.ItemCd
+                                    && sub.UnitCd == tbl.UnitCd
+                                    && !(from sub1 in GetListOffers()
+                                         where sub1.OfferDiv == Logics.CD_OFFER_DIV_DISCOUNT
+                                         select sub1.ItemCd).Contains(tbl.ItemCd)
+                                    && sub.SalesPrice >= price.PriceStart
+                                    && (sub.SalesPrice < price.PriceEnd
+                                    || price.PriceDiv == Logics.CD_PRICE_DIV_MORE))
+                             || listItemOfferByPrice.Contains(tbl.ItemCd)))
                              && tbl.DeleteFlag == false
                              orderby tbl.SortKey ascending
                              select tbl;

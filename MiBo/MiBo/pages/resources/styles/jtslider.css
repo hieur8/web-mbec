@@ -8,7 +8,6 @@
 .jt-slider .jt-prev a:hover, .jt-slider .jt-next  a:hover {background-color:#BFEFFF;}
 .jt-slider .jt-prev a { float: left; }
 .jt-slider .jt-next a { background-position: right center; float: right; }
-.jt-slider .new-offer { margin-left: -5px; margin-top: 5px; position: absolute; }
 .jt-slider ul li { background: none; width: 160px; height: 180px; }
 .jt-slider .jt-prev a, .jt-slider .jt-next a { height: 180px; }
 .jt-slider { width: 800px; }

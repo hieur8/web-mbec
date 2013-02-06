@@ -61,11 +61,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sản phẩm.
+        /// </summary>
+        internal static string P_INDEX_00001 {
+            get {
+                return ResourceManager.GetString("P_INDEX_00001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sản phẩm.
+        /// </summary>
+        internal static string P_ITEM_DETAILS_00001 {
+            get {
+                return ResourceManager.GetString("P_ITEM_DETAILS_00001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tham số.
         /// </summary>
         internal static string P_MSG_CM_00001 {
             get {
                 return ResourceManager.GetString("P_MSG_CM_00001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sản phẩm.
+        /// </summary>
+        internal static string P_SHOPPING_CART_00001 {
+            get {
+                return ResourceManager.GetString("P_SHOPPING_CART_00001", resourceCulture);
             }
         }
     }

@@ -1,5 +1,5 @@
 ﻿using MiBo.Domain.Common.Logic;
-using MiBo.Domain.Web.Client.Login;
+using MiBo.Domain.Web.Client.ItemDetails;
 
 namespace MiBo.Domain.Logic.Client.ItemDetails
 {

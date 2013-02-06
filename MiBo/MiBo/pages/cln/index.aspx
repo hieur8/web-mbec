@@ -117,6 +117,10 @@
                                     </span>
                                 </div>
                                 <div class="item-price"><%# Eval("Price") %></div>
+                                <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<div class='offer-price'>" + Eval("PriceOld") + "</div>" : ""%>
+                                <span class="buttonRow">
+                                    <asp:LinkButton OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Mua</asp:LinkButton>
+                                </span>
                             </div>
                         </li>
                     </ItemTemplate>
@@ -157,6 +161,10 @@
                                     </span>
                                 </div>
                                 <div class="item-price"><%# Eval("Price") %></div>
+                                <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<div class='offer-price'>" + Eval("PriceOld") + "</div>" : ""%>
+                                <span class="buttonRow">
+                                    <asp:LinkButton OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Mua</asp:LinkButton>
+                                </span>
                             </div>
                         </li>
                     </ItemTemplate>
@@ -197,6 +205,10 @@
                                     </span>
                                 </div>
                                 <div class="item-price"><%# Eval("Price") %></div>
+                                <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<div class='offer-price'>" + Eval("PriceOld") + "</div>" : ""%>
+                                <span class="buttonRow">
+                                    <asp:LinkButton OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Mua</asp:LinkButton>
+                                </span>
                             </div>
                         </li>
                     </ItemTemplate>
