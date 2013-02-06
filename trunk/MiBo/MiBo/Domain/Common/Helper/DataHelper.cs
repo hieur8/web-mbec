@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using Resources;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Common.Helper
 {
@@ -175,6 +176,18 @@ namespace MiBo.Domain.Common.Helper
             if (!DataCheckHelper.IsNull(data)) result = data;
             // Return value
             return result;
+        }
+
+        /// <summary>
+        /// Convert input cart
+        /// </summary>
+        /// <param name="target">Cart</param>
+        /// <returns>IList(CartItem)</returns>
+        public static IList<CartItem> ConvertInputCart(object target)
+        {
+            if (target == null) return new List<CartItem>();
+            try { return (IList<CartItem>)target; }
+            catch (Exception) { return new List<CartItem>(); }
         }
 
         /// <summary>

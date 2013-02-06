@@ -1,6 +1,23 @@
 ﻿body {
 }
 
+.content { margin: 10px auto; }
+
 a { text-decoration: none; }
 a img { border-style: none; }
 ul { list-style:none; }
+
+.fleft { float: left; }
+.fright { float: right; }
+
+.aleft { text-align: left; }
+.aright { text-align: right; }
+.acenter { text-align: center; }
+
+.new-offer { margin-left: -5px; margin-top: 5px; position: absolute; }
+.offer-price { color: #999999; font-size: 12px; float: left; text-decoration:line-through; }
+.item-price { color: #FF5159; font-size: 12px; float: left; }
+
+ul.grid { margin: 0; padding: 0; border-collapse:collapse; overflow: auto; }
+ul.grid li.hcol { margin: 0; padding: 1px 3px; float:left; font-size: 1.2em; font-weight: bold; text-align:center; vertical-align:middle; display: inline-block; display: -moz-inline-stack; *display: inline; zoom: 1; _height: 25px; }
+ul.grid li.vcol { margin: 0; padding: 1px 3px; float:left; vertical-align:middle; display: inline-block; display: -moz-inline-stack; *display: inline; zoom: 1; _height: 20px; }

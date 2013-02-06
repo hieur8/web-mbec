@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MiBo.Domain.Common.Model;
 
-namespace MiBo.Domain.Web.Client.Login
+namespace MiBo.Domain.Web.Client.ItemDetails
 {
     public class InitResponseModel : MessageResponse
     {
@@ -14,5 +14,6 @@ namespace MiBo.Domain.Web.Client.Login
         public string Price { get; set; }
         public string PriceOld { get; set; }
         public string Notes { get; set; }
+        public IList<OutputItemModel> ListOfferItems { get; set; }
     }
 }

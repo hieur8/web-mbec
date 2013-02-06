@@ -15,5 +15,10 @@ namespace MiBo.Domain.Dao
 
             return listResult.SingleOrDefault();
         }
+
+        public bool IsExistItem(string itemCd)
+        {
+            return IsExist<Item>(itemCd, false);
+        }
     }
 }

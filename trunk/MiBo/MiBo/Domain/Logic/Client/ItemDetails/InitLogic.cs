@@ -1,10 +1,10 @@
-﻿using MiBo.Domain.Common.Helper;
+﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.ItemDetails;
-using MiBo.Domain.Web.Client.Login;
+using MiBo.Domain.Web.Client.ItemDetails;
 using Resources;
-using System.Collections.Generic;
 
 namespace MiBo.Domain.Logic.Client.ItemDetails
 {
@@ -54,10 +54,13 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             // Local variable declaration
             InitResponseModel responseModel = null;
             IList<string> listImages = null;
+            IList<OutputItemModel> listOfferItems = null;
+            OutputItemModel offerItem = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
             listImages = new List<string>();
+            listOfferItems = new List<OutputItemModel>();
 
             // Get value
             var item = resultObject.Item;
@@ -76,6 +79,16 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             responseModel.Price = DataHelper.ToString(Formats.CURRENCY, item.SalesPrice);
             responseModel.PriceOld = DataHelper.ToString(Formats.CURRENCY, item.SalesPriceOld);
             responseModel.Notes = DataHelper.ToString(item.Notes);
+            foreach (var obj in item.ListOfferItems)
+            {
+                offerItem = new OutputItemModel();
+                offerItem.ItemCd = DataHelper.ToString(obj.OfferItemCd);
+                offerItem.ItemName = DataHelper.ToString(obj.Item.ItemName);
+                offerItem.ItemImage = DataHelper.ToString(obj.Item.ItemImages[0].Image);
+                offerItem.Quantity = DataHelper.ToString(Formats.NUMBER, obj.OfferItemQtty);
+                listOfferItems.Add(offerItem);
+            }
+            responseModel.ListOfferItems = listOfferItems;
 
             // Return value
             return responseModel;

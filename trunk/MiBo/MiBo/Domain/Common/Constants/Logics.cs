@@ -46,5 +46,11 @@
         public const string CD_OFFER_DIV_DISCOUNT = "01";
         public const string CD_OFFER_DIV_ITEM = "02";
         public const string CD_PRICE_DIV_MORE = "03";
+
+        // Description for show code
+        public const string CD_SHOW_ITEMS_SEARCH = "search";
+        public const string CD_SHOW_ITEMS_OFFER = "offer";
+        public const string CD_SHOW_ITEMS_NEW = "new";
+        public const string CD_SHOW_ITEMS_HOT = "hot";
     }
 }

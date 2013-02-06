@@ -7,8 +7,6 @@
         public string GenderCd { get; set; }
         public string BrandCd { get; set; }
         public string PriceCd { get; set; }
-        public string IsOffer { get; set; }
-        public string IsNew { get; set; }
-        public string IsHot { get; set; }
+        public string ShowCd { get; set; }
     }
 }

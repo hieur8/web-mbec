@@ -8,6 +8,11 @@ namespace MiBo.Domain.Dao
 {
     public class ClientIndexDao : AbstractDao
     {
+        public bool IsExistItem(string itemCd)
+        {
+            return IsExist<Item>(itemCd, false);
+        }
+
         public IList<Banner> GetListBanners()
         {
             var listResult = from tbl in EntityManager.Banners

@@ -89,6 +89,10 @@ namespace MiBo.Domain.Common.Utils
                     itemModel.SalesPriceOld = salesPrice;
                     itemModel.SalesPrice = GetOfferPrice(salesPrice, offer.Percent);
                 }
+                else
+                {
+                    itemModel.ListOfferItems = offer.OfferItems;
+                }
             }
 
             // Return value

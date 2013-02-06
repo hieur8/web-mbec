@@ -104,4 +104,19 @@
     <value>Tham số</value>
   </data>
 
+  <!-- index.aspx -->
+  <data name="P_INDEX_00001" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+
+  <!-- shopping-cart.aspx -->
+  <data name="P_SHOPPING_CART_00001" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+
+  <!-- item-details.aspx -->
+  <data name="P_ITEM_DETAILS_00001" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+
 </root>
