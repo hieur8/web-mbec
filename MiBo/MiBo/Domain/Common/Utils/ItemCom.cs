@@ -75,6 +75,7 @@ namespace MiBo.Domain.Common.Utils
             // Set value
             itemModel.SalesPrice = salesPrice;
             itemModel.ItemImage = itemImage;
+            itemModel.ListOfferItems = new List<OfferItem>();
 
             // Check offer
             if (_comDao.HasOffer(itemModel.ItemCd))
