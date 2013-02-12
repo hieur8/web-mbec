@@ -56,12 +56,15 @@
     <Content Include="pages\cln\index.aspx" />
     <Content Include="pages\cln\item-details.aspx" />
     <Content Include="pages\cln\items.aspx" />
+    <Content Include="pages\cln\Login.aspx" />
     <Content Include="pages\cln\shopping-cart.aspx" />
+    <Content Include="pages\common\DemoMaster.htm" />
     <Content Include="pages\common\error.aspx" />
-    <Content Include="pages\media\images\banners\03.jpg" />
     <Content Include="pages\media\images\banners\01.jpg" />
     <Content Include="pages\media\images\banners\02.jpg" />
+    <Content Include="pages\media\images\banners\03.jpg" />
     <Content Include="pages\media\images\banners\04.jpg" />
+    <Content Include="pages\media\images\banners\05.jpg" />
     <Content Include="pages\media\images\items\01\larger\01.jpg" />
     <Content Include="pages\media\images\items\01\larger\02.jpg" />
     <Content Include="pages\media\images\items\01\small\01.jpg" />
@@ -76,6 +79,34 @@
     <Content Include="pages\media\images\items\05\small\01.jpg" />
     <Content Include="pages\media\images\items\06\larger\01.jpg" />
     <Content Include="pages\media\images\items\06\small\01.jpg" />
+    <Content Include="pages\resources\images\add-to-cart.png" />
+    <Content Include="pages\resources\images\ball_toy.jpg" />
+    <Content Include="pages\resources\images\beemoviememotoyscar.jpg" />
+    <Content Include="pages\resources\images\bkg_form-search.gif" />
+    <Content Include="pages\resources\images\bkg_header.jpg" />
+    <Content Include="pages\resources\images\bkg_pipe1.gif" />
+    <Content Include="pages\resources\images\bkg_rating.gif" />
+    <Content Include="pages\resources\images\detail-icon.gif" />
+    <Content Include="pages\resources\images\flexslider-bg_direction_nav.png" />
+    <Content Include="pages\resources\images\footer-menusep.gif" />
+    <Content Include="pages\resources\images\ftr-category3-hding-bg.png" />
+    <Content Include="pages\resources\images\ftr-hding-bg-right.png" />
+    <Content Include="pages\resources\images\ftr-main-bg.gif" />
+    <Content Include="pages\resources\images\ftr-mdl-bg4545.gif" />
+    <Content Include="pages\resources\images\ftr-we-accp-left.gif" />
+    <Content Include="pages\resources\images\ftr-we-accp-middle.gif" />
+    <Content Include="pages\resources\images\go-btn-bg.gif" />
+    <Content Include="pages\resources\images\green-dream_09.gif" />
+    <Content Include="pages\resources\images\green-dream_11.gif" />
+    <Content Include="pages\resources\images\green-dream_17.gif" />
+    <Content Include="pages\resources\images\green-dream_19.gif" />
+    <Content Include="pages\resources\images\green-dream_20.gif" />
+    <Content Include="pages\resources\images\green-dream_23.gif" />
+    <Content Include="pages\resources\images\jtslider-arrow.png" />
+    <Content Include="pages\resources\images\logo.png" />
+    <Content Include="pages\resources\images\menu-Normal.gif" />
+    <Content Include="pages\resources\images\menu-separator.gif" />
+    <Content Include="pages\resources\images\menuprodview.gif" />
     <Content Include="pages\resources\images\mgmenu-arrow.png" />
     <Content Include="pages\resources\images\mgmenu-arrow_off.png" />
     <Content Include="pages\resources\images\mgmenu-arrow_on.png" />
@@ -85,14 +116,34 @@
     <Content Include="pages\resources\images\mgmenu-bg_mega_hdr_on.png" />
     <Content Include="pages\resources\images\mgmenu-bg_sub.png" />
     <Content Include="pages\resources\images\mgmenu-bg_sub_left.png" />
-    <Content Include="pages\resources\images\jtslider-arrow.png" />
-    <Content Include="pages\resources\images\flexslider-bg_direction_nav.png" />
+    <Content Include="pages\resources\images\money-trns-icon.gif" />
+    <Content Include="pages\resources\images\natural-skin_18.gif" />
+    <Content Include="pages\resources\images\natural-skin_32.gif" />
     <Content Include="pages\resources\images\new.png" />
+    <Content Include="pages\resources\images\newsletter-bg.gif" />
+    <Content Include="pages\resources\images\newsletter-icon.png" />
+    <Content Include="pages\resources\images\next-horizontal.png" />
     <Content Include="pages\resources\images\offer.png" />
+    <Content Include="pages\resources\images\opc-ajax-loader.gif" />
+    <Content Include="pages\resources\images\plan_toys.jpg" />
+    <Content Include="pages\resources\images\prev-horizontal.png" />
+    <Content Include="pages\resources\images\pu_blocks__building_blocks_toy_bricks765.jpg" />
     <Content Include="pages\resources\images\sale.png" />
+    <Content Include="pages\resources\images\scheck-out-btn-bg.gif" />
+    <Content Include="pages\resources\images\searchsep.png" />
+    <Content Include="pages\resources\images\shop-bag.gif" />
+    <Content Include="pages\resources\images\shop-bag.png" />
+    <Content Include="pages\resources\images\sliderNumber-Act-bg.png" />
+    <Content Include="pages\resources\images\sliderNumber-normal-bg.png" />
+    <Content Include="pages\resources\images\soft-bear-toys-bd60087-.jpg" />
     <Content Include="pages\resources\images\spin-button.png" />
     <Content Include="pages\resources\images\spin-down.png" />
     <Content Include="pages\resources\images\spin-up.png" />
+    <Content Include="pages\resources\images\tab-ac-bg.gif" />
+    <Content Include="pages\resources\images\tab-inAct-bg.gif" />
+    <Content Include="pages\resources\images\top-shadow-bg.gif" />
+    <Content Include="pages\resources\images\toys-bg.jpg" />
+    <Content Include="pages\resources\images\toys-shadow-bg.png" />
     <Content Include="pages\resources\scripts\jquery-1.9.0.min.js" />
     <Content Include="pages\resources\scripts\jquery-migrate-1.0.0.min.js" />
     <Content Include="pages\resources\scripts\jquery-spin.js" />
@@ -104,6 +155,7 @@
     <Content Include="pages\resources\styles\flexslider.css" />
     <Content Include="pages\resources\styles\jtslider.css" />
     <Content Include="pages\resources\styles\mgmenu.css" />
+    <Content Include="pages\resources\styles\StyleClient.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -182,10 +234,13 @@
     <Compile Include="Domain\Dao\ClientIndexDao.cs" />
     <Compile Include="Domain\Dao\ClientItemDetailsDao.cs" />
     <Compile Include="Domain\Dao\ClientItemsDao.cs" />
+    <Compile Include="Domain\Dao\ClientLoginDao.cs" />
     <Compile Include="Domain\Dao\ClientMasterDao.cs" />
     <Compile Include="Domain\Dao\ClientShoppingCartDao.cs" />
     <Compile Include="Domain\Logic\Client\Index\BuyLogic.cs" />
     <Compile Include="Domain\Logic\Client\Index\BuyOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Index\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Index\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ItemDetails\BuyLogic.cs" />
     <Compile Include="Domain\Logic\Client\ItemDetails\BuyOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ItemDetails\InitLogic.cs" />
@@ -194,28 +249,29 @@
     <Compile Include="Domain\Logic\Client\Items\BuyOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Items\InitLogic.cs" />
     <Compile Include="Domain\Logic\Client\Items\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Login\LoginLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Login\LoginOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Master\InitLogic.cs" />
     <Compile Include="Domain\Logic\Client\Master\InitOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Index\InitLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Index\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\InitLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\InitOperateLogic.cs" />
     <Compile Include="Domain\Model\Client\Index\BuyDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Index\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\ItemDetails\BuyDataModel.cs" />
+    <Compile Include="Domain\Model\Client\ItemDetails\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Items\BuyDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Items\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Login\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Master\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\ShoppingCart\DeleteDataModel.cs" />
     <Compile Include="Domain\Model\Client\ShoppingCart\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Index\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\ItemDetails\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Items\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Master\InitDataModel.cs" />
     <Compile Include="Domain\Web\Client\Index\BuyRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Index\BuyResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\Index\OutputBannerModel.cs" />
     <Compile Include="Domain\Web\Client\Index\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Index\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Index\OutputBannerModel.cs" />
     <Compile Include="Domain\Web\Client\Index\OutputItemModel.cs" />
     <Compile Include="Domain\Web\Client\ItemDetails\BuyRequestModel.cs" />
     <Compile Include="Domain\Web\Client\ItemDetails\BuyResponseModel.cs" />
@@ -227,6 +283,8 @@
     <Compile Include="Domain\Web\Client\Items\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Items\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Items\OutputItemModel.cs" />
+    <Compile Include="Domain\Web\Client\Login\LoginRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\Login\LoginResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Master\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Master\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Master\OutputCategoryModel.cs" />
@@ -258,6 +316,13 @@
     </Compile>
     <Compile Include="pages\cln\items.aspx.designer.cs">
       <DependentUpon>items.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\shopping-cart.aspx.cs">
       <DependentUpon>shopping-cart.aspx</DependentUpon>
@@ -316,8 +381,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="pages\common\client.Master" />
     <Content Include="pages\common\administer.Master" />
+    <Content Include="pages\common\client.Master" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Domain\Common\Dao\Entities.dbml">
