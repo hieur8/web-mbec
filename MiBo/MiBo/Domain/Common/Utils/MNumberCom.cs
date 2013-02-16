@@ -94,10 +94,11 @@ namespace MiBo.Domain.Common.Utils
         /// </summary>
         /// <param name="target">Code</param>
         /// <returns>Slip no</returns>
-        public string GetSlipNo(string target)
+        public static string GetSlipNo(string target)
         {
             // Local variable declaration
             MNumber mNumber = null;
+            MNumberCom mNumberCom = null;
             StringBuilder prefix = null;
             var result = string.Empty;
             var year = string.Empty;
@@ -106,6 +107,7 @@ namespace MiBo.Domain.Common.Utils
             var digits = SLIP_NO_DIGITS;
 
             // Variable initialize
+            mNumberCom = new MNumberCom();
             prefix = new StringBuilder();
 
             // Get system date
@@ -116,8 +118,8 @@ namespace MiBo.Domain.Common.Utils
             month = DataHelper.ToStringWithZero(currentDate.Month);
 
             // Get info
-            slipNo = GetMaxSlipNo(target, year, month);
-            mNumber = GetSingle(target, year, month, slipNo);
+            slipNo = mNumberCom.GetMaxSlipNo(target, year, month);
+            mNumber = mNumberCom.GetSingle(target, year, month, slipNo);
 
             // Check mNumber
             if (mNumber != null) digits = mNumber.Digits.Value;
@@ -137,7 +139,7 @@ namespace MiBo.Domain.Common.Utils
         /// </summary>
         /// <param name="target">Slip no</param>
         /// <returns>Slip no</returns>
-        public MNumber ToMNumber(string target)
+        public static MNumber ToMNumber(string target)
         {
             // Local variable declaration
             MNumber result = null;
@@ -182,7 +184,7 @@ namespace MiBo.Domain.Common.Utils
         /// </summary>
         /// <param name="target">Slip no</param>
         /// <returns>Slip code</returns>
-        public string GetSlipCode(string target)
+        public static string GetSlipCode(string target)
         {
             // Return value
             return ToMNumber(target).Code;
