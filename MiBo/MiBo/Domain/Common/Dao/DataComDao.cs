@@ -1,4 +1,5 @@
-﻿namespace MiBo.Domain.Common.Dao
+﻿
+namespace MiBo.Domain.Common.Dao
 {
     public class DataComDao : AbstractDao
     {

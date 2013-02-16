@@ -39,6 +39,7 @@
         // Description for group code
         public const string GROUP_SKIP_CODE = "sys-skip-code";
         public const string GROUP_DELETE_FLAG = "sys-delete-flag";
+        public const string GROUP_ITEM_DIV = "sys-item-div";
 
         // Description for master code
         public const string CD_ITEM_DIV_NONE = "01";

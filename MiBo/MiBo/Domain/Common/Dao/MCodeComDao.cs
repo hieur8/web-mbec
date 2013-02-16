@@ -76,5 +76,77 @@ namespace MiBo.Domain.Common.Dao
 
             return count == decimal.One;
         }
+
+        /// <summary>
+        /// Get list category
+        /// </summary>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List category</returns>
+        public IEnumerable<Category> GetListCategory(bool ignoreDeleteFlag)
+        {
+            var listResult = GetList<Category>(ignoreDeleteFlag);
+            if (listResult == null) listResult = new List<Category>();
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list age
+        /// </summary>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List age</returns>
+        public IEnumerable<Age> GetListAge(bool ignoreDeleteFlag)
+        {
+            var listResult = GetList<Age>(ignoreDeleteFlag);
+            if (listResult == null) listResult = new List<Age>();
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list gender
+        /// </summary>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List gender</returns>
+        public IEnumerable<Gender> GetListGender(bool ignoreDeleteFlag)
+        {
+            var listResult = GetList<Gender>(ignoreDeleteFlag);
+            if (listResult == null) listResult = new List<Gender>();
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list brand
+        /// </summary>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List brand</returns>
+        public IEnumerable<Brand> GetListBrand(bool ignoreDeleteFlag)
+        {
+            var listResult = GetList<Brand>(ignoreDeleteFlag);
+            if (listResult == null) listResult = new List<Brand>();
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list country
+        /// </summary>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List country</returns>
+        public IEnumerable<Country> GetListCountry(bool ignoreDeleteFlag)
+        {
+            var listResult = GetList<Country>(ignoreDeleteFlag);
+            if (listResult == null) listResult = new List<Country>();
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list unit
+        /// </summary>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List unit</returns>
+        public IEnumerable<Unit> GetListUnit(bool ignoreDeleteFlag)
+        {
+            var listResult = GetList<Unit>(ignoreDeleteFlag);
+            if (listResult == null) listResult = new List<Unit>();
+            return listResult;
+        }
     }
 }
