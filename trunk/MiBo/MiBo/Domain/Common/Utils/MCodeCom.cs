@@ -145,5 +145,142 @@ namespace MiBo.Domain.Common.Utils
 
             return listComboItems.ToArray();
         }
+
+        /// <summary>
+        /// Get list category
+        /// </summary>
+        /// <param name="nullValue">NullValue</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List category</returns>
+        public IList<MCode> GetListCategory(bool nullValue, bool ignoreDeleteFlag)
+        {
+            var data = _comDao.GetListCategory(ignoreDeleteFlag);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            if (nullValue) listResult.Add(code);
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.CategoryCd;
+                code.CodeName = obj.CategoryName;
+                listResult.Add(code);
+            }
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list age
+        /// </summary>
+        /// <param name="nullValue">NullValue</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List age</returns>
+        public IList<MCode> GetListAge(bool nullValue, bool ignoreDeleteFlag)
+        {
+            var data = _comDao.GetListAge(ignoreDeleteFlag);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            if (nullValue) listResult.Add(code);
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.AgeCd;
+                code.CodeName = obj.AgeName;
+                listResult.Add(code);
+            }
+
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list gender
+        /// </summary>
+        /// <param name="nullValue">NullValue</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List gender</returns>
+        public IList<MCode> GetListGender(bool nullValue, bool ignoreDeleteFlag)
+        {
+            var data = _comDao.GetListGender(ignoreDeleteFlag);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            if (nullValue) listResult.Add(code);
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.GenderCd;
+                code.CodeName = obj.GenderName;
+                listResult.Add(code);
+            }
+
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list brand
+        /// </summary>
+        /// <param name="nullValue">NullValue</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List brand</returns>
+        public IList<MCode> GetListBrand(bool nullValue, bool ignoreDeleteFlag)
+        {
+            var data = _comDao.GetListBrand(ignoreDeleteFlag);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            if (nullValue) listResult.Add(code);
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.BrandCd;
+                code.CodeName = obj.BrandName;
+                listResult.Add(code);
+            }
+
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list country
+        /// </summary>
+        /// <param name="nullValue">NullValue</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List country</returns>
+        public IList<MCode> GetListCountry(bool nullValue, bool ignoreDeleteFlag)
+        {
+            var data = _comDao.GetListCountry(ignoreDeleteFlag);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            if (nullValue) listResult.Add(code);
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.CountryCd;
+                code.CodeName = obj.CountryName;
+                listResult.Add(code);
+            }
+
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list unit
+        /// </summary>
+        /// <param name="nullValue">NullValue</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List unit</returns>
+        public IList<MCode> GetListUnit(bool nullValue, bool ignoreDeleteFlag)
+        {
+            var data = _comDao.GetListUnit(ignoreDeleteFlag);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            if (nullValue) listResult.Add(code);
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.UnitCd;
+                code.CodeName = obj.UnitName;
+                listResult.Add(code);
+            }
+
+            return listResult;
+        }
     }
 }
