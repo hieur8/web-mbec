@@ -286,6 +286,8 @@
     <Compile Include="Domain\Dao\ClientShoppingCartDao.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\ItemList\FilterLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\ItemList\FilterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Index\BuyLogic.cs" />
