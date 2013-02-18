@@ -46,6 +46,26 @@ namespace MiBo.Domain.Common.Utils
         }
 
         /// <summary>
+        /// Update item
+        /// </summary>
+        /// <param name="item">Item</param>
+        public void UpdateItem(CartItem item)
+        {
+            if (Items.Contains(item))
+            {
+                // If we are setting the quantity to 0, remove the item entirely
+                if (item.Quantity == decimal.Zero)
+                {
+                    DeleteItem(item);
+                    return;
+                }
+
+                var index = Items.IndexOf(item);
+                Items[index].Quantity = item.Quantity;
+            }
+        }
+
+        /// <summary>
         /// Delete item
         /// </summary>
         /// <param name="item">Item</param>

@@ -310,6 +310,8 @@
     <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\InitLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\ShoppingCart\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\ShoppingCart\UpdateOperateLogic.cs.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
@@ -324,6 +326,7 @@
     <Compile Include="Domain\Model\Client\Master\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\ShoppingCart\DeleteDataModel.cs" />
     <Compile Include="Domain\Model\Client\ShoppingCart\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\ShoppingCart\UpdateDataModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\OutputImageModel.cs" />
@@ -361,6 +364,8 @@
     <Compile Include="Domain\Web\Client\ShoppingCart\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\ShoppingCart\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Client\ShoppingCart\OutputItemModel.cs" />
+    <Compile Include="Domain\Web\Client\ShoppingCart\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\ShoppingCart\UpdateResponseModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -2,9 +2,28 @@
     CodeBehind="shopping-cart.aspx.cs" Inherits="MiBo.pages.cln.shopping_cart" %>
 
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
+    <script src="/pages/resources/scripts/jquery-spin.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $.spin.imageBasePath = '/pages/resources/images/';
+        $(document).ready(function () {
+            $('.spin').spin({
+                min: 1,
+                max: 9999
+            });
+        });
+    </script>
     <style type="text/css">
-        ul#grdCartItem { width: 720px; border: 1px solid #CCC; }
-        ul#grdCartItem li { width: 112px; border: 1px solid #CCC; }
+        ul#grdCartItem
+        {
+            width: 720px;
+            border: 1px solid #CCC;
+        }
+        ul#grdCartItem li
+        {
+            width: 112px;
+            height: 20px;
+            border: 1px solid #CCC;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
@@ -21,11 +40,13 @@
             </HeaderTemplate>
             <ItemTemplate>
                 <li class="vcol aleft">
+                    <asp:HiddenField ID="hidItemCd" runat="server" Value='<%# Eval("ItemCd") %>' />
                     <%# Eval("ItemCd") %></li>
                 <li class="vcol aleft">
                     <%# Eval("ItemName") %></li>
                 <li class="vcol aright">
-                    <%# Eval("Quantity") %></li>
+                    <asp:TextBox Text='<%# Eval("Quantity") %>' MaxLength="6" Width="80px" CssClass="qty spin"
+                        ID="txtItemQtty" runat="server"></asp:TextBox></li>
                 <li class="vcol aright">
                     <%# Eval("Price") %></li>
                 <li class="vcol aright">
@@ -46,5 +67,6 @@
         <!--bof shopping cart buttons-->
         <div class="clear">
         </div>
+        <asp:Button ID="btnUpdate" OnClick="btnUpdate_Click" runat="server" Text="Cập nhật"/>
     </div>
 </asp:Content>

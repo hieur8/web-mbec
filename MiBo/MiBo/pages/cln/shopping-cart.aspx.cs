@@ -3,6 +3,7 @@ using System.Web.UI.WebControls;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.ShoppingCart;
 using MiBo.Domain.Web.Client.ShoppingCart;
+using System.Collections.Generic;
 
 namespace MiBo.pages.cln
 {
@@ -29,6 +30,14 @@ namespace MiBo.pages.cln
             Refresh();
         }
 
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var updateLogic = new UpdateOperateLogic();
+            var responseModel = Invoke(updateLogic, UpdateRequestModel);
+            Session["Cart"] = responseModel.Cart;
+            Refresh();
+        }
+
         private InitRequestModel InitRequestModel
         {
             get
@@ -47,6 +56,28 @@ namespace MiBo.pages.cln
                 requestModel.ItemCd = Convert.ToString(Session["ItemCd"]);
                 requestModel.Cart = Session["Cart"];
                 Session["ItemCd"] = null;
+                return requestModel;
+            }
+        }
+
+        private UpdateRequestModel UpdateRequestModel
+        {
+            get
+            {
+                OutputItemModel item = null;
+                var requestModel = new UpdateRequestModel();
+                var listItems = new List<OutputItemModel>();
+
+                foreach (RepeaterItem row in rptCartItem.Items)
+                {
+                    item = new OutputItemModel();
+                    item.ItemCd = ((HiddenField)row.FindControl("hidItemCd")).Value;
+                    item.Quantity = ((TextBox)row.FindControl("txtItemQtty")).Text;
+                    listItems.Add(item);
+                }
+
+                requestModel.ListItems = listItems;
+                requestModel.Cart = Session["Cart"];
                 return requestModel;
             }
         }
