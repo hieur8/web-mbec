@@ -17,6 +17,8 @@ namespace MiBo.pages.cln
 
             rptCartItem.DataSource = responseModel.ListItems;
             rptCartItem.DataBind();
+            rptOfferItems.DataSource = responseModel.ListOfferItems;
+            rptOfferItems.DataBind();
 
             lblSubTotal.Text = responseModel.TotalAmount;
         }

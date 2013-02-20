@@ -12,8 +12,10 @@ namespace MiBo.pages.common
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
 
-            rptCategoryMenu.DataSource = response.ListCategories;
-            rptCategoryMenu.DataBind();
+            rptToyMenu.DataSource = response.ListToys;
+            rptToyMenu.DataBind();
+            rptAccessoryMenu.DataSource = response.ListAccessories;
+            rptAccessoryMenu.DataBind();
         }
 
         private InitRequestModel InitRequestModel

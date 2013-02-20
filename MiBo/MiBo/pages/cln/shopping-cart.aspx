@@ -68,5 +68,19 @@
         <div class="clear">
         </div>
         <asp:Button ID="btnUpdate" OnClick="btnUpdate_Click" runat="server" Text="Cập nhật"/>
+        <asp:Repeater ID="rptOfferItems" runat="server">
+        <HeaderTemplate>
+            <ul>
+        </HeaderTemplate>
+        <ItemTemplate>
+            <li>
+                <img src='<%# string.Format("/pages/media/images/items/{0}/small/{1}", Eval("ItemCd"), Eval("ItemImage"))%>' alt='<%# Eval("ItemName") %>' />
+                <%# Eval("ItemName") %>
+                <%# Eval("Quantity")%>
+            </li>
+        </ItemTemplate>
+        <FooterTemplate>
+            </ul></FooterTemplate>
+    </asp:Repeater>
     </div>
 </asp:Content>

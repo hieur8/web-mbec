@@ -12,7 +12,7 @@ namespace MiBo.Domain.Dao
         public User GetUserInfo(InitDataModel inputObject)
         {
             User result = (from tbl in EntityManager.Users
-                           where tbl.UserName == inputObject.UserName && tbl.Password==inputObject.Password && tbl.DeleteFlag == false
+                           where tbl.Email == inputObject.UserName && tbl.Password==inputObject.Password && tbl.DeleteFlag == false
                              select tbl).SingleOrDefault<User>();
 
             return result;

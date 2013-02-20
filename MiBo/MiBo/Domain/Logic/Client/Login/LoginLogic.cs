@@ -113,7 +113,7 @@ namespace MiBo.Domain.Logic.Client.Login
             if (result != null)
             {
                 getResult.StatusFlag = true;
-                getResult.UserName = result.UserName;
+                getResult.UserName = result.Email;
             }
             // Return value
             return getResult;

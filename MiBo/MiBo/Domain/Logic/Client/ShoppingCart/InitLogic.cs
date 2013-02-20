@@ -59,10 +59,13 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
             InitResponseModel responseModel = null;
             IList<OutputItemModel> listItems = null;
             OutputItemModel item = null;
+            IList<OutputItemModel> listOfferItems = null;
+            OutputItemModel offerItem = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
             listItems = new List<OutputItemModel>();
+            listOfferItems = new List<OutputItemModel>();
 
             // Get value
             foreach (var obj in resultObject.ListItems)
@@ -76,12 +79,23 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
                 item.Quantity = DataHelper.ToString(Formats.NUMBER, obj.Quantity);
                 item.Amount = DataHelper.ToString(Formats.CURRENCY, obj.Amount);
 
+                foreach (var sub in obj.ListOfferItems)
+                {
+                    offerItem = new OutputItemModel();
+                    offerItem.ItemCd = DataHelper.ToString(sub.OfferItemCd);
+                    offerItem.ItemName = DataHelper.ToString(sub.Item.ItemName);
+                    offerItem.ItemImage = DataHelper.ToString(sub.Item.ItemImages[0].Image);
+                    offerItem.Quantity = DataHelper.ToString(Formats.NUMBER, sub.OfferItemQtty * obj.Quantity);
+                    listOfferItems.Add(offerItem);
+                }
+
                 listItems.Add(item);
             }
 
             // Set value
             responseModel.TotalAmount = DataHelper.ToString(Formats.CURRENCY, resultObject.TotalAmount);
             responseModel.ListItems = listItems;
+            responseModel.ListOfferItems = listOfferItems;
 
             // Return value
             return responseModel;
