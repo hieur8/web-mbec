@@ -49,7 +49,7 @@ namespace MiBo.Domain.Common.Dao
         public User GetSingle(string userName, string password)
         {
             var listResult = from tbl in EntityManager.Users
-                             where tbl.UserName == userName
+                             where tbl.Email == userName
                              && tbl.Password == password
                              && tbl.DeleteFlag == false
                              select tbl;

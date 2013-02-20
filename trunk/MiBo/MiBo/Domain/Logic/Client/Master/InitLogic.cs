@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.Master;
 using MiBo.Domain.Web.Client.Master;
@@ -51,26 +53,44 @@ namespace MiBo.Domain.Logic.Client.Master
         {
             // Local variable declaration
             InitResponseModel responseModel = null;
-            IList<OutputCategoryModel> listCategories = null;
-            OutputCategoryModel category = null;
+            IList<OutputCategoryModel> listToys = null;
+            IList<OutputCategoryModel> listAccessories = null;
+            OutputCategoryModel toy = null;
+            OutputCategoryModel accessory = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
-            listCategories = new List<OutputCategoryModel>();
+            listToys = new List<OutputCategoryModel>();
+            listAccessories = new List<OutputCategoryModel>();
 
             // Get value
-            foreach (var obj in resultObject.ListCategories)
+            foreach (var obj in resultObject.ListToys)
             {
-                category = new OutputCategoryModel();
+                toy = new OutputCategoryModel();
 
-                category.CategoryCd = DataHelper.ToString(obj.CategoryCd);
-                category.CategoryName = DataHelper.ToString(obj.CategoryName);
+                toy.CategoryCd = DataHelper.ToString(obj.CategoryCd);
+                toy.CategoryName = DataHelper.ToString(obj.CategoryName);
 
-                listCategories.Add(category);
+                listToys.Add(toy);
+            }
+            foreach (var obj in resultObject.ListAccessories)
+            {
+                accessory = new OutputCategoryModel();
+
+                accessory.CategoryCd = DataHelper.ToString(obj.CategoryCd);
+                accessory.CategoryName = DataHelper.ToString(obj.CategoryName);
+
+                listAccessories.Add(accessory);
             }
 
             // Set value
-            responseModel.ListCategories = listCategories;
+            responseModel.ListToys = listToys;
+            responseModel.ListAccessories = listAccessories;
+            responseModel.ListCategory = MCodeCom.ToComboItems(resultObject.ListCategory, 0);
+            responseModel.ListAge = MCodeCom.ToComboItems(resultObject.ListAge, 0);
+            responseModel.ListGender = MCodeCom.ToComboItems(resultObject.ListGender, 0);
+            responseModel.ListBrand = MCodeCom.ToComboItems(resultObject.ListBrand, 0);
+            responseModel.ListPriceDiv = MCodeCom.ToComboItems(resultObject.ListPriceDiv, 0);
 
             // Return value
             return responseModel;
@@ -113,16 +133,30 @@ namespace MiBo.Domain.Logic.Client.Master
             // Local variable declaration
             InitDataModel getResult = null;
             ClientMasterDao clientMasterDao = null;
+            MCodeCom mCodeCom = null;
 
             // Variable initialize
             getResult = new InitDataModel();
             clientMasterDao = new ClientMasterDao();
+            mCodeCom = new MCodeCom();
 
             // Get data
-            var listCategories = clientMasterDao.GetListCategories();
+            var listToys = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_TOYS);
+            var listAccessories = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_ACCESSORIES);
+            var listCategory = mCodeCom.GetListCategory(true, false);
+            var listAge = mCodeCom.GetListAge(true, false);
+            var listGender = mCodeCom.GetListGender(true, false);
+            var listBrand = mCodeCom.GetListBrand(true, false);
+            var listPriceDiv = mCodeCom.GetListCode(Logics.GROUP_PRICE_DIV, null, true, false);
 
             // Set value
-            getResult.ListCategories = listCategories;
+            getResult.ListToys = listToys;
+            getResult.ListAccessories = listAccessories;
+            getResult.ListCategory = listCategory;
+            getResult.ListAge = listAge;
+            getResult.ListGender = listGender;
+            getResult.ListBrand = listBrand;
+            getResult.ListPriceDiv = listPriceDiv;
 
             // Return value
             return getResult;

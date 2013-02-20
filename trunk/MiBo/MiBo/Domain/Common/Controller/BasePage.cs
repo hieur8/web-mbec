@@ -6,6 +6,7 @@ using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Logic;
+using MiBo.Domain.Common.Utils;
 
 namespace MiBo.Domain.Common.Controller
 {
@@ -28,18 +29,6 @@ namespace MiBo.Domain.Common.Controller
 
             // Call base class
             base.InitializeCulture();
-        }
-
-        protected bool HasAuthenticated
-        {
-            get
-            {
-                if (Session["UserCd"] == null) return false;
-                var strUserCd = Convert.ToString(Session["UserCd"]);
-                if (DataCheckHelper.IsGuid(strUserCd) == false) return false;
-                var userCd = DataHelper.ConvertInputGuid(strUserCd);
-                return !DataCheckHelper.IsNull(userCd);
-            }
         }
 
         protected T Invoke<T>(IOperateLogic<T> logic, object obj) where T : class

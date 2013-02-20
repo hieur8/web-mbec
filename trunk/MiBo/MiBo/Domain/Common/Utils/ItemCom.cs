@@ -95,6 +95,16 @@ namespace MiBo.Domain.Common.Utils
                     itemModel.ListOfferItems = offer.OfferItems;
                 }
             }
+            else
+            {
+                if (UserCom.HasAuthenticated)
+                {
+                    var mParameterCom = new MParameterCom();
+                    var discount = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
+                    itemModel.SalesPriceOld = salesPrice;
+                    itemModel.SalesPrice -= itemModel.SalesPrice / discount;
+                }
+            }
 
             // Return value
             return itemModel;

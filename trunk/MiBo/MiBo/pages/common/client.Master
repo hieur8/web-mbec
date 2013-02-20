@@ -31,8 +31,21 @@
                 <div class="light-blue">
                     <ul id="mega-menu" class="mega-menu">
                         <li><a href="#">Trang Chủ</a></li>
-                        <li><a href="#">Sản Phẩm</a>
-                            <asp:Repeater ID="rptCategoryMenu" runat="server">
+                        <li><a href="#">Đồ Chơi</a>
+                            <asp:Repeater ID="rptToyMenu" runat="server">
+                                <HeaderTemplate>
+                                    <ul>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <li><a href='#<%# Eval("CategoryCd") %>'><%# Eval("CategoryName") %></a></li>
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                    </ul>
+                                </FooterTemplate>
+                            </asp:Repeater>
+                        </li>
+                        <li><a href="#">Phụ Kiện</a>
+                            <asp:Repeater ID="rptAccessoryMenu" runat="server">
                                 <HeaderTemplate>
                                     <ul>
                                 </HeaderTemplate>

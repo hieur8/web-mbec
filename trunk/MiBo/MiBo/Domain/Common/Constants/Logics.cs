@@ -40,6 +40,7 @@
         public const string GROUP_SKIP_CODE = "sys-skip-code";
         public const string GROUP_DELETE_FLAG = "sys-delete-flag";
         public const string GROUP_ITEM_DIV = "sys-item-div";
+        public const string GROUP_PRICE_DIV = "sys-price-div";
 
         // Description for master code
         public const string CD_ITEM_DIV_NONE = "01";
@@ -47,6 +48,8 @@
         public const string CD_OFFER_DIV_DISCOUNT = "01";
         public const string CD_OFFER_DIV_ITEM = "02";
         public const string CD_PRICE_DIV_MORE = "03";
+        public const string CD_CATEGORY_DIV_TOYS = "01";
+        public const string CD_CATEGORY_DIV_ACCESSORIES = "02";
 
         // Description for show code
         public const string CD_SHOW_ITEMS_SEARCH = "search";

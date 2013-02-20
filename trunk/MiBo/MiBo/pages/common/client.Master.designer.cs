@@ -31,13 +31,22 @@ namespace MiBo.pages.common {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// rptCategoryMenu control.
+        /// rptToyMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptCategoryMenu;
+        protected global::System.Web.UI.WebControls.Repeater rptToyMenu;
+        
+        /// <summary>
+        /// rptAccessoryMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptAccessoryMenu;
         
         /// <summary>
         /// main control.
