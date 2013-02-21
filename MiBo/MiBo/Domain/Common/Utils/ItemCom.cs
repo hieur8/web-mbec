@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MiBo.Domain.Common.Helper;
-using MiBo.Domain.Common.Exceptions;
-using MiBo.Domain.Common.Dao;
-using MiBo.Domain.Common.Model;
+﻿using System.Collections.Generic;
 using MiBo.Domain.Common.Constants;
+using MiBo.Domain.Common.Dao;
+using MiBo.Domain.Common.Exceptions;
+using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Common.Utils
 {
@@ -97,7 +94,7 @@ namespace MiBo.Domain.Common.Utils
             }
             else
             {
-                if (UserCom.HasAuthenticated)
+                if (PageHelper.HasAuthenticated)
                 {
                     var mParameterCom = new MParameterCom();
                     var discount = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);

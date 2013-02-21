@@ -148,6 +148,9 @@
   <data name="E_MSG_00009" xml:space="preserve">
     <value>{0} không đúng.</value>
   </data>
+  <data name="E_MSG_00010" xml:space="preserve">
+    <value>Truy cập không hợp lệ.</value>
+  </data>
 
   <!-- Info -->
   <data name="I_MSG_00001" xml:space="preserve">
