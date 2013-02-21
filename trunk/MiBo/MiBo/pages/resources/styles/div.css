@@ -1,0 +1,187 @@
+/*
+* JPLIST: div layout css
+*/
+.list{
+	float: left;
+	width: 100%;
+	padding: 1.25em 0;
+}
+
+.list .list-item{
+	float: left;
+	width: 96%;
+	margin: 0 2% 1em 2%;
+}
+
+/*
+* image styles
+*/
+.list .list-item .img{
+	width: 15%;
+	float: left;
+	font-size: 0;
+}
+
+.list .list-item .img img{
+	max-width: 90%;
+}
+
+/*
+* block styles
+*/
+.list .list-item .block{
+	float: right;
+	width: 85%;
+}
+
+.block .title{
+	font-family: 'verdana';
+	font-size: 1.16em;
+	line-height: 1.16em;
+	color: #CA3F1A;
+}
+
+.block .date{
+	color: #7F4F24;
+	padding: 0 1.6em 0 0;
+	font-size: 0.8em;
+	line-height: 0.8em;
+	float: right;
+}
+
+.block .desc{
+	line-height: 1.3em;
+	padding: 0 0.6em 0 0;
+}
+
+.like{
+	line-height: 1.3em;
+	padding: 0.3em 0 0 0;
+	color: #7F4F24;
+	font-size: 0.8em;
+}
+/*
+* JPLIST: filters
+*/
+.jplist .filter{
+	float: left;
+	margin: 0.6em 0 0 0;
+}
+
+.jplist .filter input{
+	display: block;
+	float: left;
+	
+	width: 150px;
+	height: 1.16em;
+	margin: 0 0 0 1.25em;
+	
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+.jplist .search-title{
+	float: left;
+	margin-left: 10px;
+}
+
+.jplist .filter-btn{
+	margin: 0px 0px 0px 5px;
+	text-decoration: none;
+	color: #fff;
+	background-color: #1E87AA;
+	border-radius: 3px;
+	padding: 1px 5px;
+}
+
+/*
+* JPLIST: pagination
+*/
+.jplist .pagingprev,
+.jplist .pagingmid,
+.jplist .pagingnext{
+	float: left;
+}
+
+.jplist .paging{
+	float: left;
+	margin: 0.6em 0.6em 0 1.25em;	
+}
+
+.jplist .paging span{
+	cursor: pointer;
+	color: #1E87AA;
+	margin: 0 0.3em 0 0;	
+}
+
+.jplist .paging  span.current{
+	font-weight: bold;
+	color: #CA3F1A;
+}
+/*
+* JPLIST: dropdowns
+*/
+.jplist .drop-down{
+	float: left;
+	width: 130px;
+	height: 1.3em;
+	
+	margin: 0.6em 0 0 1.25em;	
+	border: 1px solid #aaa;
+}
+
+.jplist .drop-down .panel{
+	float: left;
+	width: 125px;
+	height: 1.3em;
+	line-height: 1.3em;
+	
+	overflow: hidden;
+	background: #fff url('../images/down.png') no-repeat 99% 50%;
+	
+	padding: 0px 0px 0px 5px;
+	margin: 0px 0px 0px 0px;
+	cursor: pointer;
+}
+
+.jplist .drop-down:hover .panel{
+	background: #fff url('../images/down-dark.png') no-repeat 99% 50%;
+}
+
+.jplist .drop-down ul{	
+
+	position: relative;
+	top: 0px;
+	left: -1px;
+	z-index: 1000;
+	
+	width: 130px;
+	display: none;
+	overflow: hidden;
+	
+	background-color: #fff;
+	border: 1px solid #ccc;
+	
+	padding: 0;
+	margin: 0;
+	
+	list-style: none;
+	border-radius: 0 0 3px 3px;
+}
+
+.jplist .drop-down ul li{
+	padding: 0 0 0 0.3em;
+	cursor: pointer;
+	width: 130px;
+	float: left;
+	background-color: #fff;
+}
+
+.jplist .drop-down ul li:hover{
+	background-color: #444;
+	color: #fff;
+}
+
+.jplist .hidden{
+	display: none;
+}

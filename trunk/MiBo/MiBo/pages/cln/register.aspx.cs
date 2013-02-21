@@ -21,17 +21,8 @@ namespace MiBo.pages.cln
         {
             var logic = new RegisterOperateLogic();
             var response = Invoke(logic, RegisterRequestModel);
-            if (response.StatusFlag == 1)
+            if (response != null)
             {
-                lbMsg.Text = "Có lỗi trong quá trình đăng ký ! Vui lòng thử lại ";
-            }
-            else if (response.StatusFlag == 2)
-            {
-                lbMsg.Text = "Email đã được đăng ký ! Vui lòng chọn địa chỉ email khác, hoặc lấy lại mật khẩu <a href='#'>tại đây</a>.";
-            }
-            else
-            {
-                Session["MsgInfo"] = "Đăng ký thành công ! Vui lòng đăng nhập.";
                 Response.Redirect("login.aspx");
             }
 
@@ -43,6 +34,11 @@ namespace MiBo.pages.cln
                 var request = new RegisterRequestModel();
                 request.email = email.Text.Trim().ToString();
                 request.pass = pass.Text.ToString();
+                request.isSendEmail = true;
+                if (is_subscribed.Checked)
+                {
+                    request.isSendEmail = false;
+                }
                 return request;
             }
         }
