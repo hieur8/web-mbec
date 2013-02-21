@@ -2,5 +2,6 @@
 {
     public class InitRequestModel
     {
+        public object Cart { get; set; }
     }
 }

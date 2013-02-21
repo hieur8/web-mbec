@@ -111,7 +111,7 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
             dataCom = new DataCom();
             cartCom = new CartCom(inputObject.Cart);
 
-            // Check exist
+            // Check valid
             foreach (var item in cartCom.Items)
             {
                 if (!dataCom.IsExist<Item>(item.ItemCd, false))
@@ -137,6 +137,8 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
             // Get data
             foreach (var obj in inputObject.ListItems)
             {
+                if (DataCheckHelper.IsNull(obj.Quantity)
+                    || obj.Quantity < decimal.Zero) continue;
                 var item = new CartItem();
                 item.ItemCd = obj.ItemCd;
                 item.Quantity = obj.Quantity.Value;

@@ -74,11 +74,10 @@
                                         <%
                                             if (Session["Cart"] != null)
                                             {
-                                                IList<MiBo.Domain.Common.Model.CartItem> cart = MiBo.Domain.Common.Helper.DataHelper.ConvertInputCart((object)Session["Cart"]);       
                                         %>
-                                        <span class="bag-item">
-                                            <%=cart.Count.ToString()%>
-                                            sản phẩm</span>
+                                        <a href="/pages/cln/shopping-cart.aspx">
+                                            <span class="bag-item"><asp:Label ID="lblCartCount" runat="server"></asp:Label> sản phẩm</span>
+                                        </a>
                                         <% }
                                             else
                                             { %>
@@ -223,3 +222,8 @@
     </form>
 </body>
 </html>
+<% 
+    Session["warn"] = null;
+    Session["info"] = null;
+    Session["error"] = null;
+%>
