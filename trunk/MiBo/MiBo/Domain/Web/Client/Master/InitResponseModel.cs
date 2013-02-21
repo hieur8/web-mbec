@@ -6,6 +6,7 @@ namespace MiBo.Domain.Web.Client.Master
 {
     public class InitResponseModel : MessageResponse
     {
+        public string CartCount { get; set; }
         public IList<OutputCategoryModel> ListToys { get; set; }
         public IList<OutputCategoryModel> ListAccessories { get; set; }
         public ListItem[] ListCategory { get; set; }

@@ -2,6 +2,7 @@
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Master;
 using MiBo.Domain.Web.Client.Master;
+using MiBo.Domain.Common.Utils;
 
 namespace MiBo.pages.common
 {
@@ -11,11 +12,12 @@ namespace MiBo.pages.common
         {
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
-
+            if (HasError) return;
             rptToyMenu.DataSource = response.ListToys;
             rptToyMenu.DataBind();
             rptAccessoryMenu.DataSource = response.ListAccessories;
             rptAccessoryMenu.DataBind();
+            lblCartCount.Text = response.CartCount;
         }
 
         private InitRequestModel InitRequestModel
@@ -23,6 +25,7 @@ namespace MiBo.pages.common
             get
             {
                 var request = new InitRequestModel();
+                request.Cart = Session["Cart"];
                 return request;
             }
         }

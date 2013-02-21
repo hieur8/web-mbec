@@ -19,18 +19,27 @@
                         </ul>
                     </div>
                     <ul class="messages">
+                        <% if (Session["info"] != null)
+                           { %>
                         <li class="success-msg">
                             <ul>
-                                <li>Plan toys đã được thêm vào giỏ hàng.</li></ul>
+                                <li><%= Session["info"]%></li></ul>
                         </li>
+                        <% } %>
+                        <% if (Session["error"] != null)
+                           { %>
                         <li class="error-msg">
                             <ul>
-                                <li>Có lỗi</li></ul>
+                                <li><%= Session["error"] %></li></ul>
                         </li>
+                        <% } %>
+                        <% if (Session["warn"] != null)
+                           { %>
                         <li class="notice-msg">
                             <ul>
-                                <li>Cảnh báo</li></ul>
+                                <li><%= Session["warn"]%></li></ul>
                         </li>
+                        <% } %>
                     </ul>
                     <fieldset>
                         <table id="shopping-cart-table" class="data-table cart-table">

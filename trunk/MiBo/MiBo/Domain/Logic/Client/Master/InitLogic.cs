@@ -5,6 +5,7 @@ using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.Master;
 using MiBo.Domain.Web.Client.Master;
+using Resources;
 
 namespace MiBo.Domain.Logic.Client.Master
 {
@@ -39,6 +40,9 @@ namespace MiBo.Domain.Logic.Client.Master
 
             // Convert data input
             DataHelper.ConvertInput(request, inputObject);
+
+            // Set cart
+            inputObject.Cart = DataHelper.ConvertInputCart(request.Cart);
 
             // Return value
             return inputObject;
@@ -84,6 +88,7 @@ namespace MiBo.Domain.Logic.Client.Master
             }
 
             // Set value
+            responseModel.CartCount = DataHelper.ToString(Formats.NUMBER, resultObject.CartCount);
             responseModel.ListToys = listToys;
             responseModel.ListAccessories = listAccessories;
             responseModel.ListCategory = MCodeCom.ToComboItems(resultObject.ListCategory, 0);
@@ -134,13 +139,16 @@ namespace MiBo.Domain.Logic.Client.Master
             InitDataModel getResult = null;
             ClientMasterDao clientMasterDao = null;
             MCodeCom mCodeCom = null;
+            CartCom cartCom = null;
 
             // Variable initialize
             getResult = new InitDataModel();
             clientMasterDao = new ClientMasterDao();
             mCodeCom = new MCodeCom();
+            cartCom = new CartCom(inputObject.Cart);
 
             // Get data
+            var cartCount = cartCom.Count;
             var listToys = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_TOYS);
             var listAccessories = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_ACCESSORIES);
             var listCategory = mCodeCom.GetListCategory(true, false);
@@ -150,6 +158,7 @@ namespace MiBo.Domain.Logic.Client.Master
             var listPriceDiv = mCodeCom.GetListCode(Logics.GROUP_PRICE_DIV, null, true, false);
 
             // Set value
+            getResult.CartCount = cartCount;
             getResult.ListToys = listToys;
             getResult.ListAccessories = listAccessories;
             getResult.ListCategory = listCategory;
