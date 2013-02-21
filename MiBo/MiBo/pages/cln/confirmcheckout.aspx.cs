@@ -8,24 +8,17 @@ using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Login;
 using MiBo.Domain.Web.Client.Login;
 
+
 namespace MiBo.pages.cln
 {
-    public partial class login : BasePage
+    public partial class confirmcheckout : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userCd"] != null){
-                Response.Redirect("index.aspx");
-            }
 
-            if (Session["MsgInfo"] != null)
-            {
-                lbMsg.Text = Session["MsgInfo"].ToString();
-                Session["MsgInfo"] = null;
-            }
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
             lbMsg.Text = "";
             var logic = new LoginOperateLogic();
@@ -38,17 +31,9 @@ namespace MiBo.pages.cln
             {
                 Session["userCd"] = response.UserCd;
                 Session["userName"] = response.UserName;
-                if (Session["paying"] == null)
-                {
-                    Response.Redirect("index.aspx");
-                }
-                else
-                {
-                    Session["payMethod"] = "1";
-                    Response.Redirect("checkout.aspx");
-                }
+                Session["payMethod"] = "1";
+                Response.Redirect("checkout.aspx");
             }
-
         }
         private LoginRequestModel LoginRequestModel
         {
@@ -58,6 +43,26 @@ namespace MiBo.pages.cln
                 request.UserName = username.Text.ToString().Trim();
                 request.Password = pass.Text.ToString();
                 return request;
+            }
+        }
+        protected void Button2_Click1(object sender, EventArgs e)
+        {
+
+            if (method1.Checked == false || method2.Checked == false)
+            {
+                Label1.Text = "Xin vui lòng chọn cách mua hàng";
+            }
+
+            if (method1.Checked)
+            {
+                Session["payMethod"] = "0";
+                Response.Redirect("checkout.aspx");
+            }
+
+            if (method2.Checked)
+            {
+                Session["paying"] = "1";
+                Response.Redirect("register.aspx");
             }
         }
     }
