@@ -6,6 +6,7 @@ namespace MiBo.Domain.Model.Client.Login
     public class InitDataModel
     {
         public bool StatusFlag { get; set; }
+        public string UserCd { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
     }

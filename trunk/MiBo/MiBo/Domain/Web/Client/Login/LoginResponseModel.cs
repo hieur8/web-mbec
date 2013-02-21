@@ -7,6 +7,7 @@ namespace MiBo.Domain.Web.Client.Login
     {
         public bool StatusFlag { get; set; }
         public string UserName { get; set; }
+        public string UserCd { get; set; }
         
     }
 }

@@ -10,7 +10,7 @@
 namespace MiBo.pages.cln {
     
     
-    public partial class login {
+    public partial class register {
         
         /// <summary>
         /// form1 control.
@@ -31,13 +31,22 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.Label lbMsg;
         
         /// <summary>
-        /// username control.
+        /// fullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox username;
+        protected global::System.Web.UI.WebControls.TextBox fullName;
+        
+        /// <summary>
+        /// email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox email;
         
         /// <summary>
         /// pass control.
@@ -49,12 +58,21 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.TextBox pass;
         
         /// <summary>
-        /// btnLogin control.
+        /// passConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.TextBox passConfirm;
+        
+        /// <summary>
+        /// btnRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegister;
     }
 }

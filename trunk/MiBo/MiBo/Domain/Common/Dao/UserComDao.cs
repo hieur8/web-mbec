@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MiBo.Domain.Common.Helper;
 
 namespace MiBo.Domain.Common.Dao
 {
@@ -91,6 +92,39 @@ namespace MiBo.Domain.Common.Dao
 
             // Submit
             EntityManager.SubmitChanges();
+        }
+
+        public void registerUser(User param)
+        {
+            DateTime dateNow = DateTime.Now;
+            param.Password = DataHelper.GetMd5Hash(param.Password);
+            param.CreateUser = "init";
+            param.CreateDate = dateNow;
+            param.UpdateUser = "init";
+            param.UpdateDate = dateNow;
+            param.DeleteFlag = false;
+            EntityManager.Users.InsertOnSubmit(param);
+            // Submit
+            EntityManager.SubmitChanges();
+        }
+
+        public bool IsExistUserName(String userName)
+        {
+            var result = from tbl in EntityManager.Users
+                         where tbl.UserName == userName
+                         && (tbl.DeleteFlag == false)
+                         select tbl;
+
+            var count = result.LongCount();
+
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

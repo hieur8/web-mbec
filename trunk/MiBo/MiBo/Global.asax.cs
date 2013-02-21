@@ -27,6 +27,8 @@ namespace MiBo
         {
             // Code that runs when a new session is started
             Session["localeId"] = "vi-VN";
+            Session["userCd"] = null;
+            Session["userName"] = null;
         }
 
         void Session_End(object sender, EventArgs e)
