@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
 using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
@@ -198,18 +197,6 @@ namespace MiBo.Domain.Common.Utils
 
             // Update value
             _comDao.UpdatePassword(param, ignoreDeleteFlag);
-        }
-
-        public static bool HasAuthenticated
-        {
-            get
-            {
-                if (HttpContext.Current.Session["userCd"] == null) return false;
-                var strUserCd = Convert.ToString(HttpContext.Current.Session["userCd"]);
-                if (DataCheckHelper.IsGuid(strUserCd) == false) return false;
-                var userCd = DataHelper.ConvertInputGuid(strUserCd);
-                return !DataCheckHelper.IsNull(userCd);
-            }
         }
     }
 }

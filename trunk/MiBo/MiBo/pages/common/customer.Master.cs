@@ -13,7 +13,7 @@ namespace MiBo.pages.common
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
 
-            rptCategoryMenu.DataSource = response.ListCategories;
+            rptCategoryMenu.DataSource = response.ListToys;
             rptCategoryMenu.DataBind();
         }
 

@@ -105,6 +105,9 @@ namespace MiBo.Domain.Common.Dao
     partial void InsertNewsletter(Newsletter instance);
     partial void UpdateNewsletter(Newsletter instance);
     partial void DeleteNewsletter(Newsletter instance);
+    partial void InsertOfferItem(OfferItem instance);
+    partial void UpdateOfferItem(OfferItem instance);
+    partial void DeleteOfferItem(OfferItem instance);
     partial void InsertOffer(Offer instance);
     partial void UpdateOffer(Offer instance);
     partial void DeleteOffer(Offer instance);
@@ -135,9 +138,6 @@ namespace MiBo.Domain.Common.Dao
     partial void InsertUserLike(UserLike instance);
     partial void UpdateUserLike(UserLike instance);
     partial void DeleteUserLike(UserLike instance);
-    partial void InsertOfferItem(OfferItem instance);
-    partial void UpdateOfferItem(OfferItem instance);
-    partial void DeleteOfferItem(OfferItem instance);
     #endregion
 		
 		public EntitiesDataContext() : 
@@ -370,6 +370,14 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
+		public System.Data.Linq.Table<OfferItem> OfferItems
+		{
+			get
+			{
+				return this.GetTable<OfferItem>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Offer> Offers
 		{
 			get
@@ -447,14 +455,6 @@ namespace MiBo.Domain.Common.Dao
 			get
 			{
 				return this.GetTable<UserLike>();
-			}
-		}
-		
-		public System.Data.Linq.Table<OfferItem> OfferItems
-		{
-			get
-			{
-				return this.GetTable<OfferItem>();
 			}
 		}
 	}
@@ -3572,6 +3572,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _BrandName;
 		
+		private string _Image;
+		
 		private string _Notes;
 		
 		private System.Nullable<decimal> _SortKey;
@@ -3596,6 +3598,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnBrandCdChanged();
     partial void OnBrandNameChanging(string value);
     partial void OnBrandNameChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnSortKeyChanging(System.Nullable<decimal> value);
@@ -3654,6 +3658,26 @@ namespace MiBo.Domain.Common.Dao
 					this._BrandName = value;
 					this.SendPropertyChanged("BrandName");
 					this.OnBrandNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(255)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
 				}
 			}
 		}
@@ -7366,6 +7390,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private EntitySet<ItemImage> _ItemImages;
 		
+		private EntitySet<OfferItem> _OfferItems;
+		
 		private EntitySet<Offer> _Offers;
 		
 		private EntitySet<Pack> _Packs;
@@ -7373,8 +7399,6 @@ namespace MiBo.Domain.Common.Dao
 		private EntitySet<UserComment> _UserComments;
 		
 		private EntitySet<UserLike> _UserLikes;
-		
-		private EntitySet<OfferItem> _OfferItems;
 		
 		private EntityRef<Age> _Age;
 		
@@ -7431,11 +7455,11 @@ namespace MiBo.Domain.Common.Dao
 		public Item()
 		{
 			this._ItemImages = new EntitySet<ItemImage>(new Action<ItemImage>(this.attach_ItemImages), new Action<ItemImage>(this.detach_ItemImages));
+			this._OfferItems = new EntitySet<OfferItem>(new Action<OfferItem>(this.attach_OfferItems), new Action<OfferItem>(this.detach_OfferItems));
 			this._Offers = new EntitySet<Offer>(new Action<Offer>(this.attach_Offers), new Action<Offer>(this.detach_Offers));
 			this._Packs = new EntitySet<Pack>(new Action<Pack>(this.attach_Packs), new Action<Pack>(this.detach_Packs));
 			this._UserComments = new EntitySet<UserComment>(new Action<UserComment>(this.attach_UserComments), new Action<UserComment>(this.detach_UserComments));
 			this._UserLikes = new EntitySet<UserLike>(new Action<UserLike>(this.attach_UserLikes), new Action<UserLike>(this.detach_UserLikes));
-			this._OfferItems = new EntitySet<OfferItem>(new Action<OfferItem>(this.attach_OfferItems), new Action<OfferItem>(this.detach_OfferItems));
 			this._Age = default(EntityRef<Age>);
 			this._Brand = default(EntityRef<Brand>);
 			this._Category = default(EntityRef<Category>);
@@ -7822,6 +7846,19 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_OfferItem", Storage="_OfferItems", ThisKey="ItemCd", OtherKey="OfferItemCd")]
+		public EntitySet<OfferItem> OfferItems
+		{
+			get
+			{
+				return this._OfferItems;
+			}
+			set
+			{
+				this._OfferItems.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Offer", Storage="_Offers", ThisKey="ItemCd", OtherKey="ItemCd")]
 		public EntitySet<Offer> Offers
 		{
@@ -7871,19 +7908,6 @@ namespace MiBo.Domain.Common.Dao
 			set
 			{
 				this._UserLikes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_OfferItem", Storage="_OfferItems", ThisKey="ItemCd", OtherKey="OfferItemCd")]
-		public EntitySet<OfferItem> OfferItems
-		{
-			get
-			{
-				return this._OfferItems;
-			}
-			set
-			{
-				this._OfferItems.Assign(value);
 			}
 		}
 		
@@ -8123,6 +8147,18 @@ namespace MiBo.Domain.Common.Dao
 			entity.Item = null;
 		}
 		
+		private void attach_OfferItems(OfferItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_OfferItems(OfferItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+		
 		private void attach_Offers(Offer entity)
 		{
 			this.SendPropertyChanging();
@@ -8166,18 +8202,6 @@ namespace MiBo.Domain.Common.Dao
 		}
 		
 		private void detach_UserLikes(UserLike entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_OfferItems(OfferItem entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_OfferItems(OfferItem entity)
 		{
 			this.SendPropertyChanging();
 			entity.Item = null;
@@ -9103,6 +9127,390 @@ namespace MiBo.Domain.Common.Dao
 					this._DeleteFlag = value;
 					this.SendPropertyChanged("DeleteFlag");
 					this.OnDeleteFlagChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OfferItems")]
+	public partial class OfferItem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _OfferCd;
+		
+		private decimal _DetailNo;
+		
+		private string _OfferItemCd;
+		
+		private System.Nullable<decimal> _OfferItemQtty;
+		
+		private string _Notes;
+		
+		private System.Nullable<decimal> _SortKey;
+		
+		private string _CreateUser;
+		
+		private System.Nullable<System.DateTime> _CreateDate;
+		
+		private string _UpdateUser;
+		
+		private System.Nullable<System.DateTime> _UpdateDate;
+		
+		private System.Nullable<bool> _DeleteFlag;
+		
+		private EntityRef<Item> _Item;
+		
+		private EntityRef<Offer> _Offer;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOfferCdChanging(string value);
+    partial void OnOfferCdChanged();
+    partial void OnDetailNoChanging(decimal value);
+    partial void OnDetailNoChanged();
+    partial void OnOfferItemCdChanging(string value);
+    partial void OnOfferItemCdChanged();
+    partial void OnOfferItemQttyChanging(System.Nullable<decimal> value);
+    partial void OnOfferItemQttyChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    partial void OnSortKeyChanging(System.Nullable<decimal> value);
+    partial void OnSortKeyChanged();
+    partial void OnCreateUserChanging(string value);
+    partial void OnCreateUserChanged();
+    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateDateChanged();
+    partial void OnUpdateUserChanging(string value);
+    partial void OnUpdateUserChanged();
+    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnUpdateDateChanged();
+    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
+    partial void OnDeleteFlagChanged();
+    #endregion
+		
+		public OfferItem()
+		{
+			this._Item = default(EntityRef<Item>);
+			this._Offer = default(EntityRef<Offer>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfferCd", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string OfferCd
+		{
+			get
+			{
+				return this._OfferCd;
+			}
+			set
+			{
+				if ((this._OfferCd != value))
+				{
+					if (this._Offer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOfferCdChanging(value);
+					this.SendPropertyChanging();
+					this._OfferCd = value;
+					this.SendPropertyChanged("OfferCd");
+					this.OnOfferCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DetailNo", DbType="Decimal(18,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal DetailNo
+		{
+			get
+			{
+				return this._DetailNo;
+			}
+			set
+			{
+				if ((this._DetailNo != value))
+				{
+					this.OnDetailNoChanging(value);
+					this.SendPropertyChanging();
+					this._DetailNo = value;
+					this.SendPropertyChanged("DetailNo");
+					this.OnDetailNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfferItemCd", DbType="VarChar(255)")]
+		public string OfferItemCd
+		{
+			get
+			{
+				return this._OfferItemCd;
+			}
+			set
+			{
+				if ((this._OfferItemCd != value))
+				{
+					if (this._Item.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOfferItemCdChanging(value);
+					this.SendPropertyChanging();
+					this._OfferItemCd = value;
+					this.SendPropertyChanged("OfferItemCd");
+					this.OnOfferItemCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfferItemQtty", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> OfferItemQtty
+		{
+			get
+			{
+				return this._OfferItemQtty;
+			}
+			set
+			{
+				if ((this._OfferItemQtty != value))
+				{
+					this.OnOfferItemQttyChanging(value);
+					this.SendPropertyChanging();
+					this._OfferItemQtty = value;
+					this.SendPropertyChanged("OfferItemQtty");
+					this.OnOfferItemQttyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(MAX)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SortKey", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> SortKey
+		{
+			get
+			{
+				return this._SortKey;
+			}
+			set
+			{
+				if ((this._SortKey != value))
+				{
+					this.OnSortKeyChanging(value);
+					this.SendPropertyChanging();
+					this._SortKey = value;
+					this.SendPropertyChanged("SortKey");
+					this.OnSortKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
+		public string CreateUser
+		{
+			get
+			{
+				return this._CreateUser;
+			}
+			set
+			{
+				if ((this._CreateUser != value))
+				{
+					this.OnCreateUserChanging(value);
+					this.SendPropertyChanging();
+					this._CreateUser = value;
+					this.SendPropertyChanged("CreateUser");
+					this.OnCreateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
+		public string UpdateUser
+		{
+			get
+			{
+				return this._UpdateUser;
+			}
+			set
+			{
+				if ((this._UpdateUser != value))
+				{
+					this.OnUpdateUserChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateUser = value;
+					this.SendPropertyChanged("UpdateUser");
+					this.OnUpdateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
+		public System.Nullable<bool> DeleteFlag
+		{
+			get
+			{
+				return this._DeleteFlag;
+			}
+			set
+			{
+				if ((this._DeleteFlag != value))
+				{
+					this.OnDeleteFlagChanging(value);
+					this.SendPropertyChanging();
+					this._DeleteFlag = value;
+					this.SendPropertyChanged("DeleteFlag");
+					this.OnDeleteFlagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_OfferItem", Storage="_Item", ThisKey="OfferItemCd", OtherKey="ItemCd", IsForeignKey=true)]
+		public Item Item
+		{
+			get
+			{
+				return this._Item.Entity;
+			}
+			set
+			{
+				Item previousValue = this._Item.Entity;
+				if (((previousValue != value) 
+							|| (this._Item.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Item.Entity = null;
+						previousValue.OfferItems.Remove(this);
+					}
+					this._Item.Entity = value;
+					if ((value != null))
+					{
+						value.OfferItems.Add(this);
+						this._OfferItemCd = value.ItemCd;
+					}
+					else
+					{
+						this._OfferItemCd = default(string);
+					}
+					this.SendPropertyChanged("Item");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Offer_OfferItem", Storage="_Offer", ThisKey="OfferCd", OtherKey="OfferCd", IsForeignKey=true)]
+		public Offer Offer
+		{
+			get
+			{
+				return this._Offer.Entity;
+			}
+			set
+			{
+				Offer previousValue = this._Offer.Entity;
+				if (((previousValue != value) 
+							|| (this._Offer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Offer.Entity = null;
+						previousValue.OfferItems.Remove(this);
+					}
+					this._Offer.Entity = value;
+					if ((value != null))
+					{
+						value.OfferItems.Add(this);
+						this._OfferCd = value.OfferCd;
+					}
+					else
+					{
+						this._OfferCd = default(string);
+					}
+					this.SendPropertyChanged("Offer");
 				}
 			}
 		}
@@ -12227,390 +12635,6 @@ namespace MiBo.Domain.Common.Dao
 						this._UserCd = default(System.Guid);
 					}
 					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OfferItems")]
-	public partial class OfferItem : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _OfferCd;
-		
-		private decimal _DetailNo;
-		
-		private string _OfferItemCd;
-		
-		private System.Nullable<decimal> _OfferItemQtty;
-		
-		private string _Notes;
-		
-		private System.Nullable<decimal> _SortKey;
-		
-		private string _CreateUser;
-		
-		private System.Nullable<System.DateTime> _CreateDate;
-		
-		private string _UpdateUser;
-		
-		private System.Nullable<System.DateTime> _UpdateDate;
-		
-		private System.Nullable<bool> _DeleteFlag;
-		
-		private EntityRef<Offer> _Offer;
-		
-		private EntityRef<Item> _Item;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnOfferCdChanging(string value);
-    partial void OnOfferCdChanged();
-    partial void OnDetailNoChanging(decimal value);
-    partial void OnDetailNoChanged();
-    partial void OnOfferItemCdChanging(string value);
-    partial void OnOfferItemCdChanged();
-    partial void OnOfferItemQttyChanging(System.Nullable<decimal> value);
-    partial void OnOfferItemQttyChanged();
-    partial void OnNotesChanging(string value);
-    partial void OnNotesChanged();
-    partial void OnSortKeyChanging(System.Nullable<decimal> value);
-    partial void OnSortKeyChanged();
-    partial void OnCreateUserChanging(string value);
-    partial void OnCreateUserChanged();
-    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreateDateChanged();
-    partial void OnUpdateUserChanging(string value);
-    partial void OnUpdateUserChanged();
-    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdateDateChanged();
-    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
-    partial void OnDeleteFlagChanged();
-    #endregion
-		
-		public OfferItem()
-		{
-			this._Offer = default(EntityRef<Offer>);
-			this._Item = default(EntityRef<Item>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfferCd", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string OfferCd
-		{
-			get
-			{
-				return this._OfferCd;
-			}
-			set
-			{
-				if ((this._OfferCd != value))
-				{
-					if (this._Offer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnOfferCdChanging(value);
-					this.SendPropertyChanging();
-					this._OfferCd = value;
-					this.SendPropertyChanged("OfferCd");
-					this.OnOfferCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DetailNo", DbType="Decimal(18,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal DetailNo
-		{
-			get
-			{
-				return this._DetailNo;
-			}
-			set
-			{
-				if ((this._DetailNo != value))
-				{
-					this.OnDetailNoChanging(value);
-					this.SendPropertyChanging();
-					this._DetailNo = value;
-					this.SendPropertyChanged("DetailNo");
-					this.OnDetailNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfferItemCd", DbType="VarChar(255)")]
-		public string OfferItemCd
-		{
-			get
-			{
-				return this._OfferItemCd;
-			}
-			set
-			{
-				if ((this._OfferItemCd != value))
-				{
-					if (this._Item.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnOfferItemCdChanging(value);
-					this.SendPropertyChanging();
-					this._OfferItemCd = value;
-					this.SendPropertyChanged("OfferItemCd");
-					this.OnOfferItemCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfferItemQtty", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> OfferItemQtty
-		{
-			get
-			{
-				return this._OfferItemQtty;
-			}
-			set
-			{
-				if ((this._OfferItemQtty != value))
-				{
-					this.OnOfferItemQttyChanging(value);
-					this.SendPropertyChanging();
-					this._OfferItemQtty = value;
-					this.SendPropertyChanged("OfferItemQtty");
-					this.OnOfferItemQttyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(MAX)")]
-		public string Notes
-		{
-			get
-			{
-				return this._Notes;
-			}
-			set
-			{
-				if ((this._Notes != value))
-				{
-					this.OnNotesChanging(value);
-					this.SendPropertyChanging();
-					this._Notes = value;
-					this.SendPropertyChanged("Notes");
-					this.OnNotesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SortKey", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> SortKey
-		{
-			get
-			{
-				return this._SortKey;
-			}
-			set
-			{
-				if ((this._SortKey != value))
-				{
-					this.OnSortKeyChanging(value);
-					this.SendPropertyChanging();
-					this._SortKey = value;
-					this.SendPropertyChanged("SortKey");
-					this.OnSortKeyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
-		public string CreateUser
-		{
-			get
-			{
-				return this._CreateUser;
-			}
-			set
-			{
-				if ((this._CreateUser != value))
-				{
-					this.OnCreateUserChanging(value);
-					this.SendPropertyChanging();
-					this._CreateUser = value;
-					this.SendPropertyChanged("CreateUser");
-					this.OnCreateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this.OnCreateDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreateDate = value;
-					this.SendPropertyChanged("CreateDate");
-					this.OnCreateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
-		public string UpdateUser
-		{
-			get
-			{
-				return this._UpdateUser;
-			}
-			set
-			{
-				if ((this._UpdateUser != value))
-				{
-					this.OnUpdateUserChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateUser = value;
-					this.SendPropertyChanged("UpdateUser");
-					this.OnUpdateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdateDate
-		{
-			get
-			{
-				return this._UpdateDate;
-			}
-			set
-			{
-				if ((this._UpdateDate != value))
-				{
-					this.OnUpdateDateChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateDate = value;
-					this.SendPropertyChanged("UpdateDate");
-					this.OnUpdateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
-		public System.Nullable<bool> DeleteFlag
-		{
-			get
-			{
-				return this._DeleteFlag;
-			}
-			set
-			{
-				if ((this._DeleteFlag != value))
-				{
-					this.OnDeleteFlagChanging(value);
-					this.SendPropertyChanging();
-					this._DeleteFlag = value;
-					this.SendPropertyChanged("DeleteFlag");
-					this.OnDeleteFlagChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Offer_OfferItem", Storage="_Offer", ThisKey="OfferCd", OtherKey="OfferCd", IsForeignKey=true)]
-		public Offer Offer
-		{
-			get
-			{
-				return this._Offer.Entity;
-			}
-			set
-			{
-				Offer previousValue = this._Offer.Entity;
-				if (((previousValue != value) 
-							|| (this._Offer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Offer.Entity = null;
-						previousValue.OfferItems.Remove(this);
-					}
-					this._Offer.Entity = value;
-					if ((value != null))
-					{
-						value.OfferItems.Add(this);
-						this._OfferCd = value.OfferCd;
-					}
-					else
-					{
-						this._OfferCd = default(string);
-					}
-					this.SendPropertyChanged("Offer");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_OfferItem", Storage="_Item", ThisKey="OfferItemCd", OtherKey="ItemCd", IsForeignKey=true)]
-		public Item Item
-		{
-			get
-			{
-				return this._Item.Entity;
-			}
-			set
-			{
-				Item previousValue = this._Item.Entity;
-				if (((previousValue != value) 
-							|| (this._Item.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Item.Entity = null;
-						previousValue.OfferItems.Remove(this);
-					}
-					this._Item.Entity = value;
-					if ((value != null))
-					{
-						value.OfferItems.Add(this);
-						this._OfferItemCd = value.ItemCd;
-					}
-					else
-					{
-						this._OfferItemCd = default(string);
-					}
-					this.SendPropertyChanged("Item");
 				}
 			}
 		}

@@ -52,14 +52,29 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_GlobalResources\Formats.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Formats.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Messages.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Messages.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Parameters.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Parameters.designer.cs</LastGenOutput>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
+    <Content Include="pages\cln\cart.aspx" />
     <Content Include="pages\cln\index.aspx" />
     <Content Include="pages\cln\item-details.aspx" />
     <Content Include="pages\cln\items.aspx" />
     <Content Include="pages\cln\Login.aspx" />
     <Content Include="pages\cln\shopping-cart.aspx" />
+    <Content Include="pages\common\administer.Master" />
+    <Content Include="pages\common\client.Master" />
     <Content Include="pages\common\DemoMaster.htm" />
     <Content Include="pages\common\error.aspx" />
     <Content Include="pages\media\images\banners\01.jpg" />
@@ -82,6 +97,10 @@
     <Content Include="pages\media\images\items\06\larger\01.jpg" />
     <Content Include="pages\media\images\items\06\small\01.jpg" />
     <Content Include="pages\resources\images\add-to-cart.png" />
+    <Content Include="pages\resources\images\ad_next.png" />
+    <Content Include="pages\resources\images\ad_prev.png" />
+    <Content Include="pages\resources\images\ad_scroll_back.png" />
+    <Content Include="pages\resources\images\ad_scroll_forward.png" />
     <Content Include="pages\resources\images\b.png" />
     <Content Include="pages\resources\images\ball_toy.jpg" />
     <Content Include="pages\resources\images\beemoviememotoyscar.jpg" />
@@ -99,12 +118,15 @@
     <Content Include="pages\resources\images\bg-menu-item-red.gif" />
     <Content Include="pages\resources\images\bg-radial-gradient.gif" />
     <Content Include="pages\resources\images\bg-sidebar.gif" />
+    <Content Include="pages\resources\images\bkg_divider1.gif" />
     <Content Include="pages\resources\images\bkg_form-search.gif" />
     <Content Include="pages\resources\images\bkg_header.jpg" />
     <Content Include="pages\resources\images\bkg_pipe1.gif" />
     <Content Include="pages\resources\images\bkg_rating.gif" />
     <Content Include="pages\resources\images\bl.png" />
     <Content Include="pages\resources\images\br.png" />
+    <Content Include="pages\resources\images\btn_remove.gif" />
+    <Content Include="pages\resources\images\btn_trash.gif" />
     <Content Include="pages\resources\images\bullet_black.png" />
     <Content Include="pages\resources\images\detail-icon.gif" />
     <Content Include="pages\resources\images\flexslider-bg_direction_nav.png" />
@@ -134,7 +156,12 @@
     <Content Include="pages\resources\images\icons\restore.png" />
     <Content Include="pages\resources\images\icons\tick_circle.png" />
     <Content Include="pages\resources\images\icons\view.png" />
+    <Content Include="pages\resources\images\i_msg-error.gif" />
+    <Content Include="pages\resources\images\i_msg-note.gif" />
+    <Content Include="pages\resources\images\i_msg-success.gif" />
+    <Content Include="pages\resources\images\i_notice.gif" />
     <Content Include="pages\resources\images\jtslider-arrow.png" />
+    <Content Include="pages\resources\images\loader.gif" />
     <Content Include="pages\resources\images\logo.png" />
     <Content Include="pages\resources\images\menu-current-arrow.gif" />
     <Content Include="pages\resources\images\menu-Normal.gif" />
@@ -157,6 +184,7 @@
     <Content Include="pages\resources\images\newsletter-icon.png" />
     <Content Include="pages\resources\images\next-horizontal.png" />
     <Content Include="pages\resources\images\offer.png" />
+    <Content Include="pages\resources\images\opa75.png" />
     <Content Include="pages\resources\images\opc-ajax-loader.gif" />
     <Content Include="pages\resources\images\plan_toys.jpg" />
     <Content Include="pages\resources\images\prev-horizontal.png" />
@@ -180,27 +208,31 @@
     <Content Include="pages\resources\images\toys-bg.jpg" />
     <Content Include="pages\resources\images\toys-shadow-bg.png" />
     <Content Include="pages\resources\images\tr.png" />
+    <Content Include="pages\resources\images\trans.gif" />
+    <Content Include="pages\resources\images\updated-shopping-bg.gif" />
     <Content Include="pages\resources\scripts\facebox.js" />
     <Content Include="pages\resources\scripts\jquery-1.9.0.min.js" />
     <Content Include="pages\resources\scripts\jquery-migrate-1.0.0.min.js" />
     <Content Include="pages\resources\scripts\jquery-spin.js" />
+    <Content Include="pages\resources\scripts\jquery.ad-gallery.min.js" />
     <Content Include="pages\resources\scripts\jquery.dataTables.js" />
     <Content Include="pages\resources\scripts\jquery.dcmegamenu.1.3.3.min.js" />
     <Content Include="pages\resources\scripts\jquery.flexslider-min.js" />
     <Content Include="pages\resources\scripts\jquery.hoverIntent.minified.js" />
     <Content Include="pages\resources\scripts\jquery.jtslider.min.js" />
     <Content Include="pages\resources\scripts\simpla.jquery.configuration.js" />
+    <Content Include="pages\resources\styles\admin.css" />
     <Content Include="pages\resources\styles\blue.css" />
     <Content Include="pages\resources\styles\client.css" />
     <Content Include="pages\resources\styles\data-table.css" />
     <Content Include="pages\resources\styles\flexslider.css" />
     <Content Include="pages\resources\styles\ie.css" />
     <Content Include="pages\resources\styles\invalid.css" />
+    <Content Include="pages\resources\styles\jquery.ad-gallery.css" />
     <Content Include="pages\resources\styles\jtslider.css" />
     <Content Include="pages\resources\styles\mgmenu.css" />
     <Content Include="pages\resources\styles\red.css" />
     <Content Include="pages\resources\styles\reset.css" />
-    <Content Include="pages\resources\styles\admin.css" />
     <Content Include="pages\resources\styles\StyleClient.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -212,160 +244,427 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_GlobalResources\Formats.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Formats.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="App_GlobalResources\Messages.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="App_GlobalResources\Parameters.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Parameters.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Domain\Common\Constants\Logics.cs" />
+    <Compile Include="Domain\Common\Constants\Logics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Constants\Pages.cs" />
     <Compile Include="Domain\Common\Controller\BaseMasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Domain\Common\Controller\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Domain\Common\Dao\AbstractDao.cs" />
-    <Compile Include="Domain\Common\Dao\DataComDao.cs" />
+    <Compile Include="Domain\Common\Dao\AbstractDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Dao\DataComDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Domain\Common\Dao\Entities.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Entities.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Common\Dao\ItemComDao.cs" />
-    <Compile Include="Domain\Common\Dao\MCodeComDao.cs" />
-    <Compile Include="Domain\Common\Dao\MNumberComDao.cs" />
-    <Compile Include="Domain\Common\Dao\MParameterComDao.cs" />
-    <Compile Include="Domain\Common\Dao\UserComDao.cs" />
-    <Compile Include="Domain\Common\Enum\MessageType.cs" />
-    <Compile Include="Domain\Common\Enum\RatioType.cs" />
-    <Compile Include="Domain\Common\Exceptions\DataExistException.cs" />
-    <Compile Include="Domain\Common\Exceptions\DataNotExistException.cs" />
-    <Compile Include="Domain\Common\Exceptions\ExecuteException.cs" />
-    <Compile Include="Domain\Common\Exceptions\ParamInvalidException.cs" />
-    <Compile Include="Domain\Common\Exceptions\SysRuntimeException.cs" />
-    <Compile Include="Domain\Common\Helper\DataCheckHelper.cs" />
-    <Compile Include="Domain\Common\Helper\DataHelper.cs" />
-    <Compile Include="Domain\Common\Helper\FileHelper.cs" />
-    <Compile Include="Domain\Common\Helper\ImageHelper.cs" />
-    <Compile Include="Domain\Common\Helper\JsonHelper.cs" />
-    <Compile Include="Domain\Common\Helper\MailHelper.cs" />
-    <Compile Include="Domain\Common\Helper\MessageHelper.cs" />
-    <Compile Include="Domain\Common\Helper\PageHelper.cs" />
-    <Compile Include="Domain\Common\Helper\ParameterHelper.cs" />
-    <Compile Include="Domain\Common\Helper\UploadHelper.cs" />
-    <Compile Include="Domain\Common\Logic\IOperateLogic.cs" />
-    <Compile Include="Domain\Common\Model\CartItem.cs" />
-    <Compile Include="Domain\Common\Model\ItemModel.cs" />
-    <Compile Include="Domain\Common\Model\Message.cs" />
-    <Compile Include="Domain\Common\Model\MessageResponse.cs" />
-    <Compile Include="Domain\Common\Model\UploadModel.cs" />
-    <Compile Include="Domain\Common\Utils\CartCom.cs" />
-    <Compile Include="Domain\Common\Utils\DataCom.cs" />
-    <Compile Include="Domain\Common\Utils\ItemCom.cs" />
-    <Compile Include="Domain\Common\Utils\MCodeCom.cs" />
-    <Compile Include="Domain\Common\Utils\MNumberCom.cs" />
-    <Compile Include="Domain\Common\Utils\MParameterCom.cs" />
-    <Compile Include="Domain\Common\Utils\UserCom.cs" />
-    <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
-    <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
-    <Compile Include="Domain\Dao\AdminItemListDao.cs" />
-    <Compile Include="Domain\Dao\ClientIndexDao.cs" />
-    <Compile Include="Domain\Dao\ClientItemDetailsDao.cs" />
-    <Compile Include="Domain\Dao\ClientItemsDao.cs" />
-    <Compile Include="Domain\Dao\ClientLoginDao.cs" />
-    <Compile Include="Domain\Dao\ClientMasterDao.cs" />
-    <Compile Include="Domain\Dao\ClientShoppingCartDao.cs" />
-    <Compile Include="Domain\Logic\Admin\ItemEntry\InitLogic.cs" />
-    <Compile Include="Domain\Logic\Admin\ItemEntry\InitOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Admin\ItemList\FilterLogic.cs" />
-    <Compile Include="Domain\Logic\Admin\ItemList\FilterOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Admin\ItemList\InitLogic.cs" />
-    <Compile Include="Domain\Logic\Admin\ItemList\InitOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Index\BuyLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Index\BuyOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Index\InitLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Index\InitOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ItemDetails\BuyLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ItemDetails\BuyOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ItemDetails\InitLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ItemDetails\InitOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Items\BuyLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Items\BuyOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Items\InitLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Items\InitOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Login\LoginLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Login\LoginOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Master\InitLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Master\InitOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ShoppingCart\InitLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ShoppingCart\InitOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ShoppingCart\UpdateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\ShoppingCart\UpdateOperateLogic.cs.cs" />
-    <Compile Include="Domain\Model\Admin\ItemEntry\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
-    <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
-    <Compile Include="Domain\Model\Admin\ItemList\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Index\BuyDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Index\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\ItemDetails\BuyDataModel.cs" />
-    <Compile Include="Domain\Model\Client\ItemDetails\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Items\BuyDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Items\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Login\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Master\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\ShoppingCart\DeleteDataModel.cs" />
-    <Compile Include="Domain\Model\Client\ShoppingCart\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\ShoppingCart\UpdateDataModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemEntry\InitRequestModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemEntry\InitResponseModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemEntry\OutputImageModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemEntry\OutputPackModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemEntry\SaveRequestModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemEntry\SaveResponseModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemList\FilterRequestModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemList\FilterResponseModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemList\InitRequestModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemList\InitResponseModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemList\OutputItemModel.cs" />
-    <Compile Include="Domain\Web\Client\Index\BuyRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\Index\BuyResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\Index\InitRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\Index\InitResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\Index\OutputBannerModel.cs" />
-    <Compile Include="Domain\Web\Client\Index\OutputItemModel.cs" />
-    <Compile Include="Domain\Web\Client\ItemDetails\BuyRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\ItemDetails\BuyResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\ItemDetails\InitRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\ItemDetails\InitResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\ItemDetails\OutputItemModel.cs" />
-    <Compile Include="Domain\Web\Client\Items\BuyRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\Items\BuyResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\Items\InitRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\Items\InitResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\Items\OutputItemModel.cs" />
-    <Compile Include="Domain\Web\Client\Login\LoginRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\Login\LoginResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\Master\InitRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\Master\InitResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\Master\OutputCategoryModel.cs" />
-    <Compile Include="Domain\Web\Client\ShoppingCart\DeleteRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\ShoppingCart\DeleteResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\ShoppingCart\InitRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\ShoppingCart\InitResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\ShoppingCart\OutputItemModel.cs" />
-    <Compile Include="Domain\Web\Client\ShoppingCart\UpdateRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\ShoppingCart\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Common\Dao\ItemComDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Dao\MCodeComDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Dao\MNumberComDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Dao\MParameterComDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Dao\UserComDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Enum\MessageType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Enum\RatioType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Exceptions\DataExistException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Exceptions\DataNotExistException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Exceptions\ExecuteException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Exceptions\ParamInvalidException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Exceptions\SysRuntimeException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\DataCheckHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\DataHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\FileHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\ImageHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\JsonHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\MailHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\MessageHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\PageHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\ParameterHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Helper\UploadHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Logic\IOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Model\AcceptModel.cs" />
+    <Compile Include="Domain\Common\Model\CartItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Model\ItemModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Model\Message.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Model\MessageResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Model\UploadModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Utils\CartCom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Utils\DataCom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Utils\ItemCom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Utils\MCodeCom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Utils\MNumberCom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Utils\MParameterCom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Utils\UserCom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Validate\AbstractValidation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Common\Validate\ValidRequired.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Dao\AdminItemListDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Dao\ClientAcceptHistoryDao.cs" />
+    <Compile Include="Domain\Dao\ClientIndexDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Dao\ClientItemDetailsDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Dao\ClientItemsDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Dao\ClientLoginDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Dao\ClientMasterDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Dao\ClientShoppingCartDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Admin\ItemEntry\InitLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Admin\ItemEntry\InitOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Admin\ItemList\FilterLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Admin\ItemList\FilterOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Admin\ItemList\InitLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Admin\ItemList\InitOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\AcceptHistory\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Client\AcceptHistory\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Index\BuyLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Index\BuyOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Index\InitLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Index\InitOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ItemDetails\BuyLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ItemDetails\BuyOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ItemDetails\InitLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ItemDetails\InitOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Items\BuyLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Items\BuyOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Items\InitLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Items\InitOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Login\LoginLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Login\LoginOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Master\InitLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\Master\InitOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ShoppingCart\InitLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ShoppingCart\InitOperateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ShoppingCart\UpdateLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Logic\Client\ShoppingCart\UpdateOperateLogic.cs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Admin\ItemEntry\InitDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Admin\ItemList\InitDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\AcceptHistory\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Index\BuyDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\Index\InitDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\ItemDetails\BuyDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\ItemDetails\InitDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\Items\BuyDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\Items\InitDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\Login\InitDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\Master\InitDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\ShoppingCart\DeleteDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\ShoppingCart\InitDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Model\Client\ShoppingCart\UpdateDataModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemEntry\InitRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemEntry\InitResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemEntry\OutputImageModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemEntry\OutputPackModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemEntry\SaveRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemEntry\SaveResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemList\FilterRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemList\FilterResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemList\InitRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemList\InitResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Admin\ItemList\OutputItemModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\AcceptHistory\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\AcceptHistory\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\AcceptHistory\OutputAcceptModel.cs" />
+    <Compile Include="Domain\Web\Client\Index\BuyRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Index\BuyResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Index\InitRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Index\InitResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Index\OutputBannerModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Index\OutputItemModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ItemDetails\BuyRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ItemDetails\BuyResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ItemDetails\InitRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ItemDetails\InitResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ItemDetails\OutputItemModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Items\BuyRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Items\BuyResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Items\InitRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Items\InitResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Items\OutputItemModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Login\LoginRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Login\LoginResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Master\InitRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Master\InitResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\Master\OutputCategoryModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ShoppingCart\DeleteRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ShoppingCart\DeleteResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ShoppingCart\InitRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ShoppingCart\InitResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ShoppingCart\OutputItemModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ShoppingCart\UpdateRequestModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Web\Client\ShoppingCart\UpdateResponseModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -382,6 +681,13 @@
     </Compile>
     <Compile Include="pages\administer\item-list.aspx.designer.cs">
       <DependentUpon>item-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -432,6 +738,13 @@
     <Compile Include="pages\common\client.Master.designer.cs">
       <DependentUpon>client.Master</DependentUpon>
     </Compile>
+    <Compile Include="pages\common\customer.Master.cs">
+      <DependentUpon>customer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\common\customer.Master.designer.cs">
+      <DependentUpon>customer.Master</DependentUpon>
+    </Compile>
     <Compile Include="pages\common\error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -450,22 +763,7 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Formats.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Formats.designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Messages.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Messages.designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="App_GlobalResources\Parameters.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Parameters.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="pages\common\administer.Master" />
-    <Content Include="pages\common\client.Master" />
+    <Content Include="pages\common\customer.Master" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Domain\Common\Dao\Entities.dbml">

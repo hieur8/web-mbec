@@ -6,16 +6,18 @@ using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Logic;
-using MiBo.Domain.Common.Utils;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Common.Controller
 {
     public class BasePage : Page
     {
+        protected bool HasError { get; private set; }
+
         protected override void InitializeCulture()
         {
             // Retrieve culture information from session
-            var culture = Convert.ToString(Session["localeId"]);
+            var culture = Convert.ToString(PageHelper.LocaleCd);
 
             // Check whether a culture is stored in the session
             if (String.IsNullOrEmpty(culture)) culture = Logics.LOCALE_DEFAULT;
@@ -31,7 +33,7 @@ namespace MiBo.Domain.Common.Controller
             base.InitializeCulture();
         }
 
-        protected T Invoke<T>(IOperateLogic<T> logic, object obj) where T : class
+        protected T Invoke<T>(IOperateLogic<T> logic, object obj) where T : MessageResponse
         {
             // Local variable declaration
             T responseModel = null;
@@ -42,17 +44,26 @@ namespace MiBo.Domain.Common.Controller
 
                 // Invoke processing
                 responseModel = (T)logic.Invoke(obj);
+
+                // Set message
+                if(responseModel.HasMessage)
+                    PageHelper.SetMessage(responseModel.MessageSingle);
+
+                // Set value
+                HasError = false;
             }
             catch (SysRuntimeException ex)
             {
                 // Set message
                 PageHelper.SetMessage(ex.Message);
+                HasError = true;
                 return null;
             }
             catch (Exception ex)
             {
                 // Set message
                 PageHelper.SetMessage(ex);
+                HasError = true;
                 return null;
             }
 
@@ -78,17 +89,7 @@ namespace MiBo.Domain.Common.Controller
             Response.Redirect(url);
         }
 
-        protected bool HasError
-        {
-            get
-            {
-                if (Session["error"] == null) return false;
-                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "Lỗi", string.Format("alert({0})", Session["error"]), true);
-                return true;
-            }
-        }
-
-        protected static T InvokeStatic<T>(IOperateLogic<T> logic, object obj) where T : class
+        protected static T InvokeStatic<T>(IOperateLogic<T> logic, object obj) where T : MessageResponse
         {
             // Local variable declaration
             T responseModel = null;
@@ -99,6 +100,10 @@ namespace MiBo.Domain.Common.Controller
 
                 // Invoke processing
                 responseModel = (T)logic.Invoke(obj);
+
+                // Set message
+                if (responseModel.HasMessage)
+                    PageHelper.SetMessage(responseModel.MessageSingle);
             }
             catch (SysRuntimeException ex)
             {
