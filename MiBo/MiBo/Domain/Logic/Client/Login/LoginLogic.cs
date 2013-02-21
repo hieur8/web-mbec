@@ -7,6 +7,7 @@ using MiBo.Domain.Model.Client.Login;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Common.Dao;
+using MiBo.Domain.Common.Exceptions;
 
 namespace MiBo.Domain.Logic.Client.Login
 {
@@ -61,7 +62,7 @@ namespace MiBo.Domain.Logic.Client.Login
 
             responseModel.StatusFlag = resultObject.StatusFlag;
             responseModel.UserName = resultObject.UserName;
-
+            responseModel.UserCd = resultObject.UserCd;
             return responseModel;
         }
 
@@ -75,7 +76,7 @@ namespace MiBo.Domain.Logic.Client.Login
             // Local variable declaration
             LoginResponseModel responseModel = null;
             InitDataModel inputObject = null;
-            InitDataModel resultObject = null;
+            InitDataModel resultObject = new InitDataModel();
             // Variable initialize
             responseModel = new LoginResponseModel();
 
@@ -83,7 +84,21 @@ namespace MiBo.Domain.Logic.Client.Login
             inputObject = Convert(request);
 
             // Get infomation
-            resultObject = CheckLogin(inputObject);
+            UserComDao userCom = new UserComDao();
+            User result = userCom.GetSingle(inputObject.UserName, DataHelper.GetMd5Hash(inputObject.Password));
+
+            if (result != null)
+            {
+                resultObject.StatusFlag = true;
+                resultObject.UserName = result.Email;
+                resultObject.UserCd = result.UserCd.ToString();
+            }
+            else
+            {
+                resultObject.StatusFlag = false;
+                throw new ExecuteException("E_MSG_00008");
+
+            }
 
             // Execute convert ouput.
             responseModel = Convert(resultObject);
@@ -91,33 +106,6 @@ namespace MiBo.Domain.Logic.Client.Login
             return responseModel;
         }
 
-        /// <summary>
-        /// Get infomation
-        /// </summary>
-        /// <param name="inputObject">DataModel</param>
-        /// <returns>DataModel</returns>
-        private InitDataModel CheckLogin(InitDataModel inputObject)
-        {
-            // Local variable declaration
-            InitDataModel getResult = null;
-            ClientLoginDao clientLoginDao = null;
-
-
-            // Variable initialize
-            getResult = new InitDataModel();
-            getResult.StatusFlag = false;
-            clientLoginDao = new ClientLoginDao();
-
-
-            User result = clientLoginDao.GetUserInfo(inputObject);
-            if (result != null)
-            {
-                getResult.StatusFlag = true;
-                getResult.UserName = result.Email;
-            }
-            // Return value
-            return getResult;
-        }
         #endregion
     }
 }

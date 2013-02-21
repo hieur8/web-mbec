@@ -10,7 +10,7 @@
 namespace MiBo.pages.cln {
     
     
-    public partial class register {
+    public partial class profile_edit {
         
         /// <summary>
         /// form1 control.
@@ -49,6 +49,24 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.CheckBox is_subscribed;
         
         /// <summary>
+        /// CheckBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
         /// pass control.
         /// </summary>
         /// <remarks>
@@ -67,12 +85,12 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.TextBox passConfirm;
         
         /// <summary>
-        /// btnRegister control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegister;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

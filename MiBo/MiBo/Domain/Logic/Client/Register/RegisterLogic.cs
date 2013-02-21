@@ -8,6 +8,9 @@ using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Web.Client.Register;
+using MiBo.Domain.Common.Utils;
+using MiBo.Domain.Common.Model;
+using MiBo.Domain.Common.Exceptions;
 
 namespace MiBo.Domain.Logic.Client.Register
 {
@@ -59,8 +62,8 @@ namespace MiBo.Domain.Logic.Client.Register
 
             // Variable initialize
             responseModel = new RegisterResponseModel();
-
-            responseModel.StatusFlag = resultObject.StatusFlag;
+            responseModel.StatusFlag = true;
+            responseModel.AddMessage(MessageHelper.GetMessageInfo("I_MSG_00002"));
 
             return responseModel;
         }
@@ -83,35 +86,24 @@ namespace MiBo.Domain.Logic.Client.Register
             inputObject = Convert(request);
 
             // insert infomation
-            UserComDao userCom = new UserComDao();
+            UserCom userCom = new UserCom();
 
-            if (userCom.IsExistUserName(inputObject.email))
+            if (userCom.IsExistEmail(inputObject.email,false))
             {
-                resultObject.StatusFlag = 2;
+                throw new ExecuteException("E_MSG_00010");
+                
             }
             else
             {
                 User param = new User();
                 param.UserCd = Guid.NewGuid();
-                param.UserName = inputObject.email;
+                param.Email = inputObject.email;
                 param.Password = inputObject.pass;
-
-                try
-                {
-                    userCom.registerUser(param);
-                    resultObject.StatusFlag = 0;
-                }
-                catch (Exception e)
-                {
-                    resultObject.StatusFlag = 1;
-                }
+                userCom.registerUser(param);
+                
             }
-
-           
-
             // Execute convert ouput.
             responseModel = Convert(resultObject);
-
             return responseModel;
         }
 

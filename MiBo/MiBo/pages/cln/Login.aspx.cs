@@ -17,24 +17,13 @@ namespace MiBo.pages.cln
             if (Session["userCd"] != null){
                 Response.Redirect("index.aspx");
             }
-
-            if (Session["MsgInfo"] != null)
-            {
-                lbMsg.Text = Session["MsgInfo"].ToString();
-                Session["MsgInfo"] = null;
-            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            lbMsg.Text = "";
             var logic = new LoginOperateLogic();
             var response = Invoke(logic, LoginRequestModel);
-            if (response.StatusFlag == false)
-            {
-                lbMsg.Text = "Tài khoản hoặc mật khẩu không đúng !";
-            }
-            else
+            if (response != null)
             {
                 Session["userCd"] = response.UserCd;
                 Session["userName"] = response.UserName;
