@@ -141,7 +141,7 @@ namespace MiBo.Domain.Common.Dao
     #endregion
 		
 		public EntitiesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MiBoDBConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MiBoDBConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -950,6 +950,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _Phone2;
 		
+		private System.Nullable<bool> _HasNewsletter;
+		
 		private string _CreateUser;
 		
 		private System.Nullable<System.DateTime> _CreateDate;
@@ -986,6 +988,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnPhone1Changed();
     partial void OnPhone2Changing(string value);
     partial void OnPhone2Changed();
+    partial void OnHasNewsletterChanging(System.Nullable<bool> value);
+    partial void OnHasNewsletterChanged();
     partial void OnCreateUserChanging(string value);
     partial void OnCreateUserChanged();
     partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
@@ -1166,6 +1170,26 @@ namespace MiBo.Domain.Common.Dao
 					this._Phone2 = value;
 					this.SendPropertyChanged("Phone2");
 					this.OnPhone2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasNewsletter", DbType="Bit")]
+		public System.Nullable<bool> HasNewsletter
+		{
+			get
+			{
+				return this._HasNewsletter;
+			}
+			set
+			{
+				if ((this._HasNewsletter != value))
+				{
+					this.OnHasNewsletterChanging(value);
+					this.SendPropertyChanging();
+					this._HasNewsletter = value;
+					this.SendPropertyChanged("HasNewsletter");
+					this.OnHasNewsletterChanged();
 				}
 			}
 		}

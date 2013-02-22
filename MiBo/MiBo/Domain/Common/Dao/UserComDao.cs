@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MiBo.Domain.Common.Helper;
 
 namespace MiBo.Domain.Common.Dao
 {
@@ -94,7 +93,13 @@ namespace MiBo.Domain.Common.Dao
             EntityManager.SubmitChanges();
         }
 
-        public bool IsExistEmail(String email, bool ignoreDeleteFlag)
+        /// <summary>
+        /// Check exist user
+        /// </summary>
+        /// <param name="email">Email</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>True/False</returns>
+        public bool IsExistEmail(string email, bool ignoreDeleteFlag)
         {
             var result = from tbl in EntityManager.Users
                          where tbl.Email == email

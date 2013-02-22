@@ -10,7 +10,7 @@
 namespace MiBo.pages.cln {
     
     
-    public partial class index {
+    public partial class index1 {
         
         /// <summary>
         /// rptBanner control.

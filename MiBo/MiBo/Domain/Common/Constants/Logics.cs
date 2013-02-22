@@ -52,6 +52,9 @@
         public const string CD_CATEGORY_DIV_TOYS = "01";
         public const string CD_CATEGORY_DIV_ACCESSORIES = "02";
 
+        // Description for business code
+        public const string CD_BUSINESS_ACCEPT = "01";
+
         // Description for show code
         public const string CD_SHOW_ITEMS_SEARCH = "search";
         public const string CD_SHOW_ITEMS_OFFER = "offer";

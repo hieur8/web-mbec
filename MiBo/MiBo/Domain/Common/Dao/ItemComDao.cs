@@ -82,7 +82,8 @@ namespace MiBo.Domain.Common.Dao
             // Submit
             EntityManager.SubmitChanges();
         }
-        public Item GetSingle(String itemCd, bool ignoreDeleteFlag)
+
+        public Item GetSingle(string itemCd, bool ignoreDeleteFlag)
         {
             var listResult = from tbl in EntityManager.Items
                              where tbl.ItemCd == itemCd

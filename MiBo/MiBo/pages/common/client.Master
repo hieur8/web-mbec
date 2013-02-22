@@ -105,14 +105,14 @@
                 <div class="nav-container">
                     <div class="light-blue">
                         <ul id="mega-menu" class="mega-menu">
-                            <li><a href="index.aspx">Trang Chủ</a></li>
+                            <li><a href="/pages/cln/index.aspx">Trang Chủ</a></li>
                             <li><a href="#">Đồ Chơi</a>
                                 <asp:Repeater ID="rptToyMenu" runat="server">
                                     <HeaderTemplate>
                                         <ul>
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <li><a href='#<%# Eval("CategoryCd") %>'>
+                                        <li><a href='/pages/cln/items.aspx?category=<%# Eval("CategoryCd") %>'>
                                             <%# Eval("CategoryName") %></a></li>
                                     </ItemTemplate>
                                     <FooterTemplate>
@@ -126,7 +126,7 @@
                                         <ul>
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <li><a href='#<%# Eval("CategoryCd") %>'>
+                                        <li><a href='/pages/cln/items.aspx?category=<%# Eval("CategoryCd") %>'>
                                             <%# Eval("CategoryName") %></a></li>
                                     </ItemTemplate>
                                     <FooterTemplate>

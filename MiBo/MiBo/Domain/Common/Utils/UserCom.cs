@@ -199,20 +199,6 @@ namespace MiBo.Domain.Common.Utils
             _comDao.UpdatePassword(param, ignoreDeleteFlag);
         }
 
-        public void registerUser(User param)
-        {
-            DateTime dateNow = DateTime.Now;
-            param.Password = DataHelper.GetMd5Hash(param.Password);
-            param.CreateUser = "init";
-            param.CreateDate = dateNow;
-            param.UpdateUser = "init";
-            param.UpdateDate = dateNow;
-            param.DeleteFlag = false;
-            _comDao.EntityManager.Users.InsertOnSubmit(param);
-            // Submit
-            _comDao.EntityManager.SubmitChanges();
-        }
-
         /// <summary>
         /// Check exist email
         /// </summary>
@@ -233,6 +219,20 @@ namespace MiBo.Domain.Common.Utils
 
             //Return value
             return result;
+        }
+
+        public void registerUser(User param)
+        {
+            DateTime dateNow = DateTime.Now;
+            param.Password = DataHelper.GetMd5Hash(param.Password);
+            param.CreateUser = "init";
+            param.CreateDate = dateNow;
+            param.UpdateUser = "init";
+            param.UpdateDate = dateNow;
+            param.DeleteFlag = false;
+            _comDao.EntityManager.Users.InsertOnSubmit(param);
+            // Submit
+            _comDao.EntityManager.SubmitChanges();
         }
     }
 }

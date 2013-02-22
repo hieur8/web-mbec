@@ -758,7 +758,7 @@ tr.summary-details-excluded { font-style:italic; }
 .products-grid { border-bottom:1px solid #44bed3;position:relative;padding-top:5px; }
 .products-grid.last { /*border-bottom:0; */ }
 .products-grid li.item { float:left; padding:7px 12px 40px;width:165px; }
-.products-grid .product-image { display:block; width:170px; height:189px; margin:0 0 10px;border:1px solid #E2E2E2; }
+.products-grid .product-image { display:block; width:150px; height:100px; margin:0 0 10px;border:1px solid #E2E2E2; }
 .products-grid .product-name { /*min-height:2.7em;*/ margin:0 0 5px; font-weight:bold; font-size:12px; color:#2a2a28; }
 .products-grid .product-name a { color:#203548; }
 .products-grid .price-box { margin:5px 0; }
@@ -1904,3 +1904,158 @@ button.btn-cart span span{background-position:100%;line-height:30px;padding-righ
 	top:555px;
 }
 .install-theme,.clone-theme,.customize-theme ,.download-theme {left:0;}
+
+label.error {
+	color:Red;
+	font-weight:bold;
+}
+
+/*
+* JPLIST: common styles
+*/
+.jplist{
+	float: left;
+	width: 100%;
+}
+
+.jplist .jplist-no-results{
+	display: none;
+}
+
+.jplist .jplist-no-results p{
+	text-align: center;
+	padding: 0.6em 0;
+}
+
+
+/*
+* JPLIST: filters
+*/
+.jplist .filter{
+	float: left;
+	margin: 0.6em 0 0 0;
+}
+
+.jplist .filter input{
+	display: block;
+	float: left;
+	
+	width: 150px;
+	height: 1.16em;
+	margin: 0 0 0 1.25em;
+	
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+.jplist .search-title{
+	float: left;
+	margin-left: 10px;
+}
+
+.jplist .filter-btn{
+	margin: 0px 0px 0px 5px;
+	text-decoration: none;
+	color: #fff;
+	background-color: #1E87AA;
+	border-radius: 3px;
+	padding: 1px 5px;
+}
+
+/*
+* JPLIST: pagination
+*/
+.jplist .pagingprev,
+.jplist .pagingmid,
+.jplist .pagingnext{
+	float: left;
+}
+
+.jplist .paging{
+	float: left;
+	margin: 0.6em 0.6em 0 1.25em;	
+}
+
+.jplist .paging span{
+	cursor: pointer;
+	color: #1E87AA;
+	margin: 0 0.3em 0 0;	
+}
+
+.jplist .paging  span.current{
+	font-weight: bold;
+	color: #CA3F1A;
+}
+
+.jplist .paging-results{
+	float: left;
+	margin: 0.6em 0 0 1.25em;
+}
+
+/*
+* JPLIST: dropdowns
+*/
+.jplist .drop-down{
+	float: left;
+	width: 130px;
+	height: 1.3em;
+	
+	margin: 0.6em 0 0 1.25em;	
+	border: 1px solid #aaa;
+}
+
+.jplist .drop-down .panel{
+	float: left;
+	width: 125px;
+	height: 1.3em;
+	line-height: 1.3em;
+	
+	overflow: hidden;
+	background: #fff url('../img/down.png') no-repeat 99% 50%;
+	
+	padding: 0px 0px 0px 5px;
+	margin: 0px 0px 0px 0px;
+	cursor: pointer;
+}
+
+.jplist .drop-down:hover .panel{
+	background: #fff url('../img/down-dark.png') no-repeat 99% 50%;
+}
+
+.jplist .drop-down ul{	
+
+	position: relative;
+	top: 0px;
+	left: -1px;
+	z-index: 1000;
+	
+	width: 130px;
+	display: none;
+	overflow: hidden;
+	
+	background-color: #fff;
+	border: 1px solid #ccc;
+	
+	padding: 0;
+	margin: 0;
+	
+	list-style: none;
+	border-radius: 0 0 3px 3px;
+}
+
+.jplist .drop-down ul li{
+	padding: 0 0 0 0.3em;
+	cursor: pointer;
+	width: 130px;
+	float: left;
+	background-color: #fff;
+}
+
+.jplist .drop-down ul li:hover{
+	background-color: #444;
+	color: #fff;
+}
+
+.jplist .hidden{
+	display: none;
+}
