@@ -73,8 +73,8 @@
     <Content Include="pages\cln\checkout.aspx" />
     <Content Include="pages\cln\confirmcheckout.aspx" />
     <Content Include="pages\cln\details.aspx" />
+    <Content Include="pages\cln\index_bk.aspx" />
     <Content Include="pages\cln\index.aspx" />
-    <Content Include="pages\cln\index2.aspx" />
     <Content Include="pages\cln\item-details.aspx" />
     <Content Include="pages\cln\items.aspx" />
     <Content Include="pages\cln\Login.aspx" />
@@ -288,8 +288,7 @@
     </Compile>
     <Compile Include="Domain\Common\Dao\AbstractDao.cs" />
     <Compile Include="Domain\Common\Dao\DataComDao.cs" />
-    <Compile Include="Domain\Common\Dao\Entities.designer.cs" />
-    <Compile Include="Domain\Common\Dao\Entities1.designer.cs">
+    <Compile Include="Domain\Common\Dao\Entities.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Entities.dbml</DependentUpon>
@@ -340,6 +339,7 @@
     <Compile Include="Domain\Dao\ClientItemsDao.cs" />
     <Compile Include="Domain\Dao\ClientLoginDao.cs" />
     <Compile Include="Domain\Dao\ClientMasterDao.cs" />
+    <Compile Include="Domain\Dao\ClientProfileDao.cs" />
     <Compile Include="Domain\Dao\ClientShoppingCartDao.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitOperateLogic.cs" />
@@ -367,6 +367,10 @@
     <Compile Include="Domain\Logic\Client\Login\LoginOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Master\InitLogic.cs" />
     <Compile Include="Domain\Logic\Client\Master\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Profile\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Profile\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Profile\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Profile\SaveOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Register\RegisterLogic.cs" />
     <Compile Include="Domain\Logic\Client\Register\RegisterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteLogic.cs" />
@@ -389,6 +393,8 @@
     <Compile Include="Domain\Model\Client\Items\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Login\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Master\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Profile\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Profile\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Client\Register\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\ShoppingCart\DeleteDataModel.cs" />
     <Compile Include="Domain\Model\Client\ShoppingCart\InitDataModel.cs" />
@@ -430,6 +436,10 @@
     <Compile Include="Domain\Web\Client\Master\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Master\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Master\OutputCategoryModel.cs" />
+    <Compile Include="Domain\Web\Client\Profile\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\Profile\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Profile\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\Profile\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Register\RegisterRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Register\RegisterResponseModel.cs" />
     <Compile Include="Domain\Web\Client\ShoppingCart\DeleteRequestModel.cs" />
@@ -491,19 +501,19 @@
     <Compile Include="pages\cln\details.aspx.designer.cs">
       <DependentUpon>details.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\cln\index_bk.aspx.cs">
+      <DependentUpon>index_bk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\index_bk.aspx.designer.cs">
+      <DependentUpon>index_bk.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\cln\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pages\cln\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\cln\index2.aspx.cs">
-      <DependentUpon>index2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\cln\index2.aspx.designer.cs">
-      <DependentUpon>index2.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\item-details.aspx.cs">
       <DependentUpon>item-details.aspx</DependentUpon>
@@ -628,7 +638,7 @@
   <ItemGroup>
     <None Include="Domain\Common\Dao\Entities.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Entities1.designer.cs</LastGenOutput>
+      <LastGenOutput>Entities.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

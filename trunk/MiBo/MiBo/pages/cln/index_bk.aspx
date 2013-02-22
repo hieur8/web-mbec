@@ -1,10 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true"
-    CodeBehind="index.aspx.cs" Inherits="MiBo.pages.cln.index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/customer.Master" AutoEventWireup="true"
+    CodeBehind="index_bk.aspx.cs" Inherits="MiBo.pages.cln.index1" %>
 
-<asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- flexslider -->
-    <link href="/pages/resources/styles/flexslider.css" rel="stylesheet" type="text/css" />
-    <script src="/pages/resources/scripts/jquery.flexslider-min.js" type="text/javascript"></script>
+    <link href="../resources/styles/flexslider.css" rel="stylesheet" type="text/css" />
+    <script src="../resources/scripts/jquery.flexslider-min.js" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
             $('.flexslider').flexslider({
@@ -34,38 +36,36 @@
 
         });
     </script>
-</asp:Content>
-<asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
-<div class="main-container col1-layout">
+    <div class="main-container col1-layout">
         <div class="main">
             <div class="col-main">
                 <div class="std">
                     <div class="maiin-content">
                         <div class="header-banner">
                             <section class="slider">
-                                <div class="flexslider">
-                                     <asp:Repeater ID="rptBanner" runat="server">
-                                        <HeaderTemplate>
-                                            <ul class="slides">
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <li><a href='#<%# Eval("BannerCd") %>'>
-                                                <img alt="<%# Eval("BannerName") %>" title="<%# Eval("BannerName") %>" src='/pages/media/images/banners/<%# Eval("Image") %>' /></a>
-                                            </li>
-                                        </ItemTemplate>
-                                        <FooterTemplate>
-                                            </ul>
-                                        </FooterTemplate>
-                                    </asp:Repeater>
-                                </div>
-                            </section>
+        <div class="flexslider">
+             <asp:Repeater ID="rptBanner" runat="server">
+                <HeaderTemplate>
+                    <ul class="slides">
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <li><a href='#<%# Eval("BannerCd") %>'>
+                        <img alt="<%# Eval("BannerName") %>" title="<%# Eval("BannerName") %>" src='/pages/media/images/banners/<%# Eval("Image") %>' /></a>
+                    </li>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </ul>
+                </FooterTemplate>
+            </asp:Repeater>
+        </div>
+    </section>
                         </div>
                         <!-- ket thuc silde -->
                         <div class="tab-display">
                             <ul class="tabs">
                                 <li class="active" style=""><a href="#tab1">SP mới</a></li>
-                                <li class=""><a href="#tab2">SP khuyến mãi</a></li>
-                                <li class=""><a href="#tab3">SP xem nhiều</a></li>
+                                <li class=""><a href="#tab2">SP bán chạy</a></li>
+                                <li class=""><a href="#tab3">SP HOT</a></li>
                             </ul>
                             <div class="tab_container">
                                 <div id="tab1" class="tab_content" style="display: block;">
@@ -74,26 +74,26 @@
                                             <ul class="products-grid">
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <li class="item first">
-                                                <a href='/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
-                                                    <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName") %>'>
-                                                </a>
+                                            <li class="item first"><a href="/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>&pnm=<%# Eval("ItemName") %>"
+                                                title="<%# Eval("ItemName") %>" class="product-image">
+                                                <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                    width="170" height="189" alt="<%# Eval("ItemName") %>"></a>
                                                 <div class="align-prodname-price-review">
                                                     <h3 class="product-name">
-                                                        <a href="/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a>
-                                                    </h3>
+                                                        <a href="/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>&pnm=<%# Eval("ItemName") %>"
+                                                            title="Toy Story">
+                                                            <%# Eval("ItemName") %></a></h3>
                                                     <div class="price-box">
                                                         <span class="regular-price" id="product-price-181-new">
                                                             <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
                                                             <br />
                                                             <span class="price">
-                                                                <%# Eval("Price") %>
-                                                            </span>
-                                                         </span>
+                                                                <%# Eval("Price") %></span> </span>
                                                     </div>
                                                 </div>
                                                 <div class="actions">
-                                                    <asp:LinkButton CssClass="button btn-cart" OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Mua hàng</asp:LinkButton>
+                                                    <button type="button" title="Add to Cart" class="button btn-cart">
+                                                        <span><span>Mua hàng</span></span></button>
                                                 </div>
                                             </li>
                                         </ItemTemplate>
@@ -108,26 +108,24 @@
                                             <ul class="products-grid">
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <li class="item first">
-                                                <a href='/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
-                                                    <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName") %>'>
-                                                </a>
+                                            <li class="item first"><a href="#" title="<%# Eval("ItemName") %>" class="product-image">
+                                                <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                    width="170" height="189" alt="<%# Eval("ItemName") %>"></a>
                                                 <div class="align-prodname-price-review">
                                                     <h3 class="product-name">
-                                                        <a href="/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a>
-                                                    </h3>
+                                                        <a href="#" title="Toy Story">
+                                                            <%# Eval("ItemName") %></a></h3>
                                                     <div class="price-box">
                                                         <span class="regular-price" id="product-price-181-new">
                                                             <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
                                                             <br />
                                                             <span class="price">
-                                                                <%# Eval("Price") %>
-                                                            </span>
-                                                         </span>
+                                                                <%# Eval("Price") %></span> </span>
                                                     </div>
                                                 </div>
                                                 <div class="actions">
-                                                    <asp:LinkButton CssClass="button btn-cart" OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Mua hàng</asp:LinkButton>
+                                                    <button type="button" title="Add to Cart" class="button btn-cart">
+                                                        <span><span>Mua hàng</span></span></button>
                                                 </div>
                                             </li>
                                         </ItemTemplate>
@@ -142,26 +140,24 @@
                                             <ul class="products-grid">
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <li class="item first">
-                                                <a href='/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
-                                                    <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName") %>'>
-                                                </a>
+                                            <li class="item first"><a href="#" title="<%# Eval("ItemName") %>" class="product-image">
+                                                <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                    width="170" height="189" alt="<%# Eval("ItemName") %>"></a>
                                                 <div class="align-prodname-price-review">
                                                     <h3 class="product-name">
-                                                        <a href="/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a>
-                                                    </h3>
+                                                        <a href="#" title="Toy Story">
+                                                            <%# Eval("ItemName") %></a></h3>
                                                     <div class="price-box">
                                                         <span class="regular-price" id="product-price-181-new">
                                                             <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
                                                             <br />
                                                             <span class="price">
-                                                                <%# Eval("Price") %>
-                                                            </span>
-                                                        </span>
+                                                                <%# Eval("Price") %></span> </span>
                                                     </div>
                                                 </div>
                                                 <div class="actions">
-                                                    <asp:LinkButton CssClass="button btn-cart" OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Mua hàng</asp:LinkButton>
+                                                    <button type="button" title="Add to Cart" class="button btn-cart">
+                                                        <span><span>Mua hàng</span></span></button>
                                                 </div>
                                             </li>
                                         </ItemTemplate>
@@ -179,20 +175,16 @@
                             <div class="top-text-cs">
                                 Hỗ trợ trực tuyến</div>
                             <div class="align-img">
-                                <img src="/pages/resources/images/green-dream_17.gif"
+                                <img src="http://www.magento-themes.jextn.com/demo/mageno_blue_toys_theme_demo/skin/frontend/default/blue-toys/images/green-dream_17.gif"
                                     alt=""></div>
                             <div class="phno">
                                 0976.12.10.90</div>
                             <p style="text-align: center;">
-                                <a href="skype:darkemperordt?call">
-                                    <img alt="My status" height="44" src="http://mystatus.skype.com/bigclassic/darkemperordt" style="border: none;" width="182" />
-                                </a>
-                            </p>
-                            <br />
-                            <p style="text-align: center;">
-                                <img src='http://opi.yahoo.com/online?u=hieur8&m=g&t=14'/>
-                            </p>
-                        </div>
+   <a href="skype:darkemperordt?call"><img alt="My status" height="44" src="http://mystatus.skype.com/bigclassic/darkemperordt" style="border: none;" width="182" /></a></p>
+                        <br />
+                         <p style="text-align: center;">
+                        <img src='http://opi.yahoo.com/online?u=hieur8&m=g&t=14'/>
+                       </p> </div>
                         <div class="perfume">
                             <div class="block block-subscribe">
                                 <div class="block-title">
@@ -202,6 +194,7 @@
                                 </div>
                                 <div class="clear">
                                 </div>
+                                <form action="#" method="post" id="newsletter-validate-detail">
                                 <div class="block-content">
                                     <div class="input-box">
                                         <input type="text" name="email" id="newsletter" title="Nhận tin tức của chúng tôi"
@@ -213,23 +206,21 @@
                                             <span><span>Go</span></span></button>
                                     </div>
                                 </div>
+                                </form>
+                                <script type="text/javascript">
+                                </script>
                             </div>
                             <br />
                             <div class="botm-text">
                                 <span class="first-line-botm">Đăng ký nhận<br>
-                                <span class="botmtt">tin tức sản phẩm</span></span><br>
-                                <span class="second-line-botom">Mỗi tuần</span>
-                            </div>
+                                    <span class="botmtt">tin tức sản phẩm</span></span><br>
+                                <span class="second-line-botom">Mỗi tuần</span></div>
                         </div>
                         <div class="connect-us">
                             <p>
                                 <a class="social" href="http://www.twitter.com">
-                                    <img src="/pages/resources/images/green-dream_19.gif" alt="">
-                                </a>
-                                <a class="social" href="http://www.facebook.com">
-                                    <img src="/pages/resources/images/green-dream_23.gif" alt="">
-                                </a>
-                            </p>
+                                    <img src="../resources/images/green-dream_19.gif" alt=""></a> <a class="social" href="http://www.facebook.com">
+                                        <img src="../resources/images/green-dream_23.gif" alt=""></a></p>
                         </div>
                     </div>
                     <!-- ket thuc hinh ben phai -->

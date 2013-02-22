@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Utils;
-using MiBo.Domain.Dao;
-using MiBo.Domain.Model.Client.ItemDetails;
-using MiBo.Domain.Web.Client.ItemDetails;
-using Resources;
+using MiBo.Domain.Model.Client.Profile;
+using MiBo.Domain.Web.Client.Profile;
 
-namespace MiBo.Domain.Logic.Client.ItemDetails
+namespace MiBo.Domain.Logic.Client.Profile
 {
     public class InitLogic
     {
@@ -53,42 +51,17 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
         {
             // Local variable declaration
             InitResponseModel responseModel = null;
-            IList<string> listImages = null;
-            IList<OutputItemModel> listOfferItems = null;
-            OutputItemModel offerItem = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
-            listImages = new List<string>();
-            listOfferItems = new List<OutputItemModel>();
 
             // Get value
-            var item = resultObject.Item;
+            var user = resultObject.User;
 
             // Set value
-            responseModel.ItemCd = DataHelper.ToString(item.ItemCd);
-            responseModel.ItemName = DataHelper.ToString(item.ItemName);
-            responseModel.ItemImage = DataHelper.ToString(item.ItemImage);
-            foreach (var obj in item.ItemImages)
-            {
-                listImages.Add(obj.Image);
-            }
-            responseModel.ListImages = listImages;
-            responseModel.ItemDiv = DataHelper.ToString(item.ItemDiv);
-            responseModel.OfferDiv = DataHelper.ToString(item.OfferDiv);
-            responseModel.Price = DataHelper.ToString(Formats.CURRENCY, item.SalesPrice);
-            responseModel.PriceOld = DataHelper.ToString(Formats.CURRENCY, item.SalesPriceOld);
-            responseModel.Notes = DataHelper.ToString(item.Notes);
-            foreach (var obj in item.ListOfferItems)
-            {
-                offerItem = new OutputItemModel();
-                offerItem.ItemCd = DataHelper.ToString(obj.OfferItemCd);
-                offerItem.ItemName = DataHelper.ToString(obj.Item.ItemName);
-                offerItem.ItemImage = DataHelper.ToString(obj.Item.ItemImages[0].Image);
-                offerItem.Quantity = DataHelper.ToString(Formats.NUMBER, obj.OfferItemQtty);
-                listOfferItems.Add(offerItem);
-            }
-            responseModel.ListOfferItems = listOfferItems;
+            responseModel.FullName = DataHelper.ToString(user.FullName);
+            responseModel.Address = DataHelper.ToString(user.Address);
+            responseModel.HasNewsletter = DataHelper.ToString(user.HasNewsletter);
 
             // Return value
             return responseModel;
@@ -112,7 +85,7 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             // Execute convert input.
             inputObject = Convert(request);
 
-            // Check infomation
+            // Check processing.
             Check(inputObject);
 
             // Get infomation
@@ -130,6 +103,8 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
         /// <param name="inputObject">DataModel</param>
         private void Check(InitDataModel inputObject)
         {
+            if (!PageHelper.HasAuthenticated)
+                throw new ExecuteException("E_MSG_00010");
         }
 
         /// <summary>
@@ -141,22 +116,17 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
         {
             // Local variable declaration
             InitDataModel getResult = null;
-            ClientItemDetailsDao clientItemDetailsDao = null;
-            ItemCom itemCom = null;
+            UserCom userCom = null;
 
             // Variable initialize
             getResult = new InitDataModel();
-            clientItemDetailsDao = new ClientItemDetailsDao();
-            itemCom = new ItemCom();
+            userCom = new UserCom();
 
             // Get data
-            var item = clientItemDetailsDao.GetItem(inputObject);
-
-            // Update data
-            itemCom.UpdateViewer(inputObject.ItemCd);
+            var user = userCom.GetSingle(PageHelper.UserCd, false);
 
             // Set value
-            getResult.Item = itemCom.ToItemModel(item);
+            getResult.User = user;
 
             // Return value
             return getResult;

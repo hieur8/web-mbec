@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using MiBo.Domain.Logic.Client.Items;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
+using MiBo.Domain.Logic.Client.Items;
 using MiBo.Domain.Web.Client.Items;
 
 namespace MiBo.pages.cln
@@ -28,7 +25,7 @@ namespace MiBo.pages.cln
             var responseModel = Invoke(buyLogic, BuyRequestModel);
             if (HasError) return;
             Session["Cart"] = responseModel.Cart;
-            Redirect("index.aspx");
+            Redirect(Pages.CLIENT_INDEX);
         }
 
         private InitRequestModel InitRequestModel

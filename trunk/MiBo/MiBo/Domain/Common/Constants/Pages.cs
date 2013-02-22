@@ -6,7 +6,9 @@
         public const string ERROR_PAGE = "/pages/common/error.aspx";
 
         // Client
+        public const string CLIENT_INDEX = "/pages/cln/index.aspx";
 
         // Admin
+        public const string ADMIN_INDEX = "/pages/administer/index.aspx";
     }
 }

@@ -1,8 +1,9 @@
-﻿using MiBo.Domain.Common.Dao;
-using MiBo.Domain.Common.Model;
-using System.Collections.Generic;
-using MiBo.Domain.Common.Utils;
+﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Constants;
+using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Model;
+using MiBo.Domain.Common.Utils;
 
 namespace MiBo.Domain.Dao
 {
@@ -10,8 +11,7 @@ namespace MiBo.Domain.Dao
     {
         public void makeCheckout(Accept accept, IList<CartItem> cart)
         {
-            MNumberCom com = new MNumberCom();
-            accept.AcceptSlipNo = com.GetSlipNo("01");
+            accept.AcceptSlipNo = MNumberCom.GetSlipNo(Logics.CD_BUSINESS_ACCEPT);
             accept.DeliveryCd = DataHelper.GetUniqueKey();
             EntityManager.Accepts.InsertOnSubmit(accept);
             int countNo = 1;
