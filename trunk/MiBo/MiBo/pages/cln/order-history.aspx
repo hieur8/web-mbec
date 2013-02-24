@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/customer.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true"
     CodeBehind="order-history.aspx.cs" Inherits="MiBo.pages.cln.order_history" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
     <div class="main-container col2-left-layout">
         <div class="main">
             <div class="col-main">
@@ -14,63 +14,71 @@
                     </div>
                     <div class="pager">
                         <p class="amount">
-                            <strong>(1) Đơn hàng</strong>
+                            <strong>(<asp:Literal ID="litAcceptCount" runat="server"></asp:Literal>) Đơn hàng</strong>
                         </p>
                     </div>
-                    <table class="data-table" id="my-orders-table">
-                        <colgroup>
-                            <col width="1">
-                            <col width="1">
-                            <col>
-                            <col width="1">
-                            <col width="1">
-                            <col width="1">
-                        </colgroup>
-                        <thead>
-                            <tr class="first last">
-                                <th>
-                                    No
-                                </th>
-                                <th>
-                                    Ngày
-                                </th>
-                                <th>
-                                    Giao đến
-                                </th>
-                                <th>
-                                    <span class="nobr">Tổng tiền</span>
-                                </th>
-                                <th>
-                                    <span class="nobr">Tình trang</span>
-                                </th>
-                                <th>
-                                    &nbsp;
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <asp:Repeater ID="rptAccept" runat="server">
+                        <HeaderTemplate>
+                            <table class="data-table" id="my-orders-table">
+                                <colgroup>
+                                    <col width="1">
+                                    <col width="1">
+                                    <col>
+                                    <col width="1">
+                                    <col width="1">
+                                    <col width="1">
+                                </colgroup>
+                                <thead>
+                                    <tr class="first last">
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Ngày
+                                        </th>
+                                        <th>
+                                            Giao đến
+                                        </th>
+                                        <th>
+                                            <span class="nobr">Tổng tiền</span>
+                                        </th>
+                                        <th>
+                                            <span class="nobr">Tình trang</span>
+                                        </th>
+                                        <th>
+                                            &nbsp;
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        </HeaderTemplate>
+                        <ItemTemplate>
                             <tr class="first last odd">
                                 <td>
-                                    100000023
+                                    <%# Eval("AcceptSlipNo")%>
                                 </td>
                                 <td>
-                                    <span class="nobr">2/20/13</span>
+                                    <span class="nobr"><%# Eval("AcceptDate")%></span>
                                 </td>
                                 <td>
-                                    hieu nguyen
+                                    <%# Eval("DeliveryName")%>
                                 </td>
                                 <td>
-                                    <span class="price">200.000 vnđ</span>
+                                    <span class="price"><%# Eval("TotalAmount")%></span>
                                 </td>
                                 <td>
-                                    <em>Hoàn thành</em>
+                                    <em><%# Eval("SlipStatusName")%></em>
                                 </td>
                                 <td class="a-center last">
-                                    <span class="nobr"><a href="#">Chi tiết</a></span>
+                                    <span class="nobr"><a href='/pages/cln/order-details.aspx?order=<%# Eval("AcceptSlipNo")%>'>Chi tiết</a></span>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                                </tbody>
+                            </table>
+                        </FooterTemplate>
+                    </asp:Repeater>
                 </div>
             </div>
             <div class="col-left sidebar">

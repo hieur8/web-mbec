@@ -55,7 +55,7 @@
                                     !</b></p>
                             <ul class="links">
                                 <li class="first"><a href="#" title="My Account">Tài khoản của tôi</a></li>
-                                <li><a href="#" title="My Wishlist" class="top-link-wishlist">Lịch sử đơn hàng</a></li>
+                                <li><a href="/pages/cln/order-history.aspx" title="Xem lịch sử đơn hàng" class="top-link-wishlist">Lịch sử đơn hàng</a></li>
                                 <li><a href="#" title="Checkout" class="top-link-checkout">Thay đổi mật khẩu</a></li>
                                 <li class=" last"><a href="../cln/logout.aspx" title="Log out">Thoát</a></li>
                             </ul>
@@ -64,8 +64,8 @@
                         <div class="clear">
                         </div>
                         <h1 class="logo">
-                            <a href="index.aspx" title="Mibo" class="logo">
-                                <img src="../resources/images/logo.png" alt="Magento Commerce"></a></h1>
+                            <a href="/pages/cln/index.aspx" title="Mibo" class="logo">
+                                <img src="/pages/resources/images/logo.png" alt="Magento Commerce"></a></h1>
                         <div class="quick-access">
                             <div class="search-checkout-container">
                                 <div class="checkout-container-header">
