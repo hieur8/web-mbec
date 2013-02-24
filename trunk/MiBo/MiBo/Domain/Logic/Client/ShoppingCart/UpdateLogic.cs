@@ -116,6 +116,10 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
             {
                 if (!dataCom.IsExist<Item>(item.ItemCd, false))
                     throw new DataNotExistException(string.Format("Sản phẩm ({0})", item.ItemCd));
+                if (DataCheckHelper.IsNull(item.Quantity))
+                    throw new ExecuteException("E_MSG_00001", "Số lượng");
+                if (item.Quantity <= decimal.Zero)
+                    throw new ExecuteException("E_MSG_00011", "Số lượng");
             }
         }
 

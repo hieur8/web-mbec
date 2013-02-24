@@ -136,20 +136,22 @@
                                             <ul id="crosssell-products-list">
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <li class="item odd"><a class="product-image" href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>'
-                                                title='<%# Eval("ItemName")%>'>
-                                                <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
-                                                    width="75" height="75" alt='<%# Eval("ItemName")%>'>
-                                            </a>
+                                            <li class="item odd">
+                                                <a class="product-image" href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
+                                                    <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName")%>'>
+                                                </a>
                                                 <div class="product-details">
                                                     <h3 class="product-name">
                                                         <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
-                                                            <%# Eval("ItemName")%>(<%# Eval("Quantity")%>)</a></h3>
+                                                            <%# Eval("ItemName")%>(<%# Eval("Quantity")%>)
+                                                        </a>
+                                                    </h3>
                                                 </div>
                                             </li>
                                         </ItemTemplate>
                                         <FooterTemplate>
-                                            </ul></FooterTemplate>
+                                            </ul>
+                                        </FooterTemplate>
                                     </asp:Repeater>
                                 </div>
                             </div>

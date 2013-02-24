@@ -124,7 +124,7 @@ namespace MiBo.Domain.Logic.Client.AcceptHistory
         private void Check(InitDataModel inputObject)
         {
             if (!PageHelper.HasAuthenticated)
-                throw new ExecuteException("E_MSG_00010");
+                throw new ExecuteException("E_MSG_00001", "Truy cập");
         }
 
         /// <summary>

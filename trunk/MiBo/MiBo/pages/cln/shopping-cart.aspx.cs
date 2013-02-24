@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.ShoppingCart;
 using MiBo.Domain.Web.Client.ShoppingCart;
-using System.Collections.Generic;
 
 namespace MiBo.pages.cln
 {
@@ -14,12 +14,11 @@ namespace MiBo.pages.cln
             if (IsPostBack) return;
             var initLogic = new InitOperateLogic();
             var responseModel = Invoke(initLogic, InitRequestModel);
-
+            if (HasError) return;
             rptCartItem.DataSource = responseModel.ListItems;
             rptCartItem.DataBind();
             rptOfferItems.DataSource = responseModel.ListOfferItems;
             rptOfferItems.DataBind();
-
             lblSubTotal.Text = responseModel.TotalAmount;
         }
 
@@ -28,6 +27,7 @@ namespace MiBo.pages.cln
             Session["ItemCd"] = e.CommandArgument;
             var deleteLogic = new DeleteOperateLogic();
             var responseModel = Invoke(deleteLogic, DeleteRequestModel);
+            if (HasError) return;
             Session["Cart"] = responseModel.Cart;
             Refresh();
         }
@@ -36,6 +36,7 @@ namespace MiBo.pages.cln
         {
             var updateLogic = new UpdateOperateLogic();
             var responseModel = Invoke(updateLogic, UpdateRequestModel);
+            if (HasError) return;
             Session["Cart"] = responseModel.Cart;
             Refresh();
         }

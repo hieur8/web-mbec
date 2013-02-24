@@ -145,11 +145,11 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
             clientShoppingCartDao = new ClientShoppingCartDao();
             cartCom = new CartCom(inputObject.Cart);
 
-            // Check exist
+            // Check valid
             foreach (var item in cartCom.Items)
             {
                 if (!clientShoppingCartDao.IsExistItem(item.ItemCd))
-                    throw new DataNotExistException(Parameters.P_SHOPPING_CART_00001);
+                    throw new DataNotExistException(string.Format("Sản phẩm ({0})", item.ItemCd));
             }
         }
 
