@@ -112,7 +112,7 @@ namespace MiBo.Domain.Logic.Client.Profile
             if (!PageHelper.HasAuthenticated)
                 throw new ExecuteException("E_MSG_00001", "Truy cập");
 
-            if (inputObject.HasChagngePassword)
+            if (inputObject.HasChangePassword)
             {
                 if (DataCheckHelper.IsNull(inputObject.Password))
                     throw new ExecuteException("E_MSG_00004", "Mật khẩu");

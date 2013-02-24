@@ -1,16 +1,15 @@
 ﻿using System;
-using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Profile;
 using MiBo.Domain.Web.Client.Profile;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.pages.cln
 {
-    public partial class profile_edit : BasePage
+    public partial class profile : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
             if (HasError) Redirect(Pages.CLIENT_LOGIN);
@@ -23,7 +22,6 @@ namespace MiBo.pages.cln
             get
             {
                 var request = new InitRequestModel();
-                request.HasChangePassword = Request["edit"] == "pass" ? bool.TrueString : bool.FalseString;
                 return request;
             }
         }

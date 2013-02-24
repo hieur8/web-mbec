@@ -33,7 +33,7 @@ namespace MiBo.Domain.Dao
             entity.UpdateUser = PageHelper.UserName;
             entity.UpdateDate = currentDate;
 
-            if (inputObject.HasChagngePassword)
+            if (inputObject.HasChangePassword)
                 entity.Password = inputObject.NewPassword;
 
             if (inputObject.HasNewsletter)

@@ -7,6 +7,7 @@
 
         // Client
         public const string CLIENT_INDEX = "/pages/cln/index.aspx";
+        public const string CLIENT_LOGIN = "/pages/cln/login.aspx";
 
         // Admin
         public const string ADMIN_INDEX = "/pages/administer/index.aspx";

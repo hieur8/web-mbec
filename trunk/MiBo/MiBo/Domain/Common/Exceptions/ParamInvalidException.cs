@@ -8,7 +8,7 @@ namespace MiBo.Domain.Common.Exceptions
     {
         public ParamInvalidException()
         {
-            throw new ExecuteException("E_MSG_00001", Parameters.P_MSG_CM_00001);
+            throw new ExecuteException("E_MSG_00001", "Tham số");
         }
     }
 }

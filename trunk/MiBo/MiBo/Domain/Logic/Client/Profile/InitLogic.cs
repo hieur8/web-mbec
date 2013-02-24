@@ -1,4 +1,5 @@
-﻿using MiBo.Domain.Common.Exceptions;
+﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Model.Client.Profile;
@@ -51,17 +52,22 @@ namespace MiBo.Domain.Logic.Client.Profile
         {
             // Local variable declaration
             InitResponseModel responseModel = null;
+            OutputDetailsModel details = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
+            details = new OutputDetailsModel();
 
             // Get value
             var user = resultObject.User;
 
+            details.FullName = DataHelper.ToString(user.FullName);
+            details.Address = DataHelper.ToString(user.Address);
+            details.HasNewsletter = user.HasNewsletter.Value;
+            details.HasChangePassword = resultObject.HasChangePassword;
+
             // Set value
-            responseModel.FullName = DataHelper.ToString(user.FullName);
-            responseModel.Address = DataHelper.ToString(user.Address);
-            responseModel.HasNewsletter = DataHelper.ToString(user.HasNewsletter);
+            responseModel.Details = new List<OutputDetailsModel>() { details };
 
             // Return value
             return responseModel;
@@ -127,6 +133,7 @@ namespace MiBo.Domain.Logic.Client.Profile
 
             // Set value
             getResult.User = user;
+            getResult.HasChangePassword = inputObject.HasChangePassword;
 
             // Return value
             return getResult;
