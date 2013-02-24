@@ -10,7 +10,7 @@
 namespace MiBo.pages.cln {
     
     
-    public partial class profile_edit {
+    public partial class profile {
         
         /// <summary>
         /// fvwProfile control.

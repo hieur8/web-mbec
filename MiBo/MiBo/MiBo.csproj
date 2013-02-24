@@ -60,10 +60,6 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Messages.designer.cs</LastGenOutput>
     </Content>
-    <Content Include="App_GlobalResources\Parameters.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Parameters.designer.cs</LastGenOutput>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
@@ -83,6 +79,7 @@
     <Content Include="pages\cln\overview.aspx" />
     <Content Include="pages\cln\products.aspx" />
     <Content Include="pages\cln\profile-edit.aspx" />
+    <Content Include="pages\cln\profile.aspx" />
     <Content Include="pages\cln\register.aspx" />
     <Content Include="pages\cln\shopping-cart.aspx" />
     <Content Include="pages\cln\WebForm1.aspx" />
@@ -273,11 +270,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="App_GlobalResources\Parameters.designer.cs">
-      <DependentUpon>Parameters.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Include="Domain\Common\Constants\Logics.cs" />
     <Compile Include="Domain\Common\Constants\Pages.cs" />
     <Compile Include="Domain\Common\Controller\BaseMasterPage.cs">
@@ -313,7 +305,6 @@
     <Compile Include="Domain\Common\Helper\MailHelper.cs" />
     <Compile Include="Domain\Common\Helper\MessageHelper.cs" />
     <Compile Include="Domain\Common\Helper\PageHelper.cs" />
-    <Compile Include="Domain\Common\Helper\ParameterHelper.cs" />
     <Compile Include="Domain\Common\Helper\UploadHelper.cs" />
     <Compile Include="Domain\Common\Logic\IOperateLogic.cs" />
     <Compile Include="Domain\Common\Model\AcceptModel.cs" />
@@ -440,6 +431,7 @@
     <Compile Include="Domain\Web\Client\Master\OutputCategoryModel.cs" />
     <Compile Include="Domain\Web\Client\Profile\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Profile\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Profile\OutputDetailsModel.cs" />
     <Compile Include="Domain\Web\Client\Profile\SaveRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Profile\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Register\RegisterRequestModel.cs" />
@@ -572,6 +564,13 @@
     </Compile>
     <Compile Include="pages\cln\profile-edit.aspx.designer.cs">
       <DependentUpon>profile-edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>

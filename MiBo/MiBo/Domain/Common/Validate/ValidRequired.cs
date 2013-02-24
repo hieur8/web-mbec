@@ -23,8 +23,7 @@ namespace MiBo.Domain.Common.Validate
 
             // Check
             if (DataCheckHelper.IsNull(item))
-                throw new ExecuteException(MessageId,
-                    ParameterHelper.GetMessageParam(MessageParam));
+                throw new ExecuteException(MessageId, MessageParam);
         }
     }
 }

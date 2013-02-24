@@ -88,8 +88,8 @@
                     </div>
                     <div class="block-content">
                         <ul>
-                            <li><a href="accounts.aspx">Trang tài khoản cá nhân</a></li>
-                            <li><a href="profile-edit.aspx">Chỉnh sủa thông tin cá nhân</a></li>
+                            <li><a href="/pages/cln/profile.aspx">Trang tài khoản cá nhân</a></li>
+                            <li><a href="/pages/cln/profile-edit.aspx">Chỉnh sủa thông tin cá nhân</a></li>
                             <li class="current"><strong>Lịch sử đơn hàng</strong></li>
                         </ul>
                     </div>
