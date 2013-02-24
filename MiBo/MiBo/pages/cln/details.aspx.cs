@@ -15,16 +15,16 @@ namespace MiBo.pages.cln
             if (response == null) Redirect("index.aspx");
 
             // Set value
-            hidItemCd.Value = response.ItemCd;
-            hidItemDiv.Value = response.ItemDiv;
-            hidOfferDiv.Value = response.OfferDiv;
-            litItemName.Text = response.ItemName;
+            //hidItemCd.Value = response.ItemCd;
+            //hidItemDiv.Value = response.ItemDiv;
+            //hidOfferDiv.Value = response.OfferDiv;
+            //litItemName.Text = response.ItemName;
             //imgItemImage.ImageUrl = string.Format("/pages/media/images/items/{0}/larger/{1}", response.ItemCd, response.ItemImage);
-            rptItemImage.DataSource = response.ListImages;
-            rptItemImage.DataBind();
-            litPrice.Text = response.Price;
+            //rptItemImage.DataSource = response.ListImages;
+            //rptItemImage.DataBind();
+            //litPrice.Text = response.Price;
             //litPriceOld.Text = response.PriceOld;
-            litNotes.Text = response.Notes;
+            //litNotes.Text = response.Notes;
             //rptOfferItems.DataSource = response.ListOfferItems;
             //rptOfferItems.DataBind();
         }

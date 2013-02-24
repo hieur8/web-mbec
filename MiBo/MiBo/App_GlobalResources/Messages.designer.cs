@@ -142,11 +142,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Truy cập không hợp lệ..
+        ///   Looks up a localized string similar to {0} phải lớn hơn 0..
         /// </summary>
-        internal static string E_MSG_00010 {
+        internal static string E_MSG_00011 {
             get {
-                return ResourceManager.GetString("E_MSG_00010", resourceCulture);
+                return ResourceManager.GetString("E_MSG_00011", resourceCulture);
             }
         }
         

@@ -5,7 +5,6 @@ using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.Index;
 using MiBo.Domain.Web.Client.Index;
-using Resources;
 
 namespace MiBo.Domain.Logic.Client.Index
 {
@@ -106,18 +105,13 @@ namespace MiBo.Domain.Logic.Client.Index
         {
             // Local variable declaration
             ClientIndexDao clientIndexDao = null;
-            CartCom cartCom = null;
 
             // Variable initialize
             clientIndexDao = new ClientIndexDao();
-            cartCom = new CartCom(inputObject.Cart);
 
-            // Check exist
-            foreach (var item in cartCom.Items)
-            {
-                if (!clientIndexDao.IsExistItem(item.ItemCd))
-                    throw new DataNotExistException(Parameters.P_INDEX_00001);
-            }
+            // Check valid
+            if (!clientIndexDao.IsExistItem(inputObject.ItemCd))
+                throw new DataNotExistException(string.Format("Sản phẩm ({0})", inputObject.ItemCd));
         }
 
         /// <summary>

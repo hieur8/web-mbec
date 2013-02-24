@@ -5,7 +5,6 @@ using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.ItemDetails;
 using MiBo.Domain.Web.Client.ItemDetails;
-using Resources;
 
 namespace MiBo.Domain.Logic.Client.ItemDetails
 {
@@ -106,18 +105,17 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
         {
             // Local variable declaration
             ClientItemDetailsDao clientItemDetailsDao = null;
-            CartCom cartCom = null;
 
             // Variable initialize
             clientItemDetailsDao = new ClientItemDetailsDao();
-            cartCom = new CartCom(inputObject.Cart);
 
-            // Check exist
-            foreach (var item in cartCom.Items)
-            {
-                if (!clientItemDetailsDao.IsExistItem(item.ItemCd))
-                    throw new DataNotExistException(Parameters.P_ITEM_DETAILS_00001);
-            }
+            // Check valid
+            if (!clientItemDetailsDao.IsExistItem(inputObject.ItemCd))
+                throw new DataNotExistException(string.Format("Sản phẩm ({0})", inputObject.ItemCd));
+            if (DataCheckHelper.IsNull(inputObject.ItemQtty))
+                throw new ExecuteException("E_MSG_00001", "Số lượng");
+            if (inputObject.ItemQtty <= decimal.Zero)
+                throw new ExecuteException("E_MSG_00011", "Số lượng");
         }
 
         /// <summary>

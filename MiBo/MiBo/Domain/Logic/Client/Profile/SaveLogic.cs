@@ -110,7 +110,7 @@ namespace MiBo.Domain.Logic.Client.Profile
 
             // Check valid
             if (!PageHelper.HasAuthenticated)
-                throw new ExecuteException("E_MSG_00010");
+                throw new ExecuteException("E_MSG_00001", "Truy cập");
 
             if (inputObject.HasChagngePassword)
             {
@@ -121,11 +121,8 @@ namespace MiBo.Domain.Logic.Client.Profile
                 if (!userCom.IsValidPassword(PageHelper.UserCd, inputObject.Password))
                     throw new ExecuteException("E_MSG_00001", "Mật khẩu");
                 if (inputObject.NewPassword != inputObject.NewPasswordConf)
-                    throw new ExecuteException("E_MSG_00001", "Mật khẩu và mật khẩu xát nhận");
+                    throw new ExecuteException("E_MSG_00001", "Mật khẩu và mật khẩu xác nhận");
             }
-
-
-
         }
 
         /// <summary>

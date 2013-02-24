@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
@@ -53,32 +54,41 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
         {
             // Local variable declaration
             InitResponseModel responseModel = null;
-            IList<string> listImages = null;
+            OutputDetailsModel details = null;
+            IList<OutputImageModel> listImages = null;
             IList<OutputItemModel> listOfferItems = null;
             OutputItemModel offerItem = null;
+            OutputImageModel imageItem = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
-            listImages = new List<string>();
+            details = new OutputDetailsModel();
+            listImages = new List<OutputImageModel>();
             listOfferItems = new List<OutputItemModel>();
 
             // Get value
             var item = resultObject.Item;
 
-            // Set value
-            responseModel.ItemCd = DataHelper.ToString(item.ItemCd);
-            responseModel.ItemName = DataHelper.ToString(item.ItemName);
-            responseModel.ItemImage = DataHelper.ToString(item.ItemImage);
+            details.ItemCd = DataHelper.ToString(item.ItemCd);
+            details.ItemName = DataHelper.ToString(item.ItemName);
+            details.ItemImage = DataHelper.ToString(item.ItemImage);
             foreach (var obj in item.ItemImages)
             {
-                listImages.Add(obj.Image);
+                imageItem = new OutputImageModel();
+                imageItem.ItemCd = DataHelper.ToString(obj.ItemCd);
+                imageItem.ItemImage = DataHelper.ToString(obj.Image);
+                listImages.Add(imageItem);
             }
-            responseModel.ListImages = listImages;
-            responseModel.ItemDiv = DataHelper.ToString(item.ItemDiv);
-            responseModel.OfferDiv = DataHelper.ToString(item.OfferDiv);
-            responseModel.Price = DataHelper.ToString(Formats.CURRENCY, item.SalesPrice);
-            responseModel.PriceOld = DataHelper.ToString(Formats.CURRENCY, item.SalesPriceOld);
-            responseModel.Notes = DataHelper.ToString(item.Notes);
+            details.ListImages = listImages;
+            details.ItemDiv = DataHelper.ToString(item.ItemDiv);
+            details.OfferDiv = DataHelper.ToString(item.OfferDiv);
+            details.Price = DataHelper.ToString(Formats.CURRENCY, item.SalesPrice);
+            details.PriceOld = DataHelper.ToString(Formats.CURRENCY, item.SalesPriceOld);
+            details.BrandCd = DataHelper.ToString(item.BrandCd);
+            details.BrandName = DataHelper.ToString(item.Brand.BrandName);
+            details.CountryCd = DataHelper.ToString(item.CountryCd);
+            details.CountryName = DataHelper.ToString(item.Country.CountryName);
+            details.Notes = DataHelper.ToString(item.Notes);
             foreach (var obj in item.ListOfferItems)
             {
                 offerItem = new OutputItemModel();
@@ -88,7 +98,14 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
                 offerItem.Quantity = DataHelper.ToString(Formats.NUMBER, obj.OfferItemQtty);
                 listOfferItems.Add(offerItem);
             }
-            responseModel.ListOfferItems = listOfferItems;
+            details.ListOfferItems = listOfferItems;
+
+            // Set value
+            responseModel.ItemCd = DataHelper.ToString(item.ItemCd);
+            responseModel.ItemName = DataHelper.ToString(item.ItemName);
+            responseModel.CategoryCd = DataHelper.ToString(item.CategoryCd);
+            responseModel.CategoryName = DataHelper.ToString(item.Category.CategoryName);
+            responseModel.Details = new List<OutputDetailsModel>() { details };
 
             // Return value
             return responseModel;
@@ -130,6 +147,15 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
         /// <param name="inputObject">DataModel</param>
         private void Check(InitDataModel inputObject)
         {
+            // Local variable declaration
+            ClientItemDetailsDao clientItemDetailsDao = null;
+
+            // Variable initialize
+            clientItemDetailsDao = new ClientItemDetailsDao();
+
+            // Check valid
+            if (!clientItemDetailsDao.IsExistItem(inputObject.ItemCd))
+                throw new DataNotExistException(string.Format("Sản phẩm ({0})", inputObject.ItemCd));
         }
 
         /// <summary>

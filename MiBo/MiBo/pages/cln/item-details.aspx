@@ -2,6 +2,7 @@
     CodeBehind="item-details.aspx.cs" Inherits="MiBo.pages.cln.item_details" %>
 
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
+    <!-- Spin -->
     <script src="/pages/resources/scripts/jquery-spin.js" type="text/javascript"></script>
     <script type="text/javascript">
         $.spin.imageBasePath = '/pages/resources/images/';
@@ -12,49 +13,167 @@
             });
         });
     </script>
+    <!-- Galleries -->
+    <link rel="stylesheet" type="text/css" href="/pages/resources/styles/jquery.ad-gallery.css">
+    <script type="text/javascript" src="/pages/resources/scripts/jquery.ad-gallery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var galleries = $('.ad-gallery').adGallery();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
-    <asp:HiddenField ID="hidItemCd" runat="server" />
-    <asp:HiddenField ID="hidItemDiv" runat="server"/>
-    <asp:HiddenField ID="hidOfferDiv" runat="server"/>
-    <asp:Literal ID="litItemName" runat="server"></asp:Literal>
-    <asp:Image ID="imgItemImage" runat="server" />
-    <asp:Repeater ID="rptItemImage" runat="server">
-        <HeaderTemplate>
-            <ul>
-        </HeaderTemplate>
-        <ItemTemplate>
-            <li>
-                <img src='<%# string.Format("/pages/media/images/items/{0}/small/{1}", hidItemCd.Value, Container.DataItem)%>' alt='<%# Container.DataItem %>' />
-            </li>
-        </ItemTemplate>
-        <FooterTemplate>
-            </ul></FooterTemplate>
-    </asp:Repeater>
-    <div class="item-price"><asp:Literal ID="litPrice" runat="server"></asp:Literal></div>
-    <% if (Equals("", hidItemDiv.Value) && Equals("01", hidOfferDiv.Value)) { %>
-    <div class="offer-price"><asp:Literal ID="litPriceOld" runat="server"></asp:Literal></div>
-    <% } %>
-    <asp:Literal ID="litNotes" runat="server"></asp:Literal>
-    <div id="cartAdd">
-        <asp:TextBox Text="1" MaxLength="6" Width="80px" CssClass="qty spin" ID="txtItemQtty"
-            runat="server"></asp:TextBox>
-        <span class="buttonRow">
-            <asp:LinkButton OnCommand="lnkBuy_Command" ID="lnkBuy" runat="server">Mua</asp:LinkButton>
-        </span>
+    <div class="main-container col2-right-layout">
+        <div class="main">
+            <div class="col-main">
+                <div class="breadcrumbs">
+                    <ul>
+                        <li class="home"><a href="/pages/cln/index.aspx" title="Trở về trang chủ">Trang chủ</a> <span>/ </span> </li>
+                        <li class="category37"><asp:LinkButton ID="lnkCategory" PostBackUrl="~/pages/cln/items.aspx?category=" runat="server">LinkButton</asp:LinkButton> <span>/ </span></li>
+                        <li class="product"><strong><asp:Literal ID="litItemName" runat="server"></asp:Literal></strong> </li>
+                    </ul>
+                </div>
+                <ul class="messages">
+                    <% if (Session["info"] != null)
+                        { %>
+                    <li class="success-msg">
+                        <ul>
+                            <li>
+                                <%= Session["info"]%></li></ul>
+                    </li>
+                    <% } %>
+                    <% if (Session["error"] != null)
+                        { %>
+                    <li class="error-msg">
+                        <ul>
+                            <li>
+                                <%= Session["error"] %></li></ul>
+                    </li>
+                    <% } %>
+                    <% if (Session["warn"] != null)
+                        { %>
+                    <li class="notice-msg">
+                        <ul>
+                            <li>
+                                <%= Session["warn"]%></li></ul>
+                    </li>
+                    <% } %>
+                </ul>
+                <div id="messages_product_view">
+                </div>
+                <asp:FormView ID="fvwItemDetails" runat="server" RenderOuterTable="false">
+                    <ItemTemplate>
+                        <div class="product-view">
+                            <div class="product-essential">
+                                <div class="no-display">
+                                    
+                                </div>
+                                <div class="product-shop">
+                                    <div class="product-name">
+                                        <h1><%# Eval("ItemName")%></h1>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="regular-price" id="product-price-173">
+                                            <span class="price"><%# Eval("Price")%></span>
+                                        </span>
+                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
+                                    </div>
+                                    <p class="availability in-stock">
+                                        Tình trạng: <span>Còn hàng</span></p>
+                                    <p class="availability in-stock">
+                                        Thương hiệu: <span><%# Eval("BrandName")%></span></p>
+                                    <p class="availability in-stock">
+                                        Xuất xứ: <span><%# Eval("CountryName")%></span></p>
+                                    <div class="add-to-box">
+                                        <div class="add-to-cart" style="display: block">
+                                            <asp:TextBox Text="1" MaxLength="6" Width="80px" CssClass="qty spin" ID="txtItemQtty" runat="server"></asp:TextBox>
+                                            <span class="buttonRow">
+                                                <asp:LinkButton CssClass="button btn-cart" OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Cho vào giỏ hàng</asp:LinkButton>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="short-description">
+                                        <h2>Mô tả sản phẩm</h2>
+                                        <div class="std">
+                                            <%# Eval("Notes")%>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding-left: 15px" class="product-img-box">
+                                    <div id="gallery" class="ad-gallery">
+                                        <div class="ad-image-wrapper">
+                                        </div>
+                                        <div class="ad-controls">
+                                        </div>
+                                        <div class="ad-nav">
+                                            <div class="ad-thumbs">
+                                                <asp:Repeater ID="rptItemImage" runat="server" DataSource='<%# Eval("ListImages")%>'>
+                                                    <HeaderTemplate>
+                                                        <ul class="ad-thumb-list">
+                                                    </HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <li>
+                                                            <a href='/pages/media/images/items/<%# Eval("ItemCd")%>/larger/<%# Eval("ItemImage")%>'>
+                                                                <img src='/pages/media/images/items/<%# Eval("ItemCd")%>/small/<%# Eval("ItemImage")%>' class="image0" alt=""/>
+                                                            </a>
+                                                        </li>
+                                                    </ItemTemplate>
+                                                    <FooterTemplate>
+                                                        </ul>
+                                                    </FooterTemplate>
+                                                </asp:Repeater>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearer">
+                                </div>
+                                <div class="crosssell">
+                                    <h2>
+                                        Danh sách sản phẩm khuyến mãi</h2>
+                                    <asp:Repeater ID="rptOfferItems" runat="server" DataSource='<%# Eval("ListOfferItems")%>'>
+                                        <HeaderTemplate>
+                                            <ul id="crosssell-products-list">
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <li class="item odd">
+                                                <a class="product-image" href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
+                                                    <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName")%>'>
+                                                </a>
+                                                <div class="product-details">
+                                                    <h3 class="product-name">
+                                                        <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
+                                                            <%# Eval("ItemName")%>(<%# Eval("Quantity")%>)
+                                                        </a>
+                                                    </h3>
+                                                </div>
+                                            </li>
+                                        </ItemTemplate>
+                                        <FooterTemplate>
+                                            </ul>
+                                        </FooterTemplate>
+                                    </asp:Repeater>
+                                </div>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            <div class="box-collateral box-up-sell">
+                                <h2>Like và bình luận với Facebook</h2>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:FormView>
+            </div>
+            <div class="col-right sidebar">
+                <div class="block block-cart">
+                    <div class="block-title">
+                        <strong><span>Giỏ hàng</span></strong>
+                    </div>
+                    <div class="block-content">
+                        <p class="empty">Bạn chưa mua sản phẩm nào.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <asp:Repeater ID="rptOfferItems" runat="server">
-        <HeaderTemplate>
-            <ul>
-        </HeaderTemplate>
-        <ItemTemplate>
-            <li>
-                <img src='<%# string.Format("/pages/media/images/items/{0}/small/{1}", Eval("ItemCd"), Eval("ItemImage"))%>' alt='<%# Eval("ItemName") %>' />
-                <%# Eval("ItemName") %>
-                <%# Eval("Quantity")%>
-            </li>
-        </ItemTemplate>
-        <FooterTemplate>
-            </ul></FooterTemplate>
-    </asp:Repeater>
 </asp:Content>

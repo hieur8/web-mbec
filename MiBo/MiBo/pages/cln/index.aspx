@@ -75,12 +75,12 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <li class="item first">
-                                                <a href='/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
+                                                <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName") %>'>
                                                 </a>
                                                 <div class="align-prodname-price-review">
                                                     <h3 class="product-name">
-                                                        <a href="/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a>
+                                                        <a href="/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a>
                                                     </h3>
                                                     <div class="price-box">
                                                         <span class="regular-price" id="product-price-181-new">
@@ -109,12 +109,12 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <li class="item first">
-                                                <a href='/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
+                                                <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName") %>'>
                                                 </a>
                                                 <div class="align-prodname-price-review">
                                                     <h3 class="product-name">
-                                                        <a href="/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a>
+                                                        <a href="/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a>
                                                     </h3>
                                                     <div class="price-box">
                                                         <span class="regular-price" id="product-price-181-new">
@@ -143,12 +143,12 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <li class="item first">
-                                                <a href='/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
+                                                <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName") %>'>
                                                 </a>
                                                 <div class="align-prodname-price-review">
                                                     <h3 class="product-name">
-                                                        <a href="/pages/cln/details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a>
+                                                        <a href="/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'><%# Eval("ItemName") %></a>
                                                     </h3>
                                                     <div class="price-box">
                                                         <span class="regular-price" id="product-price-181-new">

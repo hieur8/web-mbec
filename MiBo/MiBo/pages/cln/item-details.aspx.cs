@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI.WebControls;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.ItemDetails;
 using MiBo.Domain.Web.Client.ItemDetails;
@@ -10,33 +11,25 @@ namespace MiBo.pages.cln
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
-            if (response == null) Redirect("index.aspx");
-
-            // Set value
-            hidItemCd.Value = response.ItemCd;
-            hidItemDiv.Value = response.ItemDiv;
-            hidOfferDiv.Value = response.OfferDiv;
-
+            if (HasError) Redirect(Pages.CLIENT_INDEX);
+            lnkCategory.Text = response.CategoryName;
+            lnkCategory.PostBackUrl += response.CategoryCd;
             litItemName.Text = response.ItemName;
-            imgItemImage.ImageUrl = string.Format("/pages/media/images/items/{0}/larger/{1}", response.ItemCd, response.ItemImage);
-            rptItemImage.DataSource = response.ListImages;
-            rptItemImage.DataBind();
-            litPrice.Text = response.Price;
-            litPriceOld.Text = response.PriceOld;
-            litNotes.Text = response.Notes;
-            rptOfferItems.DataSource = response.ListOfferItems;
-            rptOfferItems.DataBind();
+            fvwItemDetails.DataSource = response.Details;
+            fvwItemDetails.DataBind();
         }
 
         protected void lnkBuy_Command(object sender, CommandEventArgs e)
         {
+            Session["ItemCd"] = e.CommandArgument;
             var buyLogic = new BuyOperateLogic();
             var responseModel = Invoke(buyLogic, BuyRequestModel);
             if (HasError) return;
             Session["Cart"] = responseModel.Cart;
-            Redirect("index.aspx");
+            Redirect(Pages.CLIENT_INDEX);
         }
 
         private InitRequestModel InitRequestModel
@@ -54,9 +47,10 @@ namespace MiBo.pages.cln
             get
             {
                 var requestModel = new BuyRequestModel();
-                requestModel.ItemCd = Convert.ToString(hidItemCd.Value);
-                requestModel.ItemQtty = Convert.ToString(txtItemQtty.Text);
+                requestModel.ItemCd = Convert.ToString(Session["ItemCd"]);
+                requestModel.ItemQtty = ((TextBox)fvwItemDetails.FindControl("txtItemQtty")).Text;
                 requestModel.Cart = Session["Cart"];
+                Session["ItemCd"] = null;
                 return requestModel;
             }
         }

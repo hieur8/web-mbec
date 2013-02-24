@@ -425,6 +425,8 @@
     <Compile Include="Domain\Web\Client\ItemDetails\BuyResponseModel.cs" />
     <Compile Include="Domain\Web\Client\ItemDetails\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\ItemDetails\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\ItemDetails\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Client\ItemDetails\OutputImageModel.cs" />
     <Compile Include="Domain\Web\Client\ItemDetails\OutputItemModel.cs" />
     <Compile Include="Domain\Web\Client\Items\BuyRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Items\BuyResponseModel.cs" />
