@@ -6,5 +6,6 @@ namespace MiBo.Domain.Web.Client.AcceptHistory
     public class InitResponseModel : MessageResponse
     {
         public IList<OutputAcceptModel> ListAccepts { get; set; }
+        public string AcceptCount { get; set; }
     }
 }

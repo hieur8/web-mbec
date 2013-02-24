@@ -23,7 +23,7 @@ namespace MiBo.Domain.Dao
             {
                 acceptModel = new AcceptModel();
                 DataHelper.CopyObject(obj, acceptModel);
-                acceptModel.TotalAmount = obj.AcceptDetails.Where(o => o.DeleteFlag == false).Sum(o => o.DetailAmt);
+                acceptModel.TotalAmount = acceptModel.AcceptDetails.Where(o => o.DeleteFlag == false).Sum(o => o.DetailAmt);
                 listResult.Add(acceptModel);
             }
 

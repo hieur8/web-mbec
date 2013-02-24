@@ -14,7 +14,7 @@ namespace MiBo.pages.cln
             if (IsPostBack) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
-            if (HasError) Redirect(Pages.CLIENT_INDEX);
+            if (HasError) return;
             lnkCategory.Text = response.CategoryName;
             lnkCategory.PostBackUrl += response.CategoryCd;
             litItemName.Text = response.ItemName;

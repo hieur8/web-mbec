@@ -72,6 +72,7 @@ namespace MiBo.Domain.Logic.Client.AcceptHistory
 
                 accept.AcceptSlipNo = DataHelper.ToString(obj.AcceptSlipNo);
                 accept.AcceptDate = DataHelper.ToString(Formats.DATE, obj.AcceptDate);
+                accept.DeliveryName = DataHelper.ToString(obj.DeliveryName);
                 accept.TotalAmount = DataHelper.ToString(Formats.CURRENCY, obj.TotalAmount);
                 slipStatusName = mCodeCom.GetCodeName(Logics.GROUP_SLIP_STATUS, obj.SlipStatus);
                 accept.SlipStatus = DataHelper.ToString(obj.SlipStatus);
@@ -82,6 +83,7 @@ namespace MiBo.Domain.Logic.Client.AcceptHistory
 
             // Set value
             responseModel.ListAccepts = listAccepts;
+            responseModel.AcceptCount = DataHelper.ToString(Formats.NUMBER, listAccepts.Count);
 
             // Return value
             return responseModel;
