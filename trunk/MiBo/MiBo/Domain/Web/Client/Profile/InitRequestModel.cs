@@ -2,6 +2,6 @@
 {
     public class InitRequestModel
     {
-        public string HasChangePassword { get; set; }
+        public bool HasChangePassword { get; set; }
     }
 }

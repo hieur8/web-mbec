@@ -28,13 +28,12 @@ namespace MiBo.Domain.Dao
 
             // Setting value
             entity.FullName = inputObject.FullName;
-            entity.Address = inputObject.Address;
             entity.HasNewsletter = inputObject.HasNewsletter;
             entity.UpdateUser = PageHelper.UserName;
             entity.UpdateDate = currentDate;
 
             if (inputObject.HasChangePassword)
-                entity.Password = inputObject.NewPassword;
+                entity.Password = DataHelper.GetMd5Hash(inputObject.NewPassword);
 
             if (inputObject.HasNewsletter)
             {
