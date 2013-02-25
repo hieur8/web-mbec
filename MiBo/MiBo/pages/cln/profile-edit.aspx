@@ -6,9 +6,9 @@
         $(document).ready(function () {
             $('#chkHasChagngePassword').change(function () {
                 if (this.checked) {
-                    $('#changePassDiv').css('display', 'block');
+                    $('#changePassDiv').show();
                 } else {
-                    $('#changePassDiv').css('display', 'none');
+                    $('#changePassDiv').hide();
                 };
             }).change();
         });
@@ -25,6 +25,32 @@
                                 <h1>
                                     Chỉnh sửa thông tin cá nhân</h1>
                             </div>
+                            <ul class="messages">
+                                <% if (Session["info"] != null)
+                                   { %>
+                                <li class="success-msg">
+                                    <ul>
+                                        <li>
+                                            <%= Session["info"]%></li></ul>
+                                </li>
+                                <% } %>
+                                <% if (Session["error"] != null)
+                                   { %>
+                                <li class="error-msg">
+                                    <ul>
+                                        <li>
+                                            <%= Session["error"] %></li></ul>
+                                </li>
+                                <% } %>
+                                <% if (Session["warn"] != null)
+                                   { %>
+                                <li class="notice-msg">
+                                    <ul>
+                                        <li>
+                                            <%= Session["warn"]%></li></ul>
+                                </li>
+                                <% } %>
+                            </ul>
                             <div class="fieldset">
                                 <h2 class="legend">
                                     Thông tin cá nhân</h2>
@@ -43,7 +69,7 @@
                                     </li>
                                     <li>
                                         <label for="email_address" class="required">
-                                            <em>*</em>Địa chỉ email</label>
+                                            Địa chỉ email</label>
                                         <div class="input-box">
                                             <input type="text" value='<%# Session["userName"] %>' class="input-text" readonly='true' />
                                         </div>
@@ -90,7 +116,7 @@
                                             <label for="confirmation" class="required">
                                                 <em>*</em>Nhập lại mật khẩu mới</label>
                                             <div class="input-box">
-                                                <asp:TextBox ID="txtNewPasswordConfirm" TextMode="Password" class="input-text" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtNewPasswordConf" TextMode="Password" class="input-text" runat="server"></asp:TextBox>
                                             </div>
                                         </div>
                                     </li>
@@ -99,7 +125,7 @@
                             <div class="buttons-set">
                                 <p class="required">
                                     * Bắt buộc</p>
-                                <asp:Button class="button" ID="Button1" runat="server" Text="Thay đổi" />
+                                <asp:Button ID="btnSave" OnClick="btnSave_Click" runat="server" Text="Thay đổi" class="button"/>
                             </div>
                         </div>
                     </ItemTemplate>
