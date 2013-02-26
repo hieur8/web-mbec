@@ -6,7 +6,7 @@ using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Dao
 {
-    public class ClientAcceptHistoryDao : AbstractDao
+    public class ClientAcceptsDao : AbstractDao
     {
         public IList<AcceptModel> GetListAccepts(string userName)
         {

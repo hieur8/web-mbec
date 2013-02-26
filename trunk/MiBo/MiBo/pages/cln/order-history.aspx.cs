@@ -1,7 +1,7 @@
 ﻿using System;
 using MiBo.Domain.Common.Controller;
-using MiBo.Domain.Logic.Client.AcceptHistory;
-using MiBo.Domain.Web.Client.AcceptHistory;
+using MiBo.Domain.Logic.Client.Accepts;
+using MiBo.Domain.Web.Client.Accepts;
 
 namespace MiBo.pages.cln
 {
