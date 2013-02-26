@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MiBo.Domain.Common.Model;
 
-namespace MiBo.Domain.Web.Client.AcceptHistory
+namespace MiBo.Domain.Web.Client.Accepts
 {
     public class InitResponseModel : MessageResponse
     {

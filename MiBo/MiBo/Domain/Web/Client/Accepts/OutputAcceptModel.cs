@@ -1,4 +1,4 @@
-﻿namespace MiBo.Domain.Web.Client.AcceptHistory
+﻿namespace MiBo.Domain.Web.Client.Accepts
 {
     public class OutputAcceptModel
     {

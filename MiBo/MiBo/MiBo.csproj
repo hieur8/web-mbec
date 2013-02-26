@@ -73,7 +73,7 @@
     <Content Include="pages\cln\index.aspx" />
     <Content Include="pages\cln\item-details.aspx" />
     <Content Include="pages\cln\items.aspx" />
-    <Content Include="pages\cln\Login.aspx" />
+    <Content Include="pages\cln\login.aspx" />
     <Content Include="pages\cln\logout.aspx" />
     <Content Include="pages\cln\order-history.aspx" />
     <Content Include="pages\cln\overview.aspx" />
@@ -323,7 +323,8 @@
     <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
     <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
     <Compile Include="Domain\Dao\AdminItemListDao.cs" />
-    <Compile Include="Domain\Dao\ClientAcceptHistoryDao.cs" />
+    <Compile Include="Domain\Dao\ClientAcceptDetailsDao.cs" />
+    <Compile Include="Domain\Dao\ClientAcceptsDao.cs" />
     <Compile Include="Domain\Dao\ClientCheckoutDao.cs" />
     <Compile Include="Domain\Dao\ClientIndexDao.cs" />
     <Compile Include="Domain\Dao\ClientItemDetailsDao.cs" />
@@ -338,8 +339,10 @@
     <Compile Include="Domain\Logic\Admin\ItemList\FilterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\AcceptHistory\InitLogic.cs" />
-    <Compile Include="Domain\Logic\Client\AcceptHistory\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\AcceptDetails\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Client\AcceptDetails\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Accepts\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Accepts\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Checkout\CheckoutLogic.cs" />
     <Compile Include="Domain\Logic\Client\Checkout\CheckoutOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Index\BuyLogic.cs" />
@@ -374,7 +377,8 @@
     <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\InitDataModel.cs" />
-    <Compile Include="Domain\Model\Client\AcceptHistory\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\AcceptDetails\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Accepts\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Checkout\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Index\BuyDataModel.cs" />
     <Compile Include="Domain\Model\Client\Index\InitDataModel.cs" />
@@ -401,9 +405,13 @@
     <Compile Include="Domain\Web\Admin\ItemList\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemList\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemList\OutputItemModel.cs" />
-    <Compile Include="Domain\Web\Client\AcceptHistory\InitRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\AcceptHistory\InitResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\AcceptHistory\OutputAcceptModel.cs" />
+    <Compile Include="Domain\Web\Client\AcceptDetails\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\AcceptDetails\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\AcceptDetails\OutputAcceptDetailsModel.cs" />
+    <Compile Include="Domain\Web\Client\AcceptDetails\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Client\Accepts\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\Accepts\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Accepts\OutputAcceptModel.cs" />
     <Compile Include="Domain\Web\Client\Checkout\CheckoutRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Checkout\CheckoutResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Index\BuyRequestModel.cs" />
@@ -523,12 +531,12 @@
     <Compile Include="pages\cln\items.aspx.designer.cs">
       <DependentUpon>items.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\cln\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="pages\cln\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\cln\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="pages\cln\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\logout.aspx.cs">
       <DependentUpon>logout.aspx</DependentUpon>

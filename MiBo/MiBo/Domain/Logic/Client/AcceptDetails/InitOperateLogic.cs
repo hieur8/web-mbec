@@ -1,7 +1,7 @@
 ﻿using MiBo.Domain.Common.Logic;
-using MiBo.Domain.Web.Client.AcceptHistory;
+using MiBo.Domain.Web.Client.AcceptDetails;
 
-namespace MiBo.Domain.Logic.Client.AcceptHistory
+namespace MiBo.Domain.Logic.Client.AcceptDetails
 {
     public class InitOperateLogic : IOperateLogic<InitResponseModel>
     {

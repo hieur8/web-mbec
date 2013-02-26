@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
-using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
-using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
-using MiBo.Domain.Model.Client.AcceptHistory;
-using MiBo.Domain.Web.Client.AcceptHistory;
-using Resources;
+using MiBo.Domain.Model.Client.AcceptDetails;
+using MiBo.Domain.Web.Client.AcceptDetails;
 
-namespace MiBo.Domain.Logic.Client.AcceptHistory
+namespace MiBo.Domain.Logic.Client.AcceptDetails
 {
     public class InitLogic
     {
@@ -55,35 +52,30 @@ namespace MiBo.Domain.Logic.Client.AcceptHistory
         {
             // Local variable declaration
             InitResponseModel responseModel = null;
-            IList<OutputAcceptModel> listAccepts = null;
-            OutputAcceptModel accept = null;
-            MCodeCom mCodeCom = null;
+            OutputDetailsModel details = null;
+            IList<OutputAcceptDetailsModel> listAcceptDetails = null;
+            OutputAcceptDetailsModel acceptDetails = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
-            listAccepts = new List<OutputAcceptModel>();
-            mCodeCom = new MCodeCom();
+            details = new OutputDetailsModel();
+            listAcceptDetails = new List<OutputAcceptDetailsModel>();
 
             // Get value
-            string slipStatusName = null;
-            foreach (var obj in resultObject.ListAccepts)
+            var accept = resultObject.Accept;
+
+            details.AcceptSlipNo = DataHelper.ToString(accept.AcceptSlipNo);
+            foreach (var obj in accept.AcceptDetails)
             {
-                accept = new OutputAcceptModel();
-
-                accept.AcceptSlipNo = DataHelper.ToString(obj.AcceptSlipNo);
-                accept.AcceptDate = DataHelper.ToString(Formats.DATE, obj.AcceptDate);
-                accept.DeliveryName = DataHelper.ToString(obj.DeliveryName);
-                accept.TotalAmount = DataHelper.ToString(Formats.CURRENCY, obj.TotalAmount);
-                slipStatusName = mCodeCom.GetCodeName(Logics.GROUP_SLIP_STATUS, obj.SlipStatus);
-                accept.SlipStatus = DataHelper.ToString(obj.SlipStatus);
-                accept.SlipStatusName = DataHelper.ToString(slipStatusName);
-
-                listAccepts.Add(accept);
+                acceptDetails = new OutputAcceptDetailsModel();
+                acceptDetails.ItemCd = DataHelper.ToString(obj.ItemCd);
+                acceptDetails.ItemName = DataHelper.ToString(obj.ItemName);
+                listAcceptDetails.Add(acceptDetails);
             }
+            details.ListAcceptDetails = listAcceptDetails;
 
             // Set value
-            responseModel.ListAccepts = listAccepts;
-            responseModel.AcceptCount = DataHelper.ToString(Formats.NUMBER, listAccepts.Count);
+            responseModel.Details = new List<OutputDetailsModel>() { details };
 
             // Return value
             return responseModel;
@@ -125,8 +117,18 @@ namespace MiBo.Domain.Logic.Client.AcceptHistory
         /// <param name="inputObject">DataModel</param>
         private void Check(InitDataModel inputObject)
         {
-            if (!PageHelper.HasAuthenticated)
-                throw new ExecuteException("E_MSG_00001", "Truy cập");
+            // Local variable declaration
+            ClientAcceptDetailsDao clientAcceptDetailsDao = null;
+
+            // Variable initialize
+            clientAcceptDetailsDao = new ClientAcceptDetailsDao();
+
+            // Check valid
+            if (DataCheckHelper.IsNull(inputObject.AcceptSlipNo) && DataCheckHelper.IsNull(inputObject.ViewId))
+                throw new ExecuteException("E_MSG_00004", "Mã hóa đơn");
+
+            if (!clientAcceptDetailsDao.IsExistAccept(inputObject))
+                throw new DataNotExistException(string.Format("Hóa đơn ({0})", inputObject.AcceptSlipNo + inputObject.ViewId));
         }
 
         /// <summary>
@@ -138,17 +140,17 @@ namespace MiBo.Domain.Logic.Client.AcceptHistory
         {
             // Local variable declaration
             InitDataModel getResult = null;
-            ClientAcceptHistoryDao clientAcceptHistoryDao = null;
+            ClientAcceptDetailsDao clientAcceptDetailsDao = null;
 
             // Variable initialize
             getResult = new InitDataModel();
-            clientAcceptHistoryDao = new ClientAcceptHistoryDao();
+            clientAcceptDetailsDao = new ClientAcceptDetailsDao();
 
             // Get data
-            var listAccepts = clientAcceptHistoryDao.GetListAccepts(PageHelper.UserName);
+            var accept = clientAcceptDetailsDao.GetAccept(inputObject);
 
             // Set value
-            getResult.ListAccepts = listAccepts;
+            getResult.Accept = accept;
 
             // Return value
             return getResult;
