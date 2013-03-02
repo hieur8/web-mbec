@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.AcceptDetails;
 using MiBo.Domain.Web.Client.AcceptDetails;
+using Resources;
 
 namespace MiBo.Domain.Logic.Client.AcceptDetails
 {
@@ -55,21 +59,39 @@ namespace MiBo.Domain.Logic.Client.AcceptDetails
             OutputDetailsModel details = null;
             IList<OutputAcceptDetailsModel> listAcceptDetails = null;
             OutputAcceptDetailsModel acceptDetails = null;
+            MCodeCom mCodeCom = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
             details = new OutputDetailsModel();
             listAcceptDetails = new List<OutputAcceptDetailsModel>();
+            mCodeCom = new MCodeCom();
 
             // Get value
             var accept = resultObject.Accept;
-
             details.AcceptSlipNo = DataHelper.ToString(accept.AcceptSlipNo);
+            var slipStatusName = mCodeCom.GetCodeName(Logics.GROUP_SLIP_STATUS, accept.SlipStatus);
+            details.SlipStatus = DataHelper.ToString(accept.SlipStatus);
+            details.SlipStatusName = DataHelper.ToString(slipStatusName);
+            details.AcceptDate = DataHelper.ToString(Formats.FULL_DATE, accept.AcceptDate);
+            details.DeliveryName = DataHelper.ToString(accept.DeliveryName);
+            details.DeliveryAddress = DataHelper.ToString(accept.DeliveryAddress);
+            details.ClientName = DataHelper.ToString(accept.ClientName);
+            details.ClientAddress = DataHelper.ToString(accept.ClientAddress);
+            var paymentMethodsName = mCodeCom.GetCodeName(Logics.GROUP_PAYMENT_METHODS, accept.PaymentMethods);
+            details.PaymentMethods = DataHelper.ToString(accept.PaymentMethods);
+            details.PaymentMethodsName = DataHelper.ToString(paymentMethodsName);
+            var totalAmount = accept.AcceptDetails.Sum(o => o.DetailAmt);
+            details.TotalAmount = DataHelper.ToString(Formats.CURRENCY, totalAmount);
             foreach (var obj in accept.AcceptDetails)
             {
                 acceptDetails = new OutputAcceptDetailsModel();
                 acceptDetails.ItemCd = DataHelper.ToString(obj.ItemCd);
                 acceptDetails.ItemName = DataHelper.ToString(obj.ItemName);
+                acceptDetails.Price = DataHelper.ToString(Formats.CURRENCY, obj.DetailPrice);
+                acceptDetails.Quantty = DataHelper.ToString(Formats.NUMBER, obj.DetailQtty);
+                acceptDetails.Amount = DataHelper.ToString(Formats.CURRENCY, obj.DetailAmt);
+
                 listAcceptDetails.Add(acceptDetails);
             }
             details.ListAcceptDetails = listAcceptDetails;
