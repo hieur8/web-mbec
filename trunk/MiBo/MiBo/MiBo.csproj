@@ -75,6 +75,7 @@
     <Content Include="pages\cln\items.aspx" />
     <Content Include="pages\cln\login.aspx" />
     <Content Include="pages\cln\logout.aspx" />
+    <Content Include="pages\cln\order-details.aspx" />
     <Content Include="pages\cln\order-history.aspx" />
     <Content Include="pages\cln\overview.aspx" />
     <Content Include="pages\cln\products.aspx" />
@@ -544,6 +545,13 @@
     </Compile>
     <Compile Include="pages\cln\logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\order-details.aspx.cs">
+      <DependentUpon>order-details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\order-details.aspx.designer.cs">
+      <DependentUpon>order-details.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\order-history.aspx.cs">
       <DependentUpon>order-history.aspx</DependentUpon>

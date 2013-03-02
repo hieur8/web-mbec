@@ -42,6 +42,7 @@
         public const string GROUP_ITEM_DIV = "sys-item-div";
         public const string GROUP_PRICE_DIV = "sys-price-div";
         public const string GROUP_SLIP_STATUS = "sys-slip-status";
+        public const string GROUP_PAYMENT_METHODS = "sys-payment-methods";
 
         // Description for master code
         public const string CD_ITEM_DIV_NONE = "01";

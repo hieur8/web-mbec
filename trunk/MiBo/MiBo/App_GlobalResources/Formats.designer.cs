@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0:dd MMMM yyyy}.
+        /// </summary>
+        internal static string FULL_DATE {
+            get {
+                return ResourceManager.GetString("FULL_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0:#,#.#}.
         /// </summary>
         internal static string NUMBER {
