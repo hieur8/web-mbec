@@ -22,7 +22,6 @@
 
             //On Click Event
             jQuery("ul.tabs li").click(function () {
-
                 jQuery("ul.tabs li").removeClass("active"); //Remove any "active" class
                 jQuery(this).addClass("active"); //Add "active" class to selected tab
                 jQuery(".tab_content").hide(); //Hide all tab content

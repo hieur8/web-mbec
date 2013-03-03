@@ -1,10 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/customer.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true"
     CodeBehind="confirmcheckout.aspx.cs" Inherits="MiBo.pages.cln.confirmcheckout" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<form id="form1" runat="server" >
+<asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
     <div class="main-container col2-right-layout">
         <div class="main">
             <div class="col-main">
@@ -118,5 +117,4 @@
             </div>
         </div>
     </div>
-    </form>
 </asp:Content>
