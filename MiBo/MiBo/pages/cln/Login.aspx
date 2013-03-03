@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/customer.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true"
     CodeBehind="login.aspx.cs" Inherits="MiBo.pages.cln.login" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
   <script type="text/javascript">
       $(document).ready(function () {
-          $("#form1").validate();
+          $("#frmMain").validate();
       });
 </script>
     <div class="main-container col1-layout">
@@ -17,7 +17,6 @@
                         <h1>
                             Đăng nhập hoặc đăng ký thành viên mới</h1>
                     </div>
-                    <form id="form1" runat="server">
                     <div class="col2-set">
                         <div class="col-1 new-users">
                             <div class="content">
@@ -100,7 +99,6 @@
                             </div>
                         </div>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>

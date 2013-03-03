@@ -63,13 +63,9 @@
     <Content Include="Global.asax" />
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
-    <Content Include="pages\cln\accounts.aspx" />
-    <Content Include="pages\cln\cart.aspx" />
     <Content Include="pages\cln\channel.html" />
     <Content Include="pages\cln\checkout.aspx" />
     <Content Include="pages\cln\confirmcheckout.aspx" />
-    <Content Include="pages\cln\details.aspx" />
-    <Content Include="pages\cln\index_bk.aspx" />
     <Content Include="pages\cln\index.aspx" />
     <Content Include="pages\cln\item-details.aspx" />
     <Content Include="pages\cln\items.aspx" />
@@ -78,13 +74,10 @@
     <Content Include="pages\cln\order-details.aspx" />
     <Content Include="pages\cln\order-history.aspx" />
     <Content Include="pages\cln\overview.aspx" />
-    <Content Include="pages\cln\products.aspx" />
     <Content Include="pages\cln\profile-edit.aspx" />
     <Content Include="pages\cln\profile.aspx" />
     <Content Include="pages\cln\register.aspx" />
     <Content Include="pages\cln\shopping-cart.aspx" />
-    <Content Include="pages\cln\WebForm1.aspx" />
-    <Content Include="pages\common\DemoMaster.htm" />
     <Content Include="pages\common\error.aspx" />
     <Content Include="pages\media\images\banners\01.jpg" />
     <Content Include="pages\media\images\banners\02.jpg" />
@@ -469,20 +462,6 @@
     <Compile Include="pages\administer\item-list.aspx.designer.cs">
       <DependentUpon>item-list.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\cln\accounts.aspx.cs">
-      <DependentUpon>accounts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\cln\accounts.aspx.designer.cs">
-      <DependentUpon>accounts.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\cln\cart.aspx.cs">
-      <DependentUpon>cart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\cln\cart.aspx.designer.cs">
-      <DependentUpon>cart.aspx</DependentUpon>
-    </Compile>
     <Compile Include="pages\cln\checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -496,20 +475,6 @@
     </Compile>
     <Compile Include="pages\cln\confirmcheckout.aspx.designer.cs">
       <DependentUpon>confirmcheckout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\cln\details.aspx.cs">
-      <DependentUpon>details.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\cln\details.aspx.designer.cs">
-      <DependentUpon>details.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\cln\index_bk.aspx.cs">
-      <DependentUpon>index_bk.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\cln\index_bk.aspx.designer.cs">
-      <DependentUpon>index_bk.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -567,13 +532,6 @@
     <Compile Include="pages\cln\overview.aspx.designer.cs">
       <DependentUpon>overview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\cln\products.aspx.cs">
-      <DependentUpon>products.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\cln\products.aspx.designer.cs">
-      <DependentUpon>products.aspx</DependentUpon>
-    </Compile>
     <Compile Include="pages\cln\profile-edit.aspx.cs">
       <DependentUpon>profile-edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -602,13 +560,6 @@
     <Compile Include="pages\cln\shopping-cart.aspx.designer.cs">
       <DependentUpon>shopping-cart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\cln\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\cln\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="pages\common\administer.Master.cs">
       <DependentUpon>administer.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -622,13 +573,6 @@
     </Compile>
     <Compile Include="pages\common\client.Master.designer.cs">
       <DependentUpon>client.Master</DependentUpon>
-    </Compile>
-    <Compile Include="pages\common\customer.Master.cs">
-      <DependentUpon>customer.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\common\customer.Master.designer.cs">
-      <DependentUpon>customer.Master</DependentUpon>
     </Compile>
     <Compile Include="pages\common\error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
@@ -650,7 +594,6 @@
   <ItemGroup>
     <Content Include="pages\common\administer.Master" />
     <Content Include="pages\common\client.Master" />
-    <Content Include="pages\common\customer.Master" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Domain\Common\Dao\Entities.dbml">

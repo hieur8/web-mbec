@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/customer.Master" AutoEventWireup="true" CodeBehind="overview.aspx.cs" Inherits="MiBo.pages.cln.overview" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true" CodeBehind="overview.aspx.cs" Inherits="MiBo.pages.cln.overview" %>
+<asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+<asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
 <%
     if (Session["msgInfo"] != null)
     {
@@ -23,5 +22,4 @@
           <h1><%=Session["msgInfo"].ToString()%></h1>
           <% } %>
      </center>
-    </form>
 </asp:Content>

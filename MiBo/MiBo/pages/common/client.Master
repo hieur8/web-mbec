@@ -21,6 +21,11 @@
             });
         });
     </script>
+    <!-- Validate client -->
+    <script type="text/javascript" src="/pages/resources/scripts/jquery.validate.min.js"></script>
+    <!-- MyScript -->
+    <script type="text/javascript">
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

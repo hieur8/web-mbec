@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/customer.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true"
     CodeBehind="register.aspx.cs" Inherits="MiBo.pages.cln.register" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#form1").validate();
+            $("#frmMain").validate();
             $('#<%=passConfirm.ClientID%>').attr('equalTo', '#<%=pass.ClientID%>');
         });
     </script>
@@ -17,7 +17,6 @@
                     <h1>
                         Tạo tài khoản mới</h1>
                 </div>
-                <form runat="server" id="form1">
                 <div class="fieldset">
                     <input type="hidden" name="success_url" value="">
                     <input type="hidden" name="error_url" value="">
@@ -97,7 +96,6 @@
                         <a href="#" class="back-link"><small>« </small>Quay lại</a></p>
                     <asp:Button ID="btnRegister" class="button" runat="server" Text="Đăng ký" OnClick="btnRegister_Click" />
                 </div>
-                </form>
             </div>
         </div>
     </div>
