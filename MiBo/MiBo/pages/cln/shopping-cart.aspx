@@ -84,12 +84,12 @@
                                             <td>
                                                 <asp:HiddenField ID="hidItemCd" runat="server" Value='<%# Eval("ItemCd") %>' />
                                                 <h2 class="product-name">
-                                                    <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
+                                                    <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
                                                         <%# Eval("ItemName")%></a>
                                                 </h2>
                                             </td>
                                             <td>
-                                                <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
+                                                <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
                                                         width="75" height="75" alt='<%# Eval("ItemName")%>'></a>
                                             </td>
@@ -137,12 +137,12 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <li class="item odd">
-                                                <a class="product-image" href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
+                                                <a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName")%>'>
                                                 </a>
                                                 <div class="product-details">
                                                     <h3 class="product-name">
-                                                        <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
+                                                        <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
                                                             <%# Eval("ItemName")%>(<%# Eval("Quantity")%>)
                                                         </a>
                                                     </h3>

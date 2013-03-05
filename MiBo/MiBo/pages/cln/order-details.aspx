@@ -133,7 +133,7 @@
                             </div>
                             <div class="buttons-set">
                                 <p class="back-link">
-                                    <a href="/pages/cln/order-history.aspx"><small>« </small>Quay lại trang lịch sử đơn hàng</a></p>
+                                    <a href="/order-history.aspx"><small>« </small>Quay lại trang lịch sử đơn hàng</a></p>
                             </div>
                         </div>
                     </ItemTemplate>
@@ -146,8 +146,8 @@
                     </div>
                     <div class="block-content">
                         <ul>
-                            <li><a href="/pages/cln/profile.aspx">Trang tài khoản cá nhân</a></li>
-                            <li><a href="/pages/cln/profile-edit.aspx">Chỉnh sủa thông tin cá nhân</a></li>
+                            <li><a href="/profile.aspx">Trang tài khoản cá nhân</a></li>
+                            <li><a href="/profile-edit.aspx">Chỉnh sủa thông tin cá nhân</a></li>
                             <li class="current"><strong>Lịch sử đơn hàng</strong></li>
                         </ul>
                     </div>

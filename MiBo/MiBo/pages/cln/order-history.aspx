@@ -70,7 +70,7 @@
                                     <em><%# Eval("SlipStatusName")%></em>
                                 </td>
                                 <td class="a-center last">
-                                    <span class="nobr"><a href='/pages/cln/order-details.aspx?order=<%# Eval("AcceptSlipNo")%>'>Chi tiết</a></span>
+                                    <span class="nobr"><a href='/order-details.aspx?order=<%# Eval("AcceptSlipNo")%>'>Chi tiết</a></span>
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -88,8 +88,8 @@
                     </div>
                     <div class="block-content">
                         <ul>
-                            <li><a href="/pages/cln/profile.aspx">Trang tài khoản cá nhân</a></li>
-                            <li><a href="/pages/cln/profile-edit.aspx">Chỉnh sủa thông tin cá nhân</a></li>
+                            <li><a href="/profile.aspx">Trang tài khoản cá nhân</a></li>
+                            <li><a href="/profile-edit.aspx">Chỉnh sủa thông tin cá nhân</a></li>
                             <li class="current"><strong>Lịch sử đơn hàng</strong></li>
                         </ul>
                     </div>

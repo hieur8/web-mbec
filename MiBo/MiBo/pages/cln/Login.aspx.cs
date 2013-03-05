@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Login;
 using MiBo.Domain.Web.Client.Login;
+using MiBo.Domain.Common.Constants;
+using MiBo.Domain.Common.Helper;
 
 namespace MiBo.pages.cln
 {
@@ -14,8 +16,8 @@ namespace MiBo.pages.cln
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userCd"] != null){
-                Response.Redirect("index.aspx");
+            if (PageHelper.HasAuthenticated){
+                Response.Redirect(Pages.CLIENT_INDEX);
             }
         }
 
@@ -29,12 +31,12 @@ namespace MiBo.pages.cln
                 Session["userName"] = response.UserName;
                 if (Session["paying"] == null)
                 {
-                    Response.Redirect("index.aspx");
+                    Response.Redirect(Pages.CLIENT_INDEX);
                 }
                 else
                 {
                     Session["payMethod"] = "1";
-                    Response.Redirect("checkout.aspx");
+                    Response.Redirect(Pages.CLIENT_CHECKOUT);
                 }
             }
 

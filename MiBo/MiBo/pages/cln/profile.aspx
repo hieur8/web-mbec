@@ -34,13 +34,13 @@
                                                 <div class="box-title">
                                                     <h3>
                                                         Thông tin liên hệ</h3>
-                                                    <a href="/pages/cln/profile-edit.aspx">Chỉnh sửa</a>
+                                                    <a href="/profile-edit.aspx">Chỉnh sửa</a>
                                                 </div>
                                                 <div class="box-content">
                                                     <p>
                                                         <%# Eval("FullName")%><br>
                                                         <%= Session["userName"] %><br>
-                                                        <a href="/pages/cln/profile-edit.aspx?edit=pass">Thay đổi mật khẩu</a>
+                                                        <a href="/profile-edit.aspx?edit=pass">Thay đổi mật khẩu</a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -75,8 +75,8 @@
                     <div class="block-content">
                         <ul>
                             <li class="current"><strong>Trang tài khoản cá nhân</strong></li>
-                            <li><a href="/pages/cln/profile-edit.aspx">Chỉnh sủa thông tin cá nhân</a></li>
-                            <li><a href="/pages/cln/order-history.aspx">Lịch sử đơn hàng</a></li>
+                            <li><a href="/profile-edit.aspx">Chỉnh sủa thông tin cá nhân</a></li>
+                            <li><a href="/order-history.aspx">Lịch sử đơn hàng</a></li>
                         </ul>
                     </div>
                 </div>

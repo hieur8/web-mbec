@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.pages.cln
 {
@@ -13,7 +14,7 @@ namespace MiBo.pages.cln
         {
             Session["userCd"] = null;
             Session["userName"] = null;
-            Response.Redirect("index.aspx");
+            Response.Redirect(Pages.CLIENT_INDEX);
         }
     }
 }

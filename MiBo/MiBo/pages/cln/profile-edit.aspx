@@ -138,9 +138,9 @@
                     </div>
                     <div class="block-content">
                         <ul>
-                            <li><a href="/pages/cln/profile.aspx">Trang tài khoản cá nhân</a></li>
+                            <li><a href="/profile.aspx">Trang tài khoản cá nhân</a></li>
                             <li class="current"><strong>Chỉnh sủa thông tin cá nhân</strong></li>
-                            <li><a href="/pages/cln/order-history.aspx">Lịch sử đơn hàng</a></li>
+                            <li><a href="/order-history.aspx">Lịch sử đơn hàng</a></li>
                         </ul>
                     </div>
                 </div>

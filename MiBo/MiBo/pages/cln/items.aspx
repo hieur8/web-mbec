@@ -24,7 +24,7 @@
             <div class="col-main box jplist">
                 <div class="breadcrumbs">
                     <ul>
-                        <li class="home"><a href="/pages/cln/index.aspx" title="Trở về trang chủ">Trang chủ</a> <span>/ </span></li>
+                        <li class="home"><a href="/index.aspx" title="Trở về trang chủ">Trang chủ</a> <span>/ </span></li>
                         <li class="category37"><strong>Sản phẩm</strong> </li>
                     </ul>
                 </div>
@@ -87,13 +87,13 @@
                                     </HeaderTemplate>
                                     <ItemTemplate>
                                         <li class="item">
-                                            <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
+                                            <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
                                                 <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName") %>'>
                                             </a>
                                             <div class="product-shop">
                                                 <div class="f-fix">
                                                     <h3 class="product-name">
-                                                        <a href="/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>' class="title"><%# Eval("ItemName") %></a>
+                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>' class="title"><%# Eval("ItemName") %></a>
                                                     </h3>
                                                     <div class="price-box">
                                                         <span class="regular-price" id="product-price-181-new">
@@ -110,7 +110,7 @@
                                                     <div class="desc std">
                                                         <p class="desc">
                                                             <%# Eval("Notes") %>
-                                                            <a href="/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>' class="link-more">Chi tiết</a>
+                                                            <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>' class="link-more">Chi tiết</a>
                                                         </p>
                                                     </div>
                                                 </div>

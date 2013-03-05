@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MiBo.Domain.Logic.Client.Register;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Web.Client.Register;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.pages.cln
 {
@@ -23,7 +24,7 @@ namespace MiBo.pages.cln
             var response = Invoke(logic, RegisterRequestModel);
             if (response != null)
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect(Pages.CLIENT_LOGIN);
             }
 
         }

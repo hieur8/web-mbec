@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.pages.cln
 {
@@ -13,7 +14,7 @@ namespace MiBo.pages.cln
         {
             if (Session["Cart"] == null || Session["payMethod"] == null)
             {
-                Response.Redirect("index.aspx");
+                Response.Redirect(Pages.CLIENT_INDEX);
             }
             else
             {
@@ -24,7 +25,7 @@ namespace MiBo.pages.cln
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("index.aspx");
+            Response.Redirect(Pages.CLIENT_INDEX);
         }
     }
 }

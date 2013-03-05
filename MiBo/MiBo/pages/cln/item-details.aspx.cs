@@ -15,9 +15,6 @@ namespace MiBo.pages.cln
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
             if (HasError) return;
-            lnkCategory.Text = response.CategoryName;
-            lnkCategory.PostBackUrl += response.CategoryCd;
-            litItemName.Text = response.ItemName;
             fvwItemDetails.DataSource = response.Details;
             fvwItemDetails.DataBind();
         }
