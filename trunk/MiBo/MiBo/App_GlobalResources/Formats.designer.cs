@@ -97,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0:#,#.#}%.
+        /// </summary>
+        internal static string PERCENT {
+            get {
+                return ResourceManager.GetString("PERCENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0:dd-MM-yyyy hh:mm:ss}.
         /// </summary>
         internal static string UPDATE_DATE {

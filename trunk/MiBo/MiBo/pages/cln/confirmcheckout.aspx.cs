@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Login;
 using MiBo.Domain.Web.Client.Login;
+using MiBo.Domain.Common.Constants;
 
 
 namespace MiBo.pages.cln
@@ -32,7 +33,7 @@ namespace MiBo.pages.cln
                 Session["userCd"] = response.UserCd;
                 Session["userName"] = response.UserName;
                 Session["payMethod"] = "1";
-                Response.Redirect("checkout.aspx");
+                Response.Redirect(Pages.CLIENT_CHECKOUT);
             }
         }
         private LoginRequestModel LoginRequestModel
@@ -56,13 +57,13 @@ namespace MiBo.pages.cln
             if (method1.Checked)
             {
                 Session["payMethod"] = "0";
-                Response.Redirect("checkout.aspx");
+                Response.Redirect(Pages.CLIENT_CHECKOUT);
             }
 
             if (method2.Checked)
             {
                 Session["paying"] = "1";
-                Response.Redirect("register.aspx");
+                Response.Redirect(Pages.CLIENT_REGISTER);
             }
         }
     }

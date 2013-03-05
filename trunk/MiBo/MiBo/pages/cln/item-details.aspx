@@ -26,47 +26,47 @@
     <div class="main-container col2-right-layout">
         <div class="main">
             <div class="col-main">
-                <div class="breadcrumbs">
-                    <ul>
-                        <li class="home"><a href="/pages/cln/index.aspx" title="Trở về trang chủ">Trang chủ</a> <span>/ </span> </li>
-                        <li class="category37"><asp:LinkButton ID="lnkCategory" PostBackUrl="~/pages/cln/items.aspx?category=" runat="server">LinkButton</asp:LinkButton> <span>/ </span></li>
-                        <li class="product"><strong><asp:Literal ID="litItemName" runat="server"></asp:Literal></strong> </li>
-                    </ul>
-                </div>
-                <ul class="messages">
-                    <% if (Session["info"] != null)
-                        { %>
-                    <li class="success-msg">
-                        <ul>
-                            <li>
-                                <%= Session["info"]%></li></ul>
-                    </li>
-                    <% } %>
-                    <% if (Session["error"] != null)
-                        { %>
-                    <li class="error-msg">
-                        <ul>
-                            <li>
-                                <%= Session["error"] %></li></ul>
-                    </li>
-                    <% } %>
-                    <% if (Session["warn"] != null)
-                        { %>
-                    <li class="notice-msg">
-                        <ul>
-                            <li>
-                                <%= Session["warn"]%></li></ul>
-                    </li>
-                    <% } %>
-                </ul>
-                <div id="messages_product_view">
-                </div>
                 <asp:FormView ID="fvwItemDetails" runat="server" RenderOuterTable="false">
                     <ItemTemplate>
+                        <div class="breadcrumbs">
+                            <ul>
+                                <li class="home"><a href="/index.aspx" title="Trở về trang chủ">Trang chủ</a> <span>/ </span> </li>
+                                <li class="category37"><a href='/items.aspx?category=<%# Eval("CategoryCd")%>'><%# Eval("CategoryName")%></a> <span>/ </span></li>
+                                <li class="product"><strong><%# Eval("ItemName")%></strong> </li>
+                            </ul>
+                        </div>
+                        <ul class="messages">
+                            <% if (Session["info"] != null)
+                                { %>
+                            <li class="success-msg">
+                                <ul>
+                                    <li>
+                                        <%= Session["info"]%></li></ul>
+                            </li>
+                            <% } %>
+                            <% if (Session["error"] != null)
+                                { %>
+                            <li class="error-msg">
+                                <ul>
+                                    <li>
+                                        <%= Session["error"] %></li></ul>
+                            </li>
+                            <% } %>
+                            <% if (Session["warn"] != null)
+                                { %>
+                            <li class="notice-msg">
+                                <ul>
+                                    <li>
+                                        <%= Session["warn"]%></li></ul>
+                            </li>
+                            <% } %>
+                        </ul>
+                        <div id="messages_product_view">
+                        </div>
                         <div class="product-view">
                             <div class="product-essential">
                                 <div class="no-display">
-                                    
+                                    <asp:HiddenField ID="hidItemCd" Value='<%# Eval("ItemCd")%>' runat="server" />
                                 </div>
                                 <div class="product-shop">
                                     <div class="product-name">
@@ -137,12 +137,12 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <li class="item odd">
-                                                <a class="product-image" href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
+                                                <a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName")%>'>
                                                 </a>
                                                 <div class="product-details">
                                                     <h3 class="product-name">
-                                                        <a href='/pages/cln/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
+                                                        <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
                                                             <%# Eval("ItemName")%>(<%# Eval("Quantity")%>)
                                                         </a>
                                                     </h3>

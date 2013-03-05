@@ -18,6 +18,7 @@ namespace MiBo.pages.common
             rptAccessoryMenu.DataSource = response.ListAccessories;
             rptAccessoryMenu.DataBind();
             lblCartCount.Text = response.CartCount;
+            litDiscountMember.Text = response.DiscountMember;
         }
 
         private InitRequestModel InitRequestModel

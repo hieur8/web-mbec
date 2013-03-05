@@ -6,6 +6,8 @@ namespace MiBo.Domain.Web.Client.ItemDetails
     {
         public string ItemCd { get; set; }
         public string ItemName { get; set; }
+        public string CategoryCd { get; set; }
+        public string CategoryName { get; set; }
         public string ItemImage { get; set; }
         public IList<OutputImageModel> ListImages { get; set; }
         public string ItemDiv { get; set; }

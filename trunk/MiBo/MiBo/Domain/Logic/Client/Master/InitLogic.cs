@@ -89,6 +89,7 @@ namespace MiBo.Domain.Logic.Client.Master
 
             // Set value
             responseModel.CartCount = DataHelper.ToString(Formats.NUMBER, resultObject.CartCount);
+            responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
             responseModel.ListToys = listToys;
             responseModel.ListAccessories = listAccessories;
             responseModel.ListCategory = MCodeCom.ToComboItems(resultObject.ListCategory, 0);
@@ -139,16 +140,19 @@ namespace MiBo.Domain.Logic.Client.Master
             InitDataModel getResult = null;
             ClientMasterDao clientMasterDao = null;
             MCodeCom mCodeCom = null;
+            MParameterCom mParameterCom = null;
             CartCom cartCom = null;
 
             // Variable initialize
             getResult = new InitDataModel();
             clientMasterDao = new ClientMasterDao();
             mCodeCom = new MCodeCom();
+            mParameterCom = new MParameterCom();
             cartCom = new CartCom(inputObject.Cart);
 
             // Get data
             var cartCount = cartCom.Count;
+            var discountMember = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
             var listToys = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_TOYS);
             var listAccessories = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_ACCESSORIES);
             var listCategory = mCodeCom.GetListCategory(true, false);
@@ -159,6 +163,7 @@ namespace MiBo.Domain.Logic.Client.Master
 
             // Set value
             getResult.CartCount = cartCount;
+            getResult.DiscountMember = discountMember * decimal.Negate(decimal.One);
             getResult.ListToys = listToys;
             getResult.ListAccessories = listAccessories;
             getResult.ListCategory = listCategory;

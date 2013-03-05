@@ -8,6 +8,7 @@ using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Logic.Client.Checkout;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Web.Client.Checkout;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.pages.cln
 {
@@ -19,20 +20,20 @@ namespace MiBo.pages.cln
             UserComDao userCom = new UserComDao();
             if (Session["Cart"] == null || Session["payMethod"] == null)
             {
-                Response.Redirect("index.aspx");
+                Response.Redirect(Pages.CLIENT_INDEX);
             }
             if (Session["payMethod"].ToString().Equals("1"))
             {
                 if (Session["userCd"] == null)
                 {
-                    Response.Redirect("login.aspx");
+                    Response.Redirect(Pages.CLIENT_LOGIN);
                 }
                 Guid userCd = new Guid(Session["userCd"].ToString());
                 
                 result = userCom.GetSingle(userCd, false);
                 if (result == null)
                 {
-                    Response.Redirect("login.aspx");
+                    Response.Redirect(Pages.CLIENT_LOGIN);
                 }
 
 
@@ -52,7 +53,7 @@ namespace MiBo.pages.cln
                 Session["msgInfo"] = "Có lỗi trong quá trình thanh toán, vui lòng thử lại !";
             }
 
-            Response.Redirect("overview.aspx");
+            Response.Redirect(Pages.CLIENT_OVERVIEW);
         }
         private CheckoutRequestModel CheckoutRequestModel
         {

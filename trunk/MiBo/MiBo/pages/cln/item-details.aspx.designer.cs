@@ -13,24 +13,6 @@ namespace MiBo.pages.cln {
     public partial class item_details {
         
         /// <summary>
-        /// lnkCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCategory;
-        
-        /// <summary>
-        /// litItemName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litItemName;
-        
-        /// <summary>
         /// fvwItemDetails control.
         /// </summary>
         /// <remarks>

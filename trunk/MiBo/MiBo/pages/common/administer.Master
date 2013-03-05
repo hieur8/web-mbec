@@ -33,6 +33,7 @@
     <script type="text/javascript" src="/pages/resources/scripts/jquery.dataTables.js"></script>
     <link rel="stylesheet" href="/pages/resources/styles/data-table.css" type="text/css"
         media="screen" />
+    <!-- MyScript -->
     <script type="text/javascript">
         function activeLink(menuId, linkId) {
             $("a").removeClass("current");

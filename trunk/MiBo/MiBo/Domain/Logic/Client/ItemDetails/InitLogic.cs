@@ -71,6 +71,8 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
 
             details.ItemCd = DataHelper.ToString(item.ItemCd);
             details.ItemName = DataHelper.ToString(item.ItemName);
+            details.CategoryCd = DataHelper.ToString(item.CategoryCd);
+            details.CategoryName = DataHelper.ToString(item.Category.CategoryName);
             details.ItemImage = DataHelper.ToString(item.ItemImage);
             foreach (var obj in item.ItemImages)
             {
@@ -101,10 +103,6 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             details.ListOfferItems = listOfferItems;
 
             // Set value
-            responseModel.ItemCd = DataHelper.ToString(item.ItemCd);
-            responseModel.ItemName = DataHelper.ToString(item.ItemName);
-            responseModel.CategoryCd = DataHelper.ToString(item.CategoryCd);
-            responseModel.CategoryName = DataHelper.ToString(item.Category.CategoryName);
             responseModel.Details = new List<OutputDetailsModel>() { details };
 
             // Return value

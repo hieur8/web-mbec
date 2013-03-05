@@ -44,8 +44,8 @@
                             <p class="welcome-msg">
                                 Xin chào quý khách !</p>
                             <ul class="links">
-                                <li><a href="/pages/cln/register.aspx" title="Đăng ký" class="top-link-checkout">Đăng ký</a></li>
-                                <li class=" last"><a href="/pages/cln/login.aspx" title="Đăng nhập">Đăng nhập</a></li>
+                                <li><a href="/register.aspx" title="Đăng ký" class="top-link-checkout">Đăng ký</a></li>
+                                <li class=" last"><a href="/login.aspx" title="Đăng nhập">Đăng nhập</a></li>
                             </ul>
                         </div>
                         <%
@@ -59,17 +59,17 @@
                                     <%=Session["userName"].ToString()%>
                                     !</b></p>
                             <ul class="links">
-                                <li class="first"><a href="/pages/cln/profile.aspx" title="Xem tài khoản của tôi">Tài khoản của tôi</a></li>
-                                <li><a href="/pages/cln/order-history.aspx" title="Xem lịch sử đơn hàng" class="top-link-wishlist">Lịch sử đơn hàng</a></li>
-                                <li><a href="/pages/cln/profile-edit.aspx?edit=pass" title="Thay đổi mật khẩu" class="top-link-checkout">Thay đổi mật khẩu</a></li>
-                                <li class=" last"><a href="/pages/cln/logout.aspx" title="Đăng xuất">Đăng xuất</a></li>
+                                <li class="first"><a href="/profile.aspx" title="Xem tài khoản của tôi">Tài khoản của tôi</a></li>
+                                <li><a href="/order-history.aspx" title="Xem lịch sử đơn hàng" class="top-link-wishlist">Lịch sử đơn hàng</a></li>
+                                <li><a href="/profile-edit.aspx?edit=pass" title="Thay đổi mật khẩu" class="top-link-checkout">Thay đổi mật khẩu</a></li>
+                                <li class=" last"><a href="/logout.aspx" title="Đăng xuất">Đăng xuất</a></li>
                             </ul>
                         </div>
                         <% } %>
                         <div class="clear">
                         </div>
                         <h1 class="logo">
-                            <a href="/pages/cln/index.aspx" title="Mibo" class="logo">
+                            <a href="/index.aspx" title="Mibo" class="logo">
                                 <img src="/pages/resources/images/logo.png" alt="Magento Commerce"></a></h1>
                         <div class="quick-access">
                             <div class="search-checkout-container">
@@ -80,7 +80,7 @@
                                             if (Session["Cart"] != null)
                                             {
                                         %>
-                                        <a href="/pages/cln/shopping-cart.aspx">
+                                        <a href="/shopping-cart.aspx">
                                             <span class="bag-item"><asp:Label ID="lblCartCount" runat="server"></asp:Label> sản phẩm</span>
                                         </a>
                                         <% }
@@ -93,13 +93,14 @@
                                             if (Session["userCd"] == null)
                                             {
                                         %>
-                                        <a href="confirmcheckout.aspx"><span class="checkout-lnk">Thanh toán</span></a>
+                                        <a href="/confirmcheckout.aspx"><span class="checkout-lnk">Thanh toán</span></a>
                                         <% }
                                             else
                                             { %>
-                                        <a href="checkout.aspx"><span class="checkout-lnk">Thanh toán</span></a>
+                                        <a href="/checkout.aspx"><span class="checkout-lnk">Thanh toán</span></a>
                                         <% } %>
-                                        <span class="banner-msg"><span>-5% Thành viên mibo</span></span>
+                                        <span class="banner-msg"><span>
+                                            <asp:Literal ID="litDiscountMember" runat="server"></asp:Literal> Thành viên mibo</span></span>
                                     </div>
                                 </div>
                             </div>
@@ -110,14 +111,14 @@
                 <div class="nav-container">
                     <div class="light-blue">
                         <ul id="mega-menu" class="mega-menu">
-                            <li><a href="/pages/cln/index.aspx">Trang Chủ</a></li>
+                            <li><a href="/index.aspx">Trang Chủ</a></li>
                             <li><a href="#">Đồ Chơi</a>
                                 <asp:Repeater ID="rptToyMenu" runat="server">
                                     <HeaderTemplate>
                                         <ul>
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <li><a href='/pages/cln/items.aspx?category=<%# Eval("CategoryCd") %>'>
+                                        <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
                                             <%# Eval("CategoryName") %></a></li>
                                     </ItemTemplate>
                                     <FooterTemplate>
@@ -131,7 +132,7 @@
                                         <ul>
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <li><a href='/pages/cln/items.aspx?category=<%# Eval("CategoryCd") %>'>
+                                        <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
                                             <%# Eval("CategoryName") %></a></li>
                                     </ItemTemplate>
                                     <FooterTemplate>
