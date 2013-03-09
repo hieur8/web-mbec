@@ -88,7 +88,7 @@
                     <div class="col2-set">
                         <div class="col-1 new-users">
                             <div class="buttons-set">
-                                <button type="button" title="Create an Account" class="button" onclick="window.location='http://www.magento-themes.jextn.com/demo/mageno_blue_toys_theme_demo/index.php/customer/account/create/';">
+                                <button type="button" title="Create an Account" class="button"">
                                     <span><span>Tạo tài khoản mới</span></span></button>
                             </div>
                         </div>
