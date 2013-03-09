@@ -150,6 +150,7 @@
                     <asp:ContentPlaceHolder ID="main" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
+                <div style="width:100%;height:10px;background: url(/pages/resources/images/footer-top-shadow-bg.gif) repeat-x;"></div>
                 <div class="footer-container">
                     <div class="footer">
                         <div class="first-block">
@@ -216,9 +217,9 @@
                         <div class="clear">
                         </div>
                         <div class="footer-btmlinks">
-                            <address>
-                            © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong - Mibo.vn - Địa chỉ:
-                            96//22a đường số 5,P 17,Q Gò vấp
+                            <center>
+                           Copyright © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong.
+                            </center>
                         </div>
                     </div>
                 </div>
