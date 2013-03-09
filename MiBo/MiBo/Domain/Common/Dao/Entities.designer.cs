@@ -141,7 +141,7 @@ namespace MiBo.Domain.Common.Dao
     #endregion
 		
 		public EntitiesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MiBoDBConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MiBoDBConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
