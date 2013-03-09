@@ -65,6 +65,7 @@
       <LastGenOutput>Messages.designer.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="index.htm" />
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
     <Content Include="pages\cln\channel.html" />
