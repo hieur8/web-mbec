@@ -23,6 +23,14 @@
     </script>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
+ <div id="fb-root"></div>
+<script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=290594851068312";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
     <div class="main-container col2-right-layout">
         <div class="main">
             <div class="col-main">
@@ -140,7 +148,7 @@
                                                 <a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName")%>'>
                                                 </a>
-                                                <div class="product-details">
+                                                &nbsp;&nbsp;<div class="product-details">
                                                     <h3 class="product-name">
                                                         <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
                                                             <%# Eval("ItemName")%>(<%# Eval("Quantity")%>)
@@ -159,6 +167,8 @@
                             </div>
                             <div class="box-collateral box-up-sell">
                                 <h2>Like và bình luận với Facebook</h2>
+    <div class="fb-like" data-href='http://mibo.vn/item-details.aspx?pid=<%# Eval("ItemCd")%>' data-send="false" data-width="450" data-show-faces="false" data-font="arial"></div>
+    <div class="fb-comments" data-href='http://mibo.vn/item-details.aspx?pid=<%# Eval("ItemCd")%>' data-width="470" data-num-posts="10"></div>
                             </div>
                         </div>
                     </ItemTemplate>
