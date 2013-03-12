@@ -126,6 +126,7 @@ a.remove-link:hover {
 
 #sidebar #logo {
                 margin: 40px 0 40px 0;
+                width: 250px;
                 }
 
 #sidebar #profile-links {
@@ -422,24 +423,20 @@ ul.content-box-tabs li a.current {
                 line-height: 1.3em;
                 }
 
-.new-offer-type span {
-                background-image: url('../images/icons/new_offer_type.png');
+.update-offer span {
+                background-image: url('../images/icons/pencil_48.png');
                 }
                 
-.new-item-type span {
-                background-image: url('../images/icons/new_item_type.png');
+.new-tour span {
+                background-image: url('../images/icons/paper_content_pencil_48.png');
                 }
                 
-.new-item span {
-                background-image: url('../images/icons/new_item.png');
-                }
-                
-.new-banner span {
-                background-image: url('../images/icons/new_photo.png');
-                }
-               
 .upload-photo span {
-                background-image: url('../images/icons/upload_photo.png');
+                background-image: url('../images/icons/image_add_48.png');
+                }
+                
+.update-rate span {
+                background-image: url('../images/icons/dolla_48.png');
                 }
 
 .shortcut-button:hover {
@@ -488,7 +485,7 @@ form .wysiwyg {
                 border: 1px solid #d5d5d5;
 				color: #333;
                 }
-            
+
 form .small-input {
                 width: 25% !important;
                 }
@@ -501,10 +498,6 @@ form .large-input {
                 width: 97.5% !important;
 				font-size: 16px !important;
 				padding: 8px !important;
-                }
-                
-form .image-input {
-                border: 1px solid #cccccc;
                 }
                 
 form textarea {
@@ -608,13 +601,13 @@ body#login {
 
 #login-wrapper #login-top {
 				width: 100%;
-				padding: 140px 0 50px 0;
+				padding: 30px 0 50px 0;
 				text-align: center;
 				}
 				
 #login-wrapper #login-content {
 				text-align: left;
-				width: 320px;
+				width: 300px;
 				margin: 0 auto;
 				}
 				
@@ -624,7 +617,7 @@ body#login {
 				font-size: 14px;
 				font-family: Helvetica, Arial, sans-serif;
 				float: left;
-				width: 100px;
+				width: 70px;
 				padding: 0;
 				}
 				
@@ -811,6 +804,26 @@ div.wysiwyg ul.panel li a.empty { background-position: -64px -80px; }
 
 div.wysiwyg iframe { border: 0; margin: 5px 0 0 0; clear: left; width: 97.5% !important; }
 
-/*************** Search ***************/
-/*.search .input-search { margin-left: 20px; margin-right: 50px; }*/
-.search tr { background-color: #f3f3f3 !important; }
+table.search
+{
+    padding: 5px;
+    border-collapse: collapse;
+}
+
+.colf
+{
+    padding-left: 0px;
+    float: left;
+}
+
+.cols
+{
+    padding-left: 10px;
+    float: left;
+}
+
+span.label
+{
+    padding: 0 10px 0 10px;
+    font-weight: bold;
+}

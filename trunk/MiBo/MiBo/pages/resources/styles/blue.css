@@ -1,8 +1,24 @@
-a { color: #0078cc; }
-ul.content-box-tabs li a:hover { color: #0078cc; }
+a              { color: #0078cc; }
+                
+.button {
+                background: #004a95 url('../images/bg-button-blue.gif') top left repeat-x !important;
+                border-color: #004994 !important;
 
-.button { background: #004a95 url('/pages/resources/images/bg-button-blue.gif') top left repeat-x !important; border-color: #004994 !important; }
-.pagination a.current { background: #004a95 url('/pages/resources/images/bg-button-blue.gif') top left repeat-x !important; border-color: #004994 !important; }
-.action-button span:hover { color: #0078cc; }
+                }
 
-#sidebar #main-nav li a.nav-top-item { background: transparent url('/pages/resources/images/bg-menu-item-blue.gif') right center no-repeat; }
+#sidebar #main-nav li a.nav-top-item {
+                background: transparent url('../images/bg-menu-item-blue.gif') right center no-repeat;
+                }
+
+ul.content-box-tabs li a:hover {
+                color: #0078cc;
+                }              
+                
+.pagination a.current {
+                background: #004a95 url('../images/bg-button-blue.gif') top left repeat-x !important;
+                border-color: #004994 !important;
+                }
+				
+.action-button span:hover {
+				color: #0078cc;0; 
+                }

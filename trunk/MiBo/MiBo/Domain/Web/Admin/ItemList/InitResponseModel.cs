@@ -14,5 +14,6 @@ namespace MiBo.Domain.Web.Admin.ItemList
         public ListItem[] ListCountry { get; set; }
         public ListItem[] ListUnit { get; set; }
         public ListItem[] ListItemDiv { get; set; }
+        public ListItem[] ListDeleteFlag { get; set; }
     }
 }

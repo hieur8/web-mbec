@@ -47,3 +47,21 @@ q:before, q:after {
 blockquote, q {
 	quotes: "" "";
 }
+
+/* Reset format table */
+.mceEditor tr,
+.mceEditor th,
+.mceEditor td {
+	margin: 0 !important;
+	padding: 0 !important;	
+}
+
+table.mceToolbar {
+    width: inherit !important;
+}
+
+.mceEditor table {
+	border-collapse: separate !important;
+	border-spacing: 0 !important;
+}
+

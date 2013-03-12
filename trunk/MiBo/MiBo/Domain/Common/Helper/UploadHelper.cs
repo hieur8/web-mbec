@@ -8,6 +8,17 @@ namespace MiBo.Domain.Common.Helper
 {
     public static class UploadHelper
     {
+        public const string URL_UPLOAD_DEFAULT = "\\pages\\media\\temp\\";
+
+        /// <summary>
+        /// Get upload url
+        /// </summary>
+        /// <returns>UploadUrl</returns>
+        public static string GetUploadUrl()
+        {
+            return URL_UPLOAD_DEFAULT + DataHelper.GetUniqueKey() + "\\";
+        }
+
         /// <summary>
         /// Upload image
         /// </summary>
@@ -89,12 +100,7 @@ namespace MiBo.Domain.Common.Helper
         /// <returns>True/False</returns>
         public static bool DeleteImage(string path)
         {
-            if (File.Exists(path) && Path.GetFileName(path).ToLower() != "default.jpg")
-            {
-                try { File.Delete(path); }
-                catch (Exception) { return false; }
-            }
-            return true;
+            return FileHelper.DeleteImage(path);
         }
 
         /// <summary>
@@ -114,12 +120,7 @@ namespace MiBo.Domain.Common.Helper
         /// <returns>True/False</returns>
         public static bool DeleteFile(string path)
         {
-            if (File.Exists(path))
-            {
-                try { File.Delete(path); }
-                catch (Exception) { return false; }
-            }
-            return true;
+            return FileHelper.DeleteFile(path);
         }
     }
 }

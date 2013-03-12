@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Model;
@@ -84,7 +85,7 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
                     offerItem = new OutputItemModel();
                     offerItem.ItemCd = DataHelper.ToString(sub.OfferItemCd);
                     offerItem.ItemName = DataHelper.ToString(sub.Item.ItemName);
-                    offerItem.ItemImage = DataHelper.ToString(sub.Item.ItemImages[0].Image);
+                    offerItem.ItemImage = DataHelper.ToString(FileHelper.GetSmallImage(ItemCom.GetImagePath(sub.Item.ItemCd), Logics.EXT_JPEG));
                     offerItem.Quantity = DataHelper.ToString(Formats.NUMBER, sub.OfferItemQtty * obj.Quantity);
                     listOfferItems.Add(offerItem);
                 }

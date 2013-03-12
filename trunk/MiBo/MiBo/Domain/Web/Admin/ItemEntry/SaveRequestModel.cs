@@ -4,7 +4,7 @@ namespace MiBo.Domain.Web.Admin.ItemEntry
 {
     public class SaveRequestModel
     {
-        public string UserName { get; set; }
+        public string Status { get; set; }
 
         public string ItemCd { get; set; }
         public string ItemName { get; set; }
@@ -17,8 +17,10 @@ namespace MiBo.Domain.Web.Admin.ItemEntry
         public string ItemDiv { get; set; }
         public string Notes { get; set; }
         public string SortKey { get; set; }
-
+        public string DeleteFlag { get; set; }
+        public string ImagePath { get; set; }
+        public string SalesPrice { get; set; }
+        public string BuyingPrice { get; set; }
         public IList<OutputPackModel> ListPacks { get; set; }
-        public IList<OutputImageModel> ListImages { get; set; }
     }
 }

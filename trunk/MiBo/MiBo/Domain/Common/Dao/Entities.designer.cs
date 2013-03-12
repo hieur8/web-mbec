@@ -30,12 +30,12 @@ namespace MiBo.Domain.Common.Dao
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAcceptDetailIO(AcceptDetailIO instance);
-    partial void UpdateAcceptDetailIO(AcceptDetailIO instance);
-    partial void DeleteAcceptDetailIO(AcceptDetailIO instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertAcceptDetailIO(AcceptDetailIO instance);
+    partial void UpdateAcceptDetailIO(AcceptDetailIO instance);
+    partial void DeleteAcceptDetailIO(AcceptDetailIO instance);
     partial void InsertAcceptDetail(AcceptDetail instance);
     partial void UpdateAcceptDetail(AcceptDetail instance);
     partial void DeleteAcceptDetail(AcceptDetail instance);
@@ -87,9 +87,6 @@ namespace MiBo.Domain.Common.Dao
     partial void InsertHelp(Help instance);
     partial void UpdateHelp(Help instance);
     partial void DeleteHelp(Help instance);
-    partial void InsertItemImage(ItemImage instance);
-    partial void UpdateItemImage(ItemImage instance);
-    partial void DeleteItemImage(ItemImage instance);
     partial void InsertItem(Item instance);
     partial void UpdateItem(Item instance);
     partial void DeleteItem(Item instance);
@@ -129,15 +126,9 @@ namespace MiBo.Domain.Common.Dao
     partial void InsertUnit(Unit instance);
     partial void UpdateUnit(Unit instance);
     partial void DeleteUnit(Unit instance);
-    partial void InsertUserComment(UserComment instance);
-    partial void UpdateUserComment(UserComment instance);
-    partial void DeleteUserComment(UserComment instance);
     partial void InsertUserGroup(UserGroup instance);
     partial void UpdateUserGroup(UserGroup instance);
     partial void DeleteUserGroup(UserGroup instance);
-    partial void InsertUserLike(UserLike instance);
-    partial void UpdateUserLike(UserLike instance);
-    partial void DeleteUserLike(UserLike instance);
     #endregion
 		
 		public EntitiesDataContext() : 
@@ -170,19 +161,19 @@ namespace MiBo.Domain.Common.Dao
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<AcceptDetailIO> AcceptDetailIOs
-		{
-			get
-			{
-				return this.GetTable<AcceptDetailIO>();
-			}
-		}
-		
 		public System.Data.Linq.Table<User> Users
 		{
 			get
 			{
 				return this.GetTable<User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<AcceptDetailIO> AcceptDetailIOs
+		{
+			get
+			{
+				return this.GetTable<AcceptDetailIO>();
 			}
 		}
 		
@@ -322,14 +313,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		public System.Data.Linq.Table<ItemImage> ItemImages
-		{
-			get
-			{
-				return this.GetTable<ItemImage>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Item> Items
 		{
 			get
@@ -434,14 +417,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		public System.Data.Linq.Table<UserComment> UserComments
-		{
-			get
-			{
-				return this.GetTable<UserComment>();
-			}
-		}
-		
 		public System.Data.Linq.Table<UserGroup> UserGroups
 		{
 			get
@@ -449,13 +424,448 @@ namespace MiBo.Domain.Common.Dao
 				return this.GetTable<UserGroup>();
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<UserLike> UserLikes
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _UserCd;
+		
+		private string _Email;
+		
+		private string _Password;
+		
+		private string _FullName;
+		
+		private string _Address;
+		
+		private string _CityCd;
+		
+		private string _Phone1;
+		
+		private string _Phone2;
+		
+		private System.Nullable<bool> _HasNewsletter;
+		
+		private string _CreateUser;
+		
+		private System.Nullable<System.DateTime> _CreateDate;
+		
+		private string _UpdateUser;
+		
+		private System.Nullable<System.DateTime> _UpdateDate;
+		
+		private System.Nullable<bool> _DeleteFlag;
+		
+		private EntitySet<UserGroup> _UserGroups;
+		
+		private EntityRef<City> _City;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserCdChanging(System.Guid value);
+    partial void OnUserCdChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnFullNameChanging(string value);
+    partial void OnFullNameChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnCityCdChanging(string value);
+    partial void OnCityCdChanged();
+    partial void OnPhone1Changing(string value);
+    partial void OnPhone1Changed();
+    partial void OnPhone2Changing(string value);
+    partial void OnPhone2Changed();
+    partial void OnHasNewsletterChanging(System.Nullable<bool> value);
+    partial void OnHasNewsletterChanged();
+    partial void OnCreateUserChanging(string value);
+    partial void OnCreateUserChanged();
+    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateDateChanged();
+    partial void OnUpdateUserChanging(string value);
+    partial void OnUpdateUserChanged();
+    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnUpdateDateChanged();
+    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
+    partial void OnDeleteFlagChanged();
+    #endregion
+		
+		public User()
+		{
+			this._UserGroups = new EntitySet<UserGroup>(new Action<UserGroup>(this.attach_UserGroups), new Action<UserGroup>(this.detach_UserGroups));
+			this._City = default(EntityRef<City>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserCd", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid UserCd
 		{
 			get
 			{
-				return this.GetTable<UserLike>();
+				return this._UserCd;
 			}
+			set
+			{
+				if ((this._UserCd != value))
+				{
+					this.OnUserCdChanging(value);
+					this.SendPropertyChanging();
+					this._UserCd = value;
+					this.SendPropertyChanged("UserCd");
+					this.OnUserCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(255)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(255)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(255)")]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this.OnFullNameChanging(value);
+					this.SendPropertyChanging();
+					this._FullName = value;
+					this.SendPropertyChanged("FullName");
+					this.OnFullNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(255)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityCd", DbType="VarChar(255)")]
+		public string CityCd
+		{
+			get
+			{
+				return this._CityCd;
+			}
+			set
+			{
+				if ((this._CityCd != value))
+				{
+					if (this._City.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCityCdChanging(value);
+					this.SendPropertyChanging();
+					this._CityCd = value;
+					this.SendPropertyChanged("CityCd");
+					this.OnCityCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone1", DbType="VarChar(255)")]
+		public string Phone1
+		{
+			get
+			{
+				return this._Phone1;
+			}
+			set
+			{
+				if ((this._Phone1 != value))
+				{
+					this.OnPhone1Changing(value);
+					this.SendPropertyChanging();
+					this._Phone1 = value;
+					this.SendPropertyChanged("Phone1");
+					this.OnPhone1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone2", DbType="VarChar(255)")]
+		public string Phone2
+		{
+			get
+			{
+				return this._Phone2;
+			}
+			set
+			{
+				if ((this._Phone2 != value))
+				{
+					this.OnPhone2Changing(value);
+					this.SendPropertyChanging();
+					this._Phone2 = value;
+					this.SendPropertyChanged("Phone2");
+					this.OnPhone2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasNewsletter", DbType="Bit")]
+		public System.Nullable<bool> HasNewsletter
+		{
+			get
+			{
+				return this._HasNewsletter;
+			}
+			set
+			{
+				if ((this._HasNewsletter != value))
+				{
+					this.OnHasNewsletterChanging(value);
+					this.SendPropertyChanging();
+					this._HasNewsletter = value;
+					this.SendPropertyChanged("HasNewsletter");
+					this.OnHasNewsletterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
+		public string CreateUser
+		{
+			get
+			{
+				return this._CreateUser;
+			}
+			set
+			{
+				if ((this._CreateUser != value))
+				{
+					this.OnCreateUserChanging(value);
+					this.SendPropertyChanging();
+					this._CreateUser = value;
+					this.SendPropertyChanged("CreateUser");
+					this.OnCreateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
+		public string UpdateUser
+		{
+			get
+			{
+				return this._UpdateUser;
+			}
+			set
+			{
+				if ((this._UpdateUser != value))
+				{
+					this.OnUpdateUserChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateUser = value;
+					this.SendPropertyChanged("UpdateUser");
+					this.OnUpdateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
+		public System.Nullable<bool> DeleteFlag
+		{
+			get
+			{
+				return this._DeleteFlag;
+			}
+			set
+			{
+				if ((this._DeleteFlag != value))
+				{
+					this.OnDeleteFlagChanging(value);
+					this.SendPropertyChanging();
+					this._DeleteFlag = value;
+					this.SendPropertyChanged("DeleteFlag");
+					this.OnDeleteFlagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserGroup", Storage="_UserGroups", ThisKey="UserCd", OtherKey="UserCd")]
+		public EntitySet<UserGroup> UserGroups
+		{
+			get
+			{
+				return this._UserGroups;
+			}
+			set
+			{
+				this._UserGroups.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="City_User", Storage="_City", ThisKey="CityCd", OtherKey="CityCd", IsForeignKey=true)]
+		public City City
+		{
+			get
+			{
+				return this._City.Entity;
+			}
+			set
+			{
+				City previousValue = this._City.Entity;
+				if (((previousValue != value) 
+							|| (this._City.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._City.Entity = null;
+						previousValue.Users.Remove(this);
+					}
+					this._City.Entity = value;
+					if ((value != null))
+					{
+						value.Users.Add(this);
+						this._CityCd = value.CityCd;
+					}
+					else
+					{
+						this._CityCd = default(string);
+					}
+					this.SendPropertyChanged("City");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_UserGroups(UserGroup entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_UserGroups(UserGroup entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
 		}
 	}
 	
@@ -925,477 +1335,6 @@ namespace MiBo.Domain.Common.Dao
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _UserCd;
-		
-		private string _Email;
-		
-		private string _Password;
-		
-		private string _FullName;
-		
-		private string _Address;
-		
-		private string _CityCd;
-		
-		private string _Phone1;
-		
-		private string _Phone2;
-		
-		private System.Nullable<bool> _HasNewsletter;
-		
-		private string _CreateUser;
-		
-		private System.Nullable<System.DateTime> _CreateDate;
-		
-		private string _UpdateUser;
-		
-		private System.Nullable<System.DateTime> _UpdateDate;
-		
-		private System.Nullable<bool> _DeleteFlag;
-		
-		private EntitySet<UserGroup> _UserGroups;
-		
-		private EntitySet<UserLike> _UserLikes;
-		
-		private EntityRef<City> _City;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserCdChanging(System.Guid value);
-    partial void OnUserCdChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnFullNameChanging(string value);
-    partial void OnFullNameChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnCityCdChanging(string value);
-    partial void OnCityCdChanged();
-    partial void OnPhone1Changing(string value);
-    partial void OnPhone1Changed();
-    partial void OnPhone2Changing(string value);
-    partial void OnPhone2Changed();
-    partial void OnHasNewsletterChanging(System.Nullable<bool> value);
-    partial void OnHasNewsletterChanged();
-    partial void OnCreateUserChanging(string value);
-    partial void OnCreateUserChanged();
-    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreateDateChanged();
-    partial void OnUpdateUserChanging(string value);
-    partial void OnUpdateUserChanged();
-    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdateDateChanged();
-    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
-    partial void OnDeleteFlagChanged();
-    #endregion
-		
-		public User()
-		{
-			this._UserGroups = new EntitySet<UserGroup>(new Action<UserGroup>(this.attach_UserGroups), new Action<UserGroup>(this.detach_UserGroups));
-			this._UserLikes = new EntitySet<UserLike>(new Action<UserLike>(this.attach_UserLikes), new Action<UserLike>(this.detach_UserLikes));
-			this._City = default(EntityRef<City>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserCd", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid UserCd
-		{
-			get
-			{
-				return this._UserCd;
-			}
-			set
-			{
-				if ((this._UserCd != value))
-				{
-					this.OnUserCdChanging(value);
-					this.SendPropertyChanging();
-					this._UserCd = value;
-					this.SendPropertyChanged("UserCd");
-					this.OnUserCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(255)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(255)")]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(255)")]
-		public string FullName
-		{
-			get
-			{
-				return this._FullName;
-			}
-			set
-			{
-				if ((this._FullName != value))
-				{
-					this.OnFullNameChanging(value);
-					this.SendPropertyChanging();
-					this._FullName = value;
-					this.SendPropertyChanged("FullName");
-					this.OnFullNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(255)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityCd", DbType="VarChar(255)")]
-		public string CityCd
-		{
-			get
-			{
-				return this._CityCd;
-			}
-			set
-			{
-				if ((this._CityCd != value))
-				{
-					if (this._City.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCityCdChanging(value);
-					this.SendPropertyChanging();
-					this._CityCd = value;
-					this.SendPropertyChanged("CityCd");
-					this.OnCityCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone1", DbType="VarChar(255)")]
-		public string Phone1
-		{
-			get
-			{
-				return this._Phone1;
-			}
-			set
-			{
-				if ((this._Phone1 != value))
-				{
-					this.OnPhone1Changing(value);
-					this.SendPropertyChanging();
-					this._Phone1 = value;
-					this.SendPropertyChanged("Phone1");
-					this.OnPhone1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone2", DbType="VarChar(255)")]
-		public string Phone2
-		{
-			get
-			{
-				return this._Phone2;
-			}
-			set
-			{
-				if ((this._Phone2 != value))
-				{
-					this.OnPhone2Changing(value);
-					this.SendPropertyChanging();
-					this._Phone2 = value;
-					this.SendPropertyChanged("Phone2");
-					this.OnPhone2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasNewsletter", DbType="Bit")]
-		public System.Nullable<bool> HasNewsletter
-		{
-			get
-			{
-				return this._HasNewsletter;
-			}
-			set
-			{
-				if ((this._HasNewsletter != value))
-				{
-					this.OnHasNewsletterChanging(value);
-					this.SendPropertyChanging();
-					this._HasNewsletter = value;
-					this.SendPropertyChanged("HasNewsletter");
-					this.OnHasNewsletterChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
-		public string CreateUser
-		{
-			get
-			{
-				return this._CreateUser;
-			}
-			set
-			{
-				if ((this._CreateUser != value))
-				{
-					this.OnCreateUserChanging(value);
-					this.SendPropertyChanging();
-					this._CreateUser = value;
-					this.SendPropertyChanged("CreateUser");
-					this.OnCreateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this.OnCreateDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreateDate = value;
-					this.SendPropertyChanged("CreateDate");
-					this.OnCreateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
-		public string UpdateUser
-		{
-			get
-			{
-				return this._UpdateUser;
-			}
-			set
-			{
-				if ((this._UpdateUser != value))
-				{
-					this.OnUpdateUserChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateUser = value;
-					this.SendPropertyChanged("UpdateUser");
-					this.OnUpdateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdateDate
-		{
-			get
-			{
-				return this._UpdateDate;
-			}
-			set
-			{
-				if ((this._UpdateDate != value))
-				{
-					this.OnUpdateDateChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateDate = value;
-					this.SendPropertyChanged("UpdateDate");
-					this.OnUpdateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
-		public System.Nullable<bool> DeleteFlag
-		{
-			get
-			{
-				return this._DeleteFlag;
-			}
-			set
-			{
-				if ((this._DeleteFlag != value))
-				{
-					this.OnDeleteFlagChanging(value);
-					this.SendPropertyChanging();
-					this._DeleteFlag = value;
-					this.SendPropertyChanged("DeleteFlag");
-					this.OnDeleteFlagChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserGroup", Storage="_UserGroups", ThisKey="UserCd", OtherKey="UserCd")]
-		public EntitySet<UserGroup> UserGroups
-		{
-			get
-			{
-				return this._UserGroups;
-			}
-			set
-			{
-				this._UserGroups.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserLike", Storage="_UserLikes", ThisKey="UserCd", OtherKey="UserCd")]
-		public EntitySet<UserLike> UserLikes
-		{
-			get
-			{
-				return this._UserLikes;
-			}
-			set
-			{
-				this._UserLikes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="City_User", Storage="_City", ThisKey="CityCd", OtherKey="CityCd", IsForeignKey=true)]
-		public City City
-		{
-			get
-			{
-				return this._City.Entity;
-			}
-			set
-			{
-				City previousValue = this._City.Entity;
-				if (((previousValue != value) 
-							|| (this._City.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._City.Entity = null;
-						previousValue.Users.Remove(this);
-					}
-					this._City.Entity = value;
-					if ((value != null))
-					{
-						value.Users.Add(this);
-						this._CityCd = value.CityCd;
-					}
-					else
-					{
-						this._CityCd = default(string);
-					}
-					this.SendPropertyChanged("City");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_UserGroups(UserGroup entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_UserGroups(UserGroup entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_UserLikes(UserLike entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_UserLikes(UserLike entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
 		}
 	}
 	
@@ -7077,301 +7016,6 @@ namespace MiBo.Domain.Common.Dao
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ItemImages")]
-	public partial class ItemImage : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _ItemCd;
-		
-		private string _Image;
-		
-		private string _Notes;
-		
-		private System.Nullable<decimal> _SortKey;
-		
-		private string _CreateUser;
-		
-		private System.Nullable<System.DateTime> _CreateDate;
-		
-		private string _UpdateUser;
-		
-		private System.Nullable<System.DateTime> _UpdateDate;
-		
-		private System.Nullable<bool> _DeleteFlag;
-		
-		private EntityRef<Item> _Item;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnItemCdChanging(string value);
-    partial void OnItemCdChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
-    partial void OnNotesChanging(string value);
-    partial void OnNotesChanged();
-    partial void OnSortKeyChanging(System.Nullable<decimal> value);
-    partial void OnSortKeyChanged();
-    partial void OnCreateUserChanging(string value);
-    partial void OnCreateUserChanged();
-    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreateDateChanged();
-    partial void OnUpdateUserChanging(string value);
-    partial void OnUpdateUserChanged();
-    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdateDateChanged();
-    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
-    partial void OnDeleteFlagChanged();
-    #endregion
-		
-		public ItemImage()
-		{
-			this._Item = default(EntityRef<Item>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCd", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ItemCd
-		{
-			get
-			{
-				return this._ItemCd;
-			}
-			set
-			{
-				if ((this._ItemCd != value))
-				{
-					if (this._Item.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnItemCdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemCd = value;
-					this.SendPropertyChanged("ItemCd");
-					this.OnItemCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(MAX)")]
-		public string Notes
-		{
-			get
-			{
-				return this._Notes;
-			}
-			set
-			{
-				if ((this._Notes != value))
-				{
-					this.OnNotesChanging(value);
-					this.SendPropertyChanging();
-					this._Notes = value;
-					this.SendPropertyChanged("Notes");
-					this.OnNotesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SortKey", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> SortKey
-		{
-			get
-			{
-				return this._SortKey;
-			}
-			set
-			{
-				if ((this._SortKey != value))
-				{
-					this.OnSortKeyChanging(value);
-					this.SendPropertyChanging();
-					this._SortKey = value;
-					this.SendPropertyChanged("SortKey");
-					this.OnSortKeyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
-		public string CreateUser
-		{
-			get
-			{
-				return this._CreateUser;
-			}
-			set
-			{
-				if ((this._CreateUser != value))
-				{
-					this.OnCreateUserChanging(value);
-					this.SendPropertyChanging();
-					this._CreateUser = value;
-					this.SendPropertyChanged("CreateUser");
-					this.OnCreateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this.OnCreateDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreateDate = value;
-					this.SendPropertyChanged("CreateDate");
-					this.OnCreateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
-		public string UpdateUser
-		{
-			get
-			{
-				return this._UpdateUser;
-			}
-			set
-			{
-				if ((this._UpdateUser != value))
-				{
-					this.OnUpdateUserChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateUser = value;
-					this.SendPropertyChanged("UpdateUser");
-					this.OnUpdateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdateDate
-		{
-			get
-			{
-				return this._UpdateDate;
-			}
-			set
-			{
-				if ((this._UpdateDate != value))
-				{
-					this.OnUpdateDateChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateDate = value;
-					this.SendPropertyChanged("UpdateDate");
-					this.OnUpdateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
-		public System.Nullable<bool> DeleteFlag
-		{
-			get
-			{
-				return this._DeleteFlag;
-			}
-			set
-			{
-				if ((this._DeleteFlag != value))
-				{
-					this.OnDeleteFlagChanging(value);
-					this.SendPropertyChanging();
-					this._DeleteFlag = value;
-					this.SendPropertyChanged("DeleteFlag");
-					this.OnDeleteFlagChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_ItemImage", Storage="_Item", ThisKey="ItemCd", OtherKey="ItemCd", IsForeignKey=true)]
-		public Item Item
-		{
-			get
-			{
-				return this._Item.Entity;
-			}
-			set
-			{
-				Item previousValue = this._Item.Entity;
-				if (((previousValue != value) 
-							|| (this._Item.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Item.Entity = null;
-						previousValue.ItemImages.Remove(this);
-					}
-					this._Item.Entity = value;
-					if ((value != null))
-					{
-						value.ItemImages.Add(this);
-						this._ItemCd = value.ItemCd;
-					}
-					else
-					{
-						this._ItemCd = default(string);
-					}
-					this.SendPropertyChanged("Item");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Items")]
 	public partial class Item : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -7412,17 +7056,11 @@ namespace MiBo.Domain.Common.Dao
 		
 		private System.Nullable<bool> _DeleteFlag;
 		
-		private EntitySet<ItemImage> _ItemImages;
-		
 		private EntitySet<OfferItem> _OfferItems;
 		
 		private EntitySet<Offer> _Offers;
 		
 		private EntitySet<Pack> _Packs;
-		
-		private EntitySet<UserComment> _UserComments;
-		
-		private EntitySet<UserLike> _UserLikes;
 		
 		private EntityRef<Age> _Age;
 		
@@ -7478,12 +7116,9 @@ namespace MiBo.Domain.Common.Dao
 		
 		public Item()
 		{
-			this._ItemImages = new EntitySet<ItemImage>(new Action<ItemImage>(this.attach_ItemImages), new Action<ItemImage>(this.detach_ItemImages));
 			this._OfferItems = new EntitySet<OfferItem>(new Action<OfferItem>(this.attach_OfferItems), new Action<OfferItem>(this.detach_OfferItems));
 			this._Offers = new EntitySet<Offer>(new Action<Offer>(this.attach_Offers), new Action<Offer>(this.detach_Offers));
 			this._Packs = new EntitySet<Pack>(new Action<Pack>(this.attach_Packs), new Action<Pack>(this.detach_Packs));
-			this._UserComments = new EntitySet<UserComment>(new Action<UserComment>(this.attach_UserComments), new Action<UserComment>(this.detach_UserComments));
-			this._UserLikes = new EntitySet<UserLike>(new Action<UserLike>(this.attach_UserLikes), new Action<UserLike>(this.detach_UserLikes));
 			this._Age = default(EntityRef<Age>);
 			this._Brand = default(EntityRef<Brand>);
 			this._Category = default(EntityRef<Category>);
@@ -7857,19 +7492,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_ItemImage", Storage="_ItemImages", ThisKey="ItemCd", OtherKey="ItemCd")]
-		public EntitySet<ItemImage> ItemImages
-		{
-			get
-			{
-				return this._ItemImages;
-			}
-			set
-			{
-				this._ItemImages.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_OfferItem", Storage="_OfferItems", ThisKey="ItemCd", OtherKey="OfferItemCd")]
 		public EntitySet<OfferItem> OfferItems
 		{
@@ -7906,32 +7528,6 @@ namespace MiBo.Domain.Common.Dao
 			set
 			{
 				this._Packs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserComment", Storage="_UserComments", ThisKey="ItemCd", OtherKey="ItemCd")]
-		public EntitySet<UserComment> UserComments
-		{
-			get
-			{
-				return this._UserComments;
-			}
-			set
-			{
-				this._UserComments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserLike", Storage="_UserLikes", ThisKey="ItemCd", OtherKey="ItemCd")]
-		public EntitySet<UserLike> UserLikes
-		{
-			get
-			{
-				return this._UserLikes;
-			}
-			set
-			{
-				this._UserLikes.Assign(value);
 			}
 		}
 		
@@ -8159,18 +7755,6 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		private void attach_ItemImages(ItemImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_ItemImages(ItemImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
 		private void attach_OfferItems(OfferItem entity)
 		{
 			this.SendPropertyChanging();
@@ -8202,30 +7786,6 @@ namespace MiBo.Domain.Common.Dao
 		}
 		
 		private void detach_Packs(Pack entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_UserComments(UserComment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_UserComments(UserComment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_UserLikes(UserLike entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_UserLikes(UserLike entity)
 		{
 			this.SendPropertyChanging();
 			entity.Item = null;
@@ -11813,301 +11373,6 @@ namespace MiBo.Domain.Common.Dao
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserComments")]
-	public partial class UserComment : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _UserCd;
-		
-		private string _ItemCd;
-		
-		private string _CommentCd;
-		
-		private string _Contents;
-		
-		private string _CreateUser;
-		
-		private System.Nullable<System.DateTime> _CreateDate;
-		
-		private string _UpdateUser;
-		
-		private System.Nullable<System.DateTime> _UpdateDate;
-		
-		private System.Nullable<bool> _DeleteFlag;
-		
-		private EntityRef<Item> _Item;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserCdChanging(System.Guid value);
-    partial void OnUserCdChanged();
-    partial void OnItemCdChanging(string value);
-    partial void OnItemCdChanged();
-    partial void OnCommentCdChanging(string value);
-    partial void OnCommentCdChanged();
-    partial void OnContentsChanging(string value);
-    partial void OnContentsChanged();
-    partial void OnCreateUserChanging(string value);
-    partial void OnCreateUserChanged();
-    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreateDateChanged();
-    partial void OnUpdateUserChanging(string value);
-    partial void OnUpdateUserChanged();
-    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdateDateChanged();
-    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
-    partial void OnDeleteFlagChanged();
-    #endregion
-		
-		public UserComment()
-		{
-			this._Item = default(EntityRef<Item>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserCd", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid UserCd
-		{
-			get
-			{
-				return this._UserCd;
-			}
-			set
-			{
-				if ((this._UserCd != value))
-				{
-					this.OnUserCdChanging(value);
-					this.SendPropertyChanging();
-					this._UserCd = value;
-					this.SendPropertyChanged("UserCd");
-					this.OnUserCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCd", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ItemCd
-		{
-			get
-			{
-				return this._ItemCd;
-			}
-			set
-			{
-				if ((this._ItemCd != value))
-				{
-					if (this._Item.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnItemCdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemCd = value;
-					this.SendPropertyChanged("ItemCd");
-					this.OnItemCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommentCd", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CommentCd
-		{
-			get
-			{
-				return this._CommentCd;
-			}
-			set
-			{
-				if ((this._CommentCd != value))
-				{
-					this.OnCommentCdChanging(value);
-					this.SendPropertyChanging();
-					this._CommentCd = value;
-					this.SendPropertyChanged("CommentCd");
-					this.OnCommentCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contents", DbType="NVarChar(MAX)")]
-		public string Contents
-		{
-			get
-			{
-				return this._Contents;
-			}
-			set
-			{
-				if ((this._Contents != value))
-				{
-					this.OnContentsChanging(value);
-					this.SendPropertyChanging();
-					this._Contents = value;
-					this.SendPropertyChanged("Contents");
-					this.OnContentsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
-		public string CreateUser
-		{
-			get
-			{
-				return this._CreateUser;
-			}
-			set
-			{
-				if ((this._CreateUser != value))
-				{
-					this.OnCreateUserChanging(value);
-					this.SendPropertyChanging();
-					this._CreateUser = value;
-					this.SendPropertyChanged("CreateUser");
-					this.OnCreateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this.OnCreateDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreateDate = value;
-					this.SendPropertyChanged("CreateDate");
-					this.OnCreateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
-		public string UpdateUser
-		{
-			get
-			{
-				return this._UpdateUser;
-			}
-			set
-			{
-				if ((this._UpdateUser != value))
-				{
-					this.OnUpdateUserChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateUser = value;
-					this.SendPropertyChanged("UpdateUser");
-					this.OnUpdateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdateDate
-		{
-			get
-			{
-				return this._UpdateDate;
-			}
-			set
-			{
-				if ((this._UpdateDate != value))
-				{
-					this.OnUpdateDateChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateDate = value;
-					this.SendPropertyChanged("UpdateDate");
-					this.OnUpdateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
-		public System.Nullable<bool> DeleteFlag
-		{
-			get
-			{
-				return this._DeleteFlag;
-			}
-			set
-			{
-				if ((this._DeleteFlag != value))
-				{
-					this.OnDeleteFlagChanging(value);
-					this.SendPropertyChanging();
-					this._DeleteFlag = value;
-					this.SendPropertyChanged("DeleteFlag");
-					this.OnDeleteFlagChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserComment", Storage="_Item", ThisKey="ItemCd", OtherKey="ItemCd", IsForeignKey=true)]
-		public Item Item
-		{
-			get
-			{
-				return this._Item.Entity;
-			}
-			set
-			{
-				Item previousValue = this._Item.Entity;
-				if (((previousValue != value) 
-							|| (this._Item.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Item.Entity = null;
-						previousValue.UserComments.Remove(this);
-					}
-					this._Item.Entity = value;
-					if ((value != null))
-					{
-						value.UserComments.Add(this);
-						this._ItemCd = value.ItemCd;
-					}
-					else
-					{
-						this._ItemCd = default(string);
-					}
-					this.SendPropertyChanged("Item");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserGroups")]
 	public partial class UserGroup : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -12364,294 +11629,6 @@ namespace MiBo.Domain.Common.Dao
 					if ((value != null))
 					{
 						value.UserGroups.Add(this);
-						this._UserCd = value.UserCd;
-					}
-					else
-					{
-						this._UserCd = default(System.Guid);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserLikes")]
-	public partial class UserLike : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _UserCd;
-		
-		private string _ItemCd;
-		
-		private string _CreateUser;
-		
-		private System.Nullable<System.DateTime> _CreateDate;
-		
-		private string _UpdateUser;
-		
-		private System.Nullable<System.DateTime> _UpdateDate;
-		
-		private System.Nullable<bool> _DeleteFlag;
-		
-		private EntityRef<Item> _Item;
-		
-		private EntityRef<User> _User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserCdChanging(System.Guid value);
-    partial void OnUserCdChanged();
-    partial void OnItemCdChanging(string value);
-    partial void OnItemCdChanged();
-    partial void OnCreateUserChanging(string value);
-    partial void OnCreateUserChanged();
-    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreateDateChanged();
-    partial void OnUpdateUserChanging(string value);
-    partial void OnUpdateUserChanged();
-    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdateDateChanged();
-    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
-    partial void OnDeleteFlagChanged();
-    #endregion
-		
-		public UserLike()
-		{
-			this._Item = default(EntityRef<Item>);
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserCd", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid UserCd
-		{
-			get
-			{
-				return this._UserCd;
-			}
-			set
-			{
-				if ((this._UserCd != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserCdChanging(value);
-					this.SendPropertyChanging();
-					this._UserCd = value;
-					this.SendPropertyChanged("UserCd");
-					this.OnUserCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCd", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ItemCd
-		{
-			get
-			{
-				return this._ItemCd;
-			}
-			set
-			{
-				if ((this._ItemCd != value))
-				{
-					if (this._Item.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnItemCdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemCd = value;
-					this.SendPropertyChanged("ItemCd");
-					this.OnItemCdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
-		public string CreateUser
-		{
-			get
-			{
-				return this._CreateUser;
-			}
-			set
-			{
-				if ((this._CreateUser != value))
-				{
-					this.OnCreateUserChanging(value);
-					this.SendPropertyChanging();
-					this._CreateUser = value;
-					this.SendPropertyChanged("CreateUser");
-					this.OnCreateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreateDate
-		{
-			get
-			{
-				return this._CreateDate;
-			}
-			set
-			{
-				if ((this._CreateDate != value))
-				{
-					this.OnCreateDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreateDate = value;
-					this.SendPropertyChanged("CreateDate");
-					this.OnCreateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
-		public string UpdateUser
-		{
-			get
-			{
-				return this._UpdateUser;
-			}
-			set
-			{
-				if ((this._UpdateUser != value))
-				{
-					this.OnUpdateUserChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateUser = value;
-					this.SendPropertyChanged("UpdateUser");
-					this.OnUpdateUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdateDate
-		{
-			get
-			{
-				return this._UpdateDate;
-			}
-			set
-			{
-				if ((this._UpdateDate != value))
-				{
-					this.OnUpdateDateChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateDate = value;
-					this.SendPropertyChanged("UpdateDate");
-					this.OnUpdateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
-		public System.Nullable<bool> DeleteFlag
-		{
-			get
-			{
-				return this._DeleteFlag;
-			}
-			set
-			{
-				if ((this._DeleteFlag != value))
-				{
-					this.OnDeleteFlagChanging(value);
-					this.SendPropertyChanging();
-					this._DeleteFlag = value;
-					this.SendPropertyChanged("DeleteFlag");
-					this.OnDeleteFlagChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_UserLike", Storage="_Item", ThisKey="ItemCd", OtherKey="ItemCd", IsForeignKey=true)]
-		public Item Item
-		{
-			get
-			{
-				return this._Item.Entity;
-			}
-			set
-			{
-				Item previousValue = this._Item.Entity;
-				if (((previousValue != value) 
-							|| (this._Item.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Item.Entity = null;
-						previousValue.UserLikes.Remove(this);
-					}
-					this._Item.Entity = value;
-					if ((value != null))
-					{
-						value.UserLikes.Add(this);
-						this._ItemCd = value.ItemCd;
-					}
-					else
-					{
-						this._ItemCd = default(string);
-					}
-					this.SendPropertyChanged("Item");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserLike", Storage="_User", ThisKey="UserCd", OtherKey="UserCd", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.UserLikes.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.UserLikes.Add(this);
 						this._UserCd = value.UserCd;
 					}
 					else

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Utils;
@@ -74,11 +75,11 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             details.CategoryCd = DataHelper.ToString(item.CategoryCd);
             details.CategoryName = DataHelper.ToString(item.Category.CategoryName);
             details.ItemImage = DataHelper.ToString(item.ItemImage);
-            foreach (var obj in item.ItemImages)
+            foreach (var obj in FileHelper.GetSmallImages(item.ImagePath, Logics.EXT_JPEG))
             {
                 imageItem = new OutputImageModel();
-                imageItem.ItemCd = DataHelper.ToString(obj.ItemCd);
-                imageItem.ItemImage = DataHelper.ToString(obj.Image);
+                imageItem.ItemCd = DataHelper.ToString(item.ItemCd);
+                imageItem.ItemImage = DataHelper.ToString(obj.Name);
                 listImages.Add(imageItem);
             }
             details.ListImages = listImages;
@@ -96,7 +97,7 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
                 offerItem = new OutputItemModel();
                 offerItem.ItemCd = DataHelper.ToString(obj.OfferItemCd);
                 offerItem.ItemName = DataHelper.ToString(obj.Item.ItemName);
-                offerItem.ItemImage = DataHelper.ToString(obj.Item.ItemImages[0].Image);
+                offerItem.ItemImage = DataHelper.ToString(FileHelper.GetSmallImage(ItemCom.GetImagePath(obj.Item.ItemCd), Logics.EXT_JPEG));
                 offerItem.Quantity = DataHelper.ToString(Formats.NUMBER, obj.OfferItemQtty);
                 listOfferItems.Add(offerItem);
             }
