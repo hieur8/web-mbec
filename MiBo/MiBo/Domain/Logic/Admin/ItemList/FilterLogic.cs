@@ -141,21 +141,7 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             dataCom = new DataCom();
             mCodeCom = new MCodeCom();
 
-            // Check exist
-            if (dataCom.IsExist<Category>(inputObject.CategoryCd, false))
-                throw new DataNotExistException("Loại");
-            if (dataCom.IsExist<Age>(inputObject.AgeCd, false))
-                throw new DataNotExistException("Độ tuổi");
-            if (dataCom.IsExist<Gender>(inputObject.GenderCd, false))
-                throw new DataNotExistException("Giới tính");
-            if (dataCom.IsExist<Brand>(inputObject.BrandCd, false))
-                throw new DataNotExistException("Thương hiệu");
-            if (dataCom.IsExist<Country>(inputObject.CountryCd, false))
-                throw new DataNotExistException("Xuất xứ");
-            if (dataCom.IsExist<Unit>(inputObject.UnitCd, false))
-                throw new DataNotExistException("Đơn vị");
-            if (mCodeCom.IsExist(Logics.GROUP_ITEM_DIV, inputObject.ItemDiv, false))
-                throw new DataNotExistException("L.Sản phẩm");
+            
         }
 
         /// <summary>

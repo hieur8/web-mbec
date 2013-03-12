@@ -12,6 +12,11 @@ namespace MiBo.Domain.Common.Utils
         private readonly ItemComDao _comDao;
         public ItemCom() { _comDao = new ItemComDao(); }
 
+        public static string GetImagePath(string itemCd)
+        {
+            return string.Format(Logics.PATH_IMG_ITEM, itemCd);
+        }
+
         /// <summary>
         /// Update viewer
         /// </summary>
@@ -67,11 +72,11 @@ namespace MiBo.Domain.Common.Utils
 
             // Get value
             var salesPrice = _comDao.GetSalesPrice(itemModel.ItemCd, itemModel.UnitCd);
-            var itemImage = _comDao.GetItemImage(itemModel.ItemCd);
+            var itemImage = FileHelper.GetSmallImage(itemModel.ImagePath, Logics.EXT_JPEG);
 
             // Set value
             itemModel.SalesPrice = salesPrice;
-            itemModel.ItemImage = itemImage;
+            itemModel.ItemImage = itemImage.Name;
             itemModel.ListOfferItems = new List<OfferItem>();
 
             // Check offer

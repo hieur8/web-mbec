@@ -1,5 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MiBoDB" Class="EntitiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=HIEU-PC\SQLEXPRESS;Initial Catalog=MiBoDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MiBoDBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=MiBoDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MiBoDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CityCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Phone1" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Phone2" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="HasNewsletter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_UserGroup" Member="UserGroups" ThisKey="UserCd" OtherKey="UserCd" Type="UserGroup" />
+      <Association Name="City_User" Member="City" ThisKey="CityCd" OtherKey="CityCd" Type="City" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.AcceptDetailIOs" Member="AcceptDetailIOs">
     <Type Name="AcceptDetailIO">
       <Column Name="AcceptSlipNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -19,27 +39,6 @@
       <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="AcceptIO_AcceptDetailIO" Member="AcceptIO" ThisKey="AcceptSlipNo,SlipHistoryNo" OtherKey="AcceptSlipNo,SlipHistoryNo" Type="AcceptIO" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Users" Member="Users">
-    <Type Name="User">
-      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="CityCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Phone1" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Phone2" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="HasNewsletter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="User_UserGroup" Member="UserGroups" ThisKey="UserCd" OtherKey="UserCd" Type="UserGroup" />
-      <Association Name="User_UserLike" Member="UserLikes" ThisKey="UserCd" OtherKey="UserCd" Type="UserLike" />
-      <Association Name="City_User" Member="City" ThisKey="CityCd" OtherKey="CityCd" Type="City" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.AcceptDetails" Member="AcceptDetails">
@@ -315,20 +314,6 @@
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ItemImages" Member="ItemImages">
-    <Type Name="ItemImage">
-      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Image" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Item_ItemImage" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Items" Member="Items">
     <Type Name="Item">
       <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -348,12 +333,9 @@
       <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Item_ItemImage" Member="ItemImages" ThisKey="ItemCd" OtherKey="ItemCd" Type="ItemImage" />
       <Association Name="Item_OfferItem" Member="OfferItems" ThisKey="ItemCd" OtherKey="OfferItemCd" Type="OfferItem" />
       <Association Name="Item_Offer" Member="Offers" ThisKey="ItemCd" OtherKey="ItemCd" Type="Offer" />
       <Association Name="Item_Pack" Member="Packs" ThisKey="ItemCd" OtherKey="ItemCd" Type="Pack" />
-      <Association Name="Item_UserComment" Member="UserComments" ThisKey="ItemCd" OtherKey="ItemCd" Type="UserComment" />
-      <Association Name="Item_UserLike" Member="UserLikes" ThisKey="ItemCd" OtherKey="ItemCd" Type="UserLike" />
       <Association Name="Age_Item" Member="Age" ThisKey="AgeCd" OtherKey="AgeCd" Type="Age" IsForeignKey="true" />
       <Association Name="Brand_Item" Member="Brand" ThisKey="BrandCd" OtherKey="BrandCd" Type="Brand" IsForeignKey="true" />
       <Association Name="Category_Item" Member="Category" ThisKey="CategoryCd" OtherKey="CategoryCd" Type="Category" IsForeignKey="true" />
@@ -536,20 +518,6 @@
       <Association Name="Unit_Pack" Member="Packs" ThisKey="UnitCd" OtherKey="UnitCd" Type="Pack" />
     </Type>
   </Table>
-  <Table Name="dbo.UserComments" Member="UserComments">
-    <Type Name="UserComment">
-      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CommentCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Contents" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Item_UserComment" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.UserGroups" Member="UserGroups">
     <Type Name="UserGroup">
       <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -561,19 +529,6 @@
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Group_UserGroup" Member="Group" ThisKey="GroupCd" OtherKey="GroupCd" Type="Group" IsForeignKey="true" />
       <Association Name="User_UserGroup" Member="User" ThisKey="UserCd" OtherKey="UserCd" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.UserLikes" Member="UserLikes">
-    <Type Name="UserLike">
-      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Item_UserLike" Member="Item" ThisKey="ItemCd" OtherKey="ItemCd" Type="Item" IsForeignKey="true" />
-      <Association Name="User_UserLike" Member="User" ThisKey="UserCd" OtherKey="UserCd" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

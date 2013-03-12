@@ -5,6 +5,7 @@ using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.Index;
 using MiBo.Domain.Web.Client.Index;
 using Resources;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.Domain.Logic.Client.Index
 {
@@ -177,23 +178,31 @@ namespace MiBo.Domain.Logic.Client.Index
             InitDataModel getResult = null;
             ClientIndexDao clientIndexDao = null;
             ItemCom itemCom = null;
+            MParameterCom mParameterCom = null;
 
             // Variable initialize
             getResult = new InitDataModel();
             clientIndexDao = new ClientIndexDao();
             itemCom = new ItemCom();
+            mParameterCom = new MParameterCom();
 
             // Get data
             var listBanners = clientIndexDao.GetListBanners();
             var listNewItems = clientIndexDao.GetListNewItems();
             var listHotItems = clientIndexDao.GetListHotItems();
             var listOfferItems = clientIndexDao.GetListOfferItems();
+            var strChatYahoo = mParameterCom.GetString(Logics.PR_CHAT_YAHOO, false);
+            var strChatSkype = mParameterCom.GetString(Logics.PR_CHAT_SKYPE, false);
+            //var strHotline = companyInfoCom.GetName(Logics.INFO_HOTLINE, false);
 
             // Set value
             getResult.ListBanners = listBanners;
             getResult.ListNewItems = itemCom.ToListItemModel(listNewItems);
             getResult.ListHotItems = itemCom.ToListItemModel(listHotItems);
             getResult.ListOfferItems = itemCom.ToListItemModel(listOfferItems);
+            getResult.StrChatYahoo = strChatYahoo;
+            getResult.StrChatSkype = strChatSkype;
+            //getResult.StrHotline = strHotline;
 
             // Return value
             return getResult;

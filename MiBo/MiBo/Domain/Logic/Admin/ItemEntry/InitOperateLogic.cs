@@ -9,7 +9,7 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
         {
             var logic = new InitLogic();
 
-            return null;// logic.Invoke((InitRequestModel)obj);
+            return logic.Invoke((InitRequestModel)obj);
         }
     }
 }

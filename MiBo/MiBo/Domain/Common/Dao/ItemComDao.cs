@@ -19,19 +19,6 @@ namespace MiBo.Domain.Common.Dao
             return listResult.Take(1).SingleOrDefault();
         }
 
-        public string GetItemImage(string itemCd)
-        {
-            // Get value
-            var listResult = from tbl in EntityManager.ItemImages
-                             where tbl.ItemCd == itemCd
-                             && tbl.DeleteFlag == false
-                             orderby tbl.SortKey ascending
-                             select tbl.Image;
-
-            // Return value
-            return listResult.Take(1).SingleOrDefault();
-        }
-
         public bool HasOffer(string itemCd)
         {
             // Get sysdate

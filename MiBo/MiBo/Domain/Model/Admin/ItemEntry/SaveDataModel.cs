@@ -5,8 +5,6 @@ namespace MiBo.Domain.Model.Admin.ItemEntry
 {
     public class SaveDataModel
     {
-        public string UserName { get; set; }
-
         public string ItemCd { get; set; }
         public string ItemName { get; set; }
         public string CategoryCd { get; set; }
@@ -16,10 +14,14 @@ namespace MiBo.Domain.Model.Admin.ItemEntry
         public string CountryCd { get; set; }
         public string UnitCd { get; set; }
         public string ItemDiv { get; set; }
+        public string ImagePath { get; set; }
         public string Notes { get; set; }
-        public string SortKey { get; set; }
+        public decimal? SortKey { get; set; }
+        public bool? DeleteFlag { get; set; }
+
+        public decimal? SalesPrice { get; set; }
+        public decimal? BuyingPrice { get; set; }
 
         public IList<Pack> ListPacks { get; set; }
-        public IList<ItemImage> ListImages { get; set; }
     }
 }

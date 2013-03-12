@@ -4,7 +4,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>MiBo</title>
     <!--                       CSS                       -->
     <!-- Reset Stylesheet -->
     <link rel="stylesheet" href="/pages/resources/styles/reset.css" type="text/css" media="screen" />
@@ -23,16 +22,24 @@
 		<![endif]-->
     <!--                       Javascripts                       -->
     <!-- jQuery -->
-    <script type="text/javascript" src="/pages/resources/scripts/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/pages/resources/scripts/jquery-1.7.1.min.js"></script>
     <!-- jQuery Configuration -->
     <script type="text/javascript" src="/pages/resources/scripts/simpla.jquery.configuration.js"></script>
     <!-- Facebox jQuery Plugin -->
     <script type="text/javascript" src="/pages/resources/scripts/facebox.js"></script>
-
+    <!-- jQuery WYSIWYG Plugin -->
+    <script type="text/javascript" src="/pages/resources/scripts/jquery.wysiwyg.js"></script>
+    <!-- Internet Explorer .png-fix -->
+    <!--[if IE 6]>
+			<script type="text/javascript" src="/pages/resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
     <!-- DataTable -->
     <script type="text/javascript" src="/pages/resources/scripts/jquery.dataTables.js"></script>
-    <link rel="stylesheet" href="/pages/resources/styles/data-table.css" type="text/css"
-        media="screen" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" id="theme" />
+    <link rel="stylesheet" href="/pages/resources/styles/data-table.css" type="text/css" media="screen" />
     <!-- MyScript -->
     <script type="text/javascript">
         function activeLink(menuId, linkId) {
@@ -41,6 +48,7 @@
             $(linkId).addClass("current");
         }
     </script>
+    <title>MiBo</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -70,8 +78,8 @@
                     </a></li>
                     <li><a id="mnuItems" href="#" class="nav-top-item">Quản lý sản phẩm</a>
                         <ul>
-                            <li><a id="lnkItems" href="#">Danh sách sản phẩm</a></li>
-                            <li><a id="lnkItemEntry" href="#">Thêm/sửa sản phẩm</a></li>
+                            <li><a id="lnkItems" href="/pages/administer/item-list.aspx">Danh sách sản phẩm</a></li>
+                            <li><a id="lnkItemEntry" href="/pages/administer/item-entry.aspx">Thêm/sửa sản phẩm</a></li>
                         </ul>
                     </li>
                     <li><a id="mnuBanners" href="#" class="nav-top-item">Quản lý hình banner</a>

@@ -61,5 +61,11 @@
         public const string CD_SHOW_ITEMS_OFFER = "offer";
         public const string CD_SHOW_ITEMS_NEW = "new";
         public const string CD_SHOW_ITEMS_HOT = "hot";
+
+        // Description for extension
+        public const string EXT_JPEG = "*.jpg";
+
+        // Description for path upload
+        public const string PATH_IMG_ITEM = "\\pages\\media\\images\\items\\{0}\\";
     }
 }
