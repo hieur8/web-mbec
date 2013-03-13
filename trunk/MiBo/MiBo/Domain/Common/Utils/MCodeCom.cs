@@ -210,7 +210,6 @@ namespace MiBo.Domain.Common.Utils
                 code.CodeName = obj.GenderName;
                 listResult.Add(code);
             }
-
             return listResult;
         }
 

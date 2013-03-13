@@ -126,6 +126,22 @@ namespace MiBo.Domain.Common.Helper
         }
 
         /// <summary>
+        /// Delete files
+        /// </summary>
+        /// <param name="path">Path</param>
+        /// <param name="ext">Extension</param>
+        public static void DeleteFiles(string path, string ext)
+        {
+            // Local variable declaration
+            var strPath = HttpContext.Current.Server.MapPath(path);
+            var folder = new DirectoryInfo(strPath);
+            // Check exist
+            if (!folder.Exists) return;
+            // Delete files
+            folder.Delete(true);
+        }
+
+        /// <summary>
         /// Get files
         /// </summary>
         /// <param name="path">Path</param>
@@ -182,22 +198,6 @@ namespace MiBo.Domain.Common.Helper
         }
 
         /// <summary>
-        /// Delete image
-        /// </summary>
-        /// <param name="path">Path</param>
-        /// <returns>True/False</returns>
-        public static bool DeleteImage(string path)
-        {
-            var strPath = HttpContext.Current.Server.MapPath(path);
-            if (File.Exists(strPath) && Path.GetFileName(strPath).ToLower() != "default.jpg")
-            {
-                try { File.Delete(strPath); }
-                catch (Exception) { return false; }
-            }
-            return true;
-        }
-
-        /// <summary>
         /// Move files
         /// </summary>
         /// <param name="sourcePath">SourcePath</param>
@@ -207,6 +207,8 @@ namespace MiBo.Domain.Common.Helper
         {
             MoveFiles(sourcePath + Logics.URL_IMAGE_SMALL,
                 targetPath + Logics.URL_IMAGE_SMALL, ext);
+            MoveFiles(sourcePath + Logics.URL_IMAGE_NORMAL,
+                targetPath + Logics.URL_IMAGE_NORMAL, ext);
             MoveFiles(sourcePath + Logics.URL_IMAGE_LARGER,
                 targetPath + Logics.URL_IMAGE_LARGER, ext);
         }
@@ -221,8 +223,22 @@ namespace MiBo.Domain.Common.Helper
         {
             CopyFiles(sourcePath + Logics.URL_IMAGE_SMALL,
                 targetPath + Logics.URL_IMAGE_SMALL, ext);
+            CopyFiles(sourcePath + Logics.URL_IMAGE_NORMAL,
+                targetPath + Logics.URL_IMAGE_NORMAL, ext);
             CopyFiles(sourcePath + Logics.URL_IMAGE_LARGER,
                 targetPath + Logics.URL_IMAGE_LARGER, ext);
+        }
+
+        /// <summary>
+        /// Delete files
+        /// </summary>
+        /// <param name="path">Path</param>
+        /// <param name="ext">Extension</param>
+        public static void DeleteImages(string path, string ext)
+        {
+            DeleteFiles(path + Logics.URL_IMAGE_SMALL, ext);
+            DeleteFiles(path + Logics.URL_IMAGE_NORMAL, ext);
+            DeleteFiles(path + Logics.URL_IMAGE_LARGER, ext);
         }
 
         /// <summary>
@@ -234,6 +250,17 @@ namespace MiBo.Domain.Common.Helper
         public static IList<FileInfo> GetSmallImages(string path, string ext)
         {
             return GetFiles(path + Logics.URL_IMAGE_SMALL, ext);
+        }
+
+        /// <summary>
+        /// Get files
+        /// </summary>
+        /// <param name="path">Path</param>
+        /// <param name="ext">Extension</param>
+        /// <returns>Files</returns>
+        public static IList<FileInfo> GetNormalImages(string path, string ext)
+        {
+            return GetFiles(path + Logics.URL_IMAGE_NORMAL, ext);
         }
 
         /// <summary>

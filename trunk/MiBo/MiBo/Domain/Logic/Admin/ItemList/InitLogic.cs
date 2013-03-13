@@ -5,6 +5,7 @@ using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Admin.ItemList;
 using MiBo.Domain.Web.Admin.ItemList;
+using Resources;
 
 namespace MiBo.Domain.Logic.Admin.ItemList
 {
@@ -56,7 +57,6 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             IList<OutputItemModel> listItems = null;
             MCodeCom mCodeCom = null;
             OutputItemModel item = null;
-            string itemDivName = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
@@ -64,6 +64,8 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             mCodeCom = new MCodeCom();
 
             // Get value
+            var itemDivName = string.Empty;
+            var deleteFlagName = string.Empty;
             foreach (var obj in resultObject.ListItems)
             {
                 item = new OutputItemModel();
@@ -83,8 +85,13 @@ namespace MiBo.Domain.Logic.Admin.ItemList
                 item.UnitCd = DataHelper.ToString(obj.UnitCd);
                 item.UnitName = DataHelper.ToString(obj.Unit.UnitName);
                 item.ItemDiv = DataHelper.ToString(obj.ItemDiv);
-                itemDivName = mCodeCom.GetCodeName(Logics.GROUP_ITEM_DIV, obj.ItemDiv);
+                itemDivName = mCodeCom.GetCodeName(Logics.GROUP_ITEM_DIV, item.ItemDiv);
                 item.ItemDivName = DataHelper.ToString(itemDivName);
+                item.UpdateDate = DataHelper.ToString(Formats.UPDATE_DATE, obj.UpdateDate);
+                item.DeleteFlag = DataHelper.ToString(obj.DeleteFlag);
+                deleteFlagName = mCodeCom.GetCodeName(Logics.GROUP_DELETE_FLAG, item.DeleteFlag);
+                item.DeleteFlagName = DataHelper.ToString(deleteFlagName);
+
                 listItems.Add(item);
             }
 
@@ -96,6 +103,7 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             responseModel.ListCountry = MCodeCom.ToComboItems(resultObject.ListCountry, 0);
             responseModel.ListUnit = MCodeCom.ToComboItems(resultObject.ListUnit, 0);
             responseModel.ListItemDiv = MCodeCom.ToComboItems(resultObject.ListItemDiv, 0);
+            responseModel.ListDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, 0);
             responseModel.ListItems = listItems;
 
             // Return value
@@ -165,6 +173,7 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             var listCountry = mCodeCom.GetListCountry(true, false);
             var listUnit = mCodeCom.GetListUnit(true, false);
             var listItemDiv = mCodeCom.GetListCode(Logics.GROUP_ITEM_DIV, null, true, false);
+            var listDeleteFlag = mCodeCom.GetListCode(Logics.GROUP_DELETE_FLAG, null, true, false);
             var listItems = adminItemListDao.GetListItems();
 
             // Set value
@@ -175,6 +184,7 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             getResult.ListCountry = listCountry;
             getResult.ListUnit = listUnit;
             getResult.ListItemDiv = listItemDiv;
+            getResult.ListDeleteFlag = listDeleteFlag;
             getResult.ListItems = listItems;
 
             // Return value

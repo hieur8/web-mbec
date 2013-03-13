@@ -52,15 +52,6 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             DataHelper.ConvertInput(request, inputObject);
             _status = DataHelper.ConvertInputString(request.Status);
 
-            var pack = new Pack();
-            pack.ItemCd = inputObject.ItemCd;
-            pack.UnitCd = inputObject.UnitCd;
-            pack.BuyingPrice = inputObject.BuyingPrice;
-            pack.SalesPrice = inputObject.SalesPrice;
-            pack.Notes = string.Empty;
-            pack.SortKey = decimal.One;
-            inputObject.ListPacks = new List<Pack>() { pack };
-
             // Return value
             return inputObject;
         }
@@ -154,8 +145,8 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
 
             if (IsAdd) adminItemEntryDao.InsertItem(inputObject); // Insert 
             else adminItemEntryDao.UpdateItem(inputObject); // Update
-            FileHelper.MoveImages(inputObject.ImagePath,
-                string.Format(Logics.PATH_IMG_ITEM, inputObject.ItemCd), Logics.EXT_JPEG);
+            FileHelper.DeleteImages(string.Format(Logics.PATH_IMG_ITEM, inputObject.ItemCd), Logics.EXT_JPEG);
+            FileHelper.MoveImages(inputObject.ImagePath, string.Format(Logics.PATH_IMG_ITEM, inputObject.ItemCd), Logics.EXT_JPEG);
 
             return saveResult;
         }

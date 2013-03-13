@@ -15,13 +15,10 @@ namespace MiBo.Domain.Model.Admin.ItemEntry
         public string UnitCd { get; set; }
         public string ItemDiv { get; set; }
         public string ImagePath { get; set; }
+        public decimal? SalesPrice { get; set; }
+        public decimal? BuyingPrice { get; set; }
         public string Notes { get; set; }
         public decimal? SortKey { get; set; }
         public bool? DeleteFlag { get; set; }
-
-        public decimal? SalesPrice { get; set; }
-        public decimal? BuyingPrice { get; set; }
-
-        public IList<Pack> ListPacks { get; set; }
     }
 }

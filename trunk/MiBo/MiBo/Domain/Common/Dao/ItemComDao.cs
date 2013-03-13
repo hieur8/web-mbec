@@ -5,20 +5,6 @@ namespace MiBo.Domain.Common.Dao
 {
     public class ItemComDao : AbstractDao
     {
-        public decimal? GetSalesPrice(string itemCd, string unitCd)
-        {
-            // Get value
-            var listResult = from tbl in EntityManager.Packs
-                             where tbl.ItemCd == itemCd
-                             && tbl.UnitCd == unitCd
-                             && tbl.DeleteFlag == false
-                             orderby tbl.SortKey ascending
-                             select tbl.SalesPrice;
-
-            // Return value
-            return listResult.Take(1).SingleOrDefault();
-        }
-
         public bool HasOffer(string itemCd)
         {
             // Get sysdate

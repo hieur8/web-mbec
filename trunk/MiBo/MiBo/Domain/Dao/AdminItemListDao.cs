@@ -24,14 +24,15 @@ namespace MiBo.Domain.Dao
         {
             // Get value
             var listResult = from tbl in EntityManager.Items
-                             where (tbl.CategoryCd == inputObject.CategoryCd || DataCheckHelper.IsNull(inputObject.CategoryCd))
+                             where (tbl.ItemName.Contains(inputObject.ItemName) || DataCheckHelper.IsNull(inputObject.ItemName))
+                             && (tbl.CategoryCd == inputObject.CategoryCd || DataCheckHelper.IsNull(inputObject.CategoryCd))
                              && (tbl.AgeCd == inputObject.AgeCd || DataCheckHelper.IsNull(inputObject.AgeCd))
                              && (tbl.GenderCd == inputObject.GenderCd || DataCheckHelper.IsNull(inputObject.GenderCd))
                              && (tbl.BrandCd == inputObject.BrandCd || DataCheckHelper.IsNull(inputObject.BrandCd))
                              && (tbl.CountryCd == inputObject.CountryCd || DataCheckHelper.IsNull(inputObject.CountryCd))
                              && (tbl.UnitCd == inputObject.UnitCd || DataCheckHelper.IsNull(inputObject.UnitCd))
                              && (tbl.ItemDiv == inputObject.ItemDiv || DataCheckHelper.IsNull(inputObject.ItemDiv))
-                             && tbl.DeleteFlag == false
+                             && (tbl.DeleteFlag == inputObject.DeleteFlag || DataCheckHelper.IsNull(inputObject.DeleteFlag))
                              orderby tbl.SortKey ascending
                              select tbl;
 

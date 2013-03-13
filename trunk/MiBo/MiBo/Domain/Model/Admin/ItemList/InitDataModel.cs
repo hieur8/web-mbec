@@ -13,5 +13,6 @@ namespace MiBo.Domain.Model.Admin.ItemList
         public IList<MCode> ListCountry { get; set; }
         public IList<MCode> ListUnit { get; set; }
         public IList<MCode> ListItemDiv { get; set; }
+        public IList<MCode> ListDeleteFlag { get; set; }
     }
 }

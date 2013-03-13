@@ -71,11 +71,9 @@ namespace MiBo.Domain.Common.Utils
             DataHelper.CopyObject(item, itemModel);
 
             // Get value
-            var salesPrice = _comDao.GetSalesPrice(itemModel.ItemCd, itemModel.UnitCd);
             var itemImage = FileHelper.GetSmallImage(itemModel.ImagePath, Logics.EXT_JPEG);
 
             // Set value
-            itemModel.SalesPrice = salesPrice;
             itemModel.ItemImage = itemImage.Name;
             itemModel.ListOfferItems = new List<OfferItem>();
 
@@ -89,8 +87,8 @@ namespace MiBo.Domain.Common.Utils
 
                 if (itemModel.OfferDiv == Logics.CD_OFFER_DIV_DISCOUNT)
                 {
-                    itemModel.SalesPriceOld = salesPrice;
-                    itemModel.SalesPrice = GetOfferPrice(salesPrice, offer.Percent);
+                    itemModel.SalesPriceOld = itemModel.SalesPrice;
+                    itemModel.SalesPrice = GetOfferPrice(itemModel.SalesPrice, offer.Percent);
                 }
                 else
                 {
@@ -103,7 +101,7 @@ namespace MiBo.Domain.Common.Utils
                 {
                     var mParameterCom = new MParameterCom();
                     var discount = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
-                    itemModel.SalesPriceOld = salesPrice;
+                    itemModel.SalesPriceOld = itemModel.SalesPrice;
                     itemModel.SalesPrice -= itemModel.SalesPrice / discount;
                 }
             }

@@ -19,6 +19,7 @@
         public string ItemDiv { get; set; }
         public string ItemDivName { get; set; }
         public string UpdateDate { get; set; }
+        public string DeleteFlag { get; set; }
         public string DeleteFlagName { get; set; }
     }
 }

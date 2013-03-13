@@ -50,8 +50,7 @@ namespace MiBo.Domain.Dao
 
             var listItemOfferByPrice = from tbl in GetListOffers()
                      where tbl.OfferDiv == Logics.CD_OFFER_DIV_DISCOUNT
-                     && EntityManager.Packs.Any(sub => sub.ItemCd == tbl.ItemCd
-                         && sub.UnitCd == tbl.Item.UnitCd
+                     && EntityManager.Items.Any(sub => sub.ItemCd == tbl.ItemCd
                          && decimal.Subtract(sub.SalesPrice.Value, decimal.Multiply(sub.SalesPrice.Value, tbl.Percent.Value / 100)) >= price.PriceStart
                          && (decimal.Subtract(sub.SalesPrice.Value, decimal.Multiply(sub.SalesPrice.Value, tbl.Percent.Value / 100)) < price.PriceEnd 
                          || price.PriceDiv == Logics.CD_PRICE_DIV_MORE))
@@ -67,15 +66,13 @@ namespace MiBo.Domain.Dao
                              && (tbl.BrandCd == inputObject.BrandCd 
                              || DataCheckHelper.IsNull(inputObject.BrandCd))
                              && (DataCheckHelper.IsNull(inputObject.PriceCd)
-                             || (tbl.Packs.Any(sub => sub.ItemCd == tbl.ItemCd
-                                    && sub.UnitCd == tbl.UnitCd
-                                    && !(from sub1 in GetListOffers()
-                                         where sub1.OfferDiv == Logics.CD_OFFER_DIV_DISCOUNT
-                                         select sub1.ItemCd).Contains(tbl.ItemCd)
-                                    && sub.SalesPrice >= price.PriceStart
-                                    && (sub.SalesPrice < price.PriceEnd
-                                    || price.PriceDiv == Logics.CD_PRICE_DIV_MORE))
-                             || listItemOfferByPrice.Contains(tbl.ItemCd)))
+                             || (!(from sub1 in GetListOffers()
+                                   where sub1.OfferDiv == Logics.CD_OFFER_DIV_DISCOUNT
+                                   select sub1.ItemCd).Contains(tbl.ItemCd)
+                                   && tbl.SalesPrice >= price.PriceStart
+                                   && (tbl.SalesPrice < price.PriceEnd
+                                   || price.PriceDiv == Logics.CD_PRICE_DIV_MORE))
+                             || listItemOfferByPrice.Contains(tbl.ItemCd))
                              && tbl.DeleteFlag == false
                              orderby tbl.SortKey ascending
                              select tbl;

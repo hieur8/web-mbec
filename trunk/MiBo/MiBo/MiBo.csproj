@@ -299,6 +299,7 @@
     <Content Include="pages\resources\scripts\jquery.jtslider.min.js" />
     <Content Include="pages\resources\scripts\jquery.scroll.js" />
     <Content Include="pages\resources\scripts\jquery.tinymce.js" />
+    <Content Include="pages\resources\scripts\jquery.tmpl.min.js" />
     <Content Include="pages\resources\scripts\jquery.validate.min.js" />
     <Content Include="pages\resources\scripts\jquery.wysiwyg.js" />
     <Content Include="pages\resources\scripts\json2.min.js" />
@@ -631,6 +632,7 @@
     <Compile Include="Domain\Common\Logic\IOperateLogic.cs" />
     <Compile Include="Domain\Common\Model\AcceptModel.cs" />
     <Compile Include="Domain\Common\Model\CartItem.cs" />
+    <Compile Include="Domain\Common\Model\FileModel.cs" />
     <Compile Include="Domain\Common\Model\ItemModel.cs" />
     <Compile Include="Domain\Common\Model\Message.cs" />
     <Compile Include="Domain\Common\Model\MessageResponse.cs" />
@@ -723,7 +725,6 @@
     <Compile Include="Domain\Web\Admin\ItemEntry\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\OutputDetailsModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\OutputImageModel.cs" />
-    <Compile Include="Domain\Web\Admin\ItemEntry\OutputPackModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\SaveRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemList\FilterRequestModel.cs" />

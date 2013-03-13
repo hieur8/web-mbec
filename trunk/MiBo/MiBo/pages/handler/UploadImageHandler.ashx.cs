@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.pages.handler
 {
@@ -13,7 +13,9 @@ namespace MiBo.pages.handler
     public class UploadImageHandler : IHttpHandler
     {
         public bool IsReusable { get { return false; } }
-        private HandlerModel input = new HandlerModel();
+        private UploadModel input = new UploadModel();
+        private const string handler = "UploadImageHandler.ashx";
+        private const string GROUP_ITEM = "item";
 
         public void ProcessRequest(HttpContext context)
         {
@@ -26,11 +28,13 @@ namespace MiBo.pages.handler
         private void ConvertInput(HttpContext context)
         {
             // Local variable declaration
-            var request = new HandlerModel();
+            var request = new UploadModel();
 
             // Set request
-            request.Name = context.Request["f"];
-            request.Path = context.Request["p"];
+            request.FileName = context.Request["f"];
+            request.Url = context.Request["p"];
+            request.Group = context.Request["g"];
+            request.ContentType = "image/jpeg";
 
             // Convert data input
             DataHelper.ConvertInput(request, input);
@@ -43,7 +47,7 @@ namespace MiBo.pages.handler
             {
                 case "HEAD":
                 case "GET":
-                    if (!DataCheckHelper.IsNull(input.Name))
+                    if (!DataCheckHelper.IsNull(input.FileName))
                         DeliverFile(context);
                     else ListCurrentFiles(context);
                     break;
@@ -66,12 +70,12 @@ namespace MiBo.pages.handler
 
         private void DeliverFile(HttpContext context)
         {
-            if (FileHelper.ExistImages(input.PathLarger, Logics.EXT_JPEG))
+            if (FileHelper.ExistImages(input.UrlImageLarger, Logics.EXT_JPEG))
             {
-                context.Response.AddHeader("Content-Disposition", "attachment; filename=\"" + input.Name + "\"");
+                context.Response.AddHeader("Content-Disposition", "attachment; filename=\"" + input.FileName + "\"");
                 context.Response.ContentType = "application/octet-stream";
                 context.Response.ClearContent();
-                context.Response.WriteFile(input.PathLarger);
+                context.Response.WriteFile(input.UrlImageLarger);
             }
             else context.Response.StatusCode = 404;
         }
@@ -79,7 +83,7 @@ namespace MiBo.pages.handler
         private void ListCurrentFiles(HttpContext context)
         {
             // Local variable declaration
-            var files = FileHelper.GetSmallImages(input.Path, Logics.EXT_JPEG);
+            var files = FileHelper.GetSmallImages(input.Url, Logics.EXT_JPEG);
             var listFiles = new List<FileModel>();
 
             // Check valid
@@ -87,11 +91,12 @@ namespace MiBo.pages.handler
             {
                 files = new List<FileInfo>();
             }
-            
+
             // Get data
             foreach (var obj in files)
             {
-                listFiles.Add(new FileModel(obj, input.Path));
+                var file = new FileModel(handler, (int)obj.Length, obj.Name, input);
+                listFiles.Add(file);
             }
             // Convert json
             var jsonObj = JsonHelper.Serialize(listFiles.ToArray());
@@ -111,8 +116,9 @@ namespace MiBo.pages.handler
 
         private void DeleteFile()
         {
-            FileHelper.DeleteImage(input.PathSmall + input.Name);
-            FileHelper.DeleteImage(input.PathLarger + input.Name);
+            UploadHelper.DeleteFile(input.FullUrlImageSmall);
+            UploadHelper.DeleteFile(input.FullUrlImageNormal);
+            UploadHelper.DeleteFile(input.FullUrlImageLarger);
         }
 
         private void ReturnOptions(HttpContext context)
@@ -127,9 +133,15 @@ namespace MiBo.pages.handler
             {
                 var fileName = DataHelper.GetUniqueKey() + ".jpg";
                 var file = context.Request.Files[i];
-                UploadHelper.UploadImage(file.InputStream, input.PathSmall + fileName);
-                UploadHelper.UploadImage(file.InputStream, input.PathLarger + fileName);
-                fs.Add(new FileModel(fileName, input.Path, file.ContentLength));
+                if (input.Group == GROUP_ITEM)
+                {
+                    UploadHelper.UploadImage(file.InputStream, 60, 60, input.UrlImageSmall + fileName);
+                    UploadHelper.UploadImage(file.InputStream, 170, 170, input.UrlImageNormal + fileName);
+                    UploadHelper.UploadImage(file.InputStream, 400, 400, input.UrlImageLarger + fileName);
+
+                    var f = new FileModel(handler, file.ContentLength, fileName, input);
+                    fs.Add(f);
+                }
             }
         }
 
@@ -149,45 +161,5 @@ namespace MiBo.pages.handler
             var jsonObj = JsonHelper.Serialize(fs.ToArray());
             context.Response.Write(jsonObj);
         }
-    }
-
-    public class HandlerModel
-    {
-        public string Name { get; set; }
-        public string Path { get; set; }
-        public string PathSmall { get { return Path + Logics.URL_IMAGE_SMALL; } }
-        public string PathLarger { get { return Path + Logics.URL_IMAGE_LARGER; } }
-    }
-    public class FileModel
-    {
-        public const string HandlerPath = "/";
-
-		public string group { get; set; }
-		public string name { get; set; }
-		public string type { get; set; }
-		public int size { get; set; }
-		public string progress { get; set; }
-		public string url { get; set; }
-		public string thumbnail_url { get; set; }
-		public string delete_url { get; set; }
-		public string delete_type { get; set; }
-		public string error { get; set; }
-
-		public FileModel () { }
-
-		public FileModel (FileInfo fileInfo, string path) { SetValues(fileInfo.Name, path, (int)fileInfo.Length); }
-
-        public FileModel(string fileName, string path, int fileLength) { SetValues(fileName, path, fileLength); }
-
-		private void SetValues(string fileName, string path, int fileLength) {
-			name = fileName;
-			type = "image/png";
-			size = fileLength;
-			progress = "1.0";
-            url = "/pages/handler/UploadImageHandler.ashx?p=" + path + "&f=" + fileName;
-            thumbnail_url = path + Logics.URL_IMAGE_SMALL + fileName;
-            delete_url = "/pages/handler/UploadImageHandler.ashx?p=" + path + "&f=" + fileName;
-			delete_type = "DELETE";
-		}
     }
 }

@@ -5,6 +5,7 @@ namespace MiBo.Domain.Model.Admin.ItemList
 {
     public class FilterDataModel
     {
+        public string ItemName { get; set; }
         public string CategoryCd { get; set; }
         public string AgeCd { get; set; }
         public string GenderCd { get; set; }
@@ -12,6 +13,7 @@ namespace MiBo.Domain.Model.Admin.ItemList
         public string CountryCd { get; set; }
         public string UnitCd { get; set; }
         public string ItemDiv { get; set; }
+        public bool? DeleteFlag { get; set; }
 
         public IList<Item> ListItems { get; set; }
     }

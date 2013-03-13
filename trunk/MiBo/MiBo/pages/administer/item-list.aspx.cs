@@ -24,6 +24,7 @@ namespace MiBo.pages.administer
             ddlCountry.Items.AddRange(response.ListCountry);
             ddlUnit.Items.AddRange(response.ListUnit);
             ddlItemDiv.Items.AddRange(response.ListItemDiv);
+            ddlDeleteFlag.Items.AddRange(response.ListDeleteFlag);
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -55,7 +56,7 @@ namespace MiBo.pages.administer
             get
             {
                 var request = new FilterRequestModel();
-                //request.ItemName = txtItemName.Text;
+                request.ItemName = txtItemName.Text;
                 request.CategoryCd = ddlCategory.SelectedValue;
                 request.AgeCd = ddlAge.SelectedValue;
                 request.GenderCd = ddlGender.SelectedValue;
@@ -63,6 +64,7 @@ namespace MiBo.pages.administer
                 request.CountryCd = ddlCountry.SelectedValue;
                 request.UnitCd = ddlUnit.SelectedValue;
                 request.ItemDiv = ddlItemDiv.SelectedValue;
+                request.DeleteFlag = ddlDeleteFlag.SelectedValue;
                 return request;
             }
         }
