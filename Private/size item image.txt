@@ -1,0 +1,5 @@
+Image Item:
+
+Larger: 400x400
+Normal: 170x170
+Small:  60x60

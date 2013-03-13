@@ -63,36 +63,13 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             // Local variable declaration
             InitResponseModel response = null;
             OutputDetailsModel details = null;
-            IList<OutputPackModel> listPacks = null;
 
             // Variable initialize
             response = new InitResponseModel();
             details = new OutputDetailsModel();
-            listPacks = new List<OutputPackModel>();
 
             // Get value
             var item = resultObject.Item;
-            OutputPackModel pack = null;
-            decimal salesPrice = decimal.Zero;
-            decimal buyingPrice = decimal.Zero;
-            int index = 0;
-            foreach (var obj in item.Packs)
-            {
-                pack = new OutputPackModel();
-                pack.ItemCd = DataHelper.ToString(obj.ItemCd);
-                pack.UnitCd = DataHelper.ToString(obj.UnitCd);
-                pack.SalesPrice = DataHelper.ToString(Formats.NUMBER, obj.SalesPrice);
-                pack.BuyingPrice = DataHelper.ToString(Formats.NUMBER, obj.BuyingPrice);
-                pack.Notes = DataHelper.ToString(obj.Notes);
-                pack.SortKey = DataHelper.ToString(obj.SortKey);
-                listPacks.Add(pack);
-                if (index == 0)
-                {
-                    salesPrice = obj.SalesPrice.Value;
-                    buyingPrice = obj.BuyingPrice.Value;
-                }
-                index++;
-            }
             details.Status = DataHelper.ToString(_status);
             details.ItemCd = DataHelper.ToString(item.ItemCd);
             details.ItemName = DataHelper.ToString(item.ItemName);
@@ -103,11 +80,11 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             details.CountryCd = DataHelper.ToString(item.CountryCd);
             details.UnitCd = DataHelper.ToString(item.UnitCd);
             details.ItemDiv = DataHelper.ToString(item.ItemDiv);
+            details.SalesPrice = DataHelper.ToString(Formats.NUMBER, item.SalesPrice);
+            details.BuyingPrice = DataHelper.ToString(Formats.NUMBER, item.BuyingPrice);
             details.Notes = DataHelper.ToString(item.Notes);
             details.SortKey = DataHelper.ToString(item.SortKey);
             details.DeleteFlag = DataHelper.ToString(item.DeleteFlag);
-            details.SalesPrice = DataHelper.ToString(Formats.NUMBER, salesPrice);
-            details.BuyingPrice = DataHelper.ToString(Formats.NUMBER, buyingPrice);
             details.ListCategory = MCodeCom.ToComboItems(resultObject.ListCategory, 0);
             details.ListAge = MCodeCom.ToComboItems(resultObject.ListAge, 0);
             details.ListGender = MCodeCom.ToComboItems(resultObject.ListGender, 0);
@@ -117,7 +94,6 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             details.ListItemDiv = MCodeCom.ToComboItems(resultObject.ListItemDiv, 0);
             details.ListDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, 0);
             details.ImagePath = DataHelper.ToString(resultObject.ImagePath);
-            details.ListPacks = listPacks;
 
             // Set value
             response.Details = new List<OutputDetailsModel>() { details };

@@ -94,16 +94,6 @@ namespace MiBo.Domain.Common.Helper
         }
 
         /// <summary>
-        /// Delete image
-        /// </summary>
-        /// <param name="path">Path</param>
-        /// <returns>True/False</returns>
-        public static bool DeleteImage(string path)
-        {
-            return FileHelper.DeleteImage(path);
-        }
-
-        /// <summary>
         /// Upload file
         /// </summary>
         /// <param name="data">Stream</param>

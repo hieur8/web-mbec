@@ -21,6 +21,5 @@ namespace MiBo.Domain.Web.Admin.ItemEntry
         public string ImagePath { get; set; }
         public string SalesPrice { get; set; }
         public string BuyingPrice { get; set; }
-        public IList<OutputPackModel> ListPacks { get; set; }
     }
 }

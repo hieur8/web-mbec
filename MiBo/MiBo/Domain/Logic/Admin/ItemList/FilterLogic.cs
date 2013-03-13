@@ -7,6 +7,7 @@ using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Admin.ItemList;
 using MiBo.Domain.Web.Admin.ItemList;
+using Resources;
 
 namespace MiBo.Domain.Logic.Admin.ItemList
 {
@@ -58,7 +59,6 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             IList<OutputItemModel> listItems = null;
             MCodeCom mCodeCom = null;
             OutputItemModel item = null;
-            string itemDivName = null;
 
             // Variable initialize
             responseModel = new FilterResponseModel();
@@ -66,6 +66,8 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             mCodeCom = new MCodeCom();
 
             // Get value
+            var itemDivName = string.Empty;
+            var deleteFlagName = string.Empty;
             foreach (var obj in resultObject.ListItems)
             {
                 item = new OutputItemModel();
@@ -85,8 +87,12 @@ namespace MiBo.Domain.Logic.Admin.ItemList
                 item.UnitCd = DataHelper.ToString(obj.UnitCd);
                 item.UnitName = DataHelper.ToString(obj.Unit.UnitName);
                 item.ItemDiv = DataHelper.ToString(obj.ItemDiv);
-                itemDivName = mCodeCom.GetCodeName(Logics.GROUP_ITEM_DIV, obj.ItemDiv);
+                itemDivName = mCodeCom.GetCodeName(Logics.GROUP_ITEM_DIV, item.ItemDiv);
                 item.ItemDivName = DataHelper.ToString(itemDivName);
+                item.UpdateDate = DataHelper.ToString(Formats.UPDATE_DATE, obj.UpdateDate);
+                item.DeleteFlag = DataHelper.ToString(obj.DeleteFlag);
+                deleteFlagName = mCodeCom.GetCodeName(Logics.GROUP_DELETE_FLAG, item.DeleteFlag);
+                item.DeleteFlagName = DataHelper.ToString(deleteFlagName);
                 listItems.Add(item);
             }
 
@@ -140,8 +146,6 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             // Variable initialize
             dataCom = new DataCom();
             mCodeCom = new MCodeCom();
-
-            
         }
 
         /// <summary>

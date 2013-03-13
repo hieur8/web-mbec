@@ -65,78 +65,143 @@
                 <asp:HiddenField ID="hidImagePath" Value='<%# Eval("ImagePath") %>' runat="server" />
                 <div class="tab-content default-tab" id="tabInfo">
                     <fieldset>
-                        <p>
-                            <span class="label">Mã sản phẩm</span>
-                            <asp:TextBox Width="100" Text='<%# Eval("ItemCd") %>' Enabled='<%# Eval("Status") == "add" %>' ID="txtItemCd" runat="server"
-                                CssClass="text-input"></asp:TextBox>
-                            <span class="label">Tên sản phẩm</span>
-                            <asp:TextBox Width="200" Text='<%# Eval("ItemName") %>' ID="txtItemName" runat="server"
-                                CssClass="text-input"></asp:TextBox>
-                            <span class="label"></span><a class="button" href='/pages/administer/upload-image.aspx?p=<%# Eval("ImagePath") %>'
-                                onclick="return popitup(this);">Upload hình</a>
-                        </p>
-                        <p>
-                            <span class="label">Loại sản phẩm</span>
-                            <asp:DropDownList DataSource='<%# Eval("ListCategory") %>' SelectedValue='<%# Bind("CategoryCd") %>'
-                                DataValueField="Value" DataTextField="Text" ID="ddlCategory" runat="server" CssClass="input-search text-input">
-                            </asp:DropDownList>
-                            <span class="label">Độ tuổi</span>
-                            <asp:DropDownList DataSource='<%# Eval("ListAge") %>' SelectedValue='<%# Bind("AgeCd") %>'
-                                DataValueField="Value" DataTextField="Text" ID="ddlAge" runat="server"
-                                CssClass="input-search text-input">
-                            </asp:DropDownList>
-                            <span class="label">Giới tính</span>
-                            <asp:DropDownList DataSource='<%# Eval("ListGender") %>' SelectedValue='<%# Bind("GenderCd") %>'
-                                DataValueField="Value" DataTextField="Text" ID="ddlGender" runat="server"
-                                CssClass="input-search text-input">
-                            </asp:DropDownList>
-                        </p>
-                        <p>
-                            <span class="label">Thương hiệu</span>
-                            <asp:DropDownList DataSource='<%# Eval("ListBrand") %>' SelectedValue='<%# Bind("BrandCd") %>'
-                                DataValueField="Value" DataTextField="Text" ID="ddlBrand" runat="server"
-                                CssClass="input-search text-input">
-                            </asp:DropDownList>
-                            <span class="label">Xuất xứ</span>
-                            <asp:DropDownList DataSource='<%# Eval("ListCountry") %>' SelectedValue='<%# Bind("CountryCd") %>'
-                                DataValueField="Value" DataTextField="Text" ID="ddlCountry" runat="server"
-                                CssClass="input-search text-input">
-                            </asp:DropDownList>
-                        </p>
-                        <p>
-                            <span class="label">Sản phẩm</span>
-                            <asp:DropDownList DataSource='<%# Eval("ListItemDiv") %>' SelectedValue='<%# Bind("ItemDiv") %>'
-                                DataValueField="Value" DataTextField="Text" ID="ddlItemDiv" runat="server"
-                                CssClass="input-search text-input">
-                            </asp:DropDownList>
-                            <span class="label">Đơn vị</span>
-                            <asp:DropDownList DataSource='<%# Eval("ListUnit") %>' SelectedValue='<%# Bind("UnitCd") %>'
-                                DataValueField="Value" DataTextField="Text" ID="ddlUnit" runat="server"
-                                CssClass="input-search text-input">
-                            </asp:DropDownList>
-                        </p>
-                        <p>
-                            <span class="label">Giá mua</span>
-                            <asp:TextBox Width="100" Text='<%# Eval("SalesPrice") %>' ID="txtSalesPrice" runat="server"
-                                CssClass="text-input"></asp:TextBox>
-                            <span class="label">Giá bán</span>
-                            <asp:TextBox Width="100" Text='<%# Eval("BuyingPrice") %>' ID="txtBuyingPrice" runat="server"
-                                CssClass="text-input"></asp:TextBox>
-                        </p>
-                        <p>
-                            <span class="label">Thứ tự</span>
-                            <asp:TextBox Text='<%# Eval("SortKey") %>' ID="txtSortKey" runat="server" CssClass="text-input small-input"></asp:TextBox>
-                        </p>
-                        <p>
-                            <label>
-                                Mô tả</label>
-                            <asp:TextBox Text='<%# Eval("Notes") %>' ID="txtContents" runat="server" TextMode="MultiLine"></asp:TextBox>
-                            <span class="label">Dữ liệu</span>
-                            <asp:DropDownList DataSource='<%# Eval("ListDeleteFlag") %>' SelectedValue='<%# Bind("DeleteFlag") %>'
-                                DataValueField="Value" DataTextField="Text" ID="ddlDeleteFlag" runat="server"
-                                CssClass="input-search text-input">
-                            </asp:DropDownList>
-                        </p>
+                        <table>
+                            <tr>
+                                <td width="120">
+                                    <span class="label">Mã sản phẩm</span>
+                                </td>
+                                <td width="160">
+                                    <asp:TextBox Width="100" Text='<%# Eval("ItemCd") %>' Enabled='<%# Eval("Status") == "add" %>'
+                                        ID="txtItemCd" runat="server" CssClass="text-input"></asp:TextBox>
+                                </td>
+                                <td width="120">
+                                    <span class="label">Tên sản phẩm</span>
+                                </td>
+                                <td>
+                                    <asp:TextBox Width="200" Text='<%# Eval("ItemName") %>' ID="txtItemName" runat="server"
+                                        CssClass="text-input"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td width="120">
+                                    <span class="label">Loại sản phẩm</span>
+                                </td>
+                                <td width="160">
+                                    <asp:DropDownList DataSource='<%# Eval("ListCategory") %>' SelectedValue='<%# Bind("CategoryCd") %>'
+                                        DataValueField="Value" DataTextField="Text" ID="ddlCategory" runat="server" CssClass="input-search text-input">
+                                    </asp:DropDownList>
+                                </td>
+                                <td width="120">
+                                    <span class="label">Sản phẩm</span>
+                                </td>
+                                <td width="130">
+                                    <asp:DropDownList DataSource='<%# Eval("ListItemDiv") %>' SelectedValue='<%# Bind("ItemDiv") %>'
+                                        DataValueField="Value" DataTextField="Text" ID="ddlItemDiv" runat="server" CssClass="input-search text-input">
+                                    </asp:DropDownList>
+                                </td>
+                                <td width="80">
+                                    <span class="label">Đơn vị</span>
+                                </td>
+                                <td>
+                                    <asp:DropDownList DataSource='<%# Eval("ListUnit") %>' SelectedValue='<%# Bind("UnitCd") %>'
+                                        DataValueField="Value" DataTextField="Text" ID="ddlUnit" runat="server" CssClass="input-search text-input">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td width="120">
+                                    <span class="label">Độ tuổi</span>
+                                </td>
+                                <td width="160">
+                                    <asp:DropDownList DataSource='<%# Eval("ListAge") %>' SelectedValue='<%# Bind("AgeCd") %>'
+                                        DataValueField="Value" DataTextField="Text" ID="ddlAge" runat="server" CssClass="input-search text-input">
+                                    </asp:DropDownList>
+                                </td>
+                                <td width="120">
+                                    <span class="label">Giới tính</span>
+                                </td>
+                                <td>
+                                    <asp:DropDownList DataSource='<%# Eval("ListGender") %>' SelectedValue='<%# Bind("GenderCd") %>'
+                                        DataValueField="Value" DataTextField="Text" ID="ddlGender" runat="server" CssClass="input-search text-input">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td width="120">
+                                    <span class="label">Thương hiệu</span>
+                                </td>
+                                <td width="160">
+                                    <asp:DropDownList DataSource='<%# Eval("ListBrand") %>' SelectedValue='<%# Bind("BrandCd") %>'
+                                        DataValueField="Value" DataTextField="Text" ID="ddlBrand" runat="server" CssClass="input-search text-input">
+                                    </asp:DropDownList>
+                                </td>
+                                <td width="120">
+                                    <span class="label">Xuất xứ</span>
+                                </td>
+                                <td>
+                                    <asp:DropDownList DataSource='<%# Eval("ListCountry") %>' SelectedValue='<%# Bind("CountryCd") %>'
+                                        DataValueField="Value" DataTextField="Text" ID="ddlCountry" runat="server" CssClass="input-search text-input">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td width="120">
+                                    <span class="label">Giá mua</span>
+                                </td>
+                                <td width="160">
+                                    <asp:TextBox Width="100" Text='<%# Eval("SalesPrice") %>' ID="txtSalesPrice" runat="server"
+                                        CssClass="text-input"></asp:TextBox>
+                                </td>
+                                <td width="120">
+                                    <span class="label">Giá bán</span>
+                                </td>
+                                <td>
+                                    <asp:TextBox Width="100" Text='<%# Eval("BuyingPrice") %>' ID="txtBuyingPrice" runat="server"
+                                        CssClass="text-input"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td width="120">
+                                    <span class="label">Thứ tự</span>
+                                </td>
+                                <td width="160">
+                                    <asp:TextBox Width="80" Text='<%# Eval("SortKey") %>' ID="txtSortKey" runat="server"
+                                        CssClass="text-input small-input"></asp:TextBox>
+                                </td>
+                                <td width="120">
+                                    <span class="label">Dữ liệu</span>
+                                </td>
+                                <td width="80">
+                                    <asp:DropDownList DataSource='<%# Eval("ListDeleteFlag") %>' SelectedValue='<%# Bind("DeleteFlag") %>'
+                                        DataValueField="Value" DataTextField="Text" ID="ddlDeleteFlag" runat="server"
+                                        CssClass="input-search text-input">
+                                    </asp:DropDownList>
+                                </td>
+                                <td>
+                                    <span class="label"></span><a class="button" href='/pages/administer/upload-image.aspx?g=item&p=<%# Eval("ImagePath") %>'
+                                        onclick="return popitup(this);">Upload hình</a>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Mô tả</label>
+                                    <asp:TextBox Text='<%# Eval("Notes") %>' ID="txtContents" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
                         <div class="clear">
                         </div>
                         <p>

@@ -21,7 +21,6 @@ namespace MiBo.Domain.Web.Admin.ItemEntry
         public string SalesPrice { get; set; }
         public string BuyingPrice { get; set; }
         public string DeleteFlag { get; set; }
-        public IList<OutputPackModel> ListPacks { get; set; }
         public ListItem[] ListCategory { get; set; }
         public ListItem[] ListAge { get; set; }
         public ListItem[] ListGender { get; set; }
