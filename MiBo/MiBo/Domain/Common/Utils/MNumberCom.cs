@@ -114,7 +114,7 @@ namespace MiBo.Domain.Common.Utils
             var currentDate = DateTime.Now;
 
             // Get year & month
-            year = Convert.ToString(currentDate.Year);
+            year = Convert.ToString(currentDate.Year).Substring(2);
             month = DataHelper.ToStringWithZero(currentDate.Month);
 
             // Get info
@@ -153,7 +153,7 @@ namespace MiBo.Domain.Common.Utils
 
             // Variable initialize
             result = new MNumber();
-            strSlipNo = target.Substring(8);
+            strSlipNo = target.Substring(6);
 
             // Check param
             if (DataCheckHelper.IsNull(target)
@@ -162,8 +162,8 @@ namespace MiBo.Domain.Common.Utils
 
             // Get info
             code = target.Substring(0, 2);
-            year = target.Substring(2, 4);
-            month = target.Substring(6, 2);
+            year = target.Substring(2, 2);
+            month = target.Substring(4, 2);
             slipNo = Convert.ToDecimal(strSlipNo);
             digits = strSlipNo.Length;
 

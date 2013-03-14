@@ -24,7 +24,8 @@ namespace MiBo.Domain.Dao
         {
             // Get value
             var listResult = from tbl in EntityManager.Items
-                             where (tbl.ItemName.Contains(inputObject.ItemName) || DataCheckHelper.IsNull(inputObject.ItemName))
+                             where (tbl.ItemCd.Contains(inputObject.ItemCd) || DataCheckHelper.IsNull(inputObject.ItemCd))
+                             && (tbl.ItemName.Contains(inputObject.ItemName) || DataCheckHelper.IsNull(inputObject.ItemName))
                              && (tbl.CategoryCd == inputObject.CategoryCd || DataCheckHelper.IsNull(inputObject.CategoryCd))
                              && (tbl.AgeCd == inputObject.AgeCd || DataCheckHelper.IsNull(inputObject.AgeCd))
                              && (tbl.GenderCd == inputObject.GenderCd || DataCheckHelper.IsNull(inputObject.GenderCd))

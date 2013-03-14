@@ -56,6 +56,7 @@ namespace MiBo.pages.administer
             get
             {
                 var request = new FilterRequestModel();
+                request.ItemCd = txtItemCd.Text;
                 request.ItemName = txtItemName.Text;
                 request.CategoryCd = ddlCategory.SelectedValue;
                 request.AgeCd = ddlAge.SelectedValue;

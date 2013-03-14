@@ -5,6 +5,7 @@ namespace MiBo.Domain.Model.Admin.ItemList
 {
     public class FilterDataModel
     {
+        public string ItemCd { get; set; }
         public string ItemName { get; set; }
         public string CategoryCd { get; set; }
         public string AgeCd { get; set; }

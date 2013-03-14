@@ -76,6 +76,12 @@
                         <!-- Add the class "no-submenu" to menu items with no sub menu -->
                         Bảng điều khiển
                     </a></li>
+                    <li><a id="mnuAccepts" href="#" class="nav-top-item">Quản lý đơn hàng</a>
+                        <ul>
+                            <li><a id="lnkAccepts" href="/pages/administer/accept-list.aspx">Danh sách đơn hàng</a></li>
+                            <li><a id="lnkAcceptEntry" href="/pages/administer/accept-entry.aspx">Cập nhật đơn hàng</a></li>
+                        </ul>
+                    </li>
                     <li><a id="mnuItems" href="#" class="nav-top-item">Quản lý sản phẩm</a>
                         <ul>
                             <li><a id="lnkItems" href="/pages/administer/item-list.aspx">Danh sách sản phẩm</a></li>

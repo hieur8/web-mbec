@@ -16,5 +16,7 @@
         public const string ADMIN_INDEX = "/pages/administer/index.aspx";
         public const string ADMIN_ITEM_ENTRY = "/pages/administer/item-entry.aspx";
         public const string ADMIN_ITEM_LIST = "/pages/administer/item-list.aspx";
+        public const string ADMIN_ACCEPT_ENTRY = "/pages/administer/accept-entry.aspx";
+        public const string ADMIN_ACCEPT_LIST = "/pages/administer/accept-list.aspx";
     }
 }
