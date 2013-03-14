@@ -2,6 +2,7 @@
 {
     public class FilterRequestModel
     {
+        public string ItemCd { get; set; }
         public string ItemName { get; set; }
         public string CategoryCd { get; set; }
         public string AgeCd { get; set; }

@@ -31,24 +31,16 @@
             <table>
                 <tr>
                     <td width="120">
+                        <span class="label">Mã sản phẩm</span>
+                    </td>
+                    <td width="160">
+                        <asp:TextBox Width="100" ID="txtItemCd" runat="server" CssClass="input-search text-input"></asp:TextBox>
+                    </td>
+                    <td width="120">
                         <span class="label">Tên sản phẩm</span>
                     </td>
-                    <td width="220">
-                        <asp:TextBox Width="200" ID="txtItemName" runat="server" CssClass="input-search text-input"></asp:TextBox>
-                    </td>
-                    <td width="90">
-                        <span class="label">Độ tuổi</span>
-                    </td>
-                    <td width="130">
-                        <asp:DropDownList ID="ddlAge" runat="server" CssClass="input-search text-input">
-                        </asp:DropDownList>
-                    </td>
-                    <td width="80">
-                        <span class="label">Giới tính</span>
-                    </td>
                     <td>
-                        <asp:DropDownList ID="ddlGender" runat="server" CssClass="input-search text-input">
-                        </asp:DropDownList>
+                        <asp:TextBox Width="200" ID="txtItemName" runat="server" CssClass="input-search text-input"></asp:TextBox>
                     </td>
                 </tr>
             </table>
@@ -57,11 +49,11 @@
                     <td width="120">
                         <span class="label">Loại sản phẩm</span>
                     </td>
-                    <td width="220">
+                    <td width="160">
                         <asp:DropDownList ID="ddlCategory" runat="server" CssClass="input-search text-input">
                         </asp:DropDownList>
                     </td>
-                    <td width="90">
+                    <td width="120">
                         <span class="label">Sản phẩm</span>
                     </td>
                     <td width="130">
@@ -80,25 +72,45 @@
             <table>
                 <tr>
                     <td width="120">
+                        <span class="label">Độ tuổi</span>
+                    </td>
+                    <td width="160">
+                        <asp:DropDownList ID="ddlAge" runat="server" CssClass="input-search text-input">
+                        </asp:DropDownList>
+                    </td>
+                    <td width="120">
+                        <span class="label">Giới tính</span>
+                    </td>
+                    <td width="130">
+                        <asp:DropDownList ID="ddlGender" runat="server" CssClass="input-search text-input">
+                        </asp:DropDownList>
+                    </td>
+                    <td width="80">
+                        <span class="label">Dữ liệu</span>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlDeleteFlag" runat="server" CssClass="input-search text-input">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width="120">
                         <span class="label">Thương hiệu</span>
                     </td>
-                    <td width="220">
+                    <td width="160">
                         <asp:DropDownList ID="ddlBrand" runat="server" CssClass="input-search text-input">
                         </asp:DropDownList>
                     </td>
-                    <td width="90">
+                    <td width="120">
                         <span class="label">Xuất xứ</span>
                     </td>
                     <td width="130">
                         <asp:DropDownList ID="ddlCountry" runat="server" CssClass="input-search text-input">
                         </asp:DropDownList>
                     </td>
-                    <td width="80">
-                        <span class="label">Dữ liệu</span>
-                    </td>
-                    <td width="80">
-                        <asp:DropDownList ID="ddlDeleteFlag" runat="server" CssClass="input-search text-input">
-                        </asp:DropDownList>
+                    <td width="50">
                     </td>
                     <td>
                         <asp:LinkButton OnClick="btnSearch_Click" CssClass="button" ID="btnSearch" runat="server">Tìm kiếm</asp:LinkButton>
