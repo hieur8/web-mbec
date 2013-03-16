@@ -184,6 +184,8 @@
                             $(this).fadeOut(function () {
                                 $(this).remove();
                             });
+                        }).error(function (val) {
+                            document.write(val.responseText); 
                         });
                 } else {
                     data.context.fadeOut(function () {

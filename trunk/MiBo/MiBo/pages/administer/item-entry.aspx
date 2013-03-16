@@ -157,14 +157,14 @@
                                     <span class="label">Giá mua</span>
                                 </td>
                                 <td width="160">
-                                    <asp:TextBox Width="100" Text='<%# Eval("SalesPrice") %>' ID="txtSalesPrice" runat="server"
+                                    <asp:TextBox Width="100" Text='<%# Eval("BuyingPrice") %>' ID="txtBuyingPrice" runat="server"
                                         CssClass="text-input"></asp:TextBox>
                                 </td>
                                 <td width="120">
                                     <span class="label">Giá bán</span>
                                 </td>
                                 <td>
-                                    <asp:TextBox Width="100" Text='<%# Eval("BuyingPrice") %>' ID="txtBuyingPrice" runat="server"
+                                    <asp:TextBox Width="100" Text='<%# Eval("SalesPrice") %>' ID="txtSalesPrice" runat="server"
                                         CssClass="text-input"></asp:TextBox>
                                 </td>
                             </tr>
