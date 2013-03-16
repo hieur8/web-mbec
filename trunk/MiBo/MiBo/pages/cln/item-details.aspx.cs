@@ -26,7 +26,7 @@ namespace MiBo.pages.cln
             var responseModel = Invoke(buyLogic, BuyRequestModel);
             if (HasError) return;
             Session["Cart"] = responseModel.Cart;
-            Redirect(Pages.CLIENT_INDEX);
+            Session["haveBuy"] = true;
         }
 
         private InitRequestModel InitRequestModel
