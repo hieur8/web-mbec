@@ -73,6 +73,7 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             details.Status = DataHelper.ToString(_status);
             details.ItemCd = DataHelper.ToString(item.ItemCd);
             details.ItemName = DataHelper.ToString(item.ItemName);
+            details.ItemSearchName = DataHelper.ToString(item.ItemSearchName);
             details.CategoryCd = DataHelper.ToString(item.CategoryCd);
             details.AgeCd = DataHelper.ToString(item.AgeCd);
             details.GenderCd = DataHelper.ToString(item.GenderCd);

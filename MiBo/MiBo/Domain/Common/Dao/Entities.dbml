@@ -318,6 +318,7 @@
     <Type Name="Item">
       <Column Name="ItemCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ItemName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ItemSearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="CategoryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="AgeCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="GenderCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />

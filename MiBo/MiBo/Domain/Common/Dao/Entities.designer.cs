@@ -7015,6 +7015,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _ItemName;
 		
+		private string _ItemSearchName;
+		
 		private string _CategoryCd;
 		
 		private string _AgeCd;
@@ -7073,6 +7075,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnItemCdChanged();
     partial void OnItemNameChanging(string value);
     partial void OnItemNameChanged();
+    partial void OnItemSearchNameChanging(string value);
+    partial void OnItemSearchNameChanged();
     partial void OnCategoryCdChanging(string value);
     partial void OnCategoryCdChanged();
     partial void OnAgeCdChanging(string value);
@@ -7158,6 +7162,26 @@ namespace MiBo.Domain.Common.Dao
 					this._ItemName = value;
 					this.SendPropertyChanged("ItemName");
 					this.OnItemNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemSearchName", DbType="VarChar(255)")]
+		public string ItemSearchName
+		{
+			get
+			{
+				return this._ItemSearchName;
+			}
+			set
+			{
+				if ((this._ItemSearchName != value))
+				{
+					this.OnItemSearchNameChanging(value);
+					this.SendPropertyChanging();
+					this._ItemSearchName = value;
+					this.SendPropertyChanged("ItemSearchName");
+					this.OnItemSearchNameChanged();
 				}
 			}
 		}

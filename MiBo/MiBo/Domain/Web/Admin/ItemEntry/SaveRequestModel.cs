@@ -11,6 +11,8 @@ namespace MiBo.Domain.Web.Admin.ItemEntry
         public string ItemCd { get; set; }
         [ValidRequired(MessageParam = "Tên sản phẩm")]
         public string ItemName { get; set; }
+        [ValidRequired(MessageParam = "Tên tìm kiếm")]
+        public string ItemSearchName { get; set; }
         [ValidRequired(MessageParam = "Loại sản phẩm")]
         public string CategoryCd { get; set; }
         [ValidRequired(MessageParam = "Độ tuổi")]

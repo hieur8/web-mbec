@@ -57,7 +57,10 @@ namespace MiBo.Domain.Dao
                      select tbl.ItemCd;
 
             var listResult = from tbl in EntityManager.Items
-                             where (tbl.CategoryCd == inputObject.CategoryCd 
+                             where (tbl.ItemName.Contains(inputObject.ItemName)
+                             || tbl.ItemSearchName.Contains(inputObject.ItemName)
+                             || DataCheckHelper.IsNull(inputObject.ItemName))
+                             && (tbl.CategoryCd == inputObject.CategoryCd 
                              || DataCheckHelper.IsNull(inputObject.CategoryCd))
                              && (tbl.AgeCd == inputObject.AgeCd 
                              || DataCheckHelper.IsNull(inputObject.AgeCd))

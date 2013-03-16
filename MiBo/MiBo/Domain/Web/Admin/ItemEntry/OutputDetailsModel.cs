@@ -8,6 +8,7 @@ namespace MiBo.Domain.Web.Admin.ItemEntry
         public string Status { get; set; }
         public string ItemCd { get; set; }
         public string ItemName { get; set; }
+        public string ItemSearchName { get; set; }
         public string CategoryCd { get; set; }
         public string AgeCd { get; set; }
         public string GenderCd { get; set; }

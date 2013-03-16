@@ -60,6 +60,7 @@ namespace MiBo.pages.administer
                 var request = new SaveRequestModel();
                 request.Status = ((HiddenField)fvwItemDatails.FindControl("hidStatus")).Value;
                 request.ImagePath = ((HiddenField)fvwItemDatails.FindControl("hidImagePath")).Value;
+                request.ItemSearchName = ((HiddenField)fvwItemDatails.FindControl("hidItemSearchName")).Value;
                 request.ItemCd = ((TextBox)fvwItemDatails.FindControl("txtItemCd")).Text;
                 request.ItemName = ((TextBox)fvwItemDatails.FindControl("txtItemName")).Text;
                 request.CategoryCd = ((DropDownList)fvwItemDatails.FindControl("ddlCategory")).SelectedValue;
