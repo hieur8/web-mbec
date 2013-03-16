@@ -372,6 +372,7 @@ CREATE TABLE [Items]
 (
     [ItemCd] VARCHAR(255),
     [ItemName] NVARCHAR(255),
+	[ItemSearchName] VARCHAR(255),
     [CategoryCd] VARCHAR(255),
     [AgeCd] VARCHAR(255),
     [GenderCd] VARCHAR(255),

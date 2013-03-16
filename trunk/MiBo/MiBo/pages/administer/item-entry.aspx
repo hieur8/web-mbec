@@ -40,10 +40,26 @@
     <!-- /TinyMCE -->
     <!-- MyScript -->
     <script type="text/javascript">
+        function getObjectById(id) {
+            if (document.getElementById)
+                var returnVar = document.getElementById(id);
+            else if (document.all)
+                var returnVar = document.all[id];
+            else if (document.layers)
+                var returnVar = document.layers[id];
+            return returnVar;
+        }
         function popitup(val) {
             var newwindow = window.open(val.href, 'uploadimage', 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=550,height=400');
             if (window.focus) { newwindow.focus() }
             return false;
+        }
+        function getaliastext(val) {
+            var s = generateAlias(val);
+            var hidItemSearchNameId = "#" + '<%= fvwItemDatails.FindControl("hidItemSearchName").ClientID %>'
+            var txtItemSearchNameId = "#" + '<%= fvwItemDatails.FindControl("txtItemSearchName").ClientID %>'
+            $(hidItemSearchNameId).val(s)
+            $(txtItemSearchNameId).val(s);
         }
     </script>
     <title>Thêm/sửa sản phẩm</title>
@@ -63,6 +79,7 @@
             <ItemTemplate>
                 <asp:HiddenField ID="hidStatus" Value='<%# Eval("Status") %>' runat="server" />
                 <asp:HiddenField ID="hidImagePath" Value='<%# Eval("ImagePath") %>' runat="server" />
+                <asp:HiddenField ID="hidItemSearchName" Value='<%# Eval("ItemSearchName") %>' runat="server" />
                 <div class="tab-content default-tab" id="tabInfo">
                     <fieldset>
                         <table>
@@ -77,9 +94,13 @@
                                 <td width="120">
                                     <span class="label">Tên sản phẩm</span>
                                 </td>
-                                <td>
+                                <td width="240">
                                     <asp:TextBox Width="200" Text='<%# Eval("ItemName") %>' ID="txtItemName" runat="server"
-                                        CssClass="text-input"></asp:TextBox>
+                                        CssClass="text-input" onchange="getaliastext(this.value)"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox Width="200" Text='<%# Eval("ItemSearchName") %>' ID="txtItemSearchName"
+                                        runat="server" CssClass="text-input" Enabled="false"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>

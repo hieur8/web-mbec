@@ -26,6 +26,7 @@ namespace MiBo.Domain.Dao
             var entity = new Item();
             entity.ItemCd = inputObject.ItemCd;
             entity.ItemName = inputObject.ItemName;
+            entity.ItemSearchName = inputObject.ItemSearchName;
             entity.CategoryCd = inputObject.CategoryCd;
             entity.AgeCd = inputObject.AgeCd;
             entity.GenderCd = inputObject.GenderCd;
@@ -57,6 +58,7 @@ namespace MiBo.Domain.Dao
             // Set item
             var entity = GetSingle<Item>(inputObject.ItemCd, true);
             entity.ItemName = inputObject.ItemName;
+            entity.ItemSearchName = inputObject.ItemSearchName;
             entity.CategoryCd = inputObject.CategoryCd;
             entity.AgeCd = inputObject.AgeCd;
             entity.GenderCd = inputObject.GenderCd;
