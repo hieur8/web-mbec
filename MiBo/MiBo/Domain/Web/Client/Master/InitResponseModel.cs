@@ -10,10 +10,9 @@ namespace MiBo.Domain.Web.Client.Master
         public string DiscountMember { get; set; }
         public IList<OutputCategoryModel> ListToys { get; set; }
         public IList<OutputCategoryModel> ListAccessories { get; set; }
-        public ListItem[] ListCategory { get; set; }
-        public ListItem[] ListAge { get; set; }
-        public ListItem[] ListGender { get; set; }
-        public ListItem[] ListBrand { get; set; }
-        public ListItem[] ListPriceDiv { get; set; }
+        public IList<OutputAgeModel> ListAges { get; set; }
+        public IList<OutputGenderModel> ListGenders { get; set; }
+        public IList<OutputBrandModel> ListBrands { get; set; }
+        public IList<OutputCountryModel> ListCountries { get; set; }
     }
 }

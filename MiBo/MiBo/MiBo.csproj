@@ -780,7 +780,11 @@
     <Compile Include="Domain\Web\Client\Login\LoginResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Master\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Master\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Master\OutputAgeModel.cs" />
+    <Compile Include="Domain\Web\Client\Master\OutputBrandModel.cs" />
     <Compile Include="Domain\Web\Client\Master\OutputCategoryModel.cs" />
+    <Compile Include="Domain\Web\Client\Master\OutputCountryModel.cs" />
+    <Compile Include="Domain\Web\Client\Master\OutputGenderModel.cs" />
     <Compile Include="Domain\Web\Client\Profile\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Profile\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Profile\OutputDetailsModel.cs" />

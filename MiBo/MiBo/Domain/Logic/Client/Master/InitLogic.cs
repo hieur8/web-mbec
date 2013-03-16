@@ -59,15 +59,22 @@ namespace MiBo.Domain.Logic.Client.Master
             InitResponseModel responseModel = null;
             IList<OutputCategoryModel> listToys = null;
             IList<OutputCategoryModel> listAccessories = null;
-            OutputCategoryModel toy = null;
-            OutputCategoryModel accessory = null;
+            IList<OutputAgeModel> listAges = null;
+            IList<OutputGenderModel> listGenders = null;
+            IList<OutputBrandModel> listBrands = null;
+            IList<OutputCountryModel> listCountries = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
             listToys = new List<OutputCategoryModel>();
             listAccessories = new List<OutputCategoryModel>();
+            listAges = new List<OutputAgeModel>();
+            listGenders = new List<OutputGenderModel>();
+            listBrands = new List<OutputBrandModel>();
+            listCountries = new List<OutputCountryModel>();
 
             // Get value
+            OutputCategoryModel toy = null;
             foreach (var obj in resultObject.ListToys)
             {
                 toy = new OutputCategoryModel();
@@ -77,6 +84,8 @@ namespace MiBo.Domain.Logic.Client.Master
 
                 listToys.Add(toy);
             }
+
+            OutputCategoryModel accessory = null;
             foreach (var obj in resultObject.ListAccessories)
             {
                 accessory = new OutputCategoryModel();
@@ -87,16 +96,60 @@ namespace MiBo.Domain.Logic.Client.Master
                 listAccessories.Add(accessory);
             }
 
+
+            OutputAgeModel age = null;
+            foreach (var obj in resultObject.ListAge)
+            {
+                age = new OutputAgeModel();
+
+                age.AgeCd = DataHelper.ToString(obj.AgeCd);
+                age.AgeName = DataHelper.ToString(obj.AgeName);
+
+                listAges.Add(age);
+            }
+
+            OutputGenderModel gender = null;
+            foreach (var obj in resultObject.ListGender)
+            {
+                gender = new OutputGenderModel();
+
+                gender.GenderCd = DataHelper.ToString(obj.GenderCd);
+                gender.GenderName = DataHelper.ToString(obj.GenderName);
+
+                listGenders.Add(gender);
+            }
+
+            OutputBrandModel brand = null;
+            foreach (var obj in resultObject.ListBrand)
+            {
+                brand = new OutputBrandModel();
+
+                brand.BrandCd = DataHelper.ToString(obj.BrandCd);
+                brand.BrandName = DataHelper.ToString(obj.BrandName);
+
+                listBrands.Add(brand);
+            }
+
+            OutputCountryModel country = null;
+            foreach (var obj in resultObject.ListCountry)
+            {
+                country = new OutputCountryModel();
+
+                country.CountryCd = DataHelper.ToString(obj.CountryCd);
+                country.CountryName = DataHelper.ToString(obj.CountryName);
+
+                listCountries.Add(country);
+            }
+
             // Set value
             responseModel.CartCount = DataHelper.ToString(Formats.NUMBER, resultObject.CartCount);
             responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
             responseModel.ListToys = listToys;
             responseModel.ListAccessories = listAccessories;
-            responseModel.ListCategory = MCodeCom.ToComboItems(resultObject.ListCategory, 0);
-            responseModel.ListAge = MCodeCom.ToComboItems(resultObject.ListAge, 0);
-            responseModel.ListGender = MCodeCom.ToComboItems(resultObject.ListGender, 0);
-            responseModel.ListBrand = MCodeCom.ToComboItems(resultObject.ListBrand, 0);
-            responseModel.ListPriceDiv = MCodeCom.ToComboItems(resultObject.ListPriceDiv, 0);
+            responseModel.ListAges = listAges;
+            responseModel.ListGenders = listGenders;
+            responseModel.ListBrands = listBrands;
+            responseModel.ListCountries = listCountries;
 
             // Return value
             return responseModel;
@@ -155,22 +208,20 @@ namespace MiBo.Domain.Logic.Client.Master
             var discountMember = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
             var listToys = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_TOYS);
             var listAccessories = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_ACCESSORIES);
-            var listCategory = mCodeCom.GetListCategory(true, false);
-            var listAge = mCodeCom.GetListAge(true, false);
-            var listGender = mCodeCom.GetListGender(true, false);
-            var listBrand = mCodeCom.GetListBrand(true, false);
-            var listPriceDiv = mCodeCom.GetListCode(Logics.GROUP_PRICE_DIV, null, true, false);
+            var listAge = clientMasterDao.GetListAge();
+            var listGender = clientMasterDao.GetListGender();
+            var listBrand = clientMasterDao.GetListBrand();
+            var listCountry = clientMasterDao.GetListCountry();
 
             // Set value
             getResult.CartCount = cartCount;
             getResult.DiscountMember = discountMember * decimal.Negate(decimal.One);
             getResult.ListToys = listToys;
             getResult.ListAccessories = listAccessories;
-            getResult.ListCategory = listCategory;
             getResult.ListAge = listAge;
             getResult.ListGender = listGender;
             getResult.ListBrand = listBrand;
-            getResult.ListPriceDiv = listPriceDiv;
+            getResult.ListCountry = listCountry;
 
             // Return value
             return getResult;
