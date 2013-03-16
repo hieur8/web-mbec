@@ -3,6 +3,7 @@ using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Master;
 using MiBo.Domain.Web.Client.Master;
 using MiBo.Domain.Common.Utils;
+using System.Web.UI.WebControls;
 
 namespace MiBo.pages.common
 {
@@ -17,9 +18,55 @@ namespace MiBo.pages.common
             rptToyMenu.DataBind();
             rptAccessoryMenu.DataSource = response.ListAccessories;
             rptAccessoryMenu.DataBind();
-            //lblCartCount.Text = response.CartCount;
-            //litDiscountMember.Text = response.DiscountMember;
+            if (response.CartCount.Equals(""))
+            {
+                lblCartCount.Text = "0";
+            }
+            else
+            {
+                lblCartCount.Text = response.CartCount;
+            }
+
+            
+            var initLogic = new MiBo.Domain.Logic.Client.ShoppingCart.InitOperateLogic();
+            var responseModel2 = Invoke(initLogic, InitRequestModel2);
+            if (HasError) return;
+            rptCartItem.DataSource = responseModel2.ListItems;
+            rptCartItem.DataBind();
+            LiteralAmount.Text = responseModel2.TotalAmount;
+            
         }
+        private MiBo.Domain.Web.Client.ShoppingCart.InitRequestModel InitRequestModel2
+        {
+            get
+            {
+                var requestModel = new MiBo.Domain.Web.Client.ShoppingCart.InitRequestModel();
+                requestModel.Cart = Session["Cart"];
+                return requestModel;
+            }
+        }
+        protected void lnkDelete_Command(object sender, CommandEventArgs e)
+        {
+            Session["ItemCd"] = e.CommandArgument;
+            var deleteLogic = new MiBo.Domain.Logic.Client.ShoppingCart.DeleteOperateLogic();
+            var responseModel = Invoke(deleteLogic, DeleteRequestModel);
+            if (HasError) return;
+            Session["Cart"] = responseModel.Cart;
+            Response.Redirect(System.Web.HttpContext.Current.Request.Url.AbsoluteUri);
+        
+        }
+        private MiBo.Domain.Web.Client.ShoppingCart.DeleteRequestModel DeleteRequestModel
+        {
+            get
+            {
+                var requestModel = new MiBo.Domain.Web.Client.ShoppingCart.DeleteRequestModel();
+                requestModel.ItemCd = Convert.ToString(Session["ItemCd"]);
+                requestModel.Cart = Session["Cart"];
+                Session["ItemCd"] = null;
+                return requestModel;
+            }
+        }
+
 
         private InitRequestModel InitRequestModel
         {

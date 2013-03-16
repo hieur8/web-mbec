@@ -27,6 +27,7 @@ namespace MiBo.pages.cln
             if (HasError) return;
             Session["Cart"] = responseModel.Cart;
             Session["haveBuy"] = true;
+            Response.Redirect(System.Web.HttpContext.Current.Request.Url.AbsoluteUri);
         }
 
         private InitRequestModel InitRequestModel

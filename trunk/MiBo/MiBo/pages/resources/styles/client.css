@@ -483,7 +483,7 @@ tr.summary-details-excluded { font-style:italic; }
 .logo { float:left; }
 .header-container { /*border-top:5px solid #0d2131; border-bottom:1px solid #415966; background:url(../images/bkg_header.jpg) 50% 0 repeat; */ background:#fff;}
 .header { margin:0 auto;padding-top:0px;;position:relative;text-align:right;width:975px;z-index:10;height:135px; }
-.header .logo { float:left; margin:20px 0 2px 5px; text-decoration:none !important; }
+.header .logo { float:left; margin:0px 0 2px 5px; text-decoration:none !important; }
 .header .logo strong { position:absolute; top:-999em; left:-999em; width:0; height:0; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
 .header h1.logo { margin:0; }
 .header .quick-access { float:right; width:645px; padding:5px 0 0;}
@@ -1704,7 +1704,7 @@ tr.summary-details-excluded { font-style:italic; }
 .third-block{float:left;padding-top:9px;padding-right:5px;height:178px;width:200px;padding-left:2px;}
 .fourth-block{float:left;padding-top:9px;height:178px;padding-left:2px;}
 .right-footer-container{float:right;margin-right:10px;border:3px solid #48b8dd;margin-top:10px;width:226px;height:161px;background:#fff;}
-.right-footer-container .payment-methods{padding-bottom:24px;}
+.right-footer-container .payment-methods{padding-bottom:24px; background-color: #f2f2f2}
 .block-subscribe{float:right;border-top:none;width:213px;padding-bottom:0px;margin-bottom:8px;}
 #advice-validate-email-newsletter{display:none;}
 .block-subscribe .block-title strong{ background:url(../images/newsletter-icon.png) no-repeat;font-size:17px;padding-bottom:10px;padding-left:66px;padding-top:13px;text-transform:uppercase;}
@@ -1729,7 +1729,7 @@ tr.summary-details-excluded { font-style:italic; }
 .block-subscribe .block-title{padding:12px 12px 0;background:none;}
 																	/* home-page content */
 .tp-banner-home{background:#fff;padding-left:2px;padding-top:4px;clear:both;height:51px;float:left;width:1003px;}
-.welcomemsg-tplinks{float:left;left:-12px;position:relative;width:999px;background:url("../images/top-shadow-bg.gif") repeat-x scroll 0 100% transparent;height:28px;padding-bottom:6px;padding-top:4px;}
+.welcomemsg-tplinks{float:left;left:-12px;position:relative;width:999px;background:url("../images/top-shadow-bg.gif") repeat-x scroll 0 100% transparent;height:25px;padding-bottom:6px;padding-top:4px;}
 																			/*menu   */
 .menu-button-container{float:left;padding-bottom:5px;margin-top:5px;}
 .information-icon{background:url(../images/detail-icon.gif) no-repeat;height:30px;width:27px;float:left;margin-left:6px;margin-top:5px;}
@@ -2181,4 +2181,3 @@ height: 32px;
 text-indent: -9999px;
 margin-top:3px;
 }
-

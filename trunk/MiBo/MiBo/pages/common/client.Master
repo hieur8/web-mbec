@@ -75,32 +75,46 @@
                         </div>
                         <h1 class="logo">
                             <a href="/index.aspx" title="Mibo" class="logo">
-                                <img src="/pages/resources/images/logo.png" alt="Magento Commerce"></a></h1>
-                        <div class="quick-access">
+                                <img src="/pages/resources/images/logo.gif" alt="Mibo.vn"></a></h1>
+                        <div style="padding-top:40px" class="quick-access">
                             <div class="search-checkout-container">
+                                <div class="form-search">
+                                    <label for="search">
+                                        Search</label>
+                                    <input id="search" type="text" name="q" value="" class="input-text" autocomplete="off">
+                                    <button type="submit" title="Search" class="button">
+                                        <span><span>Ok</span></span></button>
+                                    <div id="search_autocomplete" class="search-autocomplete" style="display: none;">
+                                    </div>
+                                </div>
                                 <div class="drop-cart" style="position: relative; z-index: 9999">
                                     <ul id="cart-menu" style="z-index: 998; position: relative">
                                         <li style="z-index: 9999"><a id="nav-cart" style="cursor: pointer;" onclick="linkcheckout(2);">
-                                            <span class="cart-icon-menu"></span><span id="nav-cart-count" class="nav-cart-0">1</span>Giỏ
-                                            hàng</a>
+                                            <span class="cart-icon-menu"></span><span id="nav-cart-count" class="nav-cart-0">
+                                                <asp:Literal ID="lblCartCount" runat="server"></asp:Literal></span>Giỏ hàng</a>
                                             <div style="z-index: 101" class="dropdown_1column-cart align_right">
                                                 <div class="col-cart1" style="z-index: 9999" id="cards_store">
-                                                    <div class="wrapper2" style="z-index: 999" id="cart_50502">
-                                                        <a class="img-cart-delete" href="#" style="float: right;"><span style="margin-left: 0;
-                                                            margin-right: 0; float: left;" class="ui-icon-16x16 ui-delete"></span></a><span class="count-cart-s color-red">
-                                                                x1</span><a href="#" style="color: #000"><img src="http://shop-photo.123.vn/12/03/2013/60x75/1363064142_HPC7210-&amp;-HPC7500.jpg"
-                                                                    class="img-cart-byer" width="52" height="52"></a><p>
-                                                                        <a href="/bo-3-khay-da-nang-locklock-hpc7210-va-hpc7500_50502.html" id="itemcart"
-                                                                            class="itemcart">Bộ 3 khay đa năng</a><span class="color-red"><span style="text-decoration: line-through;
-                                                                                color: #848484; font-size: 11px;">255.000 <small>đ</small></span> 179.000 <small>đ</small></span></p>
-                                                    </div>
+                                                    <asp:Repeater ID="rptCartItem" runat="server">
+                                                        <ItemTemplate>
+                                                            <div class="wrapper2" style="z-index: 999" id="cart_50502">
+                                                                <asp:LinkButton OnCommand="lnkDelete_Command" CommandArgument='<%# Eval("ItemCd") %>'
+                                                                    ID="lnkDelete" runat="server" CssClass="img-cart-delete"><span style="margin-left: 0;
+                                                                    margin-right: 0; float: left;" class="ui-icon-16x16 ui-delete"></span></asp:LinkButton>
+                                                                <span class="count-cart-s color-red">x<%# Eval("Quantity") %></span><a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>"
+                                                                    style="color: #000"><img src="/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>"
+                                                                        class="img-cart-byer" width="52" height="52"></a><p>
+                                                                            <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" id="itemcart" class="itemcart">
+                                                                                <%# Eval("ItemName")%></a><span class="color-red"><%# Eval("Price") %></span></p>
+                                                            </div>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
                                                     <div class="c1-border">
                                                     </div>
                                                     <div class="wrapper2" style="text-align: right;">
                                                         <div style="border-bottom: 1px solid #eee;">
                                                             Tổng đơn hàng:
                                                             <div style="width: 95px; float: right; font-weight: bold;" class="color-red">
-                                                                179.000 <small>đ</small></div>
+                                                                <asp:Literal ID="LiteralAmount" runat="server"></asp:Literal></div>
                                                         </div>
                                                         <div style="float: right;">
                                                             <p class="btn-small btn-right" style="margin-top: 21px;">
@@ -272,13 +286,14 @@
                                             &nbsp;</div>
                                     </div>
                                     <div class="image-container-footer">
-                                    <br /><br />
+                                        <br />
+                                        <br />
                                         <ul>
-                                            <li>Hotline: <strong>0976.585.888</strong></li>
-                                            <li>Email : <strong>support@mibo.vn</strong></li>
-                                            <li><a href="ymsgr:sendim?hieur8" border="0">
+                                            <li style="padding-left:30px">Hotline: <strong>0976.585.888</strong></li>
+                                            <li style="padding-left:30px">Email : <strong>support@mibo.vn</strong></li>
+                                            <li style="padding-left:30px"><a href="ymsgr:sendim?hieur8" border="0">
                                                 <img src="http://opi.yahoo.com/online?u=hieur8&t=2"></a> </li>
-                                            <li><a href="ymsgr:sendim?hieur8" border="0">
+                                            <li style="padding-left:30px"><a href="ymsgr:sendim?hieur8" border="0">
                                                 <img src="http://opi.yahoo.com/online?u=chauthai1983&t=2"></a> </li>
                                         </ul>
                                     </div>
