@@ -221,6 +221,30 @@ namespace MiBo.Domain.Common.Utils
             return result;
         }
 
+        /// <summary>
+        /// Authenticate user in group
+        /// </summary>
+        /// <param name="userCd">UserCd</param>
+        /// <param name="groupCd">GroupCd</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>True/False</returns>
+        public bool AuthUserInGroups(Guid userCd, string groupCd, bool ignoreDeleteFlag)
+        {
+            // Local variable declaration
+            var result = true;
+
+            // Check param
+            if (DataCheckHelper.IsNull(userCd)
+                || DataCheckHelper.IsNull(groupCd))
+                throw new ParamInvalidException();
+
+            // Get infomation
+            result = _comDao.AuthUserInGroups(userCd, groupCd, ignoreDeleteFlag);
+
+            //Return value
+            return result;
+        }
+
         public void registerUser(User param)
         {
             DateTime dateNow = DateTime.Now;

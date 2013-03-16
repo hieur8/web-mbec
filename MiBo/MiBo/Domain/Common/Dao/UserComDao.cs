@@ -110,5 +110,24 @@ namespace MiBo.Domain.Common.Dao
 
             return count == decimal.One;
         }
+
+        /// <summary>
+        /// Authenticate user in group
+        /// </summary>
+        /// <param name="userCd">UserCd</param>
+        /// <param name="groupCd">GroupCd</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>True/False</returns>
+        public bool AuthUserInGroups(Guid userCd, string groupCd, bool ignoreDeleteFlag)
+        {
+            var result = from tbl in EntityManager.UserGroups
+                         where tbl.UserCd == userCd && tbl.GroupCd == groupCd
+                         && (tbl.DeleteFlag == false || ignoreDeleteFlag)
+                         select tbl;
+
+            var count = result.LongCount();
+
+            return count == decimal.One;
+        }
     }
 }

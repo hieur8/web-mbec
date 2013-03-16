@@ -160,6 +160,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bạn không có quyền truy cập vào hệ thống này!.
+        /// </summary>
+        internal static string E_MSG_00013 {
+            get {
+                return ResourceManager.GetString("E_MSG_00013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [F.MSG.00001] Không thể để kết nối với máy chủ cơ sở dữ liệu với các thiết lập đang được cung cấp..
         /// </summary>
         internal static string F_MSG_00001 {
