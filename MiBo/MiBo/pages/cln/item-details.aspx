@@ -12,6 +12,9 @@
                 max: 9999
             });
         });
+        function showSuccessToast() {
+            $().toastmessage('showSuccessToast', "Sản phẩm đã thêm vào giỏ hàng !");
+        }
     </script>
     <!-- Galleries -->
     <link rel="stylesheet" type="text/css" href="/pages/resources/styles/jquery.ad-gallery.css">
@@ -23,7 +26,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
- <div id="fb-root"></div>
+    <div id="fb-root"></div>
 <script>    (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -94,10 +97,15 @@
                                         Xuất xứ: <span><%# Eval("CountryName")%></span></p>
                                     <div class="add-to-box">
                                         <div class="add-to-cart" style="display: block">
-                                            <asp:TextBox Text="1" MaxLength="6" Width="80px" CssClass="qty spin" ID="txtItemQtty" runat="server"></asp:TextBox>
-                                            <span class="buttonRow">
-                                                <asp:LinkButton CssClass="button btn-cart" OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Cho vào giỏ hàng</asp:LinkButton>
-                                            </span>
+                                            <asp:TextBox Text="1" MaxLength="6" Width="25px" CssClass="spin" ID="txtItemQtty" runat="server"></asp:TextBox>
+                                            <br />
+                                            <div style="float: left;">
+                                            <asp:LinkButton CssClass="add-more" OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Cho vào giỏ hàng</asp:LinkButton>
+                                                 
+                                                      <a href="javascript:void(0)" id="addcart_1_1" class="buy-now">Thêm vào giỏ hàng</a>
+                                             </div>
+                                         
+
                                         </div>
                                     </div>
                                     <div class="short-description">
@@ -107,9 +115,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div style="padding-left: 15px" class="product-img-box">
-                                    <div id="gallery" class="ad-gallery">
-                                        <div class="ad-image-wrapper">
+                                <div style="padding-left: 15px;z-index:3" class="product-img-box">
+                                    <div id="gallery" style="z-index:3" class="ad-gallery">
+                                        <div class="ad-image-wrapper" style="z-index:3">
                                         </div>
                                         <div class="ad-controls">
                                         </div>
@@ -148,7 +156,7 @@
                                                 <a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName")%>'>
                                                 </a>
-                                                &nbsp;&nbsp;<div class="product-details">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="product-details">
                                                     <h3 class="product-name">
                                                         <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
                                                             <%# Eval("ItemName")%>(<%# Eval("Quantity")%>)
@@ -175,15 +183,18 @@
                 </asp:FormView>
             </div>
             <div class="col-right sidebar">
-                <div class="block block-cart">
-                    <div class="block-title">
-                        <strong><span>Giỏ hàng</span></strong>
-                    </div>
-                    <div class="block-content">
-                        <p class="empty">Bạn chưa mua sản phẩm nào.</p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
+    <%
+        if (Session["haveBuy"] != null)
+        {
+         %>
+    <script>
+        showSuccessToast();
+    </script>
+    <% 
+        Session["haveBuy"] = null;
+        } %>
 </asp:Content>
