@@ -23,6 +23,7 @@ namespace MiBo.pages.handler
             context.Response.AddHeader("Cache-Control", "private, no-cache");
             ConvertInput(context);
             ExecuteHandler(context);
+            context.Response.Flush();
         }
 
         private void ConvertInput(HttpContext context)
@@ -116,9 +117,12 @@ namespace MiBo.pages.handler
 
         private void DeleteFile()
         {
-            UploadHelper.DeleteFile(input.FullUrlImageSmall);
-            UploadHelper.DeleteFile(input.FullUrlImageNormal);
-            UploadHelper.DeleteFile(input.FullUrlImageLarger);
+            if (input.Group == GROUP_ITEM)
+            {
+                UploadHelper.DeleteFile(input.FullUrlImageSmall);
+                UploadHelper.DeleteFile(input.FullUrlImageNormal);
+                UploadHelper.DeleteFile(input.FullUrlImageLarger);
+            }
         }
 
         private void ReturnOptions(HttpContext context)

@@ -69,10 +69,36 @@ namespace MiBo.Domain.Common.Helper
             var strPath = HttpContext.Current.Server.MapPath(path);
             if (File.Exists(strPath))
             {
-                try { File.Delete(strPath); }
+                var fileInfo = new FileInfo(strPath);
+
+                try { fileInfo.Delete(); }
                 catch (Exception) { return false; }
             }
             return true;
+        }
+
+        /// <summary>
+        /// Move file
+        /// </summary>
+        /// <param name="sourcePath">SourcePath</param>
+        /// <param name="targetPath">TargetPath</param>
+        public static void MoveFile(string sourcePath, string targetPath)
+        {
+            // Local variable declaration
+            var strSourcePath = HttpContext.Current.Server.MapPath(sourcePath);
+            var strTargetPath = HttpContext.Current.Server.MapPath(targetPath);
+            var sourceFile = new FileInfo(strSourcePath);
+            var targetFile = new FileInfo(strTargetPath);
+            // Check exist
+            if (!sourceFile.Exists) return;
+            if (!targetFile.Exists) targetFile.Delete();
+
+            // Create folder
+            if (!Directory.Exists(targetFile.DirectoryName))
+                Directory.CreateDirectory(targetFile.DirectoryName);
+
+            // Move file
+            sourceFile.MoveTo(targetFile.FullName);
         }
 
         /// <summary>
@@ -160,6 +186,7 @@ namespace MiBo.Domain.Common.Helper
             {
                 files.Add(obj);
             }
+
             // return value
             return files;
         }
@@ -195,6 +222,7 @@ namespace MiBo.Domain.Common.Helper
                 Directory.CreateDirectory(directory.FullName);
             // Save
             img.Save(strPath, format);
+            img.Dispose();
         }
 
         /// <summary>

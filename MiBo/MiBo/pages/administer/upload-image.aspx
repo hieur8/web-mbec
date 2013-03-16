@@ -104,9 +104,9 @@
         </td>
     </tr>
     </script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="../resources/scripts/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="/pages/resources/scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="/pages/resources/scripts/jquery-ui-1.8.13.min.js" type="text/javascript"></script>
+    <script src="/pages/resources/scripts/jquery.tmpl.min.js" type="text/javascript"></script>
     <script src="/pages/resources/scripts/jquery.iframe-transport.js" type="text/javascript"></script>
     <script src="/pages/resources/scripts/jquery.fileupload.js" type="text/javascript"></script>
     <script src="/pages/resources/scripts/jquery.fileupload-ui.js" type="text/javascript"></script>

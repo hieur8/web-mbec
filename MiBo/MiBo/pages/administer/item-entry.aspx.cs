@@ -47,6 +47,8 @@ namespace MiBo.pages.administer
                     Session["Status"] = Logics.CODE_STATUS_ADD;
                 request.Status = Convert.ToString(Session["Status"]);
                 request.ItemCd = Convert.ToString(Session["ItemCd"]);
+                Session["Status"] = null;
+                Session["ItemCd"] = null;
                 return request;
             }
         }
