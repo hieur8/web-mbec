@@ -12,10 +12,9 @@ namespace MiBo.Domain.Model.Client.Master
         public decimal? DiscountMember { get; set; }
         public IList<Category> ListToys { get; set; }
         public IList<Category> ListAccessories { get; set; }
-        public IList<MCode> ListCategory { get; set; }
-        public IList<MCode> ListAge { get; set; }
-        public IList<MCode> ListGender { get; set; }
-        public IList<MCode> ListBrand { get; set; }
-        public IList<MCode> ListPriceDiv { get; set; }
+        public IList<Age> ListAge { get; set; }
+        public IList<Gender> ListGender { get; set; }
+        public IList<Brand> ListBrand { get; set; }
+        public IList<Country> ListCountry { get; set; }
     }
 }
