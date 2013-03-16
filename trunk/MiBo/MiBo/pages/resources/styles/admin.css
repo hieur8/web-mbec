@@ -125,7 +125,7 @@ a.remove-link:hover {
                 }
 
 #sidebar #logo {
-                margin: 40px 0 40px 0;
+                margin: 40px 0 40px 15px;
                 width: 150px;
                 }
 
@@ -607,7 +607,7 @@ body#login {
 				
 #login-wrapper #login-content {
 				text-align: left;
-				width: 300px;
+				width: 330px;
 				margin: 0 auto;
 				}
 				
@@ -617,7 +617,7 @@ body#login {
 				font-size: 14px;
 				font-family: Helvetica, Arial, sans-serif;
 				float: left;
-				width: 70px;
+				width: 100px;
 				padding: 0;
 				}
 				

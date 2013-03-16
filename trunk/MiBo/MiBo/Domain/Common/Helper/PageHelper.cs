@@ -80,13 +80,27 @@ namespace MiBo.Domain.Common.Helper
             }
         }
 
+        public static bool HasAuthByAdmin
+        {
+            get
+            {
+                var userCom = new UserCom();
+                var userCd = PageHelper.UserCd;
+                if (DataCheckHelper.IsNull(userCd)) return false;
+                if (!userCom.IsExist(userCd, false)) return false;
+                if (!userCom.AuthUserInGroups(userCd, Logics.GP_ADMINISTRATORS, false)) return false;
+                return true;
+            }
+        }
+
         public static Guid UserCd
         {
-            get { 
+            get
+            {
                 var strUserCd = Convert.ToString(HttpContext.Current.Session["userCd"]);
                 var userCd = DataHelper.ConvertInputGuid(strUserCd);
                 return userCd;
-            } 
+            }
         }
 
         public static string UserName

@@ -64,10 +64,10 @@
                     <a href="#">MiBo</a></h1>
                 <!-- Logo (221px wide) -->
                 <a href="#">
-                    <img id="logo" src="/pages/resources/images/logo.png" alt="MiBo logo" /></a>
+                    <img id="logo" src="/pages/resources/images/logo.gif" alt="MiBo logo" /></a>
                 <!-- Sidebar Profile links -->
                 <div id="profile-links">
-                    <a id="lnkChangePassword" href="#">Đổi mật khẩu</a>
+                    <a id="lnkChangePassword" href="/pages/administer/user-change-password.aspx">Đổi mật khẩu</a>
                     |
                     <asp:LinkButton CausesValidation="False" OnCommand="lnkSignOut_Command" ID="lnkSignOut" runat="server">Đăng xuất</asp:LinkButton>
                 </div>

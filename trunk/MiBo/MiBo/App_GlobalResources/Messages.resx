@@ -154,6 +154,9 @@
   <data name="E_MSG_00012" xml:space="preserve">
     <value>{0} phải có ít nhất 1 tập tin</value>
   </data>
+  <data name="E_MSG_00013" xml:space="preserve">
+    <value>Bạn không có quyền truy cập vào hệ thống này!</value>
+  </data>
 
   <!-- Info -->
   <data name="I_MSG_00001" xml:space="preserve">

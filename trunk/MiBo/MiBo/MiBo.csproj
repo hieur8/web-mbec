@@ -71,9 +71,12 @@
     <Content Include="pages\administer\item-entry.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
     <Content Include="pages\administer\upload-image.aspx" />
+    <Content Include="pages\administer\user-change-password.aspx" />
+    <Content Include="pages\administer\user-login.aspx" />
     <Content Include="pages\cln\channel.html" />
     <Content Include="pages\cln\checkout.aspx" />
     <Content Include="pages\cln\confirmcheckout.aspx" />
+    <Content Include="pages\cln\FAQ.aspx" />
     <Content Include="pages\cln\index.aspx" />
     <Content Include="pages\cln\item-details.aspx" />
     <Content Include="pages\cln\items.aspx" />
@@ -92,20 +95,28 @@
     <Content Include="pages\media\images\banners\03.jpg" />
     <Content Include="pages\media\images\banners\04.jpg" />
     <Content Include="pages\media\images\banners\05.jpg" />
+    <Content Include="pages\media\images\items\01\normal\01.jpg" />
+    <Content Include="pages\media\images\items\01\normal\02.jpg" />
     <Content Include="pages\media\images\items\01\larger\01.jpg" />
     <Content Include="pages\media\images\items\01\larger\02.jpg" />
     <Content Include="pages\media\images\items\01\small\01.jpg" />
     <Content Include="pages\media\images\items\01\small\02.jpg" />
+    <Content Include="pages\media\images\items\02\normal\01.jpg" />
     <Content Include="pages\media\images\items\02\larger\01.jpg" />
     <Content Include="pages\media\images\items\02\small\01.jpg" />
+    <Content Include="pages\media\images\items\03\normal\01.jpg" />
     <Content Include="pages\media\images\items\03\larger\01.jpg" />
     <Content Include="pages\media\images\items\03\small\01.jpg" />
-    <Content Include="pages\media\images\items\04\larger\01.jpg" />
-    <Content Include="pages\media\images\items\04\small\01.jpg" />
+    <Content Include="pages\media\images\items\04\normal\13e463af968a18986a0727ef032d8417.jpg" />
+    <Content Include="pages\media\images\items\04\normal\a88de6db08e69ddde7172a2307366bbc.jpg" />
+    <Content Include="pages\media\images\items\04\normal\f05e0faaffab82c5fada83b064b749f3.jpg" />
+    <Content Include="pages\media\images\items\05\normal\01.jpg" />
     <Content Include="pages\media\images\items\05\larger\01.jpg" />
     <Content Include="pages\media\images\items\05\small\01.jpg" />
+    <Content Include="pages\media\images\items\06\normal\01.jpg" />
     <Content Include="pages\media\images\items\06\larger\01.jpg" />
     <Content Include="pages\media\images\items\06\small\01.jpg" />
+    <Content Include="pages\resources\images\a.gif" />
     <Content Include="pages\resources\images\add-to-cart.png" />
     <Content Include="pages\resources\images\ad_next.png" />
     <Content Include="pages\resources\images\ad_prev.png" />
@@ -114,6 +125,7 @@
     <Content Include="pages\resources\images\b.png" />
     <Content Include="pages\resources\images\ball_toy.jpg" />
     <Content Include="pages\resources\images\beemoviememotoyscar.jpg" />
+    <Content Include="pages\resources\images\bg-all-16x16.png" />
     <Content Include="pages\resources\images\bg-body.gif" />
     <Content Include="pages\resources\images\bg-button-blue.gif" />
     <Content Include="pages\resources\images\bg-button-green.gif" />
@@ -136,14 +148,23 @@
     <Content Include="pages\resources\images\bl.png" />
     <Content Include="pages\resources\images\black-vertical-lines.png" />
     <Content Include="pages\resources\images\br.png" />
+    <Content Include="pages\resources\images\btnSearch.png" />
     <Content Include="pages\resources\images\btn_remove.gif" />
     <Content Include="pages\resources\images\btn_trash.gif" />
+    <Content Include="pages\resources\images\bullet.png" />
     <Content Include="pages\resources\images\bullet_black.png" />
+    <Content Include="pages\resources\images\bullet_on.png" />
+    <Content Include="pages\resources\images\buttons-checkout.png" />
+    <Content Include="pages\resources\images\cart-icon.png" />
+    <Content Include="pages\resources\images\close.gif" />
+    <Content Include="pages\resources\images\ddlcat.png" />
     <Content Include="pages\resources\images\detail-icon.gif" />
     <Content Include="pages\resources\images\down-dark.png" />
     <Content Include="pages\resources\images\down.png" />
+    <Content Include="pages\resources\images\error.png" />
     <Content Include="pages\resources\images\flexslider-bg_direction_nav.png" />
     <Content Include="pages\resources\images\footer-menusep.gif" />
+    <Content Include="pages\resources\images\footer-top-shadow-bg.gif" />
     <Content Include="pages\resources\images\ftr-category3-hding-bg.png" />
     <Content Include="pages\resources\images\ftr-hding-bg-right.png" />
     <Content Include="pages\resources\images\ftr-main-bg.gif" />
@@ -173,9 +194,12 @@
     <Content Include="pages\resources\images\i_msg-note.gif" />
     <Content Include="pages\resources\images\i_msg-success.gif" />
     <Content Include="pages\resources\images\i_notice.gif" />
+    <Content Include="pages\resources\images\jquery-slider-theme.png" />
     <Content Include="pages\resources\images\jtslider-arrow.png" />
     <Content Include="pages\resources\images\loader.gif" />
+    <Content Include="pages\resources\images\Logo.gif" />
     <Content Include="pages\resources\images\logo.png" />
+    <Content Include="pages\resources\images\main_sprite_mini.1.0.4.png" />
     <Content Include="pages\resources\images\menu-current-arrow.gif" />
     <Content Include="pages\resources\images\menu-Normal.gif" />
     <Content Include="pages\resources\images\menu-separator.gif" />
@@ -196,24 +220,30 @@
     <Content Include="pages\resources\images\newsletter-bg.gif" />
     <Content Include="pages\resources\images\newsletter-icon.png" />
     <Content Include="pages\resources\images\next-horizontal.png" />
+    <Content Include="pages\resources\images\notice.png" />
     <Content Include="pages\resources\images\offer.png" />
     <Content Include="pages\resources\images\opa75.png" />
     <Content Include="pages\resources\images\opc-ajax-loader.gif" />
+    <Content Include="pages\resources\images\phone_icon.png" />
     <Content Include="pages\resources\images\plan_toys.jpg" />
     <Content Include="pages\resources\images\prev-horizontal.png" />
     <Content Include="pages\resources\images\pu_blocks__building_blocks_toy_bricks765.jpg" />
+    <Content Include="pages\resources\images\q.gif" />
     <Content Include="pages\resources\images\sale.png" />
     <Content Include="pages\resources\images\scheck-out-btn-bg.gif" />
+    <Content Include="pages\resources\images\search-form.png" />
     <Content Include="pages\resources\images\searchsep.png" />
     <Content Include="pages\resources\images\shop-bag.gif" />
     <Content Include="pages\resources\images\shop-bag.png" />
     <Content Include="pages\resources\images\shortcut-button-bg.gif" />
+    <Content Include="pages\resources\images\skype-user.png" />
     <Content Include="pages\resources\images\sliderNumber-Act-bg.png" />
     <Content Include="pages\resources\images\sliderNumber-normal-bg.png" />
     <Content Include="pages\resources\images\soft-bear-toys-bd60087-.jpg" />
     <Content Include="pages\resources\images\spin-button.png" />
     <Content Include="pages\resources\images\spin-down.png" />
     <Content Include="pages\resources\images\spin-up.png" />
+    <Content Include="pages\resources\images\success.png" />
     <Content Include="pages\resources\images\tab-ac-bg.gif" />
     <Content Include="pages\resources\images\tab-inAct-bg.gif" />
     <Content Include="pages\resources\images\tl.png" />
@@ -222,7 +252,9 @@
     <Content Include="pages\resources\images\toys-shadow-bg.png" />
     <Content Include="pages\resources\images\tr.png" />
     <Content Include="pages\resources\images\trans.gif" />
+    <Content Include="pages\resources\images\uparrow.png" />
     <Content Include="pages\resources\images\updated-shopping-bg.gif" />
+    <Content Include="pages\resources\images\warning.png" />
     <Content Include="pages\resources\scripts\classes\adapter\jquery\adapter.js" />
     <Content Include="pages\resources\scripts\classes\adapter\jquery\jquery.tinymce.js" />
     <Content Include="pages\resources\scripts\classes\adapter\prototype\adapter.js" />
@@ -301,8 +333,10 @@
     <Content Include="pages\resources\scripts\jquery.iframe-transport.js" />
     <Content Include="pages\resources\scripts\jquery.jtslider.min.js" />
     <Content Include="pages\resources\scripts\jquery.scroll.js" />
+    <Content Include="pages\resources\scripts\jquery.slider.min.js" />
     <Content Include="pages\resources\scripts\jquery.tinymce.js" />
     <Content Include="pages\resources\scripts\jquery.tmpl.min.js" />
+    <Content Include="pages\resources\scripts\jquery.toastmessage.js" />
     <Content Include="pages\resources\scripts\jquery.validate.min.js" />
     <Content Include="pages\resources\scripts\jquery.wysiwyg.js" />
     <Content Include="pages\resources\scripts\json2.min.js" />
@@ -557,6 +591,7 @@
     <Content Include="pages\resources\scripts\tiny_mce_prototype.js" />
     <Content Include="pages\resources\scripts\tiny_mce_prototype_src.js" />
     <Content Include="pages\resources\scripts\tiny_mce_src.js" />
+    <Content Include="pages\resources\scripts\utility.js" />
     <Content Include="pages\resources\scripts\utils\editable_selects.js" />
     <Content Include="pages\resources\scripts\utils\form_utils.js" />
     <Content Include="pages\resources\scripts\utils\mctabs.js" />
@@ -567,12 +602,16 @@
     <Content Include="pages\resources\styles\client.css" />
     <Content Include="pages\resources\styles\content.css" />
     <Content Include="pages\resources\styles\data-table.css" />
+    <Content Include="pages\resources\styles\dcslick.css" />
     <Content Include="pages\resources\styles\div.css" />
     <Content Include="pages\resources\styles\flexslider.css" />
     <Content Include="pages\resources\styles\ie.css" />
     <Content Include="pages\resources\styles\invalid.css" />
     <Content Include="pages\resources\styles\jquery.ad-gallery.css" />
     <Content Include="pages\resources\styles\jquery.fileupload-ui.css" />
+    <Content Include="pages\resources\styles\jquery.slider.css" />
+    <Content Include="pages\resources\styles\jquery.slider.ie6.css" />
+    <Content Include="pages\resources\styles\jquery.toastmessage.css" />
     <Content Include="pages\resources\styles\jtslider.css" />
     <Content Include="pages\resources\styles\mgmenu.css" />
     <Content Include="pages\resources\styles\normalize.css" />
@@ -677,6 +716,10 @@
     <Compile Include="Domain\Logic\Admin\ItemList\FilterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserChangePassword\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserChangePassword\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserLogin\AuthLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserLogin\AuthOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\AcceptDetails\InitLogic.cs" />
     <Compile Include="Domain\Logic\Client\AcceptDetails\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Accepts\InitLogic.cs" />
@@ -717,6 +760,8 @@
     <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UserChangePassword\SaveDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UserLogin\AuthDataModel.cs" />
     <Compile Include="Domain\Model\Client\AcceptDetails\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Accepts\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Checkout\InitDataModel.cs" />
@@ -749,6 +794,10 @@
     <Compile Include="Domain\Web\Admin\ItemList\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemList\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemList\OutputItemModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserChangePassword\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserChangePassword\SaveResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserLogin\AuthRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserLogin\AuthResponseModel.cs" />
     <Compile Include="Domain\Web\Client\AcceptDetails\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\AcceptDetails\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Client\AcceptDetails\OutputAcceptDetailsModel.cs" />
@@ -837,6 +886,20 @@
     <Compile Include="pages\administer\upload-image.aspx.designer.cs">
       <DependentUpon>upload-image.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\administer\user-change-password.aspx.cs">
+      <DependentUpon>user-change-password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\user-change-password.aspx.designer.cs">
+      <DependentUpon>user-change-password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\user-login.aspx.cs">
+      <DependentUpon>user-login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\user-login.aspx.designer.cs">
+      <DependentUpon>user-login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\cln\checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -850,6 +913,13 @@
     </Compile>
     <Compile Include="pages\cln\confirmcheckout.aspx.designer.cs">
       <DependentUpon>confirmcheckout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -964,6 +1034,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="pages\media\email\" />
+    <Folder Include="pages\media\images\items\04\larger\" />
+    <Folder Include="pages\media\images\items\04\small\" />
     <Folder Include="pages\media\temp\" />
     <Folder Include="pages\resources\fonts\" />
   </ItemGroup>

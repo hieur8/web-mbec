@@ -62,6 +62,10 @@
         public const string CD_SHOW_ITEMS_NEW = "new";
         public const string CD_SHOW_ITEMS_HOT = "hot";
 
+        // Description for group user
+        public const string GP_ADMINISTRATORS = "administrators";
+        public const string GP_USERS = "users";
+
         // Description for extension
         public const string EXT_JPEG = "*.jpg";
 
