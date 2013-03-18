@@ -29,6 +29,15 @@ namespace MiBo.Domain.Common.Dao
         }
 
         /// <summary>
+        /// Computes the set of modified objects to be inserted, updated, or deleted,
+        ///     and executes the appropriate commands to implement the changes to the database.
+        /// </summary>
+        public void SubmitChanges()
+        {
+            EntityManager.SubmitChanges();
+        }
+
+        /// <summary>
         /// Get expression (SelectSingle)
         /// </summary>
         /// <typeparam name="T">The entity object</typeparam>

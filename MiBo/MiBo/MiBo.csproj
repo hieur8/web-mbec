@@ -708,6 +708,8 @@
     <Compile Include="Domain\Logic\Admin\AcceptList\FilterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\AcceptList\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\AcceptList\UpdateOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\SaveLogic.cs" />
@@ -756,6 +758,7 @@
     <Compile Include="Domain\Logic\Client\ShoppingCart\UpdateOperateLogic.cs.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\AcceptList\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
@@ -784,6 +787,8 @@
     <Compile Include="Domain\Web\Admin\AcceptList\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\OutputAcceptModel.cs" />
+    <Compile Include="Domain\Web\Admin\AcceptList\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\AcceptList\UpdateResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\OutputDetailsModel.cs" />

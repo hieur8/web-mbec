@@ -64,6 +64,8 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
             mCodeCom = new MCodeCom();
 
             // Get value
+            var listSlipStatus = MCodeCom.ToComboItems(resultObject.ListSlipStatus, 0);
+
             var slipStatusName = string.Empty;
             var paymentMethodsName = string.Empty;
             var deleteFlagName = string.Empty;
@@ -94,6 +96,7 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
                 accept.DeleteFlag = DataHelper.ToString(obj.DeleteFlag);
                 deleteFlagName = mCodeCom.GetCodeName(Logics.GROUP_DELETE_FLAG, accept.DeleteFlag);
                 accept.DeleteFlagName = DataHelper.ToString(deleteFlagName);
+                accept.ListSlipStatus = listSlipStatus;
                 listAccepts.Add(accept);
             }
 
@@ -167,9 +170,11 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
             adminAcceptListDao = new AdminAcceptListDao();
 
             // Get data
+            var listSlipStatus = mCodeCom.GetListCode(Logics.GROUP_SLIP_STATUS, null, true, false);
             var listAccepts = adminAcceptListDao.GetListAccepts(inputObject);
 
             // Set value
+            getResult.ListSlipStatus = listSlipStatus;
             getResult.ListAccepts = listAccepts;
 
             // Return value

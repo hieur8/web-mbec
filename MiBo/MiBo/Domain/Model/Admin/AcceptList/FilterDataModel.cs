@@ -19,5 +19,6 @@ namespace MiBo.Domain.Model.Admin.AcceptList
         public DateTime? DeliveryDateEnd { get; set; }
 
         public IList<Accept> ListAccepts { get; set; }
+        public IList<MCode> ListSlipStatus { get; set; }
     }
 }

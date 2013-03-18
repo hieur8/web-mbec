@@ -5,6 +5,7 @@ using System.Web;
 using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Model.Admin.AcceptList;
 using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Dao
 {
@@ -53,6 +54,23 @@ namespace MiBo.Domain.Dao
 
             // Return value
             return listResult.ToList();
+        }
+
+        public bool IsExistAccept(string acceptSlipNo)
+        {
+            return IsExist<Accept>(acceptSlipNo, false);
+        }
+
+        public void UpdateAccept(AcceptModel param)
+        {
+            // Get sysdate
+            var currentDate = DateTime.Now;
+
+            // Set item
+            var entity = GetSingle<Accept>(param.AcceptSlipNo, false);
+            entity.SlipStatus = param.SlipStatus;
+            entity.UpdateUser = PageHelper.UserName;
+            entity.UpdateDate = currentDate;
         }
     }
 }

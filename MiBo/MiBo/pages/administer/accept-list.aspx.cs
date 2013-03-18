@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
@@ -29,6 +30,14 @@ namespace MiBo.pages.administer
             if (HasError) return;
             rptAccepts.DataSource = response.ListAccepts;
             rptAccepts.DataBind();
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var logic = new UpdateOperateLogic();
+            var response = Invoke(logic, UpdateRequestModel);
+            if (HasError) return;
+            Refresh();
         }
 
         protected void btnAction_Command(object sender, CommandEventArgs e)
@@ -62,6 +71,27 @@ namespace MiBo.pages.administer
                 request.ItemCd = txtItemCd.Text;
                 request.ItemName = txtItemName.Text;
                 return request;
+            }
+        }
+
+        private UpdateRequestModel UpdateRequestModel
+        {
+            get
+            {
+                OutputAcceptModel accept = null;
+                var requestModel = new UpdateRequestModel();
+                var listAccepts = new List<OutputAcceptModel>();
+
+                foreach (RepeaterItem row in rptAccepts.Items)
+                {
+                    accept = new OutputAcceptModel();
+                    accept.AcceptSlipNo = ((HiddenField)row.FindControl("hidAcceptSlipNo")).Value;
+                    accept.SlipStatus = ((DropDownList)row.FindControl("ddlSlipStatus")).SelectedValue;
+                    listAccepts.Add(accept);
+                }
+
+                requestModel.ListAccepts = listAccepts;
+                return requestModel;
             }
         }
     }
