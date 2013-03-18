@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/administer.Master" AutoEventWireup="true" CodeBehind="accept-list.aspx.cs" Inherits="MiBo.pages.administer.accept_list" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/administer.Master"
+    AutoEventWireup="true" CodeBehind="accept-list.aspx.cs" Inherits="MiBo.pages.administer.accept_list" %>
+
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
     <meta charset="utf-8">
     <title>Danh sách đơn hàng</title>
@@ -142,6 +144,7 @@
                 <ItemTemplate>
                     <tr>
                         <td>
+                            <asp:HiddenField ID="hidAcceptSlipNo" runat="server" Value='<%# Eval("AcceptSlipNo") %>' />
                             <asp:ImageButton OnCommand="btnAction_Command" CommandName="edit" CommandArgument='<%# Eval("AcceptSlipNo") %>'
                                 AlternateText="Cập nhật" ToolTip='Cập nhật' ImageUrl="/pages/resources/images/icons/edit.png"
                                 ID="btnEdit" runat="server" />
@@ -150,7 +153,10 @@
                             <%# Eval("AcceptSlipNo")%>
                         </td>
                         <td>
-                            <%# Eval("SlipStatusName")%>
+                            <asp:DropDownList DataSource='<%# Eval("ListSlipStatus") %>' SelectedValue='<%# Bind("SlipStatus") %>'
+                                DataValueField="Value" DataTextField="Text" ID="ddlSlipStatus" runat="server"
+                                CssClass="input-search text-input">
+                            </asp:DropDownList>
                         </td>
                         <td>
                             <%# Eval("AcceptDate")%>
@@ -177,6 +183,13 @@
                 </ItemTemplate>
             </asp:Repeater>
         </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <asp:LinkButton OnClick="btnUpdate_Click" CssClass="button" ID="btnUpdate" runat="server">Cập nhật</asp:LinkButton>
+                </td>
+            </tr>
+        </tfoot>
     </table>
     <script type="text/javascript">
         activeLink("#mnuAccepts", "#lnkAccepts");

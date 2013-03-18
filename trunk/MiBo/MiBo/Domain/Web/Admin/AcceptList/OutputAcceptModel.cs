@@ -1,4 +1,6 @@
-﻿namespace MiBo.Domain.Web.Admin.AcceptList
+﻿using System.Web.UI.WebControls;
+
+namespace MiBo.Domain.Web.Admin.AcceptList
 {
     public class OutputAcceptModel
     {
@@ -23,5 +25,7 @@
         public string UpdateDate { get; set; }
         public string DeleteFlag { get; set; }
         public string DeleteFlagName { get; set; }
+
+        public ListItem[] ListSlipStatus { get; set; }
     }
 }
