@@ -64,31 +64,9 @@
                                 </FooterTemplate>
                             </asp:Repeater>
                         </div>
-                        <div class="perfume">
-                            <div class="block block-subscribe">
-                                <div class="block-title">
-                                    <strong><span class="first-line">Nhận tin</span><br>
-                                        <span class="second-line">MIBO</span><br>
-                                    </strong>
-                                </div>
-                                <div class="clear">
-                                </div>
-                                <div class="block-content">
-                                    <div class="input-box">
-                                        <input type="text" name="email" id="newsletter" title="Nhận tin tức của chúng tôi"
-                                            value="Nhập địa chỉ email" class="input-text required-entry validate-email" onfocus="if (this.value == 'Nhập địa chỉ email') {this.value = '';}"
-                                            onblur="if (this.value == '') {this.value = 'Nhập địa chỉ email';}">
-                                    </div>
-                                    <div class="actions">
-                                        <button type="submit" title="Subscribe" class="button">
-                                            <span><span>Go</span></span></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ket thuc hinh ben phai -->
-                        </div>
+                        
                         <div class="perfume1">
-                            <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="215" data-height="240" data-show-faces="true" data-stream="false" data-header="true"></div>
+                            <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="215" data-height="300" data-show-faces="true" data-stream="false" data-header="true"></div>
                         </div>
                         
                         <!-- ket thuc silde -->
