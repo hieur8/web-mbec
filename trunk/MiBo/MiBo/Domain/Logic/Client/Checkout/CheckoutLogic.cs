@@ -87,7 +87,7 @@ namespace MiBo.Domain.Logic.Client.Checkout
                 checkoutDao.makeCheckout(inputObject.Accept, inputObject.Cart);
                 responseModel.StatusFlag = true;
             }   
-            catch (Exception e)
+            catch (Exception)
             {
                 responseModel.StatusFlag = false;
             }

@@ -70,6 +70,7 @@
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-entry.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
+    <Content Include="pages\administer\param-list.aspx" />
     <Content Include="pages\administer\upload-image.aspx" />
     <Content Include="pages\administer\user-change-password.aspx" />
     <Content Include="pages\administer\user-login.aspx" />
@@ -90,6 +91,7 @@
     <Content Include="pages\cln\register.aspx" />
     <Content Include="pages\cln\shopping-cart.aspx" />
     <Content Include="pages\common\error.aspx" />
+    <Content Include="pages\media\email\accept-new.html" />
     <Content Include="pages\media\images\banners\01.jpg" />
     <Content Include="pages\media\images\banners\02.jpg" />
     <Content Include="pages\media\images\banners\03.jpg" />
@@ -676,6 +678,8 @@
     <Compile Include="Domain\Common\Logic\IOperateLogic.cs" />
     <Compile Include="Domain\Common\Model\AcceptModel.cs" />
     <Compile Include="Domain\Common\Model\CartItem.cs" />
+    <Compile Include="Domain\Common\Model\ComboItem.cs" />
+    <Compile Include="Domain\Common\Model\ComboModel.cs" />
     <Compile Include="Domain\Common\Model\FileModel.cs" />
     <Compile Include="Domain\Common\Model\ItemModel.cs" />
     <Compile Include="Domain\Common\Model\Message.cs" />
@@ -718,6 +722,10 @@
     <Compile Include="Domain\Logic\Admin\ItemList\FilterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\ParamList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\ParamList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\ParamList\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\ParamList\UpdateOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserChangePassword\SaveLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserChangePassword\SaveOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserLogin\AuthLogic.cs" />
@@ -763,6 +771,8 @@
     <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\ParamList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\ParamList\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\UserChangePassword\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\UserLogin\AuthDataModel.cs" />
     <Compile Include="Domain\Model\Client\AcceptDetails\InitDataModel.cs" />
@@ -799,6 +809,11 @@
     <Compile Include="Domain\Web\Admin\ItemList\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemList\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemList\OutputItemModel.cs" />
+    <Compile Include="Domain\Web\Admin\ParamList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\ParamList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\ParamList\OutputParamModel.cs" />
+    <Compile Include="Domain\Web\Admin\ParamList\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\ParamList\UpdateResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\UserChangePassword\SaveRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\UserChangePassword\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\UserLogin\AuthRequestModel.cs" />
@@ -883,6 +898,13 @@
     </Compile>
     <Compile Include="pages\administer\item-list.aspx.designer.cs">
       <DependentUpon>item-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\param-list.aspx.cs">
+      <DependentUpon>param-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\param-list.aspx.designer.cs">
+      <DependentUpon>param-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\upload-image.aspx.cs">
       <DependentUpon>upload-image.aspx</DependentUpon>
@@ -1038,7 +1060,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="pages\media\email\" />
     <Folder Include="pages\media\images\items\04\larger\" />
     <Folder Include="pages\media\images\items\04\small\" />
     <Folder Include="pages\media\temp\" />

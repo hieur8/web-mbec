@@ -86,14 +86,30 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             details.Notes = DataHelper.ToString(item.Notes);
             details.SortKey = DataHelper.ToString(item.SortKey);
             details.DeleteFlag = DataHelper.ToString(item.DeleteFlag);
-            details.ListCategory = MCodeCom.ToComboItems(resultObject.ListCategory, 0);
-            details.ListAge = MCodeCom.ToComboItems(resultObject.ListAge, 0);
-            details.ListGender = MCodeCom.ToComboItems(resultObject.ListGender, 0);
-            details.ListBrand = MCodeCom.ToComboItems(resultObject.ListBrand, 0);
-            details.ListCountry = MCodeCom.ToComboItems(resultObject.ListCountry, 0);
-            details.ListUnit = MCodeCom.ToComboItems(resultObject.ListUnit, 0);
-            details.ListItemDiv = MCodeCom.ToComboItems(resultObject.ListItemDiv, 0);
-            details.ListDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, 0);
+            var cbCategory = MCodeCom.ToComboItems(resultObject.ListCategory, details.CategoryCd);
+            details.ListCategory = cbCategory.ListItems;
+            details.CategoryCd = cbCategory.SeletedValue;
+            var cbAge = MCodeCom.ToComboItems(resultObject.ListAge, details.AgeCd);
+            details.ListAge = cbAge.ListItems;
+            details.AgeCd = cbAge.SeletedValue;
+            var cbGender = MCodeCom.ToComboItems(resultObject.ListGender, details.GenderCd);
+            details.ListGender = cbGender.ListItems;
+            details.GenderCd = cbGender.SeletedValue;
+            var cbBrand = MCodeCom.ToComboItems(resultObject.ListBrand, details.BrandCd);
+            details.ListBrand = cbBrand.ListItems;
+            details.BrandCd = cbBrand.SeletedValue;
+            var cbCountry = MCodeCom.ToComboItems(resultObject.ListCountry, details.CountryCd);
+            details.ListCountry = cbCountry.ListItems;
+            details.CountryCd = cbCountry.SeletedValue;
+            var cbUnit = MCodeCom.ToComboItems(resultObject.ListUnit, details.UnitCd);
+            details.ListUnit = cbUnit.ListItems;
+            details.UnitCd = cbUnit.SeletedValue;
+            var cbItemDiv = MCodeCom.ToComboItems(resultObject.ListItemDiv, details.ItemDiv);
+            details.ListItemDiv = cbItemDiv.ListItems;
+            details.ItemDiv = cbItemDiv.SeletedValue;
+            var cbDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, details.DeleteFlag);
+            details.ListDeleteFlag = cbDeleteFlag.ListItems;
+            details.DeleteFlag = cbDeleteFlag.SeletedValue;
             details.ImagePath = DataHelper.ToString(resultObject.ImagePath);
 
             // Set value
@@ -175,14 +191,14 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             adminItemEntryDao = new AdminItemEntryDao();
 
             // Get data
-            var listCategory = mCodeCom.GetListCategory(true, false);
-            var listAge = mCodeCom.GetListAge(true, false);
-            var listGender = mCodeCom.GetListGender(true, false);
-            var listBrand = mCodeCom.GetListBrand(true, false);
-            var listCountry = mCodeCom.GetListCountry(true, false);
-            var listUnit = mCodeCom.GetListUnit(true, false);
-            var listItemDiv = mCodeCom.GetListCode(Logics.GROUP_ITEM_DIV, null, true, false);
-            var listDeleteFlag = mCodeCom.GetListCode(Logics.GROUP_DELETE_FLAG, null, true, false);
+            var listCategory = mCodeCom.GetListCategory(false, false);
+            var listAge = mCodeCom.GetListAge(false, false);
+            var listGender = mCodeCom.GetListGender(false, false);
+            var listBrand = mCodeCom.GetListBrand(false, false);
+            var listCountry = mCodeCom.GetListCountry(false, false);
+            var listUnit = mCodeCom.GetListUnit(false, false);
+            var listItemDiv = mCodeCom.GetListCode(Logics.GROUP_ITEM_DIV, null, false, false);
+            var listDeleteFlag = mCodeCom.GetListCode(Logics.GROUP_DELETE_FLAG, null, false, false);
             var imagePath = UploadHelper.GetUploadUrl();
             var item = new Item();
             if (!IsAdd) {

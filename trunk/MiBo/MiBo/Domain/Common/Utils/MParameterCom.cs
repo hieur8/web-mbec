@@ -132,5 +132,14 @@ namespace MiBo.Domain.Common.Utils
             //Update value
             _comDao.Update(entity, ignoreDeleteFlag);
         }
+
+        /// <summary>
+        /// Computes the set of modified objects to be inserted, updated, or deleted,
+        ///     and executes the appropriate commands to implement the changes to the database.
+        /// </summary>
+        public void SubmitChanges()
+        {
+            _comDao.SubmitChanges();
+        }
     }
 }

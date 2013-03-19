@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MiBo.Domain.Web.Client.Register;
-using MiBo.Domain.Model.Client.Register;
-using MiBo.Domain.Common.Helper;
-using MiBo.Domain.Dao;
 using MiBo.Domain.Common.Dao;
-using MiBo.Domain.Web.Client.Register;
-using MiBo.Domain.Common.Utils;
-using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Exceptions;
+using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Utils;
+using MiBo.Domain.Model.Client.Register;
+using MiBo.Domain.Web.Client.Register;
 
 namespace MiBo.Domain.Logic.Client.Register
 {

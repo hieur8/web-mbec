@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Admin.AcceptList;
@@ -64,11 +65,10 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
             mCodeCom = new MCodeCom();
 
             // Get value
-            var listSlipStatus = MCodeCom.ToComboItems(resultObject.ListSlipStatus, 0);
-
             var slipStatusName = string.Empty;
             var paymentMethodsName = string.Empty;
             var deleteFlagName = string.Empty;
+            var cbSlipStatus = new ComboModel();
             foreach (var obj in resultObject.ListAccepts)
             {
                 accept = new OutputAcceptModel();
@@ -96,7 +96,9 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
                 accept.DeleteFlag = DataHelper.ToString(obj.DeleteFlag);
                 deleteFlagName = mCodeCom.GetCodeName(Logics.GROUP_DELETE_FLAG, accept.DeleteFlag);
                 accept.DeleteFlagName = DataHelper.ToString(deleteFlagName);
-                accept.ListSlipStatus = listSlipStatus;
+                cbSlipStatus = MCodeCom.ToComboItems(resultObject.ListSlipStatus, accept.SlipStatus);
+                accept.ListSlipStatus = cbSlipStatus.ListItems;
+                accept.SlipStatus = cbSlipStatus.SeletedValue;
                 listAccepts.Add(accept);
             }
 

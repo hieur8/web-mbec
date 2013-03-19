@@ -11,7 +11,7 @@
                 "bLengthChange": false,
                 "aaSorting": [],
                 "sScrollX": "100%",
-                "sScrollXInner": "2160",
+                "sScrollXInner": "2190",
                 "bScrollCollapse": true,
                 "sPaginationType": "full_numbers"
             });
@@ -62,7 +62,8 @@
                         <span class="label">Trạng thái</span>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlSlipStatus" runat="server" CssClass="input-search text-input">
+                        <asp:DropDownList ID="ddlSlipStatus" runat="server" CssClass="input-search text-input"
+                        DataValueField="Code" DataTextField="Name">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -107,7 +108,10 @@
     <table class="list-data display">
         <thead>
             <tr>
-                <th width="50">
+                <th width="40">
+                    &nbsp;
+                </th>
+                <th width="40">
                     &nbsp;
                 </th>
                 <th width="150">
@@ -144,7 +148,10 @@
                 <ItemTemplate>
                     <tr>
                         <td>
+                            <asp:CheckBox ID="chkEdit" runat="server" />
                             <asp:HiddenField ID="hidAcceptSlipNo" runat="server" Value='<%# Eval("AcceptSlipNo") %>' />
+                        </td>
+                        <td>
                             <asp:ImageButton OnCommand="btnAction_Command" CommandName="edit" CommandArgument='<%# Eval("AcceptSlipNo") %>'
                                 AlternateText="Cập nhật" ToolTip='Cập nhật' ImageUrl="/pages/resources/images/icons/edit.png"
                                 ID="btnEdit" runat="server" />
@@ -154,7 +161,7 @@
                         </td>
                         <td>
                             <asp:DropDownList DataSource='<%# Eval("ListSlipStatus") %>' SelectedValue='<%# Bind("SlipStatus") %>'
-                                DataValueField="Value" DataTextField="Text" ID="ddlSlipStatus" runat="server"
+                                DataValueField="Code" DataTextField="Name" ID="ddlSlipStatus" runat="server"
                                 CssClass="input-search text-input">
                             </asp:DropDownList>
                         </td>
