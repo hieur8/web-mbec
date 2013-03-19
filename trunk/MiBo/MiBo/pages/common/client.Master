@@ -25,6 +25,8 @@
     </script>
     <!-- Validate client -->
     <script type="text/javascript" src="/pages/resources/scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/pages/resources/scripts/messages_vi.js"></script>
+    
     <!-- MyScript -->
     <script type="text/javascript">
     </script>
@@ -71,19 +73,15 @@
                             </ul>
                         </div>
                         <% } %>
-                        <div class="clear">
-                        </div>
                         <h1 class="logo">
                             <a href="/index.aspx" title="Mibo" class="logo">
                                 <img src="/pages/resources/images/logo.gif" alt="Mibo.vn"></a></h1>
-                        <div style="padding-top:40px" class="quick-access">
+                        <div style="padding-top: 40px" class="quick-access">
                             <div class="search-checkout-container">
-                                <div class="form-search">
-                                    <label for="search">
-                                        Search</label>
-                                    <input id="search" type="text" name="q" value="" class="input-text" autocomplete="off">
-                                    <button type="submit" title="Search" class="button">
-                                        <span><span>Ok</span></span></button>
+                                <div style="margin-right: 20px" class="form-search">
+                                    <input id="search" type="text" name="q" value="" placeholder="Tìm kiếm..." class="input-text"
+                                        autocomplete="off">
+                                    <img src="/pages/resources/images/btn-search.png" />
                                     <div id="search_autocomplete" class="search-autocomplete" style="display: none;">
                                     </div>
                                 </div>
@@ -118,7 +116,8 @@
                                                         </div>
                                                         <div style="float: right;">
                                                             <p class="btn-small btn-right" style="margin-top: 21px;">
-                                                                <a href="#" title="Thanh toán"><span>Thanh toán</span></a></p>
+                                                                <asp:LinkButton ID="HyperLinkTT"  runat="server" onclick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
+                                                                </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -134,74 +133,62 @@
                 <div class="nav-container">
                     <div class="light-blue">
                         <ul id="mega-menu" class="mega-menu">
-                            <li><a href="/index.aspx">Trang Chủ</a></li>
-                            <li class="dc-mega-li"><a href="test.html" class="dc-mega">Products<span class="dc-mega-icon"></span></a>
+                            <li><a href="/index.aspx">
+                                <img style="border: 0px;" height="15px" src="/pages/resources/images/home-icon.png" /></a></li>
+                            <li class="dc-mega-li"><a href="test.html" class="dc-mega">Đồ chơi<span class="dc-mega-icon"></span></a>
                                 <div class="sub-container mega" style="left: 0px; top: 40px; z-index: 1000;">
                                     <ul class="sub" style="display: none;">
                                         <div class="row" style="width: 540px;">
                                             <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Mobile Phones</a>
+                                                style="height: 16px;">Thương hiệu</a>
                                                 <ul style="text-align: left">
-                                                    <li class=""><a href="#">Product 1</a></li>
-                                                    <li><a href="#">Product 2</a></li>
-                                                    <li><a href="#">Product 3</a></li>
+                                                    <asp:Repeater ID="RepeaterBrands" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
+                                                                <%# Eval("CategoryName") %></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
                                                 </ul>
                                             </li>
                                             <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Desktop</a>
-                                                <ul>
-                                                    <li class=""><a href="#">Product 4</a></li>
-                                                    <li class=""><a href="#">Product 5</a></li>
-                                                    <li class=""><a href="#">Product 6</a></li>
-                                                    <li><a href="#">Product 7</a></li>
-                                                    <li><a href="#">Product 8</a></li>
-                                                    <li><a href="#">Product 9</a></li>
+                                                style="height: 16px;">Đồ chơi trẻ em</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="RepeaterToy" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
+                                                                <%# Eval("CategoryName")%></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
                                                 </ul>
                                             </li>
                                             <li class="mega-unit mega-hdr last" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Laptop</a>
-                                                <ul>
-                                                    <li><a href="#">Product 10</a></li>
-                                                    <li><a href="#">Product 11</a></li>
-                                                    <li><a href="#">Product 12</a></li>
-                                                    <li><a href="#">Product 13</a></li>
+                                                style="height: 16px;">Độ tuổi</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="RepeaterAge" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?category=<%# Eval("AgeCd") %>'>
+                                                                <%# Eval("AgeName") %></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
                                                 </ul>
                                             </li>
                                         </div>
                                         <div class="row" style="width: 540px;">
                                             <li class="mega-unit mega-hdr" style="height: 137px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Accessories</a>
-                                                <ul>
-                                                    <li><a href="#">Product 14</a></li>
-                                                    <li class=""><a href="#">Product 15</a></li>
+                                                style="height: 16px;">Giới tính</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="RepeaterGender" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?category=<%# Eval("GenderCd") %>'>
+                                                                <%# Eval("GenderName")%></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
                                                 </ul>
-                                            </li>
-                                            <li class="mega-unit mega-hdr last" style="height: 137px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Software</a>
-                                                <ul>
-                                                    <li class=""><a href="#">Product 16</a></li>
-                                                    <li class=""><a href="#">Product 17</a></li>
-                                                    <li><a href="#">Product 18</a></li>
-                                                    <li><a href="#">Product 19</a></li>
-                                                </ul>
+                                                
                                             </li>
                                         </div>
                                     </ul>
                                 </div>
-                            </li>
-                            <li><a href="#">Đồ Chơi</a>
-                                <asp:Repeater ID="rptToyMenu" runat="server">
-                                    <HeaderTemplate>
-                                        <ul>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
-                                            <%# Eval("CategoryName") %></a></li>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </ul>
-                                    </FooterTemplate>
-                                </asp:Repeater>
                             </li>
                             <li><a href="#">Phụ Kiện</a>
                                 <asp:Repeater ID="rptAccessoryMenu" runat="server">
@@ -289,11 +276,11 @@
                                         <br />
                                         <br />
                                         <ul>
-                                            <li style="padding-left:30px">Hotline: <strong>0976.585.888</strong></li>
-                                            <li style="padding-left:30px">Email : <strong>support@mibo.vn</strong></li>
-                                            <li style="padding-left:30px"><a href="ymsgr:sendim?hieur8" border="0">
+                                            <li style="padding-left: 30px">Hotline: <strong>0976.585.888</strong></li>
+                                            <li style="padding-left: 30px">Email : <strong>support@mibo.vn</strong></li>
+                                            <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
                                                 <img src="http://opi.yahoo.com/online?u=hieur8&t=2"></a> </li>
-                                            <li style="padding-left:30px"><a href="ymsgr:sendim?hieur8" border="0">
+                                            <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
                                                 <img src="http://opi.yahoo.com/online?u=chauthai1983&t=2"></a> </li>
                                         </ul>
                                     </div>
