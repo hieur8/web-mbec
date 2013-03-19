@@ -1729,7 +1729,7 @@ tr.summary-details-excluded { font-style:italic; }
 .block-subscribe .block-title{padding:12px 12px 0;background:none;}
 																	/* home-page content */
 .tp-banner-home{background:#fff;padding-left:2px;padding-top:4px;clear:both;height:51px;float:left;width:1003px;}
-.welcomemsg-tplinks{float:left;left:-12px;position:relative;width:999px;background:url("../images/top-shadow-bg.gif") repeat-x scroll 0 100% transparent;height:25px;padding-bottom:6px;padding-top:4px;}
+.welcomemsg-tplinks{float:left;left:-12px;position:relative;width:999px;height:25px;padding-bottom:6px;padding-top:4px;}
 																			/*menu   */
 .menu-button-container{float:left;padding-bottom:5px;margin-top:5px;}
 .information-icon{background:url(../images/detail-icon.gif) no-repeat;height:30px;width:27px;float:left;margin-left:6px;margin-top:5px;}
