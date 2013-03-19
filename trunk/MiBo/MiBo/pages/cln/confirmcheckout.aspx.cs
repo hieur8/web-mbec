@@ -18,35 +18,7 @@ namespace MiBo.pages.cln
         {
 
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            lbMsg.Text = "";
-            var logic = new LoginOperateLogic();
-            var response = Invoke(logic, LoginRequestModel);
-            if (response.StatusFlag == false)
-            {
-                lbMsg.Text = "Tài khoản hoặc mật khẩu không đúng !";
-            }
-            else
-            {
-                Session["userCd"] = response.UserCd;
-                Session["userName"] = response.UserName;
-                Session["payMethod"] = "1";
-                Response.Redirect(Pages.CLIENT_CHECKOUT);
-            }
-        }
-        private LoginRequestModel LoginRequestModel
-        {
-            get
-            {
-                var request = new LoginRequestModel();
-                request.UserName = username.Text.ToString().Trim();
-                request.Password = pass.Text.ToString();
-                return request;
-            }
-        }
-        protected void Button2_Click1(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)
         {
 
             if (method1.Checked == false || method2.Checked == false)
@@ -64,6 +36,11 @@ namespace MiBo.pages.cln
             {
                 Session["paying"] = "1";
                 Response.Redirect(Pages.CLIENT_REGISTER);
+            }
+            if (method3.Checked)
+            {
+                Session["paying"] = "1";
+                Response.Redirect(Pages.CLIENT_LOGIN);
             }
         }
     }
