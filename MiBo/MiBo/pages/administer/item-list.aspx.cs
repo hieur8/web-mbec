@@ -17,14 +17,30 @@ namespace MiBo.pages.administer
             if (HasError) return;
             rptItems.DataSource = response.ListItems;
             rptItems.DataBind();
-            ddlCategory.Items.AddRange(response.ListCategory);
-            ddlAge.Items.AddRange(response.ListAge);
-            ddlGender.Items.AddRange(response.ListGender);
-            ddlBrand.Items.AddRange(response.ListBrand);
-            ddlCountry.Items.AddRange(response.ListCountry);
-            ddlUnit.Items.AddRange(response.ListUnit);
-            ddlItemDiv.Items.AddRange(response.ListItemDiv);
-            ddlDeleteFlag.Items.AddRange(response.ListDeleteFlag);
+            ddlCategory.DataSource = response.ListCategory;
+            ddlCategory.DataBind();
+            ddlCategory.SelectedValue = response.CategoryCd;
+            ddlAge.DataSource = response.ListAge;
+            ddlAge.DataBind();
+            ddlAge.SelectedValue = response.AgeCd;
+            ddlGender.DataSource = response.ListGender;
+            ddlGender.DataBind();
+            ddlGender.SelectedValue = response.GenderCd;
+            ddlBrand.DataSource = response.ListBrand;
+            ddlBrand.DataBind();
+            ddlBrand.SelectedValue = response.BrandCd;
+            ddlCountry.DataSource = response.ListCountry;
+            ddlCountry.DataBind();
+            ddlCountry.SelectedValue = response.CountryCd;
+            ddlUnit.DataSource = response.ListUnit;
+            ddlUnit.DataBind();
+            ddlUnit.SelectedValue = response.UnitCd;
+            ddlItemDiv.DataSource = response.ListItemDiv;
+            ddlItemDiv.DataBind();
+            ddlItemDiv.SelectedValue = response.ItemDiv;
+            ddlDeleteFlag.DataSource = response.ListDeleteFlag;
+            ddlDeleteFlag.DataBind();
+            ddlDeleteFlag.SelectedValue = response.DeleteFlag;
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)

@@ -89,10 +89,9 @@
                             <li><a id="lnkItemEntry" href="/pages/administer/item-entry.aspx">Thêm/sửa sản phẩm</a></li>
                         </ul>
                     </li>
-                    <li><a id="mnuBanners" href="#" class="nav-top-item">Quản lý hình banner</a>
+                    <li><a id="mnuSystems" href="#" class="nav-top-item">Quản lý hệ thống</a>
                         <ul>
-                            <li><a id="lnkBanners" href="#">Danh sách hình banner</a></li>
-                            <li><a id="lnkBannerEntry" href="#">Thêm/sửa hình banner</a></li>
+                            <li><a id="lnkParmas" href="/pages/administer/param-list.aspx">Tham số hệ thống</a></li>
                         </ul>
                     </li>
                 </ul>

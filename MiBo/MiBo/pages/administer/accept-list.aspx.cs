@@ -20,7 +20,9 @@ namespace MiBo.pages.administer
             rptAccepts.DataBind();
             txtAcceptDataStart.Text = response.AcceptDateStart;
             txtAcceptDataEnd.Text = response.AcceptDateEnd;
-            ddlSlipStatus.Items.AddRange(response.ListSlipStatus);
+            ddlSlipStatus.DataSource = response.ListSlipStatus;
+            ddlSlipStatus.DataBind();
+            ddlSlipStatus.SelectedValue = response.SlipStatus;
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -84,6 +86,7 @@ namespace MiBo.pages.administer
 
                 foreach (RepeaterItem row in rptAccepts.Items)
                 {
+                    if (!((CheckBox)row.FindControl("chkEdit")).Checked) continue;
                     accept = new OutputAcceptModel();
                     accept.AcceptSlipNo = ((HiddenField)row.FindControl("hidAcceptSlipNo")).Value;
                     accept.SlipStatus = ((DropDownList)row.FindControl("ddlSlipStatus")).SelectedValue;

@@ -1,4 +1,5 @@
-﻿using System.Web.UI.WebControls;
+﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Web.Admin.AcceptList
 {
@@ -26,6 +27,6 @@ namespace MiBo.Domain.Web.Admin.AcceptList
         public string DeleteFlag { get; set; }
         public string DeleteFlagName { get; set; }
 
-        public ListItem[] ListSlipStatus { get; set; }
+        public IList<ComboItem> ListSlipStatus { get; set; }
     }
 }

@@ -111,7 +111,7 @@
                                 </td>
                                 <td width="160">
                                     <asp:DropDownList DataSource='<%# Eval("ListCategory") %>' SelectedValue='<%# Bind("CategoryCd") %>'
-                                        DataValueField="Value" DataTextField="Text" ID="ddlCategory" runat="server" CssClass="input-search text-input">
+                                        DataValueField="Code" DataTextField="Name" ID="ddlCategory" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
                                 </td>
                                 <td width="120">
@@ -119,7 +119,7 @@
                                 </td>
                                 <td width="130">
                                     <asp:DropDownList DataSource='<%# Eval("ListItemDiv") %>' SelectedValue='<%# Bind("ItemDiv") %>'
-                                        DataValueField="Value" DataTextField="Text" ID="ddlItemDiv" runat="server" CssClass="input-search text-input">
+                                        DataValueField="Code" DataTextField="Name" ID="ddlItemDiv" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
                                 </td>
                                 <td width="80">
@@ -127,7 +127,7 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList DataSource='<%# Eval("ListUnit") %>' SelectedValue='<%# Bind("UnitCd") %>'
-                                        DataValueField="Value" DataTextField="Text" ID="ddlUnit" runat="server" CssClass="input-search text-input">
+                                        DataValueField="Code" DataTextField="Name" ID="ddlUnit" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -139,7 +139,7 @@
                                 </td>
                                 <td width="160">
                                     <asp:DropDownList DataSource='<%# Eval("ListAge") %>' SelectedValue='<%# Bind("AgeCd") %>'
-                                        DataValueField="Value" DataTextField="Text" ID="ddlAge" runat="server" CssClass="input-search text-input">
+                                        DataValueField="Code" DataTextField="Name" ID="ddlAge" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
                                 </td>
                                 <td width="120">
@@ -147,7 +147,7 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList DataSource='<%# Eval("ListGender") %>' SelectedValue='<%# Bind("GenderCd") %>'
-                                        DataValueField="Value" DataTextField="Text" ID="ddlGender" runat="server" CssClass="input-search text-input">
+                                        DataValueField="Code" DataTextField="Name" ID="ddlGender" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -159,7 +159,7 @@
                                 </td>
                                 <td width="160">
                                     <asp:DropDownList DataSource='<%# Eval("ListBrand") %>' SelectedValue='<%# Bind("BrandCd") %>'
-                                        DataValueField="Value" DataTextField="Text" ID="ddlBrand" runat="server" CssClass="input-search text-input">
+                                        DataValueField="Code" DataTextField="Name" ID="ddlBrand" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
                                 </td>
                                 <td width="120">
@@ -167,7 +167,7 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList DataSource='<%# Eval("ListCountry") %>' SelectedValue='<%# Bind("CountryCd") %>'
-                                        DataValueField="Value" DataTextField="Text" ID="ddlCountry" runat="server" CssClass="input-search text-input">
+                                        DataValueField="Code" DataTextField="Name" ID="ddlCountry" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -204,7 +204,7 @@
                                 </td>
                                 <td width="80">
                                     <asp:DropDownList DataSource='<%# Eval("ListDeleteFlag") %>' SelectedValue='<%# Bind("DeleteFlag") %>'
-                                        DataValueField="Value" DataTextField="Text" ID="ddlDeleteFlag" runat="server"
+                                        DataValueField="Code" DataTextField="Name" ID="ddlDeleteFlag" runat="server"
                                         CssClass="input-search text-input">
                                     </asp:DropDownList>
                                 </td>

@@ -96,14 +96,30 @@ namespace MiBo.Domain.Logic.Admin.ItemList
             }
 
             // Set value
-            responseModel.ListCategory = MCodeCom.ToComboItems(resultObject.ListCategory, 0);
-            responseModel.ListAge = MCodeCom.ToComboItems(resultObject.ListAge, 0);
-            responseModel.ListGender = MCodeCom.ToComboItems(resultObject.ListGender, 0);
-            responseModel.ListBrand = MCodeCom.ToComboItems(resultObject.ListBrand, 0);
-            responseModel.ListCountry = MCodeCom.ToComboItems(resultObject.ListCountry, 0);
-            responseModel.ListUnit = MCodeCom.ToComboItems(resultObject.ListUnit, 0);
-            responseModel.ListItemDiv = MCodeCom.ToComboItems(resultObject.ListItemDiv, 0);
-            responseModel.ListDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, 0);
+            var cbCategory = MCodeCom.ToComboItems(resultObject.ListCategory, null);
+            responseModel.ListCategory = cbCategory.ListItems;
+            responseModel.CategoryCd = cbCategory.SeletedValue;
+            var cbAge = MCodeCom.ToComboItems(resultObject.ListAge, null);
+            responseModel.ListAge = cbAge.ListItems;
+            responseModel.AgeCd = cbAge.SeletedValue;
+            var cbGender = MCodeCom.ToComboItems(resultObject.ListGender, null);
+            responseModel.ListGender = cbGender.ListItems;
+            responseModel.GenderCd = cbGender.SeletedValue;
+            var cbBrand = MCodeCom.ToComboItems(resultObject.ListBrand, null);
+            responseModel.ListBrand = cbBrand.ListItems;
+            responseModel.BrandCd = cbBrand.SeletedValue;
+            var cbCountry = MCodeCom.ToComboItems(resultObject.ListCountry, null);
+            responseModel.ListCountry = cbCountry.ListItems;
+            responseModel.CountryCd = cbCountry.SeletedValue;
+            var cbUnit = MCodeCom.ToComboItems(resultObject.ListUnit, null);
+            responseModel.ListUnit = cbUnit.ListItems;
+            responseModel.UnitCd = cbUnit.SeletedValue;
+            var cbItemDiv = MCodeCom.ToComboItems(resultObject.ListItemDiv, null);
+            responseModel.ListItemDiv = cbItemDiv.ListItems;
+            responseModel.ItemDiv = cbItemDiv.SeletedValue;
+            var cbDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, null);
+            responseModel.ListDeleteFlag = cbDeleteFlag.ListItems;
+            responseModel.DeleteFlag = cbDeleteFlag.SeletedValue;
             responseModel.ListItems = listItems;
 
             // Return value

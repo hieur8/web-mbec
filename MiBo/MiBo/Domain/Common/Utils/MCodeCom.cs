@@ -5,6 +5,7 @@ using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Common.Utils
 {
@@ -123,27 +124,36 @@ namespace MiBo.Domain.Common.Utils
         /// Convert output combo items list
         /// </summary>
         /// <param name="target">List master code</param>
-        /// <param name="selectedIndex">Selected index</param>
+        /// <param name="selectedValue">Selected value</param>
         /// <returns>List ListItem</returns>
-        public static ListItem[] ToComboItems(IList<MCode> target, int selectedIndex)
+        public static ComboModel ToComboItems(IList<MCode> target, string selectedValue)
         {
             // Local variable declaration
-            IList<ListItem> listComboItems = null;
+            ComboModel comboModel = null;
+            IList<ComboItem> listComboItems = null;
 
             // Variable initialize
-            listComboItems = new List<ListItem>();
+            listComboItems = new List<ComboItem>();
+            comboModel = new ComboModel();
 
-            foreach (var item in target)
+            // Get data
+            var val = string.Empty;
+            foreach (var obj in target)
             {
-                var combo = new ListItem();
-                combo.Value = DataHelper.ToString(item.CodeCd);
-                combo.Text = DataHelper.ToString(item.CodeName);
-                if (target.IndexOf(item) == selectedIndex)
-                    combo.Selected = true;
+                var combo = new ComboItem();
+                combo.Code = DataHelper.ToString(obj.CodeCd);
+                combo.Name = DataHelper.ToString(obj.CodeName);
+                if (combo.Code == selectedValue
+                    || (DataCheckHelper.IsNull(selectedValue) && target.IndexOf(obj) == 0))
+                    val = combo.Code;
                 listComboItems.Add(combo);
             }
 
-            return listComboItems.ToArray();
+            // Set value
+            comboModel.SeletedValue = val;
+            comboModel.ListItems = listComboItems;
+
+            return comboModel;
         }
 
         /// <summary>

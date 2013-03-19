@@ -1,6 +1,4 @@
 ﻿using MiBo.Domain.Common.Logic;
-using MiBo.Domain.Web.Client.Index;
-using MiBo.Domain.Web.Client.Register;
 using MiBo.Domain.Web.Client.Register;
 
 namespace MiBo.Domain.Logic.Client.Register

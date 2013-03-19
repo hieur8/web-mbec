@@ -50,21 +50,24 @@
                         <span class="label">Loại sản phẩm</span>
                     </td>
                     <td width="160">
-                        <asp:DropDownList ID="ddlCategory" runat="server" CssClass="input-search text-input">
+                        <asp:DropDownList ID="ddlCategory" runat="server" CssClass="input-search text-input"
+                        DataValueField="Code" DataTextField="Name">
                         </asp:DropDownList>
                     </td>
                     <td width="120">
                         <span class="label">Sản phẩm</span>
                     </td>
                     <td width="130">
-                        <asp:DropDownList ID="ddlItemDiv" runat="server" CssClass="input-search text-input">
+                        <asp:DropDownList ID="ddlItemDiv" runat="server" CssClass="input-search text-input"
+                        DataValueField="Code" DataTextField="Name">
                         </asp:DropDownList>
                     </td>
                     <td width="80">
                         <span class="label">Đơn vị</span>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlUnit" runat="server" CssClass="input-search text-input">
+                        <asp:DropDownList ID="ddlUnit" runat="server" CssClass="input-search text-input"
+                        DataValueField="Code" DataTextField="Name">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -75,21 +78,24 @@
                         <span class="label">Độ tuổi</span>
                     </td>
                     <td width="160">
-                        <asp:DropDownList ID="ddlAge" runat="server" CssClass="input-search text-input">
+                        <asp:DropDownList ID="ddlAge" runat="server" CssClass="input-search text-input"
+                        DataValueField="Code" DataTextField="Name">
                         </asp:DropDownList>
                     </td>
                     <td width="120">
                         <span class="label">Giới tính</span>
                     </td>
                     <td width="130">
-                        <asp:DropDownList ID="ddlGender" runat="server" CssClass="input-search text-input">
+                        <asp:DropDownList ID="ddlGender" runat="server" CssClass="input-search text-input"
+                        DataValueField="Code" DataTextField="Name">
                         </asp:DropDownList>
                     </td>
                     <td width="80">
                         <span class="label">Dữ liệu</span>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlDeleteFlag" runat="server" CssClass="input-search text-input">
+                        <asp:DropDownList ID="ddlDeleteFlag" runat="server" CssClass="input-search text-input"
+                        DataValueField="Code" DataTextField="Name">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -100,14 +106,16 @@
                         <span class="label">Thương hiệu</span>
                     </td>
                     <td width="160">
-                        <asp:DropDownList ID="ddlBrand" runat="server" CssClass="input-search text-input">
+                        <asp:DropDownList ID="ddlBrand" runat="server" CssClass="input-search text-input"
+                        DataValueField="Code" DataTextField="Name">
                         </asp:DropDownList>
                     </td>
                     <td width="120">
                         <span class="label">Xuất xứ</span>
                     </td>
                     <td width="130">
-                        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="input-search text-input">
+                        <asp:DropDownList ID="ddlCountry" runat="server" CssClass="input-search text-input"
+                        DataValueField="Code" DataTextField="Name">
                         </asp:DropDownList>
                     </td>
                     <td width="50">

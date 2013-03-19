@@ -158,6 +158,29 @@ CREATE TABLE [Categories]
 GO
 
 -- =============================================
+-- Create table [Accessories]
+-- =============================================
+IF OBJECT_ID('[Accessories]', 'U') IS NOT NULL
+  DROP TABLE [Accessories]
+GO
+
+CREATE TABLE [Accessories]
+(
+    [AccessoryCd] VARCHAR(255),
+    [AccessoryName] NVARCHAR(255),
+	[AccessoryDiv] VARCHAR(255),
+    [Notes] NVARCHAR(MAX),
+    [SortKey] DECIMAL,
+    [CreateUser] VARCHAR(255),
+    [CreateDate] DATETIME,
+    [UpdateUser] VARCHAR(255),
+    [UpdateDate] DATETIME,
+    [DeleteFlag] BIT,
+    PRIMARY KEY ([AccessoryCd])
+)
+GO
+
+-- =============================================
 -- Create table [Ages]
 -- =============================================
 IF OBJECT_ID('[Ages]', 'U') IS NOT NULL

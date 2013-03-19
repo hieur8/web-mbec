@@ -9,8 +9,8 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
-using Resources;
 using MiBo.Domain.Common.Model;
+using Resources;
 
 namespace MiBo.Domain.Common.Helper
 {
@@ -273,6 +273,104 @@ namespace MiBo.Domain.Common.Helper
             if (index < 0) index = size;
             // Convert
             return result.Substring(0, index);
+        }
+
+        /// <summary>
+        /// Format string
+        /// </summary>
+        /// <param name="input">String</param>
+        /// <param name="param">Object</param>
+        /// <returns>String</returns>
+        public static string FormatString(string input, object param)
+        {
+            return FormatString(string.Empty, input, param);
+        }
+
+        /// <summary>
+        /// Format string
+        /// </summary>
+        /// <param name="parentName">String</param>
+        /// <param name="input">String</param>
+        /// <param name="param">Object</param>
+        /// <returns>String</returns>
+        public static string FormatString(string parentName, string input, object param)
+        {
+            // Local variable declaration
+            var result = new StringBuilder(input);
+            var subName = string.Empty;
+
+            // Get properties (param)
+            var lParam = param.GetType().GetProperties().ToDictionary(p => p.Name);
+            if (!string.IsNullOrEmpty(parentName)) subName = parentName + ".";
+
+            // Check exist
+            foreach (var objParam in lParam)
+            {
+                // Get value
+                var propName = "{" + subName + objParam.Key + "}";
+                var strVal = string.Empty;
+                var propInfo = objParam.Value;
+
+                // Get property value
+                var propVal = GetProperty(param, objParam.Key);
+                // Check null
+                if (propVal == null) continue;
+                // Check property type
+                if (propInfo.PropertyType == typeof(DateTime?))
+                {
+                    var tmp = (DateTime?)propVal;
+                    if (propInfo.Name == "UpdateDate")
+                        strVal = ToString(Formats.UPDATE_DATE, tmp);
+                    else
+                        strVal = ToString(Formats.DATE, tmp);
+                }
+                else if (propInfo.PropertyType == typeof(decimal?))
+                {
+                    var tmp = (decimal?)propVal;
+                    strVal = ToString(Formats.NUMBER, tmp);
+                }
+                else if (propInfo.PropertyType == typeof(bool?))
+                {
+                    var tmp = (bool?)propVal;
+                    strVal = ToString(tmp);
+                }
+                else if (propInfo.PropertyType == typeof(Guid))
+                {
+                    var tmp = (Guid)propVal;
+                    strVal = ToString(tmp);
+                }
+                else if (propInfo.PropertyType.IsGenericType)
+                {
+                    var list = (IList)propVal;
+
+                    var startLoop = "{Loop:" + objParam.Key + "}";
+                    var endLoop = "{EndLoop:" + objParam.Key + "}";
+                    var indexStart = input.IndexOf(startLoop);
+                    var indexEnd = input.IndexOf(endLoop);
+                    var lenght = indexEnd - indexStart + endLoop.Length;
+
+                    if (list.Count == 0) continue;
+                    if (indexStart < 0 || lenght == 0) continue;
+
+                    var template = input.Substring(indexStart, lenght);
+                    var rsLoop = new StringBuilder();
+                    foreach (var item in list)
+                    {
+                        var tmp = template.Replace(startLoop, "").Replace(endLoop, "");
+                        rsLoop.Append(FormatString(objParam.Key, tmp, item));
+                    }
+                    propName = template;
+                    strVal = rsLoop.ToString();
+                }
+                else
+                {
+                    strVal = ToString(propVal);
+                }
+
+                result = result.Replace(propName, strVal);
+            }
+
+            return result.ToString();
         }
 
         /// <summary>
