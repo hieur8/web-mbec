@@ -4,6 +4,7 @@ using System.Web.UI.WebControls;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.ShoppingCart;
 using MiBo.Domain.Web.Client.ShoppingCart;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.pages.cln
 {
@@ -83,6 +84,28 @@ namespace MiBo.pages.cln
                 requestModel.Cart = Session["Cart"];
                 return requestModel;
             }
+        }
+
+        protected void HyperLinkTT_Click(object sender, EventArgs e)
+        {
+            if (Session["Cart"] != null)
+            {
+                if (Session["userCd"] == null)
+                {
+                    Response.Redirect("confirmcheckout.aspx");
+
+                }
+                else
+                {
+                    Session["payMethod"] = "1";
+                    Response.Redirect(Pages.CLIENT_CHECKOUT);
+                }
+            }
+        }
+
+        protected void LinkButtonCon_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Pages.CLIENT_INDEX);
         }
     }
 }

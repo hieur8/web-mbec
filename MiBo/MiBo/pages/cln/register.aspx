@@ -35,7 +35,7 @@
                             </li>
                         </ul>
                         <% 
-                            Session["error"] = null;
+                                Session["error"] = null;
                             } %>
                     </p>
                     <ul class="form-list">
@@ -43,9 +43,17 @@
                             <div class="customer-name">
                                 <div class="field name-firstname">
                                     <label for="firstname" class="required">
-                                        <em>*</em>Họ và tên</label>
+                                        <em>*</em>Họ</label>
                                     <div class="input-box">
-                                        <asp:TextBox ID="fullName" class="input-text required" minlength="5" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="fullName" class="input-text required" minlength="2" runat="server"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="field name-lastname">
+                                    <label for="lastname" class="required">
+                                        <em>*</em>Tên</label>
+                                    <div class="input-box">
+                                    <asp:TextBox ID="fullName2" class="input-text required" minlength="2" runat="server"></asp:TextBox>
+  
                                     </div>
                                 </div>
                             </div>
@@ -57,19 +65,6 @@
                                 <asp:TextBox ID="email" class="input-text required email" runat="server"></asp:TextBox>
                             </div>
                         </li>
-                        <li class="control">
-                            <div class="input-box">
-                                <asp:CheckBox ID="is_subscribed" class="checkbox" Checked="true" runat="server" />
-                                <label for="is_subscribed">
-                                    Đăng ký nhận tin tức</label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="fieldset">
-                    <h2 class="legend">
-                        Thông tin đăng nhập</h2>
-                    <ul class="form-list">
                         <li class="fields">
                             <div class="field">
                                 <label for="password" class="required">
@@ -89,6 +84,7 @@
                         </li>
                     </ul>
                 </div>
+                
                 <div class="buttons-set">
                     <p class="required">
                         * Bắt buộc</p>

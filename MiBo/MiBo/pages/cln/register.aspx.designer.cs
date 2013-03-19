@@ -22,6 +22,15 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.TextBox fullName;
         
         /// <summary>
+        /// fullName2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fullName2;
+        
+        /// <summary>
         /// email control.
         /// </summary>
         /// <remarks>
@@ -29,15 +38,6 @@ namespace MiBo.pages.cln {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox email;
-        
-        /// <summary>
-        /// is_subscribed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox is_subscribed;
         
         /// <summary>
         /// pass control.

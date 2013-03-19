@@ -22,6 +22,15 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.Repeater rptCartItem;
         
         /// <summary>
+        /// LinkButtonCon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCon;
+        
+        /// <summary>
         /// btnUpdate control.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,14 @@ namespace MiBo.pages.cln {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSubTotal;
+        
+        /// <summary>
+        /// HyperLinkTT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton HyperLinkTT;
     }
 }
