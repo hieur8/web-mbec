@@ -101,8 +101,8 @@
                                             <br />
                                             <div style="float: left;">
                                             <asp:LinkButton CssClass="add-more" OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Cho vào giỏ hàng</asp:LinkButton>
-                                                 
-                                                      <a href="javascript:void(0)" id="addcart_1_1" class="buy-now">Thêm vào giỏ hàng</a>
+                                                 <asp:LinkButton CssClass="buy-now" OnCommand="lnkBuyNow_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuyNow" runat="server">Thêm vào giỏ hàng</asp:LinkButton>
+                                                      
                                              </div>
                                          
 

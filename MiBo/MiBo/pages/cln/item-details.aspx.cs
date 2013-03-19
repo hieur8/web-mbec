@@ -30,6 +30,17 @@ namespace MiBo.pages.cln
             Response.Redirect(System.Web.HttpContext.Current.Request.Url.AbsoluteUri);
         }
 
+        protected void lnkBuyNow_Command(object sender, CommandEventArgs e)
+        {
+            Session["ItemCd"] = e.CommandArgument;
+            var buyLogic = new BuyOperateLogic();
+            var responseModel = Invoke(buyLogic, BuyRequestModel);
+            if (HasError) return;
+            Session["Cart"] = responseModel.Cart;
+            Session["haveBuy"] = true;
+            Response.Redirect("shopping-cart.aspx");
+        }
+
         private InitRequestModel InitRequestModel
         {
             get
