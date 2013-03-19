@@ -148,6 +148,9 @@
   <data name="E_MSG_00009" xml:space="preserve">
     <value>{0} không đúng.</value>
   </data>
+  <data name="E_MSG_00010" xml:space="preserve">
+    <value>Email này đã có người đăng ký, Xin vui lòng nhập email khác.</value>
+  </data>
   <data name="E_MSG_00011" xml:space="preserve">
     <value>{0} phải lớn hơn 0.</value>
   </data>
@@ -161,5 +164,8 @@
   <!-- Info -->
   <data name="I_MSG_00001" xml:space="preserve">
     <value>Cập nhật thành công.</value>
+  </data>
+  <data name="I_MSG_00002" xml:space="preserve">
+    <value>Đăng ký thành công.</value>
   </data>
 </root>

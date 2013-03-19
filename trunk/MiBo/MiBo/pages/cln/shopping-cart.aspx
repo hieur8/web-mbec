@@ -115,9 +115,10 @@
                             </tbody>
                             <tfoot>
                                 <tr class="first last">
-                                    <td colspan="50" class="a-right last">
-                                        <button type="button" title="Continue Shopping" class="button btn-continue">
-                                            <span><span>Tiếp tục mua hàng</span></span></button>
+                                    <td colspan="6" class="a-right last">
+                                       
+                                             <asp:LinkButton ID="LinkButtonCon" CssClass="button btn-continue"  
+                                                 runat="server" onclick="LinkButtonCon_Click">Tiếp tục mua hàng</asp:LinkButton>
                                         <asp:Button ID="btnUpdate" OnClick="btnUpdate_Click" CssClass="button btn-update"
                                             runat="server" Text="Cập nhật giỏ hàng" />
                                     </td>
@@ -140,7 +141,7 @@
                                                 <a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName")%>'>
                                                 </a>
-                                                <div class="product-details">
+                                                &nbsp;<div class="product-details">
                                                     <h3 class="product-name">
                                                         <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
                                                             <%# Eval("ItemName")%>(<%# Eval("Quantity")%>)
@@ -169,6 +170,10 @@
                                             <td style="" class="a-right">
                                                 <strong>
                                                     <asp:Label CssClass="price" ID="lblSubTotal" runat="server" Text="0"></asp:Label></strong>
+                                                    <br />
+                                                    <p class="btn-small btn-right" style="margin-top: 21px;">
+                                                                <asp:LinkButton ID="HyperLinkTT"  runat="server" onclick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
+                                                                </p>
                                             </td>
                                         </tr>
                                     </tfoot>

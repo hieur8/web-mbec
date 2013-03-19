@@ -97,6 +97,7 @@ namespace MiBo.Domain.Logic.Client.Register
             {
                 User param = new User();
                 param.UserCd = Guid.NewGuid();
+                param.FullName = inputObject.fullname; 
                 param.Email = inputObject.email;
                 param.Password = inputObject.pass;
                 userCom.registerUser(param);

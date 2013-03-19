@@ -35,11 +35,7 @@ namespace MiBo.pages.cln
                 var request = new RegisterRequestModel();
                 request.email = email.Text.Trim().ToString();
                 request.pass = pass.Text.ToString();
-                request.isSendEmail = true;
-                if (is_subscribed.Checked)
-                {
-                    request.isSendEmail = false;
-                }
+                request.fullname = fullName.Text.Trim() + " " + fullName2.Text.Trim();
                 return request;
             }
         }
