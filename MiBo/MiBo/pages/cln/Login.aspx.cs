@@ -52,9 +52,5 @@ namespace MiBo.pages.cln
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(Pages.CLIENT_REGISTER);
-        }
     }
 }

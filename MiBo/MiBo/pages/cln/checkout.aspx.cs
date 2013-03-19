@@ -35,6 +35,12 @@ namespace MiBo.pages.cln
                 {
                     Response.Redirect(Pages.CLIENT_LOGIN);
                 }
+                else
+                {
+                    clientName.Text = result.FullName;
+                    clientAddress.Text = result.Address;
+                    clientTell.Text = result.Phone1;
+                }
 
 
             }
@@ -106,7 +112,10 @@ namespace MiBo.pages.cln
                 request.Cart = Session["Cart"];
 
                 return request;
+               
             }
         }
+
+        
     }
 }

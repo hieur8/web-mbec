@@ -88,9 +88,8 @@
                     <div class="col2-set">
                         <div class="col-1 new-users">
                             <div class="buttons-set">
-                                <asp:Button ID="Button1" CssClass="button" runat="server" 
-                                    Text="Tạo tài khoản mới" onclick="Button1_Click" />
-                            </div>
+                                <a href="register.aspx" ><h3>Đăng ký ngay !</h3></a>
+                                </div>
                         </div>
                         <div class="col-2 registered-users">
                             <div class="buttons-set">

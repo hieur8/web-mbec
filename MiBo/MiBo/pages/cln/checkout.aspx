@@ -4,6 +4,23 @@
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#frmMain").validate();
+    });
+
+
+    function makeDelivery() {
+        $("#main_deliveryName").val($("#main_clientName").val());
+        $("#main_deliveryAddress").val($("#main_clientAddress").val());
+        $("#main_deliveryTell").val($("#main_clientTell").val());
+    }
+    function clearDelivery() {
+        $("#main_deliveryName").val('');
+        $("#main_deliveryAddress").val('');
+        $("#main_deliveryTell").val('');
+    }
+    </script>
     <div class="main-container col2-right-layout">
         <div class="main">
             <div class="col-main">
@@ -33,7 +50,7 @@
                                                             <label for="billing:firstname" class="required">
                                                                 <em>*</em>Họ và tên</label>
                                                             <div class="input-box">
-                                                                <asp:TextBox class="input-text" ID="clientName" runat="server"></asp:TextBox>
+                                                                <asp:TextBox class="input-text required" minlength="2" ID="clientName" runat="server"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -42,7 +59,7 @@
                                                     <label for="billing:street1" class="required">
                                                         <em>*</em>Địa chỉ</label>
                                                     <div class="input-box">
-                                                       <asp:TextBox class="input-text" ID="clientAddress" runat="server"></asp:TextBox>
+                                                       <asp:TextBox class="input-text required" ID="clientAddress" runat="server"></asp:TextBox>
                                                     </div>
                                                 </li>
                                                 <li lang="fields">
@@ -50,7 +67,7 @@
                                                         <label for="billing:telephone" class="required">
                                                             <em>*</em>Số điện thoại</label>
                                                         <div class="input-box">
-                                                           <asp:TextBox class="input-text" ID="clientTell" runat="server"></asp:TextBox>
+                                                           <asp:TextBox class="input-text required" ID="clientTell" runat="server"></asp:TextBox>
                                                         </div>
                                                     </div>
       
@@ -61,9 +78,11 @@
                                         </fieldset>
                                     </li>
                                     <li class="control">
-                                    <asp:RadioButton class="radio" Text="Giao hàng đến địa chỉ này" ID="RadioButton1" GroupName="methodDelivery" runat="server" />
+                                    <asp:RadioButton onclick="makeDelivery();" class="radio" Text="Giao hàng đến địa chỉ này" ID="RadioButton1" 
+                                            GroupName="methodDelivery" runat="server" 
+                                            />
                                     <li class="control">
-                                        <asp:RadioButton class="radio" Checked="true" Text="Giao hàng đến địa chỉ khác" ID="methodDelivery1" GroupName="methodDelivery" runat="server" />
+                                        <asp:RadioButton onclick="clearDelivery();" class="radio" Checked="true" Text="Giao hàng đến địa chỉ khác" ID="methodDelivery1" GroupName="methodDelivery" runat="server" />
                                     </li>
                                 </ul>
                             </fieldset>
@@ -92,7 +111,7 @@
                                                             <label for="billing:firstname" class="required">
                                                                 <em>*</em>Họ và tên người nhận</label>
                                                             <div class="input-box">
-                                                                <asp:TextBox class="input-text" ID="deliveryName" runat="server"></asp:TextBox>
+                                                                <asp:TextBox class="input-text required" ID="deliveryName" runat="server"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -101,7 +120,7 @@
                                                     <label for="billing:street1" class="required">
                                                         <em>*</em>Địa chỉ nơi giao hàng</label>
                                                     <div class="input-box">
-                                                        <asp:TextBox class="input-text" ID="deliveryAddress" runat="server"></asp:TextBox>
+                                                        <asp:TextBox class="input-text required" ID="deliveryAddress" runat="server"></asp:TextBox>
                                                     </div>
                                                 </li>
                                                 <li lang="fields">
@@ -109,7 +128,7 @@
                                                         <label for="billing:telephone" class="required">
                                                             <em>*</em>Số điện thoại nơi giao hàng</label>
                                                         <div class="input-box">
-                                                            <asp:TextBox class="input-text" ID="deliveryTell" runat="server"></asp:TextBox>
+                                                            <asp:TextBox class="input-text required" ID="deliveryTell" runat="server"></asp:TextBox>
                                                         </div>
                                                     </div>
       
@@ -117,7 +136,7 @@
                                                 <li lang="fields">
                                                     <div class="field">
                                                         <label for="billing:telephone">
-                                                            <em>*</em>Ngày giao hàng mong muốn</label>
+                                                            Ngày giao hàng mong muốn</label>
                                                         <div class="input-box">
                                                             <asp:TextBox class="input-text" ID="deliveryDate" runat="server"></asp:TextBox>
                                                         </div>
@@ -154,13 +173,13 @@
                                         <asp:RadioButton Checked="true" GroupName="rbPay" Text="Thanh toán tiền mặt khi nhận hàng" ID="pay1" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
-                                    <asp:RadioButton GroupName="rbPay" Text="Thẻ ATM đăng ký Internet Banking (Miễn phí thanh toán)" ID="pay2" runat="server" class="radio" />
+                                    <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Thẻ ATM đăng ký Internet Banking (Miễn phí thanh toán)" ID="pay2" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
-                                    <asp:RadioButton GroupName="rbPay" Text="Thanh toán bằng thẻ quốc Tế Visa, Master" ID="pay3" runat="server" class="radio" />
+                                    <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Thanh toán bằng thẻ quốc Tế Visa, Master" ID="pay3" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
-                                    <asp:RadioButton GroupName="rbPay" Text="Chuyển khoản ngân hàng (Quý khách tự thanh toán chi phí chuyển khoản)" ID="pay4" runat="server" class="radio" />
+                                    <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Chuyển khoản ngân hàng (Quý khách tự thanh toán chi phí chuyển khoản)" ID="pay4" runat="server" class="radio" />
                                     </li>
                                 </ul>
                                
@@ -190,7 +209,7 @@
                                                     <div class="customer-name">
                                                         <div class="field name-firstname">
                                                             <label for="billing:firstname" class="required">
-                                                                <em>*</em>Ghi chú</label>
+                                                                Ghi chú</label>
                                                             <div class="input-box">
                                                                 <asp:TextBox class="input-text" TextMode="MultiLine" ID="note" 
                                                                     runat="server" Height="75px" Width="549px"></asp:TextBox>
