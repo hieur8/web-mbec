@@ -4,6 +4,7 @@ using MiBo.Domain.Logic.Client.Master;
 using MiBo.Domain.Web.Client.Master;
 using MiBo.Domain.Common.Utils;
 using System.Web.UI.WebControls;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.pages.common
 {
@@ -14,10 +15,21 @@ namespace MiBo.pages.common
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
             if (HasError) return;
-            rptToyMenu.DataSource = response.ListToys;
-            rptToyMenu.DataBind();
+            
             rptAccessoryMenu.DataSource = response.ListAccessories;
             rptAccessoryMenu.DataBind();
+            RepeaterBrands.DataSource = response.ListAccessories;
+            RepeaterBrands.DataBind();
+            RepeaterAge.DataSource = response.ListAges;
+            RepeaterAge.DataBind();
+            RepeaterGender.DataSource = response.ListGenders;
+            RepeaterGender.DataBind();
+            RepeaterToy.DataSource = response.ListToys;
+            RepeaterToy.DataBind();
+                   
+                
+
+                
             if (response.CartCount.Equals(""))
             {
                 lblCartCount.Text = "0";
@@ -75,6 +87,23 @@ namespace MiBo.pages.common
                 var request = new InitRequestModel();
                 request.Cart = Session["Cart"];
                 return request;
+            }
+        }
+
+        protected void HyperLinkTT_Click(object sender, EventArgs e)
+        {
+            if (Session["Cart"] != null)
+            {
+                if (Session["userCd"] == null)
+                {
+                    Response.Redirect("confirmcheckout.aspx");
+
+                }
+                else
+                {
+                    Session["payMethod"] = "1";
+                    Response.Redirect(Pages.CLIENT_CHECKOUT);
+                }
             }
         }
     }
