@@ -8,8 +8,13 @@ namespace MiBo.Domain.Web.Client.Master
     {
         public string CartCount { get; set; }
         public string DiscountMember { get; set; }
+        public string Hotline { get; set; }
+        public string Email { get; set; }
+        public string ChatYahoo { get; set; }
+        public string ChatSkype { get; set; }
         public IList<OutputCategoryModel> ListToys { get; set; }
-        public IList<OutputCategoryModel> ListAccessories { get; set; }
+        public IList<OutputCategoryModel> ListLearningTools { get; set; }
+        public IList<OutputCategoryModel> ListBooks { get; set; }
         public IList<OutputAgeModel> ListAges { get; set; }
         public IList<OutputGenderModel> ListGenders { get; set; }
         public IList<OutputBrandModel> ListBrands { get; set; }

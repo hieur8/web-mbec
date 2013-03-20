@@ -647,7 +647,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Domain\Common\Dao\AbstractDao.cs" />
-    <Compile Include="Domain\Common\Dao\CompanyComDao.cs" />
     <Compile Include="Domain\Common\Dao\DataComDao.cs" />
     <Compile Include="Domain\Common\Dao\Entities.designer.cs">
       <AutoGen>True</AutoGen>
@@ -686,7 +685,6 @@
     <Compile Include="Domain\Common\Model\MessageResponse.cs" />
     <Compile Include="Domain\Common\Model\UploadModel.cs" />
     <Compile Include="Domain\Common\Utils\CartCom.cs" />
-    <Compile Include="Domain\Common\Utils\CompanyCom.cs" />
     <Compile Include="Domain\Common\Utils\DataCom.cs" />
     <Compile Include="Domain\Common\Utils\ItemCom.cs" />
     <Compile Include="Domain\Common\Utils\MCodeCom.cs" />

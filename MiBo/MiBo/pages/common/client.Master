@@ -120,81 +120,101 @@
             </div>
             <!-- ket thuc header -->
             <div class="nav-container">
-                <div class="light-blue">
-                    <ul id="mega-menu" class="mega-menu">
-                        <li><a href="/index.aspx">
-                            <img style="border: 0px;" height="15px" src="/pages/resources/images/home-icon.png" /></a></li>
-                        <li class="dc-mega-li"><a href="#" class="dc-mega">Đồ chơi<span class="dc-mega-icon"></span></a>
-                            <div class="sub-container mega" style="left: 0px; top: 40px; z-index: 1000;">
-                                <ul class="sub" style="display: none;">
-                                    <div class="row" style="width: 540px;">
-                                        <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                            style="height: 16px;">Đồ chơi trẻ em</a>
-                                            <ul style="text-align: left">
-                                                <asp:Repeater ID="RepeaterToy" runat="server">
-                                                    <ItemTemplate>
-                                                        <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
-                                                            <%# Eval("CategoryName")%></a></li>
-                                                    </ItemTemplate>
-                                                </asp:Repeater>
-                                            </ul>
-                                        </li>
-                                        <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                            style="height: 16px;">Thương hiệu</a>
-                                            <ul style="text-align: left">
-                                                <asp:Repeater ID="RepeaterBrands" runat="server">
-                                                    <ItemTemplate>
-                                                        <li><a href='/items.aspx?brand=<%# Eval("BrandCd") %>'>
-                                                            <%# Eval("BrandName") %></a></li>
-                                                    </ItemTemplate>
-                                                </asp:Repeater>
-                                            </ul>
-                                        </li>
-                                        <li class="mega-unit mega-hdr last" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                            style="height: 16px;">Độ tuổi</a>
-                                            <ul style="text-align: left">
-                                                <asp:Repeater ID="RepeaterAge" runat="server">
-                                                    <ItemTemplate>
-                                                        <li><a href='/items.aspx?age=<%# Eval("AgeCd") %>'>
-                                                            <%# Eval("AgeName") %></a></li>
-                                                    </ItemTemplate>
-                                                </asp:Repeater>
-                                            </ul>
-                                        </li>
-                                    </div>
-                                    <div class="row" style="width: 540px;">
-                                        <li class="mega-unit mega-hdr" style="height: 137px;"><a href="#" class="mega-hdr-a"
-                                            style="height: 16px;">Giới tính</a>
-                                            <ul style="text-align: left">
-                                                <asp:Repeater ID="RepeaterGender" runat="server">
-                                                    <ItemTemplate>
-                                                        <li><a href='/items.aspx?gender=<%# Eval("GenderCd") %>'>
-                                                            <%# Eval("GenderName")%></a></li>
-                                                    </ItemTemplate>
-                                                </asp:Repeater>
-                                            </ul>
-                                        </li>
-                                    </div>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="#">Phụ Kiện</a>
-                            <asp:Repeater ID="rptAccessoryMenu" runat="server">
-                                <HeaderTemplate>
-                                    <ul>
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
-                                        <%# Eval("CategoryName") %></a></li>
-                                </ItemTemplate>
-                                <FooterTemplate>
+                    <div class="light-blue">
+                        <ul id="mega-menu" class="mega-menu">
+                            <li>
+                                <a href="/index.aspx"><img style="border: 0px;" height="15px" src="/pages/resources/images/home-icon.png" /></a>
+                            </li>
+                            <li class="dc-mega-li">
+                                <a href="#" class="dc-mega">Đồ chơi<span class="dc-mega-icon"></span></a>
+                                <div class="sub-container mega" style="left: 0px; top: 40px; z-index: 1000;">
+                                    <ul class="sub" style="display: none;">
+                                        <div class="row"  style="width: 540px;">
+                                            <li class="mega-unit mega-hdr"><a href="#" class="mega-hdr-a"
+                                                style="height: 16px;">Thương hiệu</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="rptBrandMenu" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?brand=<%# Eval("BrandCd") %>'>
+                                                                <%# Eval("BrandName")%></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-unit mega-hdr">
+                                                <a href="#" class="mega-hdr-a" style="height: 16px;">Đồ chơi trẻ em</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="rptToyMenu" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
+                                                                <%# Eval("CategoryName")%></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-unit mega-hdr last">
+                                                <a href="#" class="mega-hdr-a" style="height: 16px;">Độ tuổi</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="rptAgeMenu" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?age=<%# Eval("AgeCd") %>'>
+                                                                <%# Eval("AgeName") %></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </ul>
+                                            </li>
+                                        </div>
+                                        <div class="row" style="width: 540px;">
+                                            <li class="mega-unit mega-hdr">
+                                                <a href="#" class="mega-hdr-a" style="height: 16px;">Giới tính</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="rptGenderMenu" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?gender=<%# Eval("GenderCd") %>'>
+                                                                <%# Eval("GenderName")%></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </ul>
+                                            </li>
+                                        </div>
                                     </ul>
-                                </FooterTemplate>
-                            </asp:Repeater>
-                        </li>
-                        <li><a href="#">Giới Thiệu</a></li>
-                        <li><a href="#">Liên Hệ</a></li>
-                    </ul>
+                                </div>
+                            </li>
+                            <li class="dc-mega-li">
+                                <a href="#" class="dc-mega">Phụ Kiện<span class="dc-mega-icon"></span></a>
+                                <div class="sub-container mega" style="left: 0px; top: 40px; z-index: 1000;">
+                                    <ul class="sub" style="display: none;">
+                                        <div class="row" style="width: 360px;">
+                                            <li class="mega-unit mega-hdr">
+                                                <a href="#" class="mega-hdr-a" style="height: 16px;">Dụng cụ học tập</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="rptLearningToolMenu" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
+                                                                <%# Eval("CategoryName") %></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-unit mega-hdr">
+                                                <a href="#" class="mega-hdr-a" style="height: 16px;">Sách</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="rptBookMenu" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
+                                                                <%# Eval("CategoryName") %></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </ul>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="#">Giới Thiệu</a></li>
+                            <li><a href="#">Liên Hệ</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <!-- ket thuc menu -->
@@ -264,12 +284,12 @@
                             <br />
                             <br />
                             <ul>
-                                <li style="padding-left: 30px">Hotline: <strong>0976.585.888</strong></li>
-                                <li style="padding-left: 30px">Email : <strong>support@mibo.vn</strong></li>
+                                <li style="padding-left: 30px">Hotline: <strong><asp:Literal ID="litHotline" runat="server"></asp:Literal></strong></li>
+                                <li style="padding-left: 30px">Email : <strong><asp:Literal ID="litEmail" runat="server"></asp:Literal></strong></li>
                                 <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
                                     <img src="http://opi.yahoo.com/online?u=hieur8&t=2"></a> </li>
                                 <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
-                                    <img src="http://opi.yahoo.com/online?u=chauthai1983&t=2"></a> </li>
+                                    <img src="http://opi.yahoo.com/online?u=chauthai1987&t=2"></a> </li>
                             </ul>
                         </div>
                     </div>

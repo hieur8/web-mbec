@@ -58,7 +58,8 @@ namespace MiBo.Domain.Logic.Client.Master
             // Local variable declaration
             InitResponseModel responseModel = null;
             IList<OutputCategoryModel> listToys = null;
-            IList<OutputCategoryModel> listAccessories = null;
+            IList<OutputCategoryModel> listLearningTools = null;
+            IList<OutputCategoryModel> listBooks = null;
             IList<OutputAgeModel> listAges = null;
             IList<OutputGenderModel> listGenders = null;
             IList<OutputBrandModel> listBrands = null;
@@ -67,7 +68,8 @@ namespace MiBo.Domain.Logic.Client.Master
             // Variable initialize
             responseModel = new InitResponseModel();
             listToys = new List<OutputCategoryModel>();
-            listAccessories = new List<OutputCategoryModel>();
+            listLearningTools = new List<OutputCategoryModel>();
+            listBooks = new List<OutputCategoryModel>();
             listAges = new List<OutputAgeModel>();
             listGenders = new List<OutputGenderModel>();
             listBrands = new List<OutputBrandModel>();
@@ -85,17 +87,27 @@ namespace MiBo.Domain.Logic.Client.Master
                 listToys.Add(toy);
             }
 
-            OutputCategoryModel accessory = null;
-            foreach (var obj in resultObject.ListAccessories)
+            OutputCategoryModel learningTool = null;
+            foreach (var obj in resultObject.ListLearningTools)
             {
-                accessory = new OutputCategoryModel();
+                learningTool = new OutputCategoryModel();
 
-                accessory.CategoryCd = DataHelper.ToString(obj.CategoryCd);
-                accessory.CategoryName = DataHelper.ToString(obj.CategoryName);
+                learningTool.CategoryCd = DataHelper.ToString(obj.CategoryCd);
+                learningTool.CategoryName = DataHelper.ToString(obj.CategoryName);
 
-                listAccessories.Add(accessory);
+                listLearningTools.Add(learningTool);
             }
 
+            OutputCategoryModel book = null;
+            foreach (var obj in resultObject.ListBooks)
+            {
+                book = new OutputCategoryModel();
+
+                book.CategoryCd = DataHelper.ToString(obj.CategoryCd);
+                book.CategoryName = DataHelper.ToString(obj.CategoryName);
+
+                listBooks.Add(book);
+            }
 
             OutputAgeModel age = null;
             foreach (var obj in resultObject.ListAge)
@@ -144,8 +156,13 @@ namespace MiBo.Domain.Logic.Client.Master
             // Set value
             responseModel.CartCount = DataHelper.ToString(Formats.NUMBER, resultObject.CartCount);
             responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
+            responseModel.Hotline = DataHelper.ToString(resultObject.Hotline);
+            responseModel.Email = DataHelper.ToString(resultObject.Email);
+            responseModel.ChatYahoo = DataHelper.ToString(resultObject.ChatYahoo);
+            responseModel.ChatSkype = DataHelper.ToString(resultObject.ChatSkype);
             responseModel.ListToys = listToys;
-            responseModel.ListAccessories = listAccessories;
+            responseModel.ListLearningTools = listLearningTools;
+            responseModel.ListBooks = listBooks;
             responseModel.ListAges = listAges;
             responseModel.ListGenders = listGenders;
             responseModel.ListBrands = listBrands;
@@ -206,8 +223,14 @@ namespace MiBo.Domain.Logic.Client.Master
             // Get data
             var cartCount = cartCom.Count;
             var discountMember = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
+            var strChatYahoo = mParameterCom.GetString(Logics.PR_CHAT_YAHOO, false);
+            var strChatSkype = mParameterCom.GetString(Logics.PR_CHAT_SKYPE, false);
+            var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
+            var strEmail = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT, false);
+
             var listToys = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_TOYS);
-            var listAccessories = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_ACCESSORIES);
+            var listLearningTools = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_LEARNING_TOOLS);
+            var listBooks = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_BOOKS);
             var listAge = clientMasterDao.GetListAge();
             var listGender = clientMasterDao.GetListGender();
             var listBrand = clientMasterDao.GetListBrand();
@@ -216,8 +239,14 @@ namespace MiBo.Domain.Logic.Client.Master
             // Set value
             getResult.CartCount = cartCount;
             getResult.DiscountMember = discountMember * decimal.Negate(decimal.One);
+            getResult.Hotline = strHotline;
+            getResult.Email = strEmail;
+            getResult.ChatYahoo = strChatYahoo;
+            getResult.ChatSkype = strChatSkype;
+
             getResult.ListToys = listToys;
-            getResult.ListAccessories = listAccessories;
+            getResult.ListLearningTools = listLearningTools;
+            getResult.ListBooks = listBooks;
             getResult.ListAge = listAge;
             getResult.ListGender = listGender;
             getResult.ListBrand = listBrand;

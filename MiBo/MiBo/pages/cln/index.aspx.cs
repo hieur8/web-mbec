@@ -22,8 +22,6 @@ namespace MiBo.pages.cln
             rptOfferItem.DataBind();
             rptHotItem.DataSource = response.ListHotItems;
             rptHotItem.DataBind();
-            
-            
         }
 
         protected void lnkBuy_Command(object sender, CommandEventArgs e)

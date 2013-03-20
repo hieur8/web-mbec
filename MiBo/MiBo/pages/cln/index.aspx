@@ -93,7 +93,7 @@
                                         <ItemTemplate>
                                             <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                 class="product-image">
-                                                <img border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
                                                     alt='<%# Eval("ItemName") %>'>
                                             </a>&nbsp;<div class="align-prodname-price-review">
                                                 <h3 class="product-name">
@@ -102,7 +102,7 @@
                                                 </h3>
                                                 <div class="price-box">
                                                     <p style="margin: 0">
-                                                        Thương hiệu : Apple</p>
+                                                        Thương hiệu : <%# Eval("BrandName") %></p>
                                                     <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
                                                         class="price">
                                                         <%# Eval("Price") %>
@@ -126,7 +126,7 @@
                                         <ItemTemplate>
                                             <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                 class="product-image">
-                                                <img border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
                                                     alt='<%# Eval("ItemName") %>'>
                                             </a>&nbsp;<div class="align-prodname-price-review">
                                                 <h3 class="product-name">
@@ -135,7 +135,7 @@
                                                 </h3>
                                                 <div class="price-box">
                                                     <p style="margin: 0">
-                                                        Thương hiệu : Apple</p>
+                                                        Thương hiệu : <%# Eval("BrandName") %></p>
                                                     <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
                                                         class="price">
                                                         <%# Eval("Price") %>
@@ -159,7 +159,7 @@
                                         <ItemTemplate>
                                             <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                 class="product-image">
-                                                <img border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
                                                     alt='<%# Eval("ItemName") %>'>
                                             </a>&nbsp;<div class="align-prodname-price-review">
                                                 <h3 class="product-name">
@@ -168,7 +168,7 @@
                                                 </h3>
                                                 <div class="price-box">
                                                     <p style="margin: 0">
-                                                        Thương hiệu : Apple</p>
+                                                        Thương hiệu : <%# Eval("BrandName") %></p>
                                                     <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
                                                         class="price">
                                                         <%# Eval("Price") %>

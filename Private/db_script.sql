@@ -90,29 +90,6 @@ CREATE TABLE [MNumbers]
 GO
 
 -- =============================================
--- Create table [CompanyInfos]
--- =============================================
-IF OBJECT_ID('[CompanyInfos]', 'U') IS NOT NULL
-  DROP TABLE [CompanyInfos]
-GO
-
-CREATE TABLE [CompanyInfos]
-(
-    [InfoCd] VARCHAR(255),
-    [InfoName] NVARCHAR(255),
-    [InfoValue] NVARCHAR(MAX),
-    [Notes] NVARCHAR(MAX),
-    [SortKey] DECIMAL,
-    [CreateUser] VARCHAR(255),
-    [CreateDate] DATETIME,
-    [UpdateUser] VARCHAR(255),
-    [UpdateDate] DATETIME,
-    [DeleteFlag] BIT,
-    PRIMARY KEY ([InfoCd])
-)
-GO
-
--- =============================================
 -- Create table [Units]
 -- =============================================
 IF OBJECT_ID('[Units]', 'U') IS NOT NULL
