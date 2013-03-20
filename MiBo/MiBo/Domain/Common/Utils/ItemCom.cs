@@ -95,19 +95,24 @@ namespace MiBo.Domain.Common.Utils
                     itemModel.ListOfferItems = offer.OfferItems;
                 }
             }
-            else
-            {
-                if (PageHelper.HasAuthenticated)
-                {
-                    var mParameterCom = new MParameterCom();
-                    var discount = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
-                    itemModel.SalesPriceOld = itemModel.SalesPrice;
-                    itemModel.SalesPrice -= itemModel.SalesPrice / discount;
-                }
-            }
 
             // Return value
             return itemModel;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="itemCd"></param>
+        /// <returns></returns>
+        public bool HasOffer(string itemCd)
+        {
+            // Check param
+            if (DataCheckHelper.IsNull(itemCd))
+                throw new ParamInvalidException();
+
+            // Return value
+            return _comDao.HasOffer(itemCd);
         }
 
         /// <summary>
