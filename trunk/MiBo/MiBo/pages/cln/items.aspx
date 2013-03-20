@@ -2,10 +2,11 @@
     CodeBehind="items.aspx.cs" Inherits="MiBo.pages.cln.items" %>
 
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
     <script type="text/javascript" src="/pages/resources/scripts/jplist.min.js" />
     <script type="text/javascript" src="/pages/resources/scripts/json2.min.js" />
+</asp:Content>
+<asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
+   
     <script type="text/javascript">
         jQuery(document).ready(function () {
             $('#listItems').jplist({
@@ -90,7 +91,7 @@
                                             <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>" class="product-image">
                                                 <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName") %>'>
                                             </a>
-                                            <div class="product-shop">
+                                            &nbsp;&nbsp;<div class="product-shop">
                                                 <div class="f-fix">
                                                     <h3 class="product-name">
                                                         <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>' class="title"><%# Eval("ItemName") %></a>
@@ -105,7 +106,7 @@
                                                         </span>
                                                     </div>
                                                     <p>
-                                                        <asp:LinkButton CssClass="button btn-cart" OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Mua hàng</asp:LinkButton>
+                                                        <asp:LinkButton Visible="false" CssClass="button btn-cart" OnCommand="lnkBuy_Command" CommandArgument='<%# Eval("ItemCd") %>' ID="lnkBuy" runat="server">Mua hàng</asp:LinkButton>
                                                     </p>
                                                     <div class="desc std">
                                                         <p class="desc">

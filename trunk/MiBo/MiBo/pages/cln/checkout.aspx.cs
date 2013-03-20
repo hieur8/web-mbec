@@ -71,7 +71,7 @@ namespace MiBo.pages.cln
                 if (Session["payMethod"].ToString().Equals("1"))
                 {
 
-                    accept.ClientCd = result.UserCd.ToString();
+                    accept.ClientCd = result.Email;
                 }
                 else
                 {

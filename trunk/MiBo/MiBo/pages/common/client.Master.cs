@@ -106,5 +106,12 @@ namespace MiBo.pages.common
                 }
             }
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+          if(!search.Text.Equals("")){
+              Response.Redirect("items.aspx?pnm=" + search.Text.Trim());
+          }
+        }
     }
 }
