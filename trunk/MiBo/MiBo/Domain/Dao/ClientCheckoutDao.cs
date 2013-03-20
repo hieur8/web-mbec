@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Common.Helper;
@@ -46,6 +47,21 @@ namespace MiBo.Domain.Dao
             EntityManager.MNumbers.InsertOnSubmit(number);
 
             EntityManager.SubmitChanges();
+        }
+
+        public AcceptModel GetAccept(string acceptSlipNo)
+        {
+            var result = from tbl in EntityManager.Accepts
+                         where tbl.AcceptSlipNo == acceptSlipNo
+                         && tbl.DeleteFlag == false
+                         select tbl;
+
+            var acceptModel = new AcceptModel();
+
+            DataHelper.CopyObject(result.SingleOrDefault(), acceptModel);
+            acceptModel.TotalAmount = acceptModel.AcceptDetails.Where(o => o.DeleteFlag == false).Sum(o => o.DetailAmt);
+
+            return acceptModel;
         }
     }
 }

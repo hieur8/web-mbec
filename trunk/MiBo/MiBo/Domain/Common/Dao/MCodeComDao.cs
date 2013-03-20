@@ -23,6 +23,23 @@ namespace MiBo.Domain.Common.Dao
         }
 
         /// <summary>
+        /// Get code content
+        /// </summary>
+        /// <param name="codeGroupCd">CodeGroupCd</param>
+        /// <param name="codeCd">codeCd</param>
+        /// <returns>CodeContent</returns>
+        public string GetCodeContent(string codeGroupCd, string codeCd)
+        {
+            var result = from tbl in EntityManager.MCodes
+                         where tbl.CodeGroupCd == codeGroupCd
+                               && tbl.CodeCd == codeCd
+                               && tbl.DeleteFlag == false
+                         select tbl.Notes;
+
+            return result.SingleOrDefault();
+        }
+
+        /// <summary>
         /// Get single master code
         /// </summary>
         /// <param name="codeGroupCd">CodeGroupCd</param>

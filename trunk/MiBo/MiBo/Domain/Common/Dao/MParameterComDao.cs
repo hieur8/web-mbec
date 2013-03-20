@@ -32,7 +32,7 @@ namespace MiBo.Domain.Common.Dao
         public string GetString(string paramCd, bool ignoreDeleteFlag)
         {
             var pt = GetType(paramCd, ignoreDeleteFlag);
-            if (pt != Logics.PT_STRING)
+            if (pt != Logics.PT_STRING && pt != Logics.PT_PASSWORD)
                 return string.Empty;
 
             var result = from tbl in EntityManager.MParameters
