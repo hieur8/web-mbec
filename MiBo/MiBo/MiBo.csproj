@@ -825,6 +825,8 @@
     <Compile Include="Domain\Web\Client\Accepts\OutputAcceptModel.cs" />
     <Compile Include="Domain\Web\Client\Checkout\CheckoutRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Checkout\CheckoutResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Checkout\OutputAcceptDetailsModel.cs" />
+    <Compile Include="Domain\Web\Client\Checkout\OutputEmailModel.cs" />
     <Compile Include="Domain\Web\Client\Index\BuyRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Index\BuyResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Index\InitRequestModel.cs" />

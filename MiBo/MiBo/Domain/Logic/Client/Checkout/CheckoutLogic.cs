@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MiBo.Domain.Web.Client.Checkout;
-using MiBo.Domain.Model.Client.Checkout;
+﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
-using MiBo.Domain.Common.Dao;
+using MiBo.Domain.Model.Client.Checkout;
+using MiBo.Domain.Web.Client.Checkout;
+using Resources;
 
 namespace MiBo.Domain.Logic.Client.Checkout
 {
@@ -60,7 +59,7 @@ namespace MiBo.Domain.Logic.Client.Checkout
             responseModel = new CheckoutResponseModel();
 
             responseModel.StatusFlag = resultObject.StatusFlag;
-            
+
             return responseModel;
         }
 
@@ -81,10 +80,12 @@ namespace MiBo.Domain.Logic.Client.Checkout
             // Execute convert input.
             inputObject = Convert(request);
 
-                ClientCheckoutDao checkoutDao = new ClientCheckoutDao();
-                checkoutDao.makeCheckout(inputObject.Accept, inputObject.Cart);
-                responseModel.StatusFlag = true;
-           
+            ClientCheckoutDao checkoutDao = new ClientCheckoutDao();
+            checkoutDao.makeCheckout(inputObject.Accept, inputObject.Cart);
+            responseModel.StatusFlag = true;
+
+            // Send mail
+            SendEmail(inputObject.Accept.ClientCd, inputObject.Accept.AcceptSlipNo);
 
             // Execute convert ouput.
             responseModel = Convert(resultObject);
@@ -92,6 +93,89 @@ namespace MiBo.Domain.Logic.Client.Checkout
             return responseModel;
         }
 
+        /// <summary>
+        /// Execute send email.
+        /// </summary>
+        /// <param name="param">String</param>
+        /// <returns>EmailModel</returns>
+        private void SendEmail(string clientEmail, string acceptSlipNo)
+        {
+            // Local variable declaration
+            MParameterCom mParameterCom = null;
+
+            // Variable initialize
+            mParameterCom = new MParameterCom();
+
+            // Get data
+            var emailModel = GetEmailModel(acceptSlipNo);
+            var fileTemplate = FileHelper.ToString("/pages/media/email/accept-new.html");
+
+            var emailSale = mParameterCom.GetString(Logics.PR_EMAIL_SALE, false);
+            var emailSalePass = mParameterCom.GetString(Logics.PR_EMAIL_SALE_PASS, false);
+            var hostMail = mParameterCom.GetString(Logics.PR_MAIL_SERVER, false);
+            //var subject = "";
+            var body = DataHelper.FormatString(fileTemplate, emailModel);
+
+            //MailHelper.SendMail(clientEmail, emailSale, subject, body, hostMail);
+            //MailHelper.SendMail(emailSale, clientEmail, subject, body, hostMail, emailSalePass);
+        }
+
+        /// <summary>
+        /// Execute get email model.
+        /// </summary>
+        /// <param name="param">String</param>
+        /// <returns>EmailModel</returns>
+        private OutputEmailModel GetEmailModel(string param)
+        {
+            // Local variable declaration
+            OutputEmailModel emailModel = null;
+            ClientCheckoutDao clientCheckoutDao = null;
+            MParameterCom mParameterCom = null;
+            MCodeCom mCodeCom = null;
+            IList<OutputAcceptDetailsModel> listAcceptDetails = null;
+
+            // Variable initialize
+            emailModel = new OutputEmailModel();
+            clientCheckoutDao = new ClientCheckoutDao();
+            mParameterCom = new MParameterCom();
+            mCodeCom = new MCodeCom();
+            listAcceptDetails = new List<OutputAcceptDetailsModel>();
+
+            // Get data
+            var accept = clientCheckoutDao.GetAccept(param);
+            var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
+            var strEmail = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT, false);
+            var paymentMethodsContent = mCodeCom.GetCodeContent(Logics.GROUP_PAYMENT_METHODS, accept.PaymentMethods);
+            OutputAcceptDetailsModel acceptDetails = null;
+            foreach (var obj in accept.AcceptDetails)
+            {
+                acceptDetails = new OutputAcceptDetailsModel();
+                acceptDetails.ItemName = DataHelper.ToString(obj.ItemName);
+                acceptDetails.DetailPrice = DataHelper.ToString(Formats.CURRENCY, obj.DetailPrice);
+                acceptDetails.DetailQtty = DataHelper.ToString(Formats.NUMBER, obj.DetailQtty);
+                acceptDetails.DetailAmt = DataHelper.ToString(Formats.CURRENCY, obj.DetailAmt);
+                listAcceptDetails.Add(acceptDetails);
+            }
+
+            // Set data
+            emailModel.ViewId = DataHelper.ToString(accept.ViewId);
+            emailModel.AcceptDate = DataHelper.ToString(Formats.RFC_DATE, accept.AcceptDate);
+            emailModel.ClientName = DataHelper.ToString(accept.ClientName);
+            emailModel.ClientAddress = DataHelper.ToString(accept.ClientAddress);
+            emailModel.ClientTel = DataHelper.ToString(accept.ClientTel);
+            emailModel.DeliveryName = DataHelper.ToString(accept.DeliveryName);
+            emailModel.DeliveryAddress = DataHelper.ToString(accept.DeliveryAddress);
+            emailModel.DeliveryTel = DataHelper.ToString(accept.DeliveryTel);
+            emailModel.PaymentMethodsContent = DataHelper.ToString(paymentMethodsContent);
+            emailModel.Notes = DataHelper.ToString(accept.Notes);
+            emailModel.Hotline = DataHelper.ToString(strHotline);
+            emailModel.EmailSupport = DataHelper.ToString(strEmail);
+            emailModel.AcceptDetails = listAcceptDetails;
+            emailModel.TotalAmount = DataHelper.ToString(Formats.CURRENCY, accept.TotalAmount);
+
+            // Return value;
+            return emailModel;
+        }
         #endregion
     }
 }

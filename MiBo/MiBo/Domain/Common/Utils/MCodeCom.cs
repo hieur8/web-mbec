@@ -32,6 +32,23 @@ namespace MiBo.Domain.Common.Utils
         }
 
         /// <summary>
+        /// Get code content
+        /// </summary>
+        /// <param name="codeGroupCd">CodeGroupCd</param>
+        /// <param name="codeCd">CodeCd</param>
+        /// <returns>CodeContent</returns>
+        public string GetCodeContent(string codeGroupCd, string codeCd)
+        {
+            // Check param
+            if (DataCheckHelper.IsNull(codeGroupCd)
+                || DataCheckHelper.IsNull(codeCd))
+                throw new ParamInvalidException();
+
+            //Return value
+            return _comDao.GetCodeContent(codeGroupCd, codeCd);
+        }
+
+        /// <summary>
         /// Get single master code
         /// </summary>
         /// <param name="codeGroupCd">CodeGroupCd</param>

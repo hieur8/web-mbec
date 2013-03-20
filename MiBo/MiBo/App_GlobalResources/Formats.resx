@@ -111,11 +111,14 @@
   <data name="REAL_NUMBER" xml:space="preserve">
     <value>{0:N}</value>
   </data>
+  <data name="DATE" xml:space="preserve">
+    <value>{0:dd-MM-yyyy}</value>
+  </data>
   <data name="FULL_DATE" xml:space="preserve">
     <value>{0:dd MMMM yyyy}</value>
   </data>
-  <data name="DATE" xml:space="preserve">
-    <value>{0:dd-MM-yyyy}</value>
+  <data name="RFC_DATE" xml:space="preserve">
+    <value>{0:dddd, dd MMMM yyyy HH':'mm':'ss 'GMT'}</value>
   </data>
   <data name="UPDATE_DATE" xml:space="preserve">
     <value>{0:dd-MM-yyyy hh:mm:ss}</value>

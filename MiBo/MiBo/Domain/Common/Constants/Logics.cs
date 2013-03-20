@@ -38,6 +38,7 @@
         public const string PR_EMAIL_SUPPORT = "008";
         public const string PR_CHAT_SKYPE = "009";
         public const string PR_CHAT_YAHOO = "010";
+        public const string PR_MAIL_SERVER = "011";
 
         // Description for group code
         public const string GROUP_SKIP_CODE = "sys-skip-code";
