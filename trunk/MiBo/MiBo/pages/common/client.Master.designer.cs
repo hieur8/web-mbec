@@ -85,49 +85,58 @@ namespace MiBo.pages.common {
         protected global::System.Web.UI.WebControls.LinkButton HyperLinkTT;
         
         /// <summary>
-        /// RepeaterToy control.
+        /// rptBrandMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterToy;
+        protected global::System.Web.UI.WebControls.Repeater rptBrandMenu;
         
         /// <summary>
-        /// RepeaterBrands control.
+        /// rptToyMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterBrands;
+        protected global::System.Web.UI.WebControls.Repeater rptToyMenu;
         
         /// <summary>
-        /// RepeaterAge control.
+        /// rptAgeMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterAge;
+        protected global::System.Web.UI.WebControls.Repeater rptAgeMenu;
         
         /// <summary>
-        /// RepeaterGender control.
+        /// rptGenderMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterGender;
+        protected global::System.Web.UI.WebControls.Repeater rptGenderMenu;
         
         /// <summary>
-        /// rptAccessoryMenu control.
+        /// rptLearningToolMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptAccessoryMenu;
+        protected global::System.Web.UI.WebControls.Repeater rptLearningToolMenu;
+        
+        /// <summary>
+        /// rptBookMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptBookMenu;
         
         /// <summary>
         /// main control.
@@ -137,5 +146,23 @@ namespace MiBo.pages.common {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder main;
+        
+        /// <summary>
+        /// litHotline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHotline;
+        
+        /// <summary>
+        /// litEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litEmail;
     }
 }

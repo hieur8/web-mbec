@@ -85,10 +85,11 @@ namespace MiBo.Domain.Logic.Client.Index
             foreach (var obj in resultObject.ListNewItems)
             {
                 newItem = new OutputItemModel();
-
                 newItem.ItemCd = DataHelper.ToString(obj.ItemCd);
                 newItem.ItemName = DataHelper.ToString(obj.ItemName);
                 newItem.ItemImage = DataHelper.ToString(obj.ItemImage);
+                newItem.BrandCd = DataHelper.ToString(obj.BrandCd);
+                newItem.BrandName = DataHelper.ToString(obj.Brand.BrandName);
                 newItem.ItemDiv = DataHelper.ToString(obj.ItemDiv);
                 newItem.OfferDiv = DataHelper.ToString(obj.OfferDiv);
                 newItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
@@ -105,6 +106,8 @@ namespace MiBo.Domain.Logic.Client.Index
                 hotItem.ItemCd = DataHelper.ToString(obj.ItemCd);
                 hotItem.ItemName = DataHelper.ToString(obj.ItemName);
                 hotItem.ItemImage = DataHelper.ToString(obj.ItemImage);
+                hotItem.BrandCd = DataHelper.ToString(obj.BrandCd);
+                hotItem.BrandName = DataHelper.ToString(obj.Brand.BrandName);
                 hotItem.ItemDiv = DataHelper.ToString(obj.ItemDiv);
                 hotItem.OfferDiv = DataHelper.ToString(obj.OfferDiv);
                 hotItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
@@ -121,6 +124,8 @@ namespace MiBo.Domain.Logic.Client.Index
                 offerItem.ItemCd = DataHelper.ToString(obj.ItemCd);
                 offerItem.ItemName = DataHelper.ToString(obj.ItemName);
                 offerItem.ItemImage = DataHelper.ToString(obj.ItemImage);
+                offerItem.BrandCd = DataHelper.ToString(obj.BrandCd);
+                offerItem.BrandName = DataHelper.ToString(obj.Brand.BrandName);
                 offerItem.ItemDiv = DataHelper.ToString(obj.ItemDiv);
                 offerItem.OfferDiv = DataHelper.ToString(obj.OfferDiv);
                 offerItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
@@ -191,18 +196,12 @@ namespace MiBo.Domain.Logic.Client.Index
             var listNewItems = clientIndexDao.GetListNewItems();
             var listHotItems = clientIndexDao.GetListHotItems();
             var listOfferItems = clientIndexDao.GetListOfferItems();
-            var strChatYahoo = mParameterCom.GetString(Logics.PR_CHAT_YAHOO, false);
-            var strChatSkype = mParameterCom.GetString(Logics.PR_CHAT_SKYPE, false);
-            //var strHotline = companyInfoCom.GetName(Logics.INFO_HOTLINE, false);
 
             // Set value
             getResult.ListBanners = listBanners;
             getResult.ListNewItems = itemCom.ToListItemModel(listNewItems);
             getResult.ListHotItems = itemCom.ToListItemModel(listHotItems);
             getResult.ListOfferItems = itemCom.ToListItemModel(listOfferItems);
-            getResult.StrChatYahoo = strChatYahoo;
-            getResult.StrChatSkype = strChatSkype;
-            //getResult.StrHotline = strHotline;
 
             // Return value
             return getResult;

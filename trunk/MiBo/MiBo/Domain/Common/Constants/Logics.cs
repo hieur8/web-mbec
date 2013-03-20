@@ -28,13 +28,16 @@
         public const string URL_IMAGE_LARGER = "larger\\";
 
         // Description for master parameter
-        public const string PR_DISCOUNT_MEMBER = "01";
-        public const string PR_EMAIL_INFO = "02";
-        public const string PR_EMAIL_INFO_PASS = "03";
-        public const string PR_EMAIL_SALE = "04";
-        public const string PR_EMAIL_SALE_PASS = "05";
-        public const string PR_CHAT_YAHOO = "06";
-        public const string PR_CHAT_SKYPE = "07";
+        public const string PR_DISCOUNT_MEMBER = "001";
+        public const string PR_EMAIL_INFO = "002";
+        public const string PR_EMAIL_INFO_PASS = "003";
+        public const string PR_EMAIL_SALE = "004";
+        public const string PR_EMAIL_SALE_PASS = "005";
+        public const string PR_HOTLINE = "006";
+        public const string PR_ADDRESS = "007";
+        public const string PR_EMAIL_SUPPORT = "008";
+        public const string PR_CHAT_SKYPE = "009";
+        public const string PR_CHAT_YAHOO = "010";
 
         // Description for group code
         public const string GROUP_SKIP_CODE = "sys-skip-code";
@@ -51,7 +54,8 @@
         public const string CD_OFFER_DIV_ITEM = "02";
         public const string CD_PRICE_DIV_MORE = "03";
         public const string CD_CATEGORY_DIV_TOYS = "01";
-        public const string CD_CATEGORY_DIV_ACCESSORIES = "02";
+        public const string CD_CATEGORY_DIV_LEARNING_TOOLS = "02";
+        public const string CD_CATEGORY_DIV_BOOKS = "03";
 
         // Description for business code
         public const string CD_BUSINESS_ACCEPT = "01";

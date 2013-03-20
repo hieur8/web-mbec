@@ -103,10 +103,13 @@
     <value>{0:C0}</value>
   </data>
   <data name="NUMBER" xml:space="preserve">
-    <value>{0:#,#.#}</value>
+    <value>{0:N0}</value>
   </data>
   <data name="PERCENT" xml:space="preserve">
-    <value>{0:#,#.#}%</value>
+    <value>{0:N0}%</value>
+  </data>
+  <data name="REAL_NUMBER" xml:space="preserve">
+    <value>{0:N}</value>
   </data>
   <data name="FULL_DATE" xml:space="preserve">
     <value>{0:dd MMMM yyyy}</value>

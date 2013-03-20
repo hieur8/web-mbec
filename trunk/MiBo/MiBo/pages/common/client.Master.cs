@@ -10,35 +10,30 @@ namespace MiBo.pages.common
 {
     public partial class client : BaseMasterPage
     {
+        public const string YAHOO_ONLINE = "http://opi.yahoo.com/online?u={0}&t=2";
+        public const string YAHOO_LINK = "ymsgr:sendim?{0}";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
             if (HasError) return;
-            
-            rptAccessoryMenu.DataSource = response.ListAccessories;
-            rptAccessoryMenu.DataBind();
-            RepeaterBrands.DataSource = response.ListBrands;
-            RepeaterBrands.DataBind();
-            RepeaterAge.DataSource = response.ListAges;
-            RepeaterAge.DataBind();
-            RepeaterGender.DataSource = response.ListGenders;
-            RepeaterGender.DataBind();
-            RepeaterToy.DataSource = response.ListToys;
-            RepeaterToy.DataBind();
-                   
-                
 
-                
-            if (response.CartCount.Equals(""))
-            {
-                lblCartCount.Text = "0";
-            }
-            else
-            {
-                lblCartCount.Text = response.CartCount;
-            }
-
+            lblCartCount.Text = response.CartCount;
+            litHotline.Text = response.Hotline;
+            litEmail.Text = response.Email;
+            rptToyMenu.DataSource = response.ListToys;
+            rptToyMenu.DataBind();
+            rptBrandMenu.DataSource = response.ListBrands;
+            rptBrandMenu.DataBind();
+            rptAgeMenu.DataSource = response.ListAges;
+            rptAgeMenu.DataBind();
+            rptGenderMenu.DataSource = response.ListGenders;
+            rptGenderMenu.DataBind();
+            rptLearningToolMenu.DataSource = response.ListLearningTools;
+            rptLearningToolMenu.DataBind();
+            rptBookMenu.DataSource = response.ListBooks;
+            rptBookMenu.DataBind();
             
             var initLogic = new MiBo.Domain.Logic.Client.ShoppingCart.InitOperateLogic();
             var responseModel2 = Invoke(initLogic, InitRequestModel2);

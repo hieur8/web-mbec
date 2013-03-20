@@ -188,20 +188,6 @@
       <Association Name="City_District" Member="Districts" ThisKey="CityCd" OtherKey="CityCd" Type="District" />
     </Type>
   </Table>
-  <Table Name="dbo.CompanyInfos" Member="CompanyInfos">
-    <Type Name="CompanyInfo">
-      <Column Name="InfoCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="InfoName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="InfoValue" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Countries" Member="Countries">
     <Type Name="Country">
       <Column Name="CountryCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

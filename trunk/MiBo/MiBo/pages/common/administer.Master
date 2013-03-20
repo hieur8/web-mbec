@@ -64,7 +64,7 @@
                     <a href="#">MiBo</a></h1>
                 <!-- Logo (221px wide) -->
                 <a href="#">
-                    <img id="logo" src="/pages/resources/images/logo.gif" alt="MiBo logo" /></a>
+                    <img id="logo" src="/pages/resources/images/logo.png" alt="MiBo logo" /></a>
                 <!-- Sidebar Profile links -->
                 <div id="profile-links">
                     <a id="lnkChangePassword" href="/pages/administer/user-change-password.aspx">Đổi mật khẩu</a>
@@ -80,7 +80,6 @@
                     <li><a id="mnuAccepts" href="#" class="nav-top-item">Quản lý đơn hàng</a>
                         <ul>
                             <li><a id="lnkAccepts" href="/pages/administer/accept-list.aspx">Danh sách đơn hàng</a></li>
-                            <li><a id="lnkAcceptEntry" href="/pages/administer/accept-entry.aspx">Cập nhật đơn hàng</a></li>
                         </ul>
                     </li>
                     <li><a id="mnuItems" href="#" class="nav-top-item">Quản lý sản phẩm</a>
@@ -92,6 +91,7 @@
                     <li><a id="mnuSystems" href="#" class="nav-top-item">Quản lý hệ thống</a>
                         <ul>
                             <li><a id="lnkParmas" href="/pages/administer/param-list.aspx">Tham số hệ thống</a></li>
+
                         </ul>
                     </li>
                 </ul>

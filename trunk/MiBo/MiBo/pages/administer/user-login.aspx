@@ -45,7 +45,7 @@
             <h1>
                 MiBo Admin</h1>
             <!-- Logo (221px width) -->
-            <img id="logo" src="/pages/resources/images/Logo.gif" alt="MiBo Admin logo" />
+            <img id="logo" src="/pages/resources/images/Logo.png" alt="MiBo Admin logo" />
         </div>
         <!-- End #logn-top -->
         <div id="login-content">
