@@ -26,7 +26,6 @@
     <!-- Validate client -->
     <script type="text/javascript" src="/pages/resources/scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/pages/resources/scripts/messages_vi.js"></script>
-    
     <!-- MyScript -->
     <script type="text/javascript">
     </script>
@@ -36,269 +35,255 @@
 <body>
     <form id="frmMain" runat="server">
     <div class="wrapper">
-        <div class="shadow-show">
-            <div class="page">
-                <div class="header-container">
-                    <div class="header">
-                        <%
-                            if (Session["userCd"] == null)
-                            {
-                        %>
-                        <div class="welcomemsg-tplinks">
-                            <p class="welcome-msg">
-                                Xin chào quý khách !</p>
-                            <ul class="links">
-                                <li><a href="/register.aspx" title="Đăng ký" class="top-link-checkout">Đăng ký</a></li>
-                                <li class=" last"><a href="/login.aspx" title="Đăng nhập">Đăng nhập</a></li>
-                            </ul>
-                        </div>
-                        <%
-                            }
-                            else
-                            {
-                        %>
-                        <div class="welcomemsg-tplinks">
-                            <p class="welcome-msg">
-                                Xin chào <b>
-                                    <%=Session["userName"].ToString()%>
-                                    !</b></p>
-                            <ul class="links">
-                                <li class="first"><a href="/profile.aspx" title="Xem tài khoản của tôi">Tài khoản của
-                                    tôi</a></li>
-                                <li><a href="/order-history.aspx" title="Xem lịch sử đơn hàng" class="top-link-wishlist">
-                                    Lịch sử đơn hàng</a></li>
-                                <li><a href="/profile-edit.aspx?edit=pass" title="Thay đổi mật khẩu" class="top-link-checkout">
-                                    Thay đổi mật khẩu</a></li>
-                                <li class=" last"><a href="/logout.aspx" title="Đăng xuất">Đăng xuất</a></li>
-                            </ul>
-                        </div>
-                        <% } %>
-                        <h1 class="logo">
-                            <a href="/index.aspx" title="Mibo" class="logo">
-                                <img src="/pages/resources/images/logo.png" alt="Mibo.vn"></a></h1>
-                        <div style="padding-top: 40px" class="quick-access">
-                            <div class="search-checkout-container">
-                                <div style="margin-right: 20px" class="form-search">
-                                    <asp:TextBox id="search" type="text" name="q" placeholder="Tìm kiếm..." CssClass="input-text"
-                                        autocomplete="off" runat="server"></asp:TextBox>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">
+        <div class="page">
+            <div class="header-container">
+                <div class="header">
+                    <nav id="toptren">
+                    <%
+                        if (Session["userCd"] == null)
+                        {
+                    %>
+        <ul class="account_links">
+        	
+                <li class="log_in not_logged"><a href="/login.aspx">Đăng nhập</a></li>
+                <li><a href="/register.aspx">Đăng ký</a></li>
+        </ul>
+        <% }
+                        else
+                        { %>
+                    <ul class="account_links">
+                <li class="log_in not_logged"><a href="#">Xin chào <b>
+                                <%=Session["userName"].ToString()%>
+                                !</b></a></li>
+                <li><a href="/profile.aspx">Tài khoản của tôi</a></li>
+        	<li><a href="/order-history.aspx">Lịch sử đơn hàng</a></li>
+        	<li><a href="/logout.aspx">Thoát</a></li>
+        </ul>
+                    <% } %>
+    </nav>
+                    <h1 class="logo">
+                        <a href="/index.aspx" title="Mibo" class="logo">
+                            <img src="/pages/resources/images/logo.png" alt="Mibo.vn"></a></h1>
+                    <div style="padding-top: 40px" class="quick-access">
+                        <div class="search-checkout-container">
+                            <div style="margin-right: 20px" class="form-search">
+                                <asp:TextBox ID="search" type="text" name="q" placeholder="Tìm kiếm..." CssClass="input-text"
+                                    autocomplete="off" runat="server"></asp:TextBox>
+                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">
                                     <img src="/pages/resources/images/btn-search.png" /></asp:LinkButton>
-                                    <div id="search_autocomplete" class="search-autocomplete" style="display: none;">
-                                    </div>
+                                <div id="search_autocomplete" class="search-autocomplete" style="display: none;">
                                 </div>
-                                <div class="drop-cart" style="position: relative; z-index: 9999">
-                                    <ul id="cart-menu" style="z-index: 998; position: relative">
-                                        <li style="z-index: 9999"><a id="nav-cart" style="cursor: pointer;" onclick="linkcheckout(2);">
-                                            <span class="cart-icon-menu"></span><span id="nav-cart-count" class="nav-cart-0">
-                                                <asp:Literal ID="lblCartCount" runat="server"></asp:Literal></span>Giỏ hàng</a>
-                                            <div style="z-index: 101" class="dropdown_1column-cart align_right">
-                                                <div class="col-cart1" style="z-index: 9999" id="cards_store">
-                                                    <asp:Repeater ID="rptCartItem" runat="server">
-                                                        <ItemTemplate>
-                                                            <div class="wrapper2" style="z-index: 999" id="cart_50502">
-                                                                <asp:LinkButton OnCommand="lnkDelete_Command" CommandArgument='<%# Eval("ItemCd") %>'
-                                                                    ID="lnkDelete" runat="server" CssClass="img-cart-delete"><span style="margin-left: 0;
+                            </div>
+                            <div class="drop-cart" style="position: relative; z-index: 9999">
+                                <ul id="cart-menu" style="z-index: 998; position: relative">
+                                    <li style="z-index: 9999"><a id="nav-cart" style="cursor: pointer;" href="/shopping-cart.aspx">
+                                        <span class="cart-icon-menu"></span><span id="nav-cart-count" class="nav-cart-0">
+                                            <asp:Literal ID="lblCartCount" runat="server"></asp:Literal></span>Giỏ hàng</a>
+                                        <div style="z-index: 101" class="dropdown_1column-cart align_right">
+                                            <div class="col-cart1" style="z-index: 9999" id="cards_store">
+                                                <asp:Repeater ID="rptCartItem" runat="server">
+                                                    <ItemTemplate>
+                                                        <div class="wrapper2" style="z-index: 999" id="cart_50502">
+                                                            <asp:LinkButton OnCommand="lnkDelete_Command" CommandArgument='<%# Eval("ItemCd") %>'
+                                                                ID="lnkDelete" runat="server" CssClass="img-cart-delete"><span style="margin-left: 0;
                                                                     margin-right: 0; float: left;" class="ui-icon-16x16 ui-delete"></span></asp:LinkButton>
-                                                                <span class="count-cart-s color-red">x<%# Eval("Quantity") %></span><a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>"
-                                                                    style="color: #000"><img src="/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>"
-                                                                        class="img-cart-byer" width="52" height="52"></a><p>
-                                                                            <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" id="itemcart" class="itemcart">
-                                                                                <%# Eval("ItemName")%></a><span class="color-red"><%# Eval("Price") %></span></p>
-                                                            </div>
-                                                        </ItemTemplate>
-                                                    </asp:Repeater>
-                                                    <div class="c1-border">
+                                                            <span class="count-cart-s color-red">x<%# Eval("Quantity") %></span><a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>"
+                                                                style="color: #000"><img src="/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>"
+                                                                    class="img-cart-byer" width="52" height="52"></a><p>
+                                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" id="itemcart" class="itemcart">
+                                                                            <%# Eval("ItemName")%></a><span class="color-red"><%# Eval("Price") %></span></p>
+                                                        </div>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                                <div class="c1-border">
+                                                </div>
+                                                <div class="wrapper2" style="text-align: right;">
+                                                    <div style="border-bottom: 1px solid #eee;">
+                                                        Tổng đơn hàng:
+                                                        <div style="width: 95px; float: right; font-weight: bold;" class="color-red">
+                                                            <asp:Literal ID="LiteralAmount" runat="server"></asp:Literal></div>
                                                     </div>
-                                                    <div class="wrapper2" style="text-align: right;">
-                                                        <div style="border-bottom: 1px solid #eee;">
-                                                            Tổng đơn hàng:
-                                                            <div style="width: 95px; float: right; font-weight: bold;" class="color-red">
-                                                                <asp:Literal ID="LiteralAmount" runat="server"></asp:Literal></div>
-                                                        </div>
-                                                        <div style="float: right;">
-                                                            <p class="btn-small btn-right" style="margin-top: 21px;">
-                                                                <asp:LinkButton ID="HyperLinkTT"  runat="server" onclick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
-                                                                </p>
-                                                        </div>
+                                                    <div style="float: right;">
+                                                        <p class="btn-small btn-right" style="margin-top: 21px;">
+                                                            <asp:LinkButton ID="HyperLinkTT" runat="server" OnClick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ket thuc header -->
-                <div class="nav-container">
-                    <div class="light-blue">
-                        <ul id="mega-menu" class="mega-menu">
-                            <li><a href="/index.aspx">
-                                <img style="border: 0px;" height="15px" src="/pages/resources/images/home-icon.png" /></a></li>
-                            <li class="dc-mega-li"><a href="#" class="dc-mega">Đồ chơi<span class="dc-mega-icon"></span></a>
-                                <div class="sub-container mega" style="left: 0px; top: 40px; z-index: 1000;">
-                                    <ul class="sub" style="display: none;">
-                                        <div class="row" style="width: 540px;">
-                                            <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Đồ chơi trẻ em</a>
-                                                
-                                                <ul style="text-align: left">
-                                                    <asp:Repeater ID="RepeaterToy" runat="server">
-                                                        <ItemTemplate>
-                                                            <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
-                                                                <%# Eval("CategoryName")%></a></li>
-                                                        </ItemTemplate>
-                                                    </asp:Repeater>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Thương hiệu</a>
-                                                <ul style="text-align: left">
-                                                    <asp:Repeater ID="RepeaterBrands" runat="server">
-                                                        <ItemTemplate>
-                                                            <li><a href='/items.aspx?brand=<%# Eval("BrandCd") %>'>
-                                                                <%# Eval("BrandName") %></a></li>
-                                                        </ItemTemplate>
-                                                    </asp:Repeater>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-unit mega-hdr last" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Độ tuổi</a>
-                                                <ul style="text-align: left">
-                                                    <asp:Repeater ID="RepeaterAge" runat="server">
-                                                        <ItemTemplate>
-                                                            <li><a href='/items.aspx?age=<%# Eval("AgeCd") %>'>
-                                                                <%# Eval("AgeName") %></a></li>
-                                                        </ItemTemplate>
-                                                    </asp:Repeater>
-                                                </ul>
-                                            </li>
                                         </div>
-                                        <div class="row" style="width: 540px;">
-                                            <li class="mega-unit mega-hdr" style="height: 137px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Giới tính</a>
-                                                <ul style="text-align: left">
-                                                    <asp:Repeater ID="RepeaterGender" runat="server">
-                                                        <ItemTemplate>
-                                                            <li><a href='/items.aspx?gender=<%# Eval("GenderCd") %>'>
-                                                                <%# Eval("GenderName")%></a></li>
-                                                        </ItemTemplate>
-                                                    </asp:Repeater>
-                                                </ul>
-                                                
-                                            </li>
-                                        </div>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#">Phụ Kiện</a>
-                                <asp:Repeater ID="rptAccessoryMenu" runat="server">
-                                    <HeaderTemplate>
-                                        <ul>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
-                                            <%# Eval("CategoryName") %></a></li>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </ul>
-                                    </FooterTemplate>
-                                </asp:Repeater>
-                            </li>
-                            <li><a href="#">Giới Thiệu</a></li>
-                            <li><a href="#">Liên Hệ</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- ket thuc menu -->
-                <div>
-                    <asp:ContentPlaceHolder ID="main" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
-                <div style="width: 100%; height: 7px; background: url(/pages/resources/images/footer-top-shadow-bg.gif) repeat-x;">
-                </div>
-                <div class="footer-container">
-                    <div class="footer">
-                        <div class="first-block">
-                            <div class="top-text">
-                                Hỗ trợ</div>
-                            <div class="content-text">
-                                <ul class="firstcol">
-                                    <li class="staticlinks"><a href="#">Liên hệ</a></li>
-                                    <li class="staticlinks"><a href="#certification">FAQ</a></li>
-                                    <li class="staticlinks"><a href="#">Chính sách mua hàng</a></li>
+                                    </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="second-block">
-                            <div class="top-text">
-                                Mua sắm an toàn</div>
-                            <div class="content-text">
-                                <ul class="firstcol">
-                                    <li class="staticlinks"><a href="#">Hướng dẫn đặt hàng</a></li>
-                                    <li class="staticlinks"><a href="#">Hướng dẫn thanh toán</a></li>
-                                    <li class="staticlinks"><a href="#">Chính sách bảo mật</a></li>
-                                    <li class="staticlinks"><a href="#">Điều khoản sử dụng</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="third-block">
-                            <div class="top-text">
-                                Tài khoản của bạn</div>
-                            <div class="content-text">
-                                <ul class="firstcol">
-                                    <li class="staticlinks"><a href="#free-fedx-shipping">Xem trạng thái đơn hàng</a></li>
-                                    <li class="staticlinks"><a href="#free-gift-packaging">Lịch sử đơn hàng</a></li>
-                                    <li class="staticlinks"><a href="#30-days-returns">Quên mật khẩu</a></li>
-                                    <li class="staticlinks"><a href="#financing-insurance">Thông tin tài khoản</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="fourth-block">
-                            <div class="top-text">
-                                Về MIBO.VN</div>
-                            <div class="content-text">
-                                <ul class="firstcol">
-                                    <li class="staticlinks"><a href="#24-hours-products ">Giới thiệu mibo.vn</a></li>
-                                    <li class="staticlinks"><a href="#gift-vouchers">Tuyển Dụng </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="right-footer-container">
-                            <div class="payment-methods">
-                                <div class="first-tag">
-                                    <div class="top-tag">
-                                        <div class="maincon">
-                                            <span class="inner-arrow">Hỗ trợ</span></div>
-                                        <div class="rightarrow">
-                                            &nbsp;</div>
-                                    </div>
-                                    <div class="image-container-footer">
-                                        <br />
-                                        <br />
-                                        <ul>
-                                            <li style="padding-left: 30px">Hotline: <strong>0976.585.888</strong></li>
-                                            <li style="padding-left: 30px">Email : <strong>support@mibo.vn</strong></li>
-                                            <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
-                                                <img src="http://opi.yahoo.com/online?u=hieur8&t=2"></a> </li>
-                                            <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
-                                                <img src="http://opi.yahoo.com/online?u=chauthai1983&t=2"></a> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="news-letter-footer">
-                                &nbsp;</div>
                         </div>
                     </div>
-                </div>
-                <div style="width: 100%; background-color: #f2f2f2; height: 40px">
-                    <center style="padding: 10px">
-                        Copyright © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong.
-                    </center>
                 </div>
             </div>
+            <!-- ket thuc header -->
+            <div class="nav-container">
+                <div class="light-blue">
+                    <ul id="mega-menu" class="mega-menu">
+                        <li><a href="/index.aspx">
+                            <img style="border: 0px;" height="15px" src="/pages/resources/images/home-icon.png" /></a></li>
+                        <li class="dc-mega-li"><a href="#" class="dc-mega">Đồ chơi<span class="dc-mega-icon"></span></a>
+                            <div class="sub-container mega" style="left: 0px; top: 40px; z-index: 1000;">
+                                <ul class="sub" style="display: none;">
+                                    <div class="row" style="width: 540px;">
+                                        <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
+                                            style="height: 16px;">Đồ chơi trẻ em</a>
+                                            <ul style="text-align: left">
+                                                <asp:Repeater ID="RepeaterToy" runat="server">
+                                                    <ItemTemplate>
+                                                        <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
+                                                            <%# Eval("CategoryName")%></a></li>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
+                                            style="height: 16px;">Thương hiệu</a>
+                                            <ul style="text-align: left">
+                                                <asp:Repeater ID="RepeaterBrands" runat="server">
+                                                    <ItemTemplate>
+                                                        <li><a href='/items.aspx?brand=<%# Eval("BrandCd") %>'>
+                                                            <%# Eval("BrandName") %></a></li>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-unit mega-hdr last" style="height: 201px;"><a href="#" class="mega-hdr-a"
+                                            style="height: 16px;">Độ tuổi</a>
+                                            <ul style="text-align: left">
+                                                <asp:Repeater ID="RepeaterAge" runat="server">
+                                                    <ItemTemplate>
+                                                        <li><a href='/items.aspx?age=<%# Eval("AgeCd") %>'>
+                                                            <%# Eval("AgeName") %></a></li>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </ul>
+                                        </li>
+                                    </div>
+                                    <div class="row" style="width: 540px;">
+                                        <li class="mega-unit mega-hdr" style="height: 137px;"><a href="#" class="mega-hdr-a"
+                                            style="height: 16px;">Giới tính</a>
+                                            <ul style="text-align: left">
+                                                <asp:Repeater ID="RepeaterGender" runat="server">
+                                                    <ItemTemplate>
+                                                        <li><a href='/items.aspx?gender=<%# Eval("GenderCd") %>'>
+                                                            <%# Eval("GenderName")%></a></li>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </ul>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Phụ Kiện</a>
+                            <asp:Repeater ID="rptAccessoryMenu" runat="server">
+                                <HeaderTemplate>
+                                    <ul>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
+                                        <%# Eval("CategoryName") %></a></li>
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                    </ul>
+                                </FooterTemplate>
+                            </asp:Repeater>
+                        </li>
+                        <li><a href="#">Giới Thiệu</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ket thuc menu -->
+            <div>
+                <asp:ContentPlaceHolder ID="main" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <div class="footer-container">
+        <div class="footer">
+            <div class="first-block">
+                <div class="top-text">
+                    Hỗ trợ</div>
+                <div class="content-text">
+                    <ul class="firstcol">
+                        <li class="staticlinks"><a href="#">Liên hệ</a></li>
+                        <li class="staticlinks"><a href="#certification">FAQ</a></li>
+                        <li class="staticlinks"><a href="#">Chính sách mua hàng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="second-block">
+                <div class="top-text">
+                    Mua sắm an toàn</div>
+                <div class="content-text">
+                    <ul class="firstcol">
+                        <li class="staticlinks"><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li class="staticlinks"><a href="#">Hướng dẫn thanh toán</a></li>
+                        <li class="staticlinks"><a href="#">Chính sách bảo mật</a></li>
+                        <li class="staticlinks"><a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="third-block">
+                <div class="top-text">
+                    Tài khoản của bạn</div>
+                <div class="content-text">
+                    <ul class="firstcol">
+                        <li class="staticlinks"><a href="#free-fedx-shipping">Xem trạng thái đơn hàng</a></li>
+                        <li class="staticlinks"><a href="#free-gift-packaging">Lịch sử đơn hàng</a></li>
+                        <li class="staticlinks"><a href="#30-days-returns">Quên mật khẩu</a></li>
+                        <li class="staticlinks"><a href="#financing-insurance">Thông tin tài khoản</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fourth-block">
+                <div class="top-text">
+                    Về MIBO.VN</div>
+                <div class="content-text">
+                    <ul class="firstcol">
+                        <li class="staticlinks"><a href="#24-hours-products ">Giới thiệu mibo.vn</a></li>
+                        <li class="staticlinks"><a href="#gift-vouchers">Tuyển Dụng </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-footer-container">
+                <div class="payment-methods">
+                    <div class="first-tag">
+                        <div class="top-tag">
+                            <div class="maincon">
+                                <span class="inner-arrow">Hỗ trợ</span></div>
+                            <div class="rightarrow">
+                                &nbsp;</div>
+                        </div>
+                        <div class="image-container-footer">
+                            <br />
+                            <br />
+                            <ul>
+                                <li style="padding-left: 30px">Hotline: <strong>0976.585.888</strong></li>
+                                <li style="padding-left: 30px">Email : <strong>support@mibo.vn</strong></li>
+                                <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
+                                    <img src="http://opi.yahoo.com/online?u=hieur8&t=2"></a> </li>
+                                <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
+                                    <img src="http://opi.yahoo.com/online?u=chauthai1983&t=2"></a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-letter-footer">
+                    &nbsp;</div>
+            </div>
+        </div>
+        <div style="width: 100%; height: 7px; background: url(/pages/resources/images/footer-top-shadow-bg.gif) repeat-x;">
+        </div>
+        <div style="width: 100%; background-color: #f2f2f2; height: 40px">
+            <center style="padding: 10px">
+                Copyright © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong.
+            </center>
         </div>
     </div>
     </form>

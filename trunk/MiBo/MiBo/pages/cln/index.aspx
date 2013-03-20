@@ -9,7 +9,7 @@
         jQuery(document).ready(function ($) {
             $(".slider").slideshow({
                 width: 765,
-                height: 300,
+                height: 400,
                 transition: 'bar'
             });
         }); 
@@ -37,14 +37,15 @@
     </script>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
-    <div id="fb-root"></div>
-<script>    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1";
-        fjs.parentNode.insertBefore(js, fjs);
-    } (document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root">
+    </div>
+    <script>        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));</script>
     <div class="main-container">
         <div class="main">
             <div class="std">
@@ -64,11 +65,18 @@
                                 </FooterTemplate>
                             </asp:Repeater>
                         </div>
-                        
                         <div class="perfume1">
-                            <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="215" data-height="300" data-show-faces="true" data-stream="false" data-header="true"></div>
+                            <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="215"
+                                data-height="318" data-show-faces="true" data-stream="false" data-header="true">
+                            </div>
                         </div>
-                        
+                        <div class="perfume1">
+                            <div class="top-text-cs">
+                                Theo dõi đơn hàng</div>
+                            <div class="phno">
+                                <asp:TextBox placeholder="Mã đơn hàng..." ID="txtViewId" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Xem" /></div>
+                            <br />
+                        </div>
                         <!-- ket thuc silde -->
                         <div class="tab-display">
                             <ul class="tabs">
