@@ -18,7 +18,7 @@ namespace MiBo.pages.common
             
             rptAccessoryMenu.DataSource = response.ListAccessories;
             rptAccessoryMenu.DataBind();
-            RepeaterBrands.DataSource = response.ListAccessories;
+            RepeaterBrands.DataSource = response.ListBrands;
             RepeaterBrands.DataBind();
             RepeaterAge.DataSource = response.ListAges;
             RepeaterAge.DataBind();

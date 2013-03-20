@@ -85,15 +85,6 @@ namespace MiBo.pages.common {
         protected global::System.Web.UI.WebControls.LinkButton HyperLinkTT;
         
         /// <summary>
-        /// RepeaterBrands control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterBrands;
-        
-        /// <summary>
         /// RepeaterToy control.
         /// </summary>
         /// <remarks>
@@ -101,6 +92,15 @@ namespace MiBo.pages.common {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RepeaterToy;
+        
+        /// <summary>
+        /// RepeaterBrands control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterBrands;
         
         /// <summary>
         /// RepeaterAge control.

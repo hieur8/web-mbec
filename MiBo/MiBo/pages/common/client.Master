@@ -141,18 +141,8 @@
                                     <ul class="sub" style="display: none;">
                                         <div class="row" style="width: 540px;">
                                             <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
-                                                style="height: 16px;">Thương hiệu</a>
-                                                <ul style="text-align: left">
-                                                    <asp:Repeater ID="RepeaterBrands" runat="server">
-                                                        <ItemTemplate>
-                                                            <li><a href='/items.aspx?category=<%# Eval("CategoryCd") %>'>
-                                                                <%# Eval("CategoryName") %></a></li>
-                                                        </ItemTemplate>
-                                                    </asp:Repeater>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
                                                 style="height: 16px;">Đồ chơi trẻ em</a>
+                                                
                                                 <ul style="text-align: left">
                                                     <asp:Repeater ID="RepeaterToy" runat="server">
                                                         <ItemTemplate>
@@ -162,12 +152,23 @@
                                                     </asp:Repeater>
                                                 </ul>
                                             </li>
+                                            <li class="mega-unit mega-hdr" style="height: 201px;"><a href="#" class="mega-hdr-a"
+                                                style="height: 16px;">Thương hiệu</a>
+                                                <ul style="text-align: left">
+                                                    <asp:Repeater ID="RepeaterBrands" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='/items.aspx?brand=<%# Eval("BrandCd") %>'>
+                                                                <%# Eval("BrandName") %></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </ul>
+                                            </li>
                                             <li class="mega-unit mega-hdr last" style="height: 201px;"><a href="#" class="mega-hdr-a"
                                                 style="height: 16px;">Độ tuổi</a>
                                                 <ul style="text-align: left">
                                                     <asp:Repeater ID="RepeaterAge" runat="server">
                                                         <ItemTemplate>
-                                                            <li><a href='/items.aspx?category=<%# Eval("AgeCd") %>'>
+                                                            <li><a href='/items.aspx?age=<%# Eval("AgeCd") %>'>
                                                                 <%# Eval("AgeName") %></a></li>
                                                         </ItemTemplate>
                                                     </asp:Repeater>
@@ -180,7 +181,7 @@
                                                 <ul style="text-align: left">
                                                     <asp:Repeater ID="RepeaterGender" runat="server">
                                                         <ItemTemplate>
-                                                            <li><a href='/items.aspx?category=<%# Eval("GenderCd") %>'>
+                                                            <li><a href='/items.aspx?gender=<%# Eval("GenderCd") %>'>
                                                                 <%# Eval("GenderName")%></a></li>
                                                         </ItemTemplate>
                                                     </asp:Repeater>
