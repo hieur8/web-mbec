@@ -81,16 +81,10 @@ namespace MiBo.Domain.Logic.Client.Checkout
             // Execute convert input.
             inputObject = Convert(request);
 
-            ClientCheckoutDao checkoutDao = new ClientCheckoutDao();
-            try
-            {
+                ClientCheckoutDao checkoutDao = new ClientCheckoutDao();
                 checkoutDao.makeCheckout(inputObject.Accept, inputObject.Cart);
                 responseModel.StatusFlag = true;
-            }   
-            catch (Exception)
-            {
-                responseModel.StatusFlag = false;
-            }
+           
 
             // Execute convert ouput.
             responseModel = Convert(resultObject);

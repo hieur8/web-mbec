@@ -17,32 +17,41 @@ namespace MiBo.pages.cln
         public User result = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserComDao userCom = new UserComDao();
-            if (Session["Cart"] == null || Session["payMethod"] == null)
+
+            if (IsPostBack)
             {
-                Response.Redirect(Pages.CLIENT_INDEX);
+                return;
             }
-            if (Session["payMethod"].ToString().Equals("1"))
+            else
             {
-                if (Session["userCd"] == null)
+                UserComDao userCom = new UserComDao();
+                if (Session["Cart"] == null || Session["payMethod"] == null)
                 {
-                    Response.Redirect(Pages.CLIENT_LOGIN);
+                    Response.Redirect(Pages.CLIENT_INDEX);
                 }
-                Guid userCd = new Guid(Session["userCd"].ToString());
-                
-                result = userCom.GetSingle(userCd, false);
-                if (result == null)
+                if (Session["payMethod"].ToString().Equals("1"))
                 {
-                    Response.Redirect(Pages.CLIENT_LOGIN);
-                }
-                else
-                {
-                    clientName.Text = result.FullName;
-                    clientAddress.Text = result.Address;
-                    clientTell.Text = result.Phone1;
-                }
+                    if (Session["userCd"] == null)
+                    {
+                        Response.Redirect(Pages.CLIENT_LOGIN);
+                    }
+                    Guid userCd = new Guid(Session["userCd"].ToString());
+
+                    result = userCom.GetSingle(userCd, false);
+                    if (result == null)
+                    {
+                        Response.Redirect(Pages.CLIENT_LOGIN);
+                    }
+                    else
+                    {
+                        clientName.Text = result.FullName;
+                        clientAddress.Text = result.Address;
+                        clientTell.Text = result.Phone1;
+                        txtClientCd.Value = result.Email;
+                    }
 
 
+                }
             }
            
         
@@ -71,11 +80,11 @@ namespace MiBo.pages.cln
                 if (Session["payMethod"].ToString().Equals("1"))
                 {
 
-                    accept.ClientCd = result.Email;
+                    accept.ClientCd = txtClientCd.Value.ToString();
                 }
                 else
                 {
-                    accept.ClientCd = "77620f22-b900-4fbb-b0d8-a5d161d3f143";
+                    accept.ClientCd = "no-login@mibo.vn";
                 }
                 accept.AcceptDate = DateTime.Now;
                 accept.ClientName = clientName.Text.Trim();
@@ -86,6 +95,9 @@ namespace MiBo.pages.cln
                 {
                     accept.WishDeliveryDate = DateTime.Parse(deliveryDate.Text.Trim());
                 }
+                accept.DeliveryName = deliveryName.Text;
+                accept.DeliveryAddress = deliveryAddress.Text;
+                accept.DeliveryTel = deliveryTell.Text;
                 accept.Notes = note.Text.ToString();
                 accept.CreateUser = accept.ClientCd;
                 accept.CreateDate = dateNow;
@@ -95,6 +107,7 @@ namespace MiBo.pages.cln
                 if (pay1.Checked)
                 {
                     accept.PaymentMethods = "01";
+                    accept.SlipStatus = "01";
                 }
                 else if (pay2.Checked)
                 {
@@ -108,6 +121,7 @@ namespace MiBo.pages.cln
                 {
                     accept.SlipStatus = "04";
                 }
+                accept.Notes = note.Text;
                 request.Accept = accept;
                 request.Cart = Session["Cart"];
 

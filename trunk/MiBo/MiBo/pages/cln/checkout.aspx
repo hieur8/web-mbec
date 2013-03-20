@@ -229,7 +229,7 @@
         <p class="required">* Bắt buộc nhập</p>
         <asp:Button ID="Button1" class="button" runat="server" Text="Xác nhận" onclick="Button1_Click" />
         </div>
-                            
+                            <asp:HiddenField ID="txtClientCd" runat="server" />
                         </div>
                     </li>
                 </ol>

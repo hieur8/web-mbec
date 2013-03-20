@@ -118,20 +118,22 @@
                                         <ItemTemplate>
                                             <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                 class="product-image">
-                                                <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                <img border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
                                                     alt='<%# Eval("ItemName") %>'>
-                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="align-prodname-price-review">
+                                            </a>&nbsp;<div class="align-prodname-price-review">
                                                 <h3 class="product-name">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
                                                         <%# Eval("ItemName") %></a>
                                                 </h3>
                                                 <div class="price-box">
-                                                    <span class="regular-price" id="product-price-181-new">
-                                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
-                                                        <br />
-                                                        <span class="price">
-                                                            <%# Eval("Price") %>
-                                                        </span></span>
+                                                    <p style="margin: 0">
+                                                        Thương hiệu : Apple</p>
+                                                    <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
+                                                        class="price">
+                                                        <%# Eval("Price") %>
+                                                    </span>
+                                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span  style='text-align:right' class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
+                                                    </span>
                                                 </div>
                                             </div>
                                             </li>
@@ -149,20 +151,22 @@
                                         <ItemTemplate>
                                             <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                 class="product-image">
-                                                <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                <img border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
                                                     alt='<%# Eval("ItemName") %>'>
-                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="align-prodname-price-review">
+                                            </a>&nbsp;<div class="align-prodname-price-review">
                                                 <h3 class="product-name">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
                                                         <%# Eval("ItemName") %></a>
                                                 </h3>
                                                 <div class="price-box">
-                                                    <span class="regular-price" id="product-price-181-new">
-                                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
-                                                        <br />
-                                                        <span class="price">
-                                                            <%# Eval("Price") %>
-                                                        </span></span>
+                                                    <p style="margin: 0">
+                                                        Thương hiệu : Apple</p>
+                                                    <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
+                                                        class="price">
+                                                        <%# Eval("Price") %>
+                                                    </span>
+                                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span  style='text-align:right' class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
+                                                    </span>
                                                 </div>
                                             </div>
                                             </li>

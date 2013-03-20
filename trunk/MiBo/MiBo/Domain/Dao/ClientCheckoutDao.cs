@@ -4,6 +4,7 @@ using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
+using MiBo.Domain.Common.Exceptions;
 
 namespace MiBo.Domain.Dao
 {
@@ -11,8 +12,10 @@ namespace MiBo.Domain.Dao
     {
         public void makeCheckout(Accept accept, IList<CartItem> cart)
         {
+           
             accept.AcceptSlipNo = MNumberCom.GetSlipNo(Logics.CD_BUSINESS_ACCEPT);
             accept.DeliveryCd = DataHelper.GetUniqueKey();
+            accept.ViewId = DataHelper.GetUniqueKey();
             EntityManager.Accepts.InsertOnSubmit(accept);
             int countNo = 1;
             foreach (CartItem item in cart)
@@ -21,13 +24,13 @@ namespace MiBo.Domain.Dao
                 detail.AcceptSlipNo = accept.AcceptSlipNo;
                 detail.DetailNo = countNo++;
                 detail.ItemCd = item.ItemCd;
-                detail.ItemName = item.ItemName;
-                ItemComDao itemComDao = new ItemComDao();
-                Item getItem = itemComDao.GetSingle(item.ItemCd, false);
-                if (getItem != null)
+                var itemResult = GetSingle<Item>(item.ItemCd, false);
+                if (itemResult == null)
                 {
-                    detail.UnitCd = getItem.UnitCd;
+                    throw new DataNotExistException("Mã sản phẩm");
                 }
+                detail.ItemName = itemResult.ItemName;
+                detail.UnitCd = itemResult.UnitCd;
                 detail.DetailQtty = item.Quantity;
                 detail.DetailPrice = item.Price;
                 detail.DetailAmt = item.Amount;
@@ -38,6 +41,10 @@ namespace MiBo.Domain.Dao
                 detail.DeleteFlag = false;
                 EntityManager.AcceptDetails.InsertOnSubmit(detail);
             }
+
+            var number  = MNumberCom.ToMNumber(accept.AcceptSlipNo);
+            EntityManager.MNumbers.InsertOnSubmit(number);
+
             EntityManager.SubmitChanges();
         }
     }
