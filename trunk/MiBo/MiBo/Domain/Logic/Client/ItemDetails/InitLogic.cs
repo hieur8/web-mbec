@@ -7,6 +7,8 @@ using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.ItemDetails;
 using MiBo.Domain.Web.Client.ItemDetails;
 using Resources;
+using MiBo.Domain.Common.Dao;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Logic.Client.ItemDetails
 {
@@ -58,15 +60,16 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             OutputDetailsModel details = null;
             IList<OutputImageModel> listImages = null;
             IList<OutputItemModel> listOfferItems = null;
+            IList<MiBo.Domain.Web.Client.Index.OutputItemModel> listlq = null;
             OutputItemModel offerItem = null;
             OutputImageModel imageItem = null;
-
+            MiBo.Domain.Web.Client.Index.OutputItemModel lqItem = null;
             // Variable initialize
             responseModel = new InitResponseModel();
             details = new OutputDetailsModel();
             listImages = new List<OutputImageModel>();
             listOfferItems = new List<OutputItemModel>();
-
+            listlq = new List<MiBo.Domain.Web.Client.Index.OutputItemModel>();
             // Get value
             var item = resultObject.Item;
 
@@ -103,6 +106,28 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             }
             details.ListOfferItems = listOfferItems;
 
+            ClientItemsDao itemDao = new ClientItemsDao();
+            ItemCom itemCom = null;
+            itemCom = new ItemCom();
+            IList<ItemModel> lstItem = itemCom.ToListItemModel(itemDao.GetListItemsByCategoryCd(details.CategoryCd));
+            foreach (var obj in lstItem)
+            {
+                lqItem = new MiBo.Domain.Web.Client.Index.OutputItemModel();
+
+                lqItem.ItemCd = DataHelper.ToString(obj.ItemCd);
+                lqItem.ItemName = DataHelper.ToString(obj.ItemName);
+                lqItem.ItemImage = DataHelper.ToString(obj.ItemImage);
+                lqItem.BrandCd = DataHelper.ToString(obj.BrandCd);
+                lqItem.BrandName = DataHelper.ToString(obj.Brand.BrandName);
+                lqItem.ItemDiv = DataHelper.ToString(obj.ItemDiv);
+                lqItem.OfferDiv = DataHelper.ToString(obj.OfferDiv);
+                lqItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
+                lqItem.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
+                lqItem.Notes = DataHelper.ToString(obj.Notes);
+
+                listlq.Add(lqItem);
+            }
+            responseModel.lstItem = listlq; 
             // Set value
             responseModel.Details = new List<OutputDetailsModel>() { details };
 

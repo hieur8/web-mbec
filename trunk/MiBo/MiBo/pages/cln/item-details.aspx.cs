@@ -17,6 +17,8 @@ namespace MiBo.pages.cln
             if (HasError) return;
             fvwItemDetails.DataSource = response.Details;
             fvwItemDetails.DataBind();
+            rptlq.DataSource = response.lstItem;
+            rptlq.DataBind();
         }
 
         protected void lnkBuy_Command(object sender, CommandEventArgs e)
