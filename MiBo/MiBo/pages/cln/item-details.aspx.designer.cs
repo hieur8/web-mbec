@@ -20,5 +20,14 @@ namespace MiBo.pages.cln {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FormView fvwItemDetails;
+        
+        /// <summary>
+        /// rptlq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptlq;
     }
 }
