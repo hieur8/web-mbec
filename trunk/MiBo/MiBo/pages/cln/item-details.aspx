@@ -84,23 +84,41 @@
                                     <asp:HiddenField ID="hidItemCd" Value='<%# Eval("ItemCd")%>' runat="server" />
                                 </div>
                                 <div class="product-shop">
-                                    <div class="product-name">
-                                        <h1>
-                                            <%# Eval("ItemName")%></h1>
-                                    </div>
-                                    <div class="price-box">
-                                        <span class="regular-price" id="product-price-173"><span class="price">
+                                    <table style="padding-bottom:50px" width="100%" border="0">
+                                    <tr>
+                                    <td>Tên</td>
+                                    <td><b>
+                                            <%# Eval("ItemName")%></b></td>
+                                    </tr>
+                                    <tr>
+                                    <td>Giá</td>
+                                    <td><span class="regular-price" id="product-price-173"><span class="price">
                                             <%# Eval("Price")%></span> </span>
-                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
-                                    </div>
-                                    <p class="availability in-stock">
-                                        Tình trạng: <span>Còn hàng</span></p>
-                                    <p class="availability in-stock">
-                                        Thương hiệu: <span>
-                                            <%# Eval("BrandName")%></span></p>
-                                    <p class="availability in-stock">
-                                        Xuất xứ: <span>
-                                            <%# Eval("CountryName")%></span></p>
+                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%></td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                    Thương hiệu
+                                    </td>
+                                    <td>
+                                     <span>
+                                            <%# Eval("BrandName")%></span>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>Xuất xứ</td>
+                                    <td><span>
+                                            <%# Eval("CountryName")%></span></td>
+                                    </tr>
+                                    <tr>
+                                    <td>Độ tuổi sử dụng</td>
+                                    <td></td>
+                                    </tr>
+                                    <tr>
+                                    <td>Qui cách</td>
+                                    <td></td>
+                                    </tr>
+                                    </table>
                                     <div class="add-to-box">
                                         <div class="add-to-cart" style="display: block">
                                             <asp:TextBox Text="1" MaxLength="6" Width="25px" CssClass="spin" ID="txtItemQtty"
@@ -112,13 +130,6 @@
                                                 <asp:LinkButton CssClass="buy-now" OnCommand="lnkBuyNow_Command" CommandArgument='<%# Eval("ItemCd") %>'
                                                     ID="lnkBuyNow" runat="server">Thêm vào giỏ hàng</asp:LinkButton>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="short-description">
-                                        <h2>
-                                            Mô tả sản phẩm</h2>
-                                        <div class="std">
-                                            <%# Eval("Notes")%>
                                         </div>
                                     </div>
                                 </div>
@@ -151,30 +162,9 @@
                                 <div class="clearer">
                                 </div>
                                 <div class="crosssell">
-                                    <h2>
-                                        Danh sách sản phẩm khuyến mãi</h2>
-                                    <asp:Repeater ID="rptOfferItems" runat="server" DataSource='<%# Eval("ListOfferItems")%>'>
-                                        <HeaderTemplate>
-                                            <ul id="crosssell-products-list">
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <li class="item odd"><a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'
-                                                title='<%# Eval("ItemName")%>'>
-                                                <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
-                                                    alt='<%# Eval("ItemName")%>'>
-                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div
-                                                class="product-details">
-                                                <h3 class="product-name">
-                                                    <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
-                                                        <%# Eval("ItemName")%>(<%# Eval("Quantity")%>) </a>
-                                                </h3>
-                                            </div>
-                                            </li>
-                                        </ItemTemplate>
-                                        <FooterTemplate>
-                                            </ul>
-                                        </FooterTemplate>
-                                    </asp:Repeater>
+                                <br />
+                                    <h1>Mô tả sản phẩm</h1><br />
+                                   <%# Eval("Notes")%>
                                 </div>
                             </div>
                             <div class="clear">
@@ -190,17 +180,48 @@
                                 </div>
                             </div>
                         </div>
-                    </ItemTemplate>
-                </asp:FormView>
+                    
             </div>
             <div class="col-right sidebar">
+            <div class="block block-compare">
+                    <div class="block-title">
+                        <strong><span>Sản phẩm khuyến mãi</span></strong>
+                    </div>
+                    <div class="block-content">
+                        <br />
+                        <asp:Repeater ID="rptOfferItems" DataSource='<%# Eval("ListOfferItems")%>' runat="server">
+                            <HeaderTemplate>
+                                <ol>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <li style="height: 70px;padding:2px">
+                                    <div class="product-images" style="float: left">
+                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
+                                            <img src="/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>"
+                                                alt="<%# Eval("ItemName")%>" width="60" height="60"></a>
+                                    </div>
+                                    <div style="float: left; width: 140px">
+                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
+                                            <%# Eval("ItemName")%></a>
+                                            <br />
+                                            Số lượng : <%# Eval("Quantity")%>
+
+                                    </div>
+                                </li>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </ol>
+                            </FooterTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
                 <div class="block block-compare">
                     <div class="block-title">
                         <strong><span>Sản phẩm liên quan</span></strong>
                     </div>
                     <div class="block-content">
                         <br />
-                        <asp:Repeater ID="rptlq" runat="server">
+                        <asp:Repeater ID="rptlq" DataSource='<%# Eval("lstItem")%>' runat="server">
                             <HeaderTemplate>
                                 <ol>
                             </HeaderTemplate>
@@ -229,9 +250,13 @@
                         </asp:Repeater>
                     </div>
                 </div>
+
             </div>
+            
         </div>
     </div>
+    </ItemTemplate>
+                </asp:FormView>
     <%
         if (Session["haveBuy"] != null)
         {

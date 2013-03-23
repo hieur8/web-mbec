@@ -21,5 +21,6 @@ namespace MiBo.Domain.Web.Client.ItemDetails
         public string CountryName { get; set; }
         public string Notes { get; set; }
         public IList<OutputItemModel> ListOfferItems { get; set; }
+        public IList<MiBo.Domain.Web.Client.Index.OutputItemModel> lstItem { get; set; }
     }
 }

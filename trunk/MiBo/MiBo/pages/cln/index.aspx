@@ -9,7 +9,7 @@
         jQuery(document).ready(function ($) {
             $(".slider").slideshow({
                 width: 765,
-                height: 400,
+                height: 383,
                 transition: 'bar'
             });
         }); 
@@ -67,13 +67,13 @@
                         </div>
                         <div class="perfume1">
                             <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="215"
-                                data-height="318" data-show-faces="true" data-stream="false" data-header="true">
+                                data-height="280" data-show-faces="true" data-stream="false" data-header="true">
                             </div>
                         </div>
                         <div class="perfume1">
                             <div class="top-text-cs">
                                 Theo dõi đơn hàng</div>
-                            <div class="phno">
+                            <div class="phno" style="text-align:center">
                                 <asp:TextBox placeholder="Mã đơn hàng..." ID="txtViewId" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Xem" /></div>
                             <br />
                         </div>

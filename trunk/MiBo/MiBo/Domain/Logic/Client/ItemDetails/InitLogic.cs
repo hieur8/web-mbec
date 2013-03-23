@@ -127,7 +127,7 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
 
                 listlq.Add(lqItem);
             }
-            responseModel.lstItem = listlq; 
+            details.lstItem = listlq; 
             // Set value
             responseModel.Details = new List<OutputDetailsModel>() { details };
 
