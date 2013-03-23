@@ -78,7 +78,7 @@ namespace MiBo.Domain.Logic.Client.AcceptDetails
             details.DeliveryAddress = DataHelper.ToString(accept.DeliveryAddress);
             details.ClientName = DataHelper.ToString(accept.ClientName);
             details.ClientAddress = DataHelper.ToString(accept.ClientAddress);
-            var paymentMethodsName = mCodeCom.GetCodeName(Logics.GROUP_PAYMENT_METHODS, accept.PaymentMethods);
+            var paymentMethodsName = mCodeCom.GetCodeContent(Logics.GROUP_PAYMENT_METHODS, accept.PaymentMethods);
             details.PaymentMethods = DataHelper.ToString(accept.PaymentMethods);
             details.PaymentMethodsName = DataHelper.ToString(paymentMethodsName);
             var totalAmount = accept.AcceptDetails.Sum(o => o.DetailAmt);

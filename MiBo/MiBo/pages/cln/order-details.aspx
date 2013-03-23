@@ -12,10 +12,8 @@
                         <div class="my-account">
                             <div class="page-title title-buttons">
                                 <h1>
-                                    Đơn hàng #<%# Eval("AcceptSlipNo")%>
-                                    - <b>Trạng thái</b></h1>
-                                <a href="#" class="link-reorder">
-                                    <%# Eval("SlipStatusName") %></a>
+                                    Đơn hàng #<%# Eval("AcceptSlipNo")%> - <b><%# Eval("SlipStatusName") %></b>
+                                </h1>
                             </div>
                             <p class="order-date">
                                 Ngày đặt hàng:
@@ -130,10 +128,6 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                            </div>
-                            <div class="buttons-set">
-                                <p class="back-link">
-                                    <a href="/order-history.aspx"><small>« </small>Quay lại trang lịch sử đơn hàng</a></p>
                             </div>
                         </div>
                     </ItemTemplate>

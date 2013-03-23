@@ -1,11 +1,12 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Dao;
+using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
-using MiBo.Domain.Common.Exceptions;
 
 namespace MiBo.Domain.Dao
 {
@@ -13,10 +14,19 @@ namespace MiBo.Domain.Dao
     {
         public void makeCheckout(Accept accept, IList<CartItem> cart)
         {
-           
             accept.AcceptSlipNo = MNumberCom.GetSlipNo(Logics.CD_BUSINESS_ACCEPT);
+
+            int i = 0;
+            while (IsExist<Accept>(accept.AcceptSlipNo, false))
+	        {
+                Thread.Sleep(5000);
+                accept.AcceptSlipNo = MNumberCom.GetSlipNo(Logics.CD_BUSINESS_ACCEPT);
+                if (i == 10) throw new ExecuteException("E_MSG_00014");
+                i++;
+	        } 
+
             accept.DeliveryCd = DataHelper.GetUniqueKey();
-            accept.ViewId = DataHelper.GetUniqueKey();
+            accept.ViewId = MNumberCom.GenViewId(accept.AcceptSlipNo, Logics.CD_BUSINESS_ACCEPT);
             EntityManager.Accepts.InsertOnSubmit(accept);
             int countNo = 1;
             foreach (CartItem item in cart)

@@ -72,7 +72,7 @@ namespace MiBo.Domain.Logic.Client.Items
                 item.OfferDiv = DataHelper.ToString(obj.OfferDiv);
                 item.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
                 item.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
-                item.Notes = DataHelper.ToSubString(obj.Notes, 200);
+                item.SummaryNotes = DataHelper.ToString(obj.SummaryNotes);
                 item.UpdateDate = DataHelper.ToString(Formats.UPDATE_DATE, obj.UpdateDate);
 
                 listItems.Add(item);

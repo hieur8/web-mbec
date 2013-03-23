@@ -29,16 +29,17 @@
 
         // Description for master parameter
         public const string PR_DISCOUNT_MEMBER = "001";
-        public const string PR_EMAIL_INFO = "002";
-        public const string PR_EMAIL_INFO_PASS = "003";
-        public const string PR_EMAIL_SALE = "004";
-        public const string PR_EMAIL_SALE_PASS = "005";
-        public const string PR_HOTLINE = "006";
-        public const string PR_ADDRESS = "007";
-        public const string PR_EMAIL_SUPPORT = "008";
-        public const string PR_CHAT_SKYPE = "009";
-        public const string PR_CHAT_YAHOO = "010";
-        public const string PR_MAIL_SERVER = "011";
+        public const string PR_HOTLINE = "002";
+        public const string PR_ADDRESS = "003";
+        public const string PR_CHAT_SKYPE = "004";
+        public const string PR_CHAT_YAHOO = "005";
+        public const string PR_EMAIL_INFO = "006";
+        public const string PR_EMAIL_INFO_PASS = "007";
+        public const string PR_EMAIL_SALE = "008";
+        public const string PR_EMAIL_SALE_PASS = "009";
+        public const string PR_EMAIL_SUPPORT = "010";
+        public const string PR_EMAIL_SUPPORT_PASS = "011";
+        public const string PR_MAIL_SERVER = "012";
 
         // Description for group code
         public const string GROUP_SKIP_CODE = "sys-skip-code";

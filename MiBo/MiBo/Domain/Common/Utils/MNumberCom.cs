@@ -189,5 +189,23 @@ namespace MiBo.Domain.Common.Utils
             // Return value
             return ToMNumber(target).Code;
         }
+
+        /// <summary>
+        /// Gen viewId
+        /// </summary>
+        /// <param name="slipNo">SlipNo</param>
+        /// <param name="pass">Pass</param>
+        /// <returns>String</returns>
+        public static string GenViewId(string slipNo, string pass)
+        {
+            // Check data
+            if (DataCheckHelper.IsNull(slipNo))
+                throw new ParamInvalidException();
+
+            var hex10 = DataHelper.ConvertInputNumber(slipNo + pass);
+
+            // Return value
+            return hex10.GetValueOrDefault(0).ToString("x10");
+        }
     }
 }

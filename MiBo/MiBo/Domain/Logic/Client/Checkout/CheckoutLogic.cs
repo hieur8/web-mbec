@@ -110,14 +110,14 @@ namespace MiBo.Domain.Logic.Client.Checkout
             var emailModel = GetEmailModel(acceptSlipNo);
             var fileTemplate = FileHelper.ToString("/pages/media/email/accept-new.html");
 
-            var emailSale = mParameterCom.GetString(Logics.PR_EMAIL_SALE, false);
-            var emailSalePass = mParameterCom.GetString(Logics.PR_EMAIL_SALE_PASS, false);
+            var emailSale = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT, false);
+            var emailSalePass = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT_PASS, false);
             var hostMail = mParameterCom.GetString(Logics.PR_MAIL_SERVER, false);
-            //var subject = "";
+            var subject = string.Format("Xác nhận Đơn hàng #{0}", acceptSlipNo);
             var body = DataHelper.FormatString(fileTemplate, emailModel);
 
-            //MailHelper.SendMail(clientEmail, emailSale, subject, body, hostMail);
-            //MailHelper.SendMail(emailSale, clientEmail, subject, body, hostMail, emailSalePass);
+            MailHelper.SendMail(clientEmail, emailSale, subject, body, hostMail);
+            MailHelper.SendMail(emailSale, clientEmail, subject, body, hostMail, emailSalePass);
         }
 
         /// <summary>
@@ -158,6 +158,7 @@ namespace MiBo.Domain.Logic.Client.Checkout
             }
 
             // Set data
+            emailModel.AcceptSlipNo = DataHelper.ToString(accept.AcceptSlipNo);
             emailModel.ViewId = DataHelper.ToString(accept.ViewId);
             emailModel.AcceptDate = DataHelper.ToString(Formats.RFC_DATE, accept.AcceptDate);
             emailModel.ClientName = DataHelper.ToString(accept.ClientName);

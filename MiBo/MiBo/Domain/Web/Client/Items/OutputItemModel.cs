@@ -9,7 +9,7 @@
         public string OfferDiv { get; set; }
         public string Price { get; set; }
         public string PriceOld { get; set; }
-        public string Notes { get; set; }
+        public string SummaryNotes { get; set; }
         public string UpdateDate { get; set; }
     }
 }

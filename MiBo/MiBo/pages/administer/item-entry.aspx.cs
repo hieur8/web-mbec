@@ -71,6 +71,8 @@ namespace MiBo.pages.administer
                 request.UnitCd = ((DropDownList)fvwItemDatails.FindControl("ddlUnit")).SelectedValue;
                 request.ItemDiv = ((DropDownList)fvwItemDatails.FindControl("ddlItemDiv")).SelectedValue;
                 request.SortKey = ((TextBox)fvwItemDatails.FindControl("txtSortKey")).Text;
+                request.Packing = ((TextBox)fvwItemDatails.FindControl("txtPacking")).Text;
+                request.SummaryNotes = ((TextBox)fvwItemDatails.FindControl("txtSummaryNotes")).Text;
                 request.Notes = ((TextBox)fvwItemDatails.FindControl("txtContents")).Text;
                 request.DeleteFlag = ((DropDownList)fvwItemDatails.FindControl("ddlDeleteFlag")).SelectedValue;
                 request.SalesPrice = ((TextBox)fvwItemDatails.FindControl("txtSalesPrice")).Text;

@@ -4,6 +4,7 @@ namespace MiBo.Domain.Web.Client.Checkout
 {
     public class OutputEmailModel
     {
+        public string AcceptSlipNo { get; set; }
         public string ViewId { get; set; }
         public string AcceptDate { get; set; }
         public string ClientName { get; set; }

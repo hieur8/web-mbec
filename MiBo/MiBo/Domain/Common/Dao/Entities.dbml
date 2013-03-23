@@ -315,6 +315,8 @@
       <Column Name="SalesPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="BuyingPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="Viewer" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Packing" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SummaryNotes" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
