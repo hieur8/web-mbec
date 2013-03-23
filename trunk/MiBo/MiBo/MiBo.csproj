@@ -92,11 +92,13 @@
     <Content Include="pages\cln\shopping-cart.aspx" />
     <Content Include="pages\common\error.aspx" />
     <Content Include="pages\media\email\accept-new.html" />
-    <Content Include="pages\media\images\banners\01.jpg" />
-    <Content Include="pages\media\images\banners\02.jpg" />
-    <Content Include="pages\media\images\banners\03.jpg" />
-    <Content Include="pages\media\images\banners\04.jpg" />
-    <Content Include="pages\media\images\banners\05.jpg" />
+    <Content Include="pages\media\images\banners\S1.jpg" />
+    <Content Include="pages\media\images\banners\S2.jpg" />
+    <Content Include="pages\media\images\banners\S3.jpg" />
+    <Content Include="pages\media\images\banners\S4.jpg" />
+    <Content Include="pages\media\images\banners\S5.jpg" />
+    <Content Include="pages\media\images\banners\S6.jpg" />
+    <Content Include="pages\media\images\banners\S7.jpg" />
     <Content Include="pages\media\images\items\01\normal\01.jpg" />
     <Content Include="pages\media\images\items\01\normal\02.jpg" />
     <Content Include="pages\media\images\items\01\larger\01.jpg" />
@@ -109,9 +111,15 @@
     <Content Include="pages\media\images\items\03\normal\01.jpg" />
     <Content Include="pages\media\images\items\03\larger\01.jpg" />
     <Content Include="pages\media\images\items\03\small\01.jpg" />
+    <Content Include="pages\media\images\items\04\larger\13e463af968a18986a0727ef032d8417.jpg" />
+    <Content Include="pages\media\images\items\04\larger\a88de6db08e69ddde7172a2307366bbc.jpg" />
+    <Content Include="pages\media\images\items\04\larger\f05e0faaffab82c5fada83b064b749f3.jpg" />
     <Content Include="pages\media\images\items\04\normal\13e463af968a18986a0727ef032d8417.jpg" />
     <Content Include="pages\media\images\items\04\normal\a88de6db08e69ddde7172a2307366bbc.jpg" />
     <Content Include="pages\media\images\items\04\normal\f05e0faaffab82c5fada83b064b749f3.jpg" />
+    <Content Include="pages\media\images\items\04\small\13e463af968a18986a0727ef032d8417.jpg" />
+    <Content Include="pages\media\images\items\04\small\a88de6db08e69ddde7172a2307366bbc.jpg" />
+    <Content Include="pages\media\images\items\04\small\f05e0faaffab82c5fada83b064b749f3.jpg" />
     <Content Include="pages\media\images\items\05\normal\01.jpg" />
     <Content Include="pages\media\images\items\05\larger\01.jpg" />
     <Content Include="pages\media\images\items\05\small\01.jpg" />
@@ -1060,8 +1068,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="pages\media\images\items\04\larger\" />
-    <Folder Include="pages\media\images\items\04\small\" />
     <Folder Include="pages\media\temp\" />
     <Folder Include="pages\resources\fonts\" />
   </ItemGroup>

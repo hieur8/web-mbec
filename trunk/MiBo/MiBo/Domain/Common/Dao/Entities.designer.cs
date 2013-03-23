@@ -6748,6 +6748,10 @@ namespace MiBo.Domain.Common.Dao
 		
 		private System.Nullable<decimal> _Viewer;
 		
+		private string _Packing;
+		
+		private string _SummaryNotes;
+		
 		private string _Notes;
 		
 		private System.Nullable<decimal> _SortKey;
@@ -6808,6 +6812,10 @@ namespace MiBo.Domain.Common.Dao
     partial void OnBuyingPriceChanged();
     partial void OnViewerChanging(System.Nullable<decimal> value);
     partial void OnViewerChanged();
+    partial void OnPackingChanging(string value);
+    partial void OnPackingChanged();
+    partial void OnSummaryNotesChanging(string value);
+    partial void OnSummaryNotesChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnSortKeyChanging(System.Nullable<decimal> value);
@@ -7117,6 +7125,46 @@ namespace MiBo.Domain.Common.Dao
 					this._Viewer = value;
 					this.SendPropertyChanged("Viewer");
 					this.OnViewerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Packing", DbType="NVarChar(255)")]
+		public string Packing
+		{
+			get
+			{
+				return this._Packing;
+			}
+			set
+			{
+				if ((this._Packing != value))
+				{
+					this.OnPackingChanging(value);
+					this.SendPropertyChanging();
+					this._Packing = value;
+					this.SendPropertyChanged("Packing");
+					this.OnPackingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SummaryNotes", DbType="NVarChar(255)")]
+		public string SummaryNotes
+		{
+			get
+			{
+				return this._SummaryNotes;
+			}
+			set
+			{
+				if ((this._SummaryNotes != value))
+				{
+					this.OnSummaryNotesChanging(value);
+					this.SendPropertyChanging();
+					this._SummaryNotes = value;
+					this.SendPropertyChanged("SummaryNotes");
+					this.OnSummaryNotesChanged();
 				}
 			}
 		}

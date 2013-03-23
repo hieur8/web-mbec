@@ -33,8 +33,11 @@ namespace MiBo.Domain.Web.Admin.ItemEntry
         public string SalesPrice { get; set; }
         [ValidRequired(MessageParam = "Giá mua")]
         public string BuyingPrice { get; set; }
+        [ValidRequired(MessageParam = "Qui cách")]
+        public string Packing { get; set; }
 
         public string ImagePath { get; set; }
+        public string SummaryNotes { get; set; }
         public string Notes { get; set; }
         public string SortKey { get; set; }
     }

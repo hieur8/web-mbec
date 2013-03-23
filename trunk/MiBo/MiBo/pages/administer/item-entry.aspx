@@ -10,7 +10,7 @@
         tinyMCE.init({
             // General options
             mode: "textareas",
-            elements: "", //input id of textareas
+            editor_selector: 'showEditer', //input id of textareas
             theme: "advanced",
             skin: "o2k7",
             plugins: "lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,inlinepopups,autosave",
@@ -87,19 +87,19 @@
                                 <td width="120">
                                     <span class="label">Mã sản phẩm</span>
                                 </td>
-                                <td width="160">
+                                <td width="180">
                                     <asp:TextBox Width="100" Text='<%# Eval("ItemCd") %>' Enabled='<%# Eval("Status") == "add" %>'
                                         ID="txtItemCd" runat="server" CssClass="text-input"></asp:TextBox>
                                 </td>
                                 <td width="120">
                                     <span class="label">Tên sản phẩm</span>
                                 </td>
-                                <td width="240">
-                                    <asp:TextBox Width="200" Text='<%# Eval("ItemName") %>' ID="txtItemName" runat="server"
+                                <td width="194">
+                                    <asp:TextBox Width="180" Text='<%# Eval("ItemName") %>' ID="txtItemName" runat="server"
                                         CssClass="text-input" onchange="getaliastext(this.value)"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:TextBox Width="200" Text='<%# Eval("ItemSearchName") %>' ID="txtItemSearchName"
+                                    <asp:TextBox Width="180" Text='<%# Eval("ItemSearchName") %>' ID="txtItemSearchName"
                                         runat="server" CssClass="text-input" Enabled="false"></asp:TextBox>
                                 </td>
                             </tr>
@@ -109,7 +109,7 @@
                                 <td width="120">
                                     <span class="label">Loại sản phẩm</span>
                                 </td>
-                                <td width="160">
+                                <td width="180">
                                     <asp:DropDownList DataSource='<%# Eval("ListCategory") %>' SelectedValue='<%# Bind("CategoryCd") %>'
                                         DataValueField="Code" DataTextField="Name" ID="ddlCategory" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
@@ -117,7 +117,7 @@
                                 <td width="120">
                                     <span class="label">Sản phẩm</span>
                                 </td>
-                                <td width="130">
+                                <td width="150">
                                     <asp:DropDownList DataSource='<%# Eval("ListItemDiv") %>' SelectedValue='<%# Bind("ItemDiv") %>'
                                         DataValueField="Code" DataTextField="Name" ID="ddlItemDiv" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
@@ -137,7 +137,7 @@
                                 <td width="120">
                                     <span class="label">Độ tuổi</span>
                                 </td>
-                                <td width="160">
+                                <td width="180">
                                     <asp:DropDownList DataSource='<%# Eval("ListAge") %>' SelectedValue='<%# Bind("AgeCd") %>'
                                         DataValueField="Code" DataTextField="Name" ID="ddlAge" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
@@ -145,10 +145,17 @@
                                 <td width="120">
                                     <span class="label">Giới tính</span>
                                 </td>
-                                <td>
+                                <td width="150">
                                     <asp:DropDownList DataSource='<%# Eval("ListGender") %>' SelectedValue='<%# Bind("GenderCd") %>'
                                         DataValueField="Code" DataTextField="Name" ID="ddlGender" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
+                                </td>
+                                <td width="80">
+                                    <span class="label">Qui cách</span>
+                                </td>
+                                <td>
+                                    <asp:TextBox Text='<%# Eval("Packing") %>' ID="txtPacking"
+                                        runat="server" CssClass="text-input"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>
@@ -157,7 +164,7 @@
                                 <td width="120">
                                     <span class="label">Thương hiệu</span>
                                 </td>
-                                <td width="160">
+                                <td width="180">
                                     <asp:DropDownList DataSource='<%# Eval("ListBrand") %>' SelectedValue='<%# Bind("BrandCd") %>'
                                         DataValueField="Code" DataTextField="Name" ID="ddlBrand" runat="server" CssClass="input-search text-input">
                                     </asp:DropDownList>
@@ -177,7 +184,7 @@
                                 <td width="120">
                                     <span class="label">Giá mua</span>
                                 </td>
-                                <td width="160">
+                                <td width="180">
                                     <asp:TextBox Width="100" Text='<%# Eval("BuyingPrice") %>' ID="txtBuyingPrice" runat="server"
                                         CssClass="text-input"></asp:TextBox>
                                 </td>
@@ -195,7 +202,7 @@
                                 <td width="120">
                                     <span class="label">Thứ tự</span>
                                 </td>
-                                <td width="160">
+                                <td width="180">
                                     <asp:TextBox Width="80" Text='<%# Eval("SortKey") %>' ID="txtSortKey" runat="server"
                                         CssClass="text-input small-input"></asp:TextBox>
                                 </td>
@@ -218,8 +225,19 @@
                             <tr>
                                 <td>
                                     <label>
+                                        Tóm tắt</label>
+                                    <asp:TextBox Text='<%# Eval("SummaryNotes") %>' ID="txtSummaryNotes" runat="server" TextMode="MultiLine"
+                                    Rows="2"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label>
                                         Mô tả</label>
-                                    <asp:TextBox Text='<%# Eval("Notes") %>' ID="txtContents" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                    <asp:TextBox Text='<%# Eval("Notes") %>' CssClass="showEditer" ID="txtContents" runat="server" TextMode="MultiLine"
+                                    Rows="5"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>

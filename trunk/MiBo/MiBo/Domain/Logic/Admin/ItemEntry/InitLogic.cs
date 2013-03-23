@@ -83,6 +83,8 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             details.ItemDiv = DataHelper.ToString(item.ItemDiv);
             details.SalesPrice = DataHelper.ToString(Formats.NUMBER, item.SalesPrice);
             details.BuyingPrice = DataHelper.ToString(Formats.NUMBER, item.BuyingPrice);
+            details.Packing = DataHelper.ToString(item.Packing);
+            details.SummaryNotes = DataHelper.ToString(item.SummaryNotes);
             details.Notes = DataHelper.ToString(item.Notes);
             details.SortKey = DataHelper.ToString(item.SortKey);
             details.DeleteFlag = DataHelper.ToString(item.DeleteFlag);

@@ -37,6 +37,8 @@ namespace MiBo.Domain.Dao
             entity.BuyingPrice = inputObject.BuyingPrice;
             entity.SalesPrice = inputObject.SalesPrice;
             entity.Viewer = decimal.Zero;
+            entity.Packing = inputObject.Packing;
+            entity.SummaryNotes = inputObject.SummaryNotes;
             entity.Notes = inputObject.Notes;
             entity.SortKey = inputObject.SortKey;
             entity.CreateUser = PageHelper.UserName;

@@ -17,6 +17,8 @@ namespace MiBo.Domain.Web.Admin.ItemEntry
         public string CountryCd { get; set; }
         public string UnitCd { get; set; }
         public string ItemDiv { get; set; }
+        public string Packing { get; set; }
+        public string SummaryNotes { get; set; }
         public string Notes { get; set; }
         public string SortKey { get; set; }
         public string ImagePath { get; set; }

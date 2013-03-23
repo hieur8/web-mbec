@@ -110,7 +110,7 @@
                                                     </p>
                                                     <div class="desc std">
                                                         <p class="desc">
-                                                            <%# Eval("Notes") %>
+                                                            <%# Eval("SummaryNotes")%>
                                                             <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>' class="link-more">Chi tiết</a>
                                                         </p>
                                                     </div>

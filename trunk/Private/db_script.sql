@@ -349,7 +349,7 @@ CREATE TABLE [Items]
 (
     [ItemCd] VARCHAR(255),
     [ItemName] NVARCHAR(255),
-	[ItemSearchName] VARCHAR(255),
+	[ItemSearchName] VARCHAR(255),	
     [CategoryCd] VARCHAR(255),
     [AgeCd] VARCHAR(255),
     [GenderCd] VARCHAR(255),
@@ -360,6 +360,8 @@ CREATE TABLE [Items]
 	[SalesPrice] DECIMAL,
     [BuyingPrice] DECIMAL,
 	[Viewer] DECIMAL,
+	[Packing] NVARCHAR(255),
+	[SummaryNotes] NVARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),
