@@ -28,13 +28,6 @@
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
     <div id="fb-root">
     </div>
-    <script>        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=290594851068312";
-            fjs.parentNode.insertBefore(js, fjs);
-        } (document, 'script', 'facebook-jssdk'));</script>
     <div class="main-container col2-right-layout">
         <div class="main">
             <div class="col-main">

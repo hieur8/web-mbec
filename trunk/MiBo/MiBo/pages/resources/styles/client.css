@@ -1588,7 +1588,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 
 /* Footer ================================================================================ */
-.footer-container { background-color:#00aff0;position:absolute;float:left;width:100%;min-width:100%;max-width:100%;/* border-top:15px solid #b6d1e2;*/  }
+.footer-container {background-color:#00aff0;float:left;width:100%;min-width:100%;max-width:100%;/* border-top:15px solid #b6d1e2;*/  }
 .footer { /*width:930px; margin:0 auto; padding:10px 10px 50px;*/margin:0 auto;padding:0;width:1004px; padding:0 0 5px;width:975px;}
 .footer .store-switcher { display:inline; margin:0 5px 0 0; color:#fff; }
 .footer .store-switcher label { font-weight:bold; vertical-align:middle; }
@@ -1767,7 +1767,7 @@ ul.tabs li.active {background:url(../images/uparrow.png) no-repeat 50% 80%;paddi
 .just-new{margin-top:6px;}
 .youtube-embed{margin-top:6px;}
 .perfume{margin-top:6px;float:left;width:213px;background:url("../images/newsletter-bg.gif") repeat scroll 0 0 transparent;height:100px;border:1px solid #fab4d6;}
-.perfume1{margin-top:6px;float:left;width:213px;border:1px solid #42bfd3;}
+.perfume1{margin-top:6px;float:left;width:213px;}
 .connect-us {font-size:14px;font-weight:bold;margin-top:0px;text-transform:uppercase;}
 .connect-us  .social img{margin-top:11px;}
 .connect-us{float:left;}
