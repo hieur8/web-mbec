@@ -19,8 +19,10 @@ namespace MiBo.Domain.Web.Client.ItemDetails
         public string BrandName { get; set; }
         public string CountryCd { get; set; }
         public string CountryName { get; set; }
+        public string AgeName { get; set; }
+        public string Packing { get; set; }
         public string Notes { get; set; }
         public IList<OutputItemModel> ListOfferItems { get; set; }
-        public IList<MiBo.Domain.Web.Client.Index.OutputItemModel> lstItem { get; set; }
+        public IList<OutputItemModel> ListRelation { get; set; }
     }
 }

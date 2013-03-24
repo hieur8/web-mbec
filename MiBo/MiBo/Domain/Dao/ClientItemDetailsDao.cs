@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Model.Client.ItemDetails;
+using System.Collections.Generic;
 
 namespace MiBo.Domain.Dao
 {
@@ -19,6 +20,15 @@ namespace MiBo.Domain.Dao
         public bool IsExistItem(string itemCd)
         {
             return IsExist<Item>(itemCd, false);
+        }
+
+        public IList<Item> GetListItemsByCategoryCd(string categoryCd)
+        {
+            var listResult = from tbl in EntityManager.Items
+                             where tbl.CategoryCd == categoryCd
+                             && tbl.DeleteFlag == false
+                             select tbl;
+            return listResult.Take(10).ToList();
         }
     }
 }

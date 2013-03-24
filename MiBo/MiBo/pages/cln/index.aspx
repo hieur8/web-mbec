@@ -39,7 +39,6 @@
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
     <div id="fb-root">
     </div>
-   
     <div class="main-container">
         <div class="main">
             <div class="std">
@@ -60,9 +59,7 @@
                             </asp:Repeater>
                         </div>
                         <div class="perfume1">
-                            
                         </div>
-                        
                         <!-- ket thuc silde -->
                         <div class="tab-display">
                             <ul class="tabs">
@@ -88,7 +85,8 @@
                                                 </h3>
                                                 <div class="price-box">
                                                     <p style="margin: 0">
-                                                        Thương hiệu : <%# Eval("BrandName") %></p>
+                                                        Thương hiệu :
+                                                        <%# Eval("BrandName") %></p>
                                                     <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
                                                         class="price">
                                                         <%# Eval("Price") %>
@@ -121,7 +119,8 @@
                                                 </h3>
                                                 <div class="price-box">
                                                     <p style="margin: 0">
-                                                        Thương hiệu : <%# Eval("BrandName") %></p>
+                                                        Thương hiệu :
+                                                        <%# Eval("BrandName") %></p>
                                                     <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
                                                         class="price">
                                                         <%# Eval("Price") %>
@@ -154,7 +153,8 @@
                                                 </h3>
                                                 <div class="price-box">
                                                     <p style="margin: 0">
-                                                        Thương hiệu : <%# Eval("BrandName") %></p>
+                                                        Thương hiệu :
+                                                        <%# Eval("BrandName") %></p>
                                                     <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
                                                         class="price">
                                                         <%# Eval("Price") %>
@@ -177,7 +177,7 @@
                 </div>
             </div>
         </div>
-        <script>
+        <script type="text/javascript">
             $('div').remove('.jquery-slider-timer-bar');
         </script>
 </asp:Content>

@@ -60,16 +60,16 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             OutputDetailsModel details = null;
             IList<OutputImageModel> listImages = null;
             IList<OutputItemModel> listOfferItems = null;
-            IList<MiBo.Domain.Web.Client.Index.OutputItemModel> listlq = null;
+            IList<OutputItemModel> listRelation = null;
             OutputItemModel offerItem = null;
             OutputImageModel imageItem = null;
-            MiBo.Domain.Web.Client.Index.OutputItemModel lqItem = null;
+            OutputItemModel itemRelation = null;
             // Variable initialize
             responseModel = new InitResponseModel();
             details = new OutputDetailsModel();
             listImages = new List<OutputImageModel>();
             listOfferItems = new List<OutputItemModel>();
-            listlq = new List<MiBo.Domain.Web.Client.Index.OutputItemModel>();
+            listRelation = new List<OutputItemModel>();
             // Get value
             var item = resultObject.Item;
 
@@ -94,6 +94,8 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             details.BrandName = DataHelper.ToString(item.Brand.BrandName);
             details.CountryCd = DataHelper.ToString(item.CountryCd);
             details.CountryName = DataHelper.ToString(item.Country.CountryName);
+            details.AgeName = DataHelper.ToString(item.Age.AgeName);
+            details.Packing = DataHelper.ToString(item.Packing);
             details.Notes = DataHelper.ToString(item.Notes);
             foreach (var obj in item.ListOfferItems)
             {
@@ -105,29 +107,19 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
                 listOfferItems.Add(offerItem);
             }
             details.ListOfferItems = listOfferItems;
-
-            ClientItemsDao itemDao = new ClientItemsDao();
-            ItemCom itemCom = null;
-            itemCom = new ItemCom();
-            IList<ItemModel> lstItem = itemCom.ToListItemModel(itemDao.GetListItemsByCategoryCd(details.CategoryCd));
-            foreach (var obj in lstItem)
+            foreach (var obj in resultObject.ListRelation)
             {
-                lqItem = new MiBo.Domain.Web.Client.Index.OutputItemModel();
-
-                lqItem.ItemCd = DataHelper.ToString(obj.ItemCd);
-                lqItem.ItemName = DataHelper.ToString(obj.ItemName);
-                lqItem.ItemImage = DataHelper.ToString(obj.ItemImage);
-                lqItem.BrandCd = DataHelper.ToString(obj.BrandCd);
-                lqItem.BrandName = DataHelper.ToString(obj.Brand.BrandName);
-                lqItem.ItemDiv = DataHelper.ToString(obj.ItemDiv);
-                lqItem.OfferDiv = DataHelper.ToString(obj.OfferDiv);
-                lqItem.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
-                lqItem.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
-                lqItem.Notes = DataHelper.ToString(obj.Notes);
-
-                listlq.Add(lqItem);
+                itemRelation = new OutputItemModel();
+                itemRelation.ItemCd = DataHelper.ToString(obj.ItemCd);
+                itemRelation.ItemName = DataHelper.ToString(obj.ItemName);
+                itemRelation.ItemImage = DataHelper.ToString(obj.ItemImage);
+                itemRelation.ItemDiv = DataHelper.ToString(obj.ItemDiv);
+                itemRelation.OfferDiv = DataHelper.ToString(obj.OfferDiv);
+                itemRelation.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
+                itemRelation.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
+                listRelation.Add(itemRelation);
             }
-            details.lstItem = listlq; 
+            details.ListRelation = listRelation; 
             // Set value
             responseModel.Details = new List<OutputDetailsModel>() { details };
 
@@ -201,12 +193,14 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
 
             // Get data
             var item = clientItemDetailsDao.GetItem(inputObject);
+            var listRelation = clientItemDetailsDao.GetListItemsByCategoryCd(item.CategoryCd);
 
             // Update data
             itemCom.UpdateViewer(inputObject.ItemCd);
 
             // Set value
             getResult.Item = itemCom.ToItemModel(item);
+            getResult.ListRelation = itemCom.ToListItemModel(listRelation);
 
             // Return value
             return getResult;

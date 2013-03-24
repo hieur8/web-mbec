@@ -105,11 +105,13 @@
                                     </tr>
                                     <tr>
                                     <td>Độ tuổi sử dụng</td>
-                                    <td></td>
+                                    <td><span>
+                                            <%# Eval("AgeName")%></span></td>
                                     </tr>
                                     <tr>
                                     <td>Qui cách</td>
-                                    <td></td>
+                                    <td><span>
+                                            <%# Eval("Packing")%></span></td>
                                     </tr>
                                     </table>
                                     <div class="add-to-box">
@@ -214,7 +216,7 @@
                     </div>
                     <div class="block-content">
                         <br />
-                        <asp:Repeater ID="rptlq" DataSource='<%# Eval("lstItem")%>' runat="server">
+                        <asp:Repeater ID="rptRelation" DataSource='<%# Eval("ListRelation")%>' runat="server">
                             <HeaderTemplate>
                                 <ol>
                             </HeaderTemplate>

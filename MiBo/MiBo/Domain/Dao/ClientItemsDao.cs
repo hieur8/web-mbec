@@ -128,12 +128,7 @@ namespace MiBo.Domain.Dao
             // Return value
             return listResult.ToList();
         }
-        public IList<Item> GetListItemsByCategoryCd(string categoryCd)
-        {
-            var listResult = from tbl in EntityManager.Items
-                             where tbl.DeleteFlag == false && tbl.CategoryCd == categoryCd
-                             select tbl;
-            return listResult.Take(10).ToList();
-        }
+
+        
     }
 }
