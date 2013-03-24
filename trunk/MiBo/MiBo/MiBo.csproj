@@ -67,6 +67,7 @@
     <Content Include="Global.asax" />
     <Content Include="index.htm" />
     <Content Include="pages\administer\accept-list.aspx" />
+    <Content Include="pages\administer\banner-list.aspx" />
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-entry.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
@@ -885,6 +886,13 @@
     </Compile>
     <Compile Include="pages\administer\accept-list.aspx.designer.cs">
       <DependentUpon>accept-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\banner-list.aspx.cs">
+      <DependentUpon>banner-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\banner-list.aspx.designer.cs">
+      <DependentUpon>banner-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

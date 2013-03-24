@@ -33,41 +33,40 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-<script>    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=290594851068312";
-        fjs.parentNode.insertBefore(js, fjs);
-    } (document, 'script', 'facebook-jssdk'));</script>
+    <script>        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=290594851068312";
+            fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));</script>
     <form id="frmMain" runat="server">
     <div class="wrapper">
         <div class="page">
             <div class="header-container">
                 <div class="header">
                     <nav id="toptren">
-                    <%
-                        if (Session["userCd"] == null)
-                        {
-                    %>
-        <ul class="account_links">
-        	
-                <li class="log_in not_logged"><a href="/login.aspx">Đăng nhập</a></li>
-                <li><a href="/register.aspx">Đăng ký</a></li>
-        </ul>
-        <% }
+                        <%
+                            if (Session["userCd"] == null)
+                            {
+                        %>
+                        <ul class="account_links">
+                            <li class="log_in not_logged"><a href="/login.aspx">Đăng nhập</a></li>
+                            <li><a href="/register.aspx">Đăng ký</a></li>
+                        </ul>
+                        <% }
                         else
                         { %>
-                    <ul class="account_links">
-                <li class="log_in not_logged"><a href="#">Xin chào <b>
+                        <ul class="account_links">
+                            <li class="log_in not_logged"><a href="#">Xin chào <b>
                                 <%=Session["userName"].ToString()%>
                                 !</b></a></li>
-                <li><a href="/profile.aspx">Tài khoản của tôi</a></li>
-        	<li><a href="/order-history.aspx">Lịch sử đơn hàng</a></li>
-        	<li><a href="/logout.aspx">Thoát</a></li>
-        </ul>
-                    <% } %>
-    </nav>
+                            <li><a href="/profile.aspx">Tài khoản của tôi</a></li>
+                            <li><a href="/order-history.aspx">Lịch sử đơn hàng</a></li>
+                            <li><a href="/logout.aspx">Thoát</a></li>
+                        </ul>
+                        <% } %>
+                    </nav>
                     <h1 class="logo">
                         <a href="/index.aspx" title="Mibo" class="logo">
                             <img src="/pages/resources/images/logo.png" alt="Mibo.vn"></a></h1>
@@ -87,8 +86,8 @@
                                         <span class="cart-icon-menu"></span><span id="nav-cart-count" class="nav-cart-0">
                                             <asp:Literal ID="lblCartCount" runat="server"></asp:Literal></span>Giỏ hàng</a>
                                         <div style="z-index: 101" class="dropdown_1column-cart align_right">
-                                        <% if (Session["Cart"] != null)
-                                           { %>
+                                            <% if (Session["Cart"] != null)
+                                               { %>
                                             <div class="col-cart1" style="z-index: 9999" id="cards_store">
                                                 <asp:Repeater ID="rptCartItem" runat="server">
                                                     <ItemTemplate>
@@ -119,8 +118,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                       
-                                       <% } %>
+                                            <% } %>
                                         </div>
                                     </li>
                                 </ul>
@@ -191,7 +189,7 @@
                             </div>
                         </li>
                         <li class=""><a href="#" class="dc-mega">Dụng cụ học tập<span class="dc-mega-icon"></span></a>
-                            <div class="sub-container non-mega" style=" top: 40px; z-index: 1000;">
+                            <div class="sub-container non-mega" style="top: 40px; z-index: 1000;">
                                 <ul class="sub" style="display: none; text-align: left">
                                     <asp:Repeater ID="rptLearningToolMenu" runat="server">
                                         <ItemTemplate>
@@ -214,7 +212,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="gift.aspx" >Dịch vụ quà tặng</a></li>
+                        <li><a href="gift.aspx">Dịch vụ quà tặng</a></li>
                     </ul>
                 </div>
             </div>
@@ -224,7 +222,6 @@
             <asp:ContentPlaceHolder ID="main" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-    </div>
     </div>
     <div class="footer-container">
         <div class="footer">
@@ -274,14 +271,13 @@
                 </div>
             </div>
             <br />
-                   <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="235"
-                                data-height="240" data-show-faces="true" data-stream="false" data-header="true">
-                            </div>
+            <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="235"
+                data-height="240" data-show-faces="true" data-stream="false" data-header="true">
+            </div>
         </div>
-     
     </div>
-    <div style="width:100%;background-color:#00aff0;text-align:center">
-    Copyright © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong.
+    <div style="width: 100%; background-color: #00aff0; text-align: center">
+        Copyright © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong.
     </div>
     </form>
 </body>
