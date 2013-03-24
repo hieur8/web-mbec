@@ -110,14 +110,14 @@ namespace MiBo.Domain.Logic.Client.Checkout
             var emailModel = GetEmailModel(acceptSlipNo);
             var fileTemplate = FileHelper.ToString("/pages/media/email/accept-new.html");
 
-            var emailSale = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT, false);
-            var emailSalePass = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT_PASS, false);
+            var email = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT, false);
+            var emailPass = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT_PASS, false);
             var hostMail = mParameterCom.GetString(Logics.PR_MAIL_SERVER, false);
             var subject = string.Format("Xác nhận Đơn hàng #{0}", acceptSlipNo);
             var body = DataHelper.FormatString(fileTemplate, emailModel);
 
-            MailHelper.SendMail(clientEmail, emailSale, subject, body, hostMail);
-            MailHelper.SendMail(emailSale, clientEmail, subject, body, hostMail, emailSalePass);
+            MailHelper.SendMail(clientEmail, email, subject, body, hostMail);
+            MailHelper.SendMail(email, clientEmail, subject, body, hostMail, emailPass);
         }
 
         /// <summary>

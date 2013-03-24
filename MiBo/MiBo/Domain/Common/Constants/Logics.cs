@@ -31,8 +31,8 @@
         public const string PR_DISCOUNT_MEMBER = "001";
         public const string PR_HOTLINE = "002";
         public const string PR_ADDRESS = "003";
-        public const string PR_CHAT_SKYPE = "004";
-        public const string PR_CHAT_YAHOO = "005";
+        public const string PR_CHAT_YAHOO = "004";
+        public const string PR_CHAT_SKYPE = "005";
         public const string PR_EMAIL_INFO = "006";
         public const string PR_EMAIL_INFO_PASS = "007";
         public const string PR_EMAIL_SALE = "008";

@@ -205,7 +205,7 @@ namespace MiBo.Domain.Common.Utils
         /// <param name="email">email</param>
         /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
         /// <returns>True/False</returns>
-        public bool IsExistEmail(String email, bool ignoreDeleteFlag)
+        public bool IsExistEmail(string email, bool ignoreDeleteFlag)
         {
             // Local variable declaration
             var result = true;
@@ -216,6 +216,25 @@ namespace MiBo.Domain.Common.Utils
 
             // Get infomation
             result = _comDao.IsExistEmail(email, ignoreDeleteFlag);
+
+            //Return value
+            return result;
+        }
+
+        /// <summary>
+        /// Check exist email
+        /// </summary>
+        /// <param name="email">email</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>True/False</returns>
+        public User GetSingle(string email, bool ignoreDeleteFlag)
+        {
+            // Check param
+            if (DataCheckHelper.IsNull(email))
+                throw new ParamInvalidException();
+
+            // Get infomation
+            var result = _comDao.GetSingle(email, ignoreDeleteFlag);
 
             //Return value
             return result;
@@ -243,20 +262,6 @@ namespace MiBo.Domain.Common.Utils
 
             //Return value
             return result;
-        }
-
-        public void registerUser(User param)
-        {
-            DateTime dateNow = DateTime.Now;
-            param.Password = DataHelper.GetMd5Hash(param.Password);
-            param.CreateUser = "init";
-            param.CreateDate = dateNow;
-            param.UpdateUser = "init";
-            param.UpdateDate = dateNow;
-            param.DeleteFlag = false;
-            _comDao.EntityManager.Users.InsertOnSubmit(param);
-            // Submit
-            _comDao.EntityManager.SubmitChanges();
         }
     }
 }
