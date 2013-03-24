@@ -9,8 +9,7 @@
             <div class="col-main">
                 <div class="cart">
                     <div class="page-title title-buttons">
-                        <h1>
-                            Shopping Cart</h1>
+                        <h1>Giỏ hàng</h1>
                         <ul class="checkout-types">
                             <li>
                                 <button type="button" title="Proceed to Checkout" class="button btn-checkout" onclick="window.location='checkout.aspx';">
@@ -119,7 +118,7 @@
                                        
                                              <asp:LinkButton ID="LinkButtonCon" CssClass="button btn-continue"  
                                                  runat="server" onclick="LinkButtonCon_Click">Tiếp tục mua hàng</asp:LinkButton>
-                                        <asp:Button ID="btnUpdate" OnClick="btnUpdate_Click" CssClass="button btn-update"
+                                        <asp:Button ID="btnUpdate" OnClick="btnUpdate_Click" CssClass="design2"
                                             runat="server" Text="Cập nhật giỏ hàng" />
                                     </td>
                                 </tr>

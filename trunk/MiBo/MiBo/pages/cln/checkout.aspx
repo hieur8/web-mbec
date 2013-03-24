@@ -6,7 +6,18 @@
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#frmMain").validate();
+        $("#frmMain").validate(
+        {
+            messages: {
+                ctl00$main$clientName: "Hãy nhập họ và tên người mua hàng",
+                ctl00$main$clientAddress: "Hãy nhập địa chỉ nơi mua hàng",
+                ctl00$main$clientTell: "Hãy nhập số điện thoại nơi mua hàng",
+                ctl00$main$deliveryName: "Hãy nhập họ và tên người nhận hàng",
+                ctl00$main$deliveryAddress: "Hãy nhập địa chỉ nơi nhận hàng",
+                ctl00$main$deliveryTell: "Hãy nhập số điện thoại người nhận hàng"
+                
+            }
+        });
     });
 
 
@@ -227,7 +238,7 @@
                             </fieldset>
                              <div class="buttons-set" id="billing-buttons-container" style="">
         <p class="required">* Bắt buộc nhập</p>
-        <asp:Button ID="Button1" class="button" runat="server" Text="Xác nhận" onclick="Button1_Click" />
+        <asp:Button ID="Button1" runat="server" class="design2" Text="Xác nhận" onclick="Button1_Click" />
         </div>
                             <asp:HiddenField ID="txtClientCd" runat="server" />
                         </div>
