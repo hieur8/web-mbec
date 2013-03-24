@@ -75,6 +75,7 @@
     <Content Include="pages\administer\upload-image.aspx" />
     <Content Include="pages\administer\user-change-password.aspx" />
     <Content Include="pages\administer\user-login.aspx" />
+    <Content Include="pages\cln\active.aspx" />
     <Content Include="pages\cln\channel.html" />
     <Content Include="pages\cln\checkout.aspx" />
     <Content Include="pages\cln\confirmcheckout.aspx" />
@@ -93,6 +94,7 @@
     <Content Include="pages\cln\shopping-cart.aspx" />
     <Content Include="pages\common\error.aspx" />
     <Content Include="pages\media\email\accept-new.html" />
+    <Content Include="pages\media\email\active.html" />
     <Content Include="pages\media\images\banners\S1.jpg" />
     <Content Include="pages\media\images\banners\S2.jpg" />
     <Content Include="pages\media\images\banners\S3.jpg" />
@@ -707,6 +709,7 @@
     <Compile Include="Domain\Dao\AdminItemListDao.cs" />
     <Compile Include="Domain\Dao\ClientAcceptDetailsDao.cs" />
     <Compile Include="Domain\Dao\ClientAcceptsDao.cs" />
+    <Compile Include="Domain\Dao\ClientActiveDao.cs" />
     <Compile Include="Domain\Dao\ClientCheckoutDao.cs" />
     <Compile Include="Domain\Dao\ClientIndexDao.cs" />
     <Compile Include="Domain\Dao\ClientItemDetailsDao.cs" />
@@ -714,6 +717,7 @@
     <Compile Include="Domain\Dao\ClientLoginDao.cs" />
     <Compile Include="Domain\Dao\ClientMasterDao.cs" />
     <Compile Include="Domain\Dao\ClientProfileDao.cs" />
+    <Compile Include="Domain\Dao\ClientRegisterDao.cs" />
     <Compile Include="Domain\Dao\ClientShoppingCartDao.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\FilterLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\FilterOperateLogic.cs" />
@@ -741,6 +745,8 @@
     <Compile Include="Domain\Logic\Client\AcceptDetails\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Accepts\InitLogic.cs" />
     <Compile Include="Domain\Logic\Client\Accepts\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Active\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Active\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Checkout\CheckoutLogic.cs" />
     <Compile Include="Domain\Logic\Client\Checkout\CheckoutOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Index\BuyLogic.cs" />
@@ -763,8 +769,8 @@
     <Compile Include="Domain\Logic\Client\Profile\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Profile\SaveLogic.cs" />
     <Compile Include="Domain\Logic\Client\Profile\SaveOperateLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Register\RegisterLogic.cs" />
-    <Compile Include="Domain\Logic\Client\Register\RegisterOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Register\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Client\Register\SaveOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\InitLogic.cs" />
@@ -784,6 +790,7 @@
     <Compile Include="Domain\Model\Admin\UserLogin\AuthDataModel.cs" />
     <Compile Include="Domain\Model\Client\AcceptDetails\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Accepts\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Active\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Checkout\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Index\BuyDataModel.cs" />
     <Compile Include="Domain\Model\Client\Index\InitDataModel.cs" />
@@ -795,7 +802,7 @@
     <Compile Include="Domain\Model\Client\Master\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Profile\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Profile\SaveDataModel.cs" />
-    <Compile Include="Domain\Model\Client\Register\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Client\Register\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Client\ShoppingCart\DeleteDataModel.cs" />
     <Compile Include="Domain\Model\Client\ShoppingCart\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\ShoppingCart\UpdateDataModel.cs" />
@@ -832,6 +839,8 @@
     <Compile Include="Domain\Web\Client\Accepts\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Accepts\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Accepts\OutputAcceptModel.cs" />
+    <Compile Include="Domain\Web\Client\Active\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\Active\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Checkout\CheckoutRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Checkout\CheckoutResponseModel.cs" />
     <Compile Include="Domain\Web\Client\Checkout\OutputAcceptDetailsModel.cs" />
@@ -868,8 +877,9 @@
     <Compile Include="Domain\Web\Client\Profile\OutputDetailsModel.cs" />
     <Compile Include="Domain\Web\Client\Profile\SaveRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Profile\SaveResponseModel.cs" />
-    <Compile Include="Domain\Web\Client\Register\RegisterRequestModel.cs" />
-    <Compile Include="Domain\Web\Client\Register\RegisterResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\Register\OutputEmailModel.cs" />
+    <Compile Include="Domain\Web\Client\Register\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\Register\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Client\ShoppingCart\DeleteRequestModel.cs" />
     <Compile Include="Domain\Web\Client\ShoppingCart\DeleteResponseModel.cs" />
     <Compile Include="Domain\Web\Client\ShoppingCart\InitRequestModel.cs" />
@@ -942,6 +952,13 @@
     </Compile>
     <Compile Include="pages\administer\user-login.aspx.designer.cs">
       <DependentUpon>user-login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\active.aspx.cs">
+      <DependentUpon>active.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\active.aspx.designer.cs">
+      <DependentUpon>active.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>

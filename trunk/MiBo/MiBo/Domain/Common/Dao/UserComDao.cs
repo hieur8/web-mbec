@@ -112,6 +112,22 @@ namespace MiBo.Domain.Common.Dao
         }
 
         /// <summary>
+        /// Get user
+        /// </summary>
+        /// <param name="email">Email</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>User</returns>
+        public User GetSingle(string email, bool ignoreDeleteFlag)
+        {
+            var listResult = from tbl in EntityManager.Users
+                             where tbl.Email == email
+                             && (tbl.DeleteFlag == false || ignoreDeleteFlag)
+                             select tbl;
+
+            return listResult.SingleOrDefault();
+        }
+
+        /// <summary>
         /// Authenticate user in group
         /// </summary>
         /// <param name="userCd">UserCd</param>
