@@ -33,6 +33,13 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+<script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=290594851068312";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
     <form id="frmMain" runat="server">
     <div class="wrapper">
         <div class="page">
@@ -266,42 +273,15 @@
                     </ul>
                 </div>
             </div>
-            <div class="right-footer-container">
-                <div class="payment-methods">
-                    <div class="first-tag">
-                        <div class="top-tag">
-                            <div class="maincon">
-                                <span class="inner-arrow">Hỗ trợ</span></div>
-                            <div class="rightarrow">
-                                &nbsp;</div>
-                        </div>
-                        <div class="image-container-footer">
-                            <br />
-                            <br />
-                            <ul>
-                                <li style="padding-left: 30px">Hotline: <strong>
-                                    <asp:Literal ID="litHotline" runat="server"></asp:Literal></strong></li>
-                                <li style="padding-left: 30px">Email : <strong>
-                                    <asp:Literal ID="litEmail" runat="server"></asp:Literal></strong></li>
-                                <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
-                                    <img src="http://opi.yahoo.com/online?u=hieur8&t=2"></a> </li>
-                                <li style="padding-left: 30px"><a href="ymsgr:sendim?hieur8" border="0">
-                                    <img src="http://opi.yahoo.com/online?u=chauthai1987&t=2"></a> </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-letter-footer">
-                    &nbsp;</div>
-            </div>
+            <br />
+                   <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="235"
+                                data-height="240" data-show-faces="true" data-stream="false" data-header="true">
+                            </div>
         </div>
-        <div style="width: 100%; height: 7px; background: url(/pages/resources/images/footer-top-shadow-bg.gif) repeat-x;">
-        </div>
-        <div style="width: 100%; background-color: #f2f2f2; height: 40px">
-            <p style="padding: 10px;float:left">
-                Copyright © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong.
-            </p>
-        </div>
+     
+    </div>
+    <div style="width:100%;background-color:#00aff0;text-align:center">
+    Copyright © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong.
     </div>
     </form>
 </body>

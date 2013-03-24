@@ -20,8 +20,6 @@ namespace MiBo.pages.common
             if (HasError) return;
 
             lblCartCount.Text = response.CartCount;
-            litHotline.Text = response.Hotline;
-            litEmail.Text = response.Email;
             rptToyMenu.DataSource = response.ListToys;
             rptToyMenu.DataBind();
             rptBrandMenu.DataSource = response.ListBrands;
