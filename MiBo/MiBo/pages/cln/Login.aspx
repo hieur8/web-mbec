@@ -94,7 +94,7 @@
                         <div class="col-2 registered-users">
                             <div class="buttons-set">
                                 <a href="#" class="f-left">bạn đã quên mật khẩu?</a>
-                                <asp:Button ID="btnLogin" class="button" runat="server" Text="Login" OnClick="btnLogin_Click" />
+                                <asp:Button ID="btnLogin" class="design2" runat="server" Text="Đăng nhập" OnClick="btnLogin_Click" />
                             </div>
                         </div>
                     </div>

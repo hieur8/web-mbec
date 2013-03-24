@@ -63,9 +63,9 @@
                         <!-- ket thuc silde -->
                         <div class="tab-display">
                             <ul class="tabs">
-                                <li class="active" style=""><a href="#tab1">Sản phẩm mới</a></li>
-                                <li class=""><a href="#tab2">Sản phẩm khuyến mãi</a></li>
-                                <li class=""><a href="#tab3">Sản phẩm xem nhiều</a></li>
+                                <li class="active" style=""><a href="#tab1" style="color:#00aff0">Sản phẩm mới</a></li>
+                                <li class=""><a href="#tab2" style="color:#FFA500">Sản phẩm khuyến mãi</a></li>
+                                <li class=""><a href="#tab3" style="color:#B03060">Sản phẩm xem nhiều</a></li>
                             </ul>
                             <div class="tab_container">
                                 <div id="tab1" class="tab_content" style="display: block;">

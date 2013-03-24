@@ -90,7 +90,7 @@
                         * Bắt buộc</p>
                     <p class="back-link">
                         <a href="#" class="back-link"><small>« </small>Quay lại</a></p>
-                    <asp:Button ID="btnRegister" class="button" runat="server" Text="Đăng ký" OnClick="btnRegister_Click" />
+                    <asp:Button ID="btnRegister" class="design2" runat="server" Text="Đăng ký" OnClick="btnRegister_Click" />
                 </div>
             </div>
         </div>
