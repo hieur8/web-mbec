@@ -1747,16 +1747,15 @@ tr.summary-details-excluded { font-style:italic; }
 																		/* tabs-home page */
 .tab-display{clear:both;float:left;margin-top:0px;width:100%;border:none}
 ul.tabs{position:relative;top:11px;width:100%;}
-ul.tabs li{float:left;margin-right:4px;height:20px;}
+ul.tabs li{float:left;margin-right:4px;height:20px;margin-top:1px;}
 ul.tabs li.active{margin-top:1px;}
-.tab_container{clear:both;float:left;width:100%;margin-top:8px;}
+.tab_container{clear:both;float:left;width:100%;margin-top:8px;background-color:#fff}
 .tab_content {padding:0px 0px 0 0}
-ul.tabs li{color:#000; font-size:13px;padding: 5px 5px;margin-top:4px}
-ul.tabs li a{color:#000;font-weight:bold;font-size: 15px;}
-ul.tabs li.active a{color:#00aff0;}
+ul.tabs li{color:#fff; font-size:13px;padding: 5px 5px;margin-top:5px}
+ul.tabs li a{color:#fff;font-weight:bold}
+ul.tabs li.active a{color:#fff;}
 
-ul.tabs li.active {background:url(../images/upArrow1.gif) no-repeat 50% 80%;padding-bottom:30px; font-size:15px;font-weight:bold;height:5px;}
-																/* tabs-home (new arrival)*/
+															/* tabs-home (new arrival)*/
 .align-prodname-price-review{text-align:center;padding-top:5px}
 .ratings .amount a{color:#000;}
 																/* bottom-banner */
@@ -1812,7 +1811,6 @@ button.btn-cart span span{background-position:100%;line-height:30px;padding-righ
 .product-collateral ul.tabs li{height:30px;padding-left:6px;padding-right:6px;line-height:30px;font-size:13px;padding-left:13px;padding-right:13px;background:none;}
 .product-collateral ul.tabs li a{color:#fff;}
 .product-collateral ul.tabs li.active{}
-.product-collateral ul.tabs li.active a{color:#1f5772;}
 .product-collateral .tab_container{margin-top:0;}
 																		/* product view page */
 .catalog-product-view  .breadcrumbs{float:none;top:0;}
