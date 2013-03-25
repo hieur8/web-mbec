@@ -68,6 +68,7 @@
     <Content Include="index.htm" />
     <Content Include="pages\administer\accept-list.aspx" />
     <Content Include="pages\administer\banner-list.aspx" />
+    <Content Include="pages\administer\category-list.aspx" />
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-entry.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
@@ -161,6 +162,7 @@
     <Content Include="pages\resources\images\bl.png" />
     <Content Include="pages\resources\images\black-vertical-lines.png" />
     <Content Include="pages\resources\images\br.png" />
+    <Content Include="pages\resources\images\btn-search.png" />
     <Content Include="pages\resources\images\btnSearch.png" />
     <Content Include="pages\resources\images\btn_remove.gif" />
     <Content Include="pages\resources\images\btn_trash.gif" />
@@ -705,6 +707,7 @@
     <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
     <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
     <Compile Include="Domain\Dao\AdminAcceptListDao.cs" />
+    <Compile Include="Domain\Dao\AdminCategoryListDao.cs" />
     <Compile Include="Domain\Dao\AdminItemEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminItemListDao.cs" />
     <Compile Include="Domain\Dao\ClientAcceptDetailsDao.cs" />
@@ -725,6 +728,10 @@
     <Compile Include="Domain\Logic\Admin\AcceptList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\UpdateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\CategoryList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\CategoryList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\CategoryList\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\CategoryList\UpdateOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\SaveLogic.cs" />
@@ -780,6 +787,8 @@
     <Compile Include="Domain\Model\Admin\AcceptList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\CategoryList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\CategoryList\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
@@ -813,6 +822,11 @@
     <Compile Include="Domain\Web\Admin\AcceptList\OutputAcceptModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\UpdateRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryList\OutputCategoryModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryList\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryList\UpdateResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\OutputDetailsModel.cs" />
@@ -903,6 +917,13 @@
     </Compile>
     <Compile Include="pages\administer\banner-list.aspx.designer.cs">
       <DependentUpon>banner-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\category-list.aspx.cs">
+      <DependentUpon>category-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\category-list.aspx.designer.cs">
+      <DependentUpon>category-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

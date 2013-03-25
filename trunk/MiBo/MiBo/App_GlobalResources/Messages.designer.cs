@@ -257,5 +257,14 @@ namespace Resources {
                 return ResourceManager.GetString("I_MSG_00002", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kích hoạt thành công. Bạn có thể đăng nhập..
+        /// </summary>
+        internal static string I_MSG_00003 {
+            get {
+                return ResourceManager.GetString("I_MSG_00003", resourceCulture);
+            }
+        }
     }
 }

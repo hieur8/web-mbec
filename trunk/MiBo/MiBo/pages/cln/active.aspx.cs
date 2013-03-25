@@ -2,6 +2,7 @@
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Active;
 using MiBo.Domain.Web.Client.Active;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.pages.cln
 {
@@ -9,9 +10,11 @@ namespace MiBo.pages.cln
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(Request["pid"])) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
             if (HasError) return;
+            Redirect(Pages.CLIENT_LOGIN);
         }
 
         private InitRequestModel InitRequestModel

@@ -18,7 +18,7 @@ namespace MiBo.pages.cln
             var logic = new SaveOperateLogic();
             var response = Invoke(logic, SaveRequestModel);
             if (HasError) return;
-            Response.Redirect(Pages.CLIENT_LOGIN);
+            Response.Redirect(Pages.CLIENT_ACTIVE);
         }
 
         private SaveRequestModel SaveRequestModel

@@ -171,4 +171,7 @@
   <data name="I_MSG_00002" xml:space="preserve">
     <value>Đăng ký thành công.</value>
   </data>
+  <data name="I_MSG_00003" xml:space="preserve">
+    <value>Kích hoạt thành công. Bạn có thể đăng nhập.</value>
+  </data>
 </root>

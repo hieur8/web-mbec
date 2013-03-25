@@ -45,6 +45,7 @@
         public const string GROUP_SKIP_CODE = "sys-skip-code";
         public const string GROUP_DELETE_FLAG = "sys-delete-flag";
         public const string GROUP_ITEM_DIV = "sys-item-div";
+        public const string GROUP_CATEGORY_DIV = "sys-category-div";
         public const string GROUP_PRICE_DIV = "sys-price-div";
         public const string GROUP_SLIP_STATUS = "sys-slip-status";
         public const string GROUP_PAYMENT_METHODS = "sys-payment-methods";

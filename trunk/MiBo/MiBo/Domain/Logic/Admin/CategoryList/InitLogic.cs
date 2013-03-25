@@ -1,11 +1,14 @@
-﻿using MiBo.Domain.Common.Exceptions;
+﻿using System.Collections.Generic;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
-using MiBo.Domain.Model.Client.Active;
-using MiBo.Domain.Web.Client.Active;
+using MiBo.Domain.Model.Admin.CategoryList;
+using MiBo.Domain.Web.Admin.CategoryList;
+using Resources;
 
-namespace MiBo.Domain.Logic.Client.Active
+namespace MiBo.Domain.Logic.Admin.CategoryList
 {
     public class InitLogic
     {
@@ -52,10 +55,38 @@ namespace MiBo.Domain.Logic.Client.Active
         {
             // Local variable declaration
             InitResponseModel responseModel = null;
+            IList<OutputCategoryModel> listCategories = null;
+            OutputCategoryModel category = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
-            responseModel.AddMessage(MessageHelper.GetMessageInfo("I_MSG_00003"));
+            listCategories = new List<OutputCategoryModel>();
+
+            // Get value
+            var cbCategoryDiv = new ComboModel();
+            var cbDeleteFlag = new ComboModel();
+            foreach (var obj in resultObject.ListCategories)
+            {
+                category = new OutputCategoryModel();
+                category.CategoryCd = DataHelper.ToString(obj.CategoryCd);
+                category.CategoryName = DataHelper.ToString(obj.CategoryName);
+                category.CategoryDiv = DataHelper.ToString(obj.CategoryDiv);
+                category.SortKey = DataHelper.ToString(Formats.NUMBER, obj.SortKey);
+                category.DeleteFlag = DataHelper.ToString(obj.DeleteFlag);
+                category.UpdateDate = DataHelper.ToString(Formats.UPDATE_DATE, obj.UpdateDate);
+
+                cbCategoryDiv = MCodeCom.ToComboItems(resultObject.ListCategoryDiv, category.CategoryDiv);
+                category.ListCategoryDiv = cbCategoryDiv.ListItems;
+                category.CategoryDiv = cbCategoryDiv.SeletedValue;
+                cbDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, category.DeleteFlag);
+                category.ListDeleteFlag = cbDeleteFlag.ListItems;
+                category.DeleteFlag = cbDeleteFlag.SeletedValue;
+
+                listCategories.Add(category);
+            }
+
+            // Set value
+            responseModel.ListCategories = listCategories;
 
             // Return value
             return responseModel;
@@ -88,6 +119,7 @@ namespace MiBo.Domain.Logic.Client.Active
             // Execute convert ouput.
             responseModel = Convert(resultObject);
 
+            // Return value
             return responseModel;
         }
 
@@ -97,15 +129,6 @@ namespace MiBo.Domain.Logic.Client.Active
         /// <param name="inputObject">DataModel</param>
         private void Check(InitDataModel inputObject)
         {
-            // Local variable declaration
-            UserCom userCom = null;
-
-            // Variable initialize
-            userCom = new UserCom();
-
-            // Check valid
-            if(!userCom.IsExist(inputObject.UserCd, true))
-                throw new DataNotExistException("Tài khoản");
         }
 
         /// <summary>
@@ -117,14 +140,23 @@ namespace MiBo.Domain.Logic.Client.Active
         {
             // Local variable declaration
             InitDataModel getResult = null;
-            ClientActiveDao clientActiveDao = null;
+            MCodeCom mCodeCom = null;
+            AdminCategoryListDao adminCategoryListDao = null;
 
             // Variable initialize
             getResult = new InitDataModel();
-            clientActiveDao = new ClientActiveDao();
+            mCodeCom = new MCodeCom();
+            adminCategoryListDao = new AdminCategoryListDao();
 
-            // Verify
-            clientActiveDao.Verify(inputObject.UserCd);
+            // Get data
+            var listCategoryDiv = mCodeCom.GetListCode(Logics.GROUP_CATEGORY_DIV, null, false, false);
+            var listDeleteFlag = mCodeCom.GetListCode(Logics.GROUP_DELETE_FLAG, null, false, false);
+            var listAccepts = adminCategoryListDao.GetListCategories();
+
+            // Set value
+            getResult.ListCategoryDiv = listCategoryDiv;
+            getResult.ListDeleteFlag = listDeleteFlag;
+            getResult.ListCategories = listAccepts;
 
             // Return value
             return getResult;
