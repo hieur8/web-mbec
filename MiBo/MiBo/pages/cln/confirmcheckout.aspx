@@ -16,7 +16,7 @@
                         <div class="step-title">
                             <span class="number">1</span>
                             <h2>
-                                Checkout Method</h2>
+                                Phương thức thanh toán</h2>
                             <a href="#">Edit</a>
                         </div>
                         <div id="checkout-step-login" class="step a-item" style="">

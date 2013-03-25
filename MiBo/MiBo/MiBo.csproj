@@ -345,6 +345,7 @@
     <Content Include="pages\resources\scripts\jquery.fileupload.js" />
     <Content Include="pages\resources\scripts\jquery.flexslider-min.js" />
     <Content Include="pages\resources\scripts\jquery.hoverIntent.minified.js" />
+    <Content Include="pages\resources\scripts\jquery.idTabs.modified.js" />
     <Content Include="pages\resources\scripts\jquery.iframe-transport.js" />
     <Content Include="pages\resources\scripts\jquery.jtslider.min.js" />
     <Content Include="pages\resources\scripts\jquery.scroll.js" />
@@ -620,6 +621,7 @@
     <Content Include="pages\resources\styles\dcslick.css" />
     <Content Include="pages\resources\styles\div.css" />
     <Content Include="pages\resources\styles\flexslider.css" />
+    <Content Include="pages\resources\styles\jquery.idTabs.css" />
     <Content Include="pages\resources\styles\ie.css" />
     <Content Include="pages\resources\styles\invalid.css" />
     <Content Include="pages\resources\styles\jquery.ad-gallery.css" />
