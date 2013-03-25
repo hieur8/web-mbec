@@ -10,13 +10,13 @@
             $(".slider").slideshow({
                 width: 765,
                 height: 383,
-                transition: 'bar'
+                control: false,
+                navigation: false
             });
         }); 
     </script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
-
             //When page loads...
             jQuery(".tab_content").hide(); //Hide all content
             jQuery("ul.tabs li:first").addClass("active").show(); //Activate first tab

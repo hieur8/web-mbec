@@ -33,13 +33,15 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <script>        (function (d, s, id) {
+    <script type="text/javascript">
+        (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
             js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=290594851068312";
             fjs.parentNode.insertBefore(js, fjs);
-        } (document, 'script', 'facebook-jssdk'));</script>
+        } (document, 'script', 'facebook-jssdk'));
+    </script>
     <form id="frmMain" runat="server">
     <div class="wrapper">
         <div class="page">
@@ -86,7 +88,7 @@
                                         <span class="cart-icon-menu"></span><span id="nav-cart-count" class="nav-cart-0">
                                             <asp:Literal ID="lblCartCount" runat="server"></asp:Literal></span>Giỏ hàng</a>
                                         <div style="z-index: 101" class="dropdown_1column-cart align_right">
-                                            <% if (Session["Cart"] != null)
+                                            <% if (Session["Cart"] != null && ((IList)Session["Cart"]).Count > 0)
                                                { %>
                                             <div class="col-cart1" style="z-index: 9999" id="cards_store">
                                                 <asp:Repeater ID="rptCartItem" runat="server">
@@ -118,6 +120,10 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <% }
+                                               else
+                                               { %>
+                                            Chưa có sản phẩm trong giỏ hàng
                                             <% } %>
                                         </div>
                                     </li>
@@ -131,8 +137,8 @@
             <div class="nav-container">
                 <div class="light-blue">
                     <ul id="mega-menu" class="mega-menu">
-                        <li><a href="/index.aspx">
-                            <img style="border: 0px;" height="15px" src="/pages/resources/images/home-icon.png" /></a>
+                        <li><a href="/index.aspx" style="padding: 5px; width: 60px;">
+                            <img style="border: 0px;" height="30px" src="/pages/resources/images/home-icon.png" /></a>
                         </li>
                         <li class="dc-mega-li"><a href="#" class="dc-mega">Đồ chơi<span class="dc-mega-icon"></span></a>
                             <div class="sub-container mega" style="left: 0px; top: 40px; z-index: 1000;">
@@ -276,22 +282,21 @@
             </div>
         </div>
     </div>
-    <div class="clear"></div>
+    <div class="clear">
+    </div>
     <center>
         <div style="width: 975px;background-color:#f2f2f2">
                 <div class="address">
-
                     <p style="padding-top: 20px">
                         Copyright © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong.</p>
                 </div>
                 <div class="right-ft-card-follow">
-                    <a href="https://123pay.vn" target="_blank">
+                    <a href="#" target="_blank">
                         <img src="/pages/resources/images/bg-ft-card-follow.gif"></a>
                 </div>
             
         </div>
-        </center>
-    
+    </center>
     </form>
 </body>
 </html>

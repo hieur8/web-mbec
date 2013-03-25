@@ -11,6 +11,7 @@
         public const string CLIENT_OVERVIEW = "/overview.aspx";
         public const string CLIENT_CHECKOUT = "/checkout.aspx";
         public const string CLIENT_REGISTER = "/register.aspx";
+        public const string CLIENT_ACTIVE = "/active.aspx";
 
         // Admin
         public const string ADMIN_INDEX = "/pages/administer/index.aspx";
