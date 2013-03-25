@@ -1,0 +1,104 @@
+﻿.clear
+{
+    clear: both;
+}
+
+.block_hidden_only_for_screen
+{
+    display: none;
+}
+
+#center_column .bgcolor
+{
+    background-color: whiteSmoke;
+}
+
+#center_column .bordercolor
+{
+    border-color: #ddd !important;
+}
+
+div#more_info_sheets
+{
+    border: 1px solid #ddd;
+    position: relative;
+    z-index: 9;
+    margin-top: 1px;
+}
+
+ul.idTabs
+{
+    height: 27px;
+    padding: 20px 0 0 0;
+    clear: both;
+    position: relative;
+    z-index: 10;
+}
+
+ul.idTabs li
+{
+    float: left;
+}
+
+ul, li
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 12px;
+    font-weight: normal;
+    vertical-align: top;
+    background: transparent;
+}
+
+ul.idTabs li a.selected
+{
+    height: 22px;
+    background: whiteSmoke;
+    color: #333;
+    border: 1px solid #DDD;
+    border-width: 1px 1px 0 1px;
+}
+
+ul.idTabs li a
+{
+    height: 21px;
+    display: block;
+    padding: 6px 21px 0 21px;
+    background: white;
+    border: 1px solid #DDD;
+    font-size: 12px;
+    font-weight: bold;
+    color: #888;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#idTab1
+{
+    padding: 0 20px 20px 20px;
+}
+
+#idTab1 div, #idTab1 p
+{
+    margin: 17px 0 -3px 0;
+    padding: 0;
+}
+
+#idTab2
+{
+    padding: 10px 20px 20px 20px;
+}
+
+#idTab2 li
+{
+    padding: 7px 0 0 12px;
+    color: #181818;
+}
+
+#idTab2 li span
+{
+    font-weight: bold;
+    color: #999;
+}

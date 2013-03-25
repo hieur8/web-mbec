@@ -9,7 +9,8 @@
             <div class="col-main">
                 <div class="cart">
                     <div class="page-title title-buttons">
-                        <h1>Giỏ hàng</h1>
+                        <h1>
+                            Giỏ hàng</h1>
                         <ul class="checkout-types">
                             <li>
                                 <button type="button" title="Proceed to Checkout" class="button btn-checkout" onclick="window.location='checkout.aspx';">
@@ -56,10 +57,10 @@
                             </colgroup>
                             <thead>
                                 <tr class="first last">
-                                    <th rowspan="1">
+                                    <th rowspan="1" class="a-center">
                                         <span class="nobr">Tên sản phẩm</span>
                                     </th>
-                                    <th rowspan="1" class="prod-image-cart-table">
+                                    <th rowspan="1" class="a-center prod-image-cart-table">
                                         Hình ảnh
                                     </th>
                                     <th class="a-center" colspan="1">
@@ -90,7 +91,7 @@
                                             <td>
                                                 <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
                                                     <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
-                                                        width="75" height="75" alt='<%# Eval("ItemName")%>'></a>
+                                                        width="60" height="60" alt='<%# Eval("ItemName")%>'></a>
                                             </td>
                                             <td class="a-right">
                                                 <span class="cart-price"><span class="price">
@@ -115,11 +116,10 @@
                             <tfoot>
                                 <tr class="first last">
                                     <td colspan="6" class="a-right last">
-                                       
-                                             <asp:LinkButton ID="LinkButtonCon" CssClass="button btn-continue"  
-                                                 runat="server" onclick="LinkButtonCon_Click">Tiếp tục mua hàng</asp:LinkButton>
-                                        <asp:Button ID="btnUpdate" OnClick="btnUpdate_Click" CssClass="design2"
-                                            runat="server" Text="Cập nhật giỏ hàng" />
+                                        <asp:LinkButton ID="LinkButtonCon" CssClass="button btn-continue" runat="server"
+                                            OnClick="LinkButtonCon_Click">Tiếp tục mua hàng</asp:LinkButton>
+                                        <asp:Button ID="btnUpdate" OnClick="btnUpdate_Click" CssClass="design2" runat="server"
+                                            Text="Cập nhật giỏ hàng" />
                                     </td>
                                 </tr>
                             </tfoot>
@@ -136,17 +136,16 @@
                                             <ul id="crosssell-products-list">
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <li class="item odd">
-                                                <a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
-                                                    <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName")%>'>
-                                                </a>
-                                                &nbsp;<div class="product-details">
-                                                    <h3 class="product-name">
-                                                        <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
-                                                            <%# Eval("ItemName")%>(<%# Eval("Quantity")%>)
-                                                        </a>
-                                                    </h3>
-                                                </div>
+                                            <li class="item odd"><a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'
+                                                title='<%# Eval("ItemName")%>'>
+                                                <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                    alt='<%# Eval("ItemName")%>'>
+                                            </a>&nbsp;<div class="product-details">
+                                                <h3 class="product-name">
+                                                    <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
+                                                        <%# Eval("ItemName")%>(<%# Eval("Quantity")%>) </a>
+                                                </h3>
+                                            </div>
                                             </li>
                                         </ItemTemplate>
                                         <FooterTemplate>
@@ -169,10 +168,10 @@
                                             <td style="" class="a-right">
                                                 <strong>
                                                     <asp:Label CssClass="price" ID="lblSubTotal" runat="server" Text="0"></asp:Label></strong>
-                                                    <br />
-                                                    <p class="btn-small btn-right" style="margin-top: 21px;">
-                                                                <asp:LinkButton ID="HyperLinkTT"  runat="server" onclick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
-                                                                </p>
+                                                <br />
+                                                <p class="btn-small btn-right" style="margin-top: 21px;">
+                                                    <asp:LinkButton ID="HyperLinkTT" runat="server" OnClick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
+                                                </p>
                                             </td>
                                         </tr>
                                     </tfoot>

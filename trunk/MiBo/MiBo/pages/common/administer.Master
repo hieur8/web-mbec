@@ -88,6 +88,11 @@
                             <li><a id="lnkItemEntry" href="/pages/administer/item-entry.aspx">Thêm/sửa sản phẩm</a></li>
                         </ul>
                     </li>
+                    <li><a id="mnuCategories" href="#" class="nav-top-item">Quản lý loại sản phẩm</a>
+                        <ul>
+                            <li><a id="lnkCategories" href="/pages/administer/category-list.aspx">Danh sách loại sản phẩm</a></li>
+                        </ul>
+                    </li>
                     <li><a id="mnuSystems" href="#" class="nav-top-item">Quản lý hệ thống</a>
                         <ul>
                             <li><a id="lnkParmas" href="/pages/administer/param-list.aspx">Tham số hệ thống</a></li>
