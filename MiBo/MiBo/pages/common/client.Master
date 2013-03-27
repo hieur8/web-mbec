@@ -26,6 +26,11 @@
     <!-- Validate client -->
     <script type="text/javascript" src="/pages/resources/scripts/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/pages/resources/scripts/messages_vi.js"></script>
+    <!-- IdTab -->
+    <link rel="stylesheet" type="text/css" href="/pages/resources/styles/jquery.idTabs.css">
+    <script type="text/javascript" src="/pages/resources/scripts/jquery.idTabs.modified.js"></script>
+    <!-- Button ajaxshake -->
+    <link href="/pages/resources/styles/ajaxshake.btn.css" rel="stylesheet" type="text/css" />
     <!-- MyScript -->
     <script type="text/javascript">
     </script>
@@ -108,15 +113,15 @@
                                                 <div class="c1-border">
                                                 </div>
                                                 <div class="wrapper2" style="text-align: right;">
-                                                    <div style="border-bottom: 1px solid #eee;">
+                                                    <div>
                                                         Tổng đơn hàng:
                                                         <div style="width: 95px; float: right; font-weight: bold;" class="color-red">
                                                             <asp:Literal ID="LiteralAmount" runat="server"></asp:Literal></div>
                                                     </div>
-                                                    <div style="float: right;">
-                                                        <p class="btn-small btn-right" style="margin-top: 21px;">
-                                                            <asp:LinkButton ID="HyperLinkTT" runat="server" OnClick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
-                                                        </p>
+                                                    <hr />
+                                                    <div style="float: right; font-size: 16px">
+                                                        <asp:LinkButton ID="HyperLinkTT" Width="122" class="btn btn-orange" runat="server"
+                                                            OnClick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,7 +234,7 @@
             </asp:ContentPlaceHolder>
         </div>
     </div>
-    <div class="footer-container" style="height:150px">
+    <div class="footer-container" style="height: 150px">
         <div class="footer">
             <div class="first-block">
                 <div class="top-text">

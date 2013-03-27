@@ -11,8 +11,7 @@ namespace MiBo.Domain.Model.Client.Index
         public IList<ItemModel> ListHotItems { get; set; }
         public IList<ItemModel> ListOfferItems { get; set; }
 
-        public string StrChatYahoo { get; set; }
-        public string StrChatSkype { get; set; }
-        public string StrHotline { get; set; }
+        public decimal? DiscountMember { get; set; }
+        public string Hotline { get; set; }
     }
 }

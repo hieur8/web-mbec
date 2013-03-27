@@ -763,7 +763,7 @@ tr.summary-details-excluded { font-style:italic; }
 .grid-view{border:3px solid #44BED3;border-bottom:none;width:760px;}
 
 /* View Type: Grid */
-.products-grid {position:relative;padding-top:5px;border:1px solid #DDDDDD; }
+.products-grid {position:relative;padding-top:5px;border: 0; }
 .products-grid.last { /*border-bottom:0; */ }
 .products-grid li.item { float:left; padding:7px 12px 40px 15px;width:170px}
 .products-grid .product-image { display:block; width:170px; height:170px; margin:0 0 0px;border:none }
@@ -1161,12 +1161,12 @@ tr.summary-details-excluded { font-style:italic; }
 .cart .cart-collaterals .col2-set { float:left; width:658px; }
 .cart .cart-collaterals .col2-set .col-2 { width:294px; }
 
-.cart .crosssell { border:1px solid #C8ECF2; padding:12px 15px; }
+.cart .crosssell { border:1px solid #C8ECF2; padding:8px 20px; }
 .cart .crosssell h2 { font-size:13px; font-weight:bold;color:#262626; }
 .cart .crosssell .product-image { float:left; height:123px;width:111px; border:1px solid #d0cdc9; }
-.cart .crosssell .product-details { margin-left:126px; }
+.cart .crosssell .product-details { margin-left:80px; }
 .cart .crosssell .product-name { font-weight:bold; }
-.cart .crosssell li.item { margin:12px 0; }
+.cart .crosssell li.item { margin: 0 0 10px 0; }
 .cart .crosssell .link-compare { font-weight:normal; }
 
 /* Discount Codes & Estimate Shipping and Tax Boxes */
@@ -2295,15 +2295,150 @@ line-height: 16px;
 float: right;
 }
 .design2 {
-background-color: #eeeeee;
-border-top: 1px solid #dbdbdb;
-border-right: 1px solid #dbdbdb;
-border-bottom: 1px solid #dbdbdb;
-border-left: 11px solid #ccc8cc;
-padding: 5px;
-color: #00aff0;
-font-size: 15px;
-font-weight: bold;
-font-style: italic;
-cursor:pointer;
+    background-color: #eeeeee;
+    border-top: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    border-left: 11px solid #ccc8cc;
+    padding: 5px;
+    color: #00aff0;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+    cursor:pointer;
+}
+
+.table_details td {
+    padding: 5px;
+}
+
+
+/*-----------------------*/
+.padd-bg-hotline {
+    padding: 0px 5px 5px 5px;
+    background-color: #39414b;
+    color: #fff;
+    border: 1px solid #444b55;
+    height: 44px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.ui-corner-tbl-top {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.ui-hotline-2 {
+    width: 32px;
+    height: 32px;
+    background: url(../images/bg-all-123.png) no-repeat -43px -21px;
+    display: inline-block;
+    float: left;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+h4.num-hot {
+    margin: 1px 0 0 0;
+    padding: 0;
+    font-size: 20px;
+    color: #fff;
+    font-weight: normal;
+    letter-spacing: 1px;
+    font-family: Arial;
+}
+
+.padd-hotline-2
+{
+    margin: 0;
+}
+
+.padd-hotline-2 span {
+    display: block;
+    font-size: 0.75em;
+}
+
+.c1
+{
+    clear:both;
+}
+
+#right-cp {
+    width: 213px;
+    float: right;
+    border: 1px solid #dbdde0;
+    border-top: none;
+    padding-bottom: 0px;
+    height: 327px;
+    overflow: hidden;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#right-cp p {
+    font-size: 0.8em;
+    padding-left: 27px;
+    line-height: 18px;
+    *padding-left: 0px;
+}
+
+.padd-in-7 {
+    padding: 7px;
+    width: 196px;
+}
+
+.tbl-cp {
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.padd-in-7 .wrapper {
+    padding: 13px 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.padd-in-7 .wrapper a {
+    color: #000;
+    width: 100%;
+}
+
+.font-medium {
+    font-size: 11px;
+    line-height: 16px;
+    width: 146px;
+}
+
+.duty-40x40 {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: url(../images/duty-home.png) no-repeat scroll 0 0;
+    margin-right: 3px;
+}
+
+.duty-1a {
+    background-position: 0 -171px;
+}
+
+.duty-2a {
+    background-position: 0 0;
+}
+
+.duty-3a {
+    background-position: 0 -57px;
+}
+
+.duty-4a {
+    background-position: 0 -114px;
 }

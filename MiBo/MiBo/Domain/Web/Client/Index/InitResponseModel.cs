@@ -9,5 +9,7 @@ namespace MiBo.Domain.Web.Client.Index
         public IList<OutputItemModel> ListNewItems { get; set; }
         public IList<OutputItemModel> ListHotItems { get; set; }
         public IList<OutputItemModel> ListOfferItems { get; set; }
+        public string DiscountMember { get; set; }
+        public string Hotline { get; set; }
     }
 }

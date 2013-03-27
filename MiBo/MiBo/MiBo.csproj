@@ -139,6 +139,7 @@
     <Content Include="pages\resources\images\b.png" />
     <Content Include="pages\resources\images\ball_toy.jpg" />
     <Content Include="pages\resources\images\beemoviememotoyscar.jpg" />
+    <Content Include="pages\resources\images\bg-all-123.png" />
     <Content Include="pages\resources\images\bg-all-16x16.png" />
     <Content Include="pages\resources\images\bg-body.gif" />
     <Content Include="pages\resources\images\bg-button-blue.gif" />
@@ -176,6 +177,7 @@
     <Content Include="pages\resources\images\detail-icon.gif" />
     <Content Include="pages\resources\images\down-dark.png" />
     <Content Include="pages\resources\images\down.png" />
+    <Content Include="pages\resources\images\duty-home.png" />
     <Content Include="pages\resources\images\error.png" />
     <Content Include="pages\resources\images\flexslider-bg_direction_nav.png" />
     <Content Include="pages\resources\images\footer-menusep.gif" />
@@ -634,6 +636,7 @@
     <Content Include="pages\resources\styles\normalize.css" />
     <Content Include="pages\resources\styles\red.css" />
     <Content Include="pages\resources\styles\reset.css" />
+    <Content Include="pages\resources\styles\ajaxshake.btn.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

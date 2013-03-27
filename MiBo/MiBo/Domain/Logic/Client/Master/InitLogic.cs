@@ -155,8 +155,6 @@ namespace MiBo.Domain.Logic.Client.Master
 
             // Set value
             responseModel.CartCount = DataHelper.ToString(Formats.NUMBER, resultObject.CartCount);
-            responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
-            responseModel.Hotline = DataHelper.ToString(resultObject.Hotline);
             responseModel.Email = DataHelper.ToString(resultObject.Email);
             responseModel.ChatYahoo = DataHelper.ToString(resultObject.ChatYahoo);
             responseModel.ChatSkype = DataHelper.ToString(resultObject.ChatSkype);
@@ -222,10 +220,8 @@ namespace MiBo.Domain.Logic.Client.Master
 
             // Get data
             var cartCount = cartCom.Count;
-            var discountMember = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
             var strChatYahoo = mParameterCom.GetString(Logics.PR_CHAT_YAHOO, false);
             var strChatSkype = mParameterCom.GetString(Logics.PR_CHAT_SKYPE, false);
-            var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
             var strEmail = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT, false);
 
             var listToys = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_TOYS);
@@ -238,8 +234,6 @@ namespace MiBo.Domain.Logic.Client.Master
 
             // Set value
             getResult.CartCount = cartCount;
-            getResult.DiscountMember = discountMember * decimal.Negate(decimal.One);
-            getResult.Hotline = strHotline;
             getResult.Email = strEmail;
             getResult.ChatYahoo = strChatYahoo;
             getResult.ChatSkype = strChatSkype;

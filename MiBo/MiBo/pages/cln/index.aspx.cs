@@ -14,6 +14,8 @@ namespace MiBo.pages.cln
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
             if (HasError) return;
+            litHotline.Text = response.Hotline;
+            litDiscountMember.Text = response.DiscountMember;
             rptBanner.DataSource = response.ListBanners;
             rptBanner.DataBind();
             rptNewItem.DataSource = response.ListNewItems;

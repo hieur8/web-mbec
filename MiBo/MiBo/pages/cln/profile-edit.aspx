@@ -83,7 +83,8 @@
                                         </div>
                                         <br />
                                         <div class="input-box">
-                                            <asp:CheckBox ID="chkHasChagngePassword" ClientIDMode="Static" class="checkbox" Checked='<%# Bind("HasChangePassword") %>' runat="server" />
+                                            <asp:CheckBox ID="chkHasChagngePassword" ClientIDMode="Static" class="checkbox" Checked='<%# Bind("HasChangePassword") %>'
+                                                runat="server" />
                                             <label for="is_subscribed">
                                                 Thay đổi mật khẩu</label>
                                         </div>
@@ -125,7 +126,7 @@
                             <div class="buttons-set">
                                 <p class="required">
                                     * Bắt buộc</p>
-                                <asp:Button ID="btnSave" OnClick="btnSave_Click" runat="server" Text="Thay đổi" class="button"/>
+                                <asp:LinkButton ID="btnSave" Width="120" OnClick="btnSave_Click" runat="server" class="btn btn-blue"><span>Thay đổi</span></asp:LinkButton>
                             </div>
                         </div>
                     </ItemTemplate>

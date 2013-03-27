@@ -136,6 +136,8 @@ namespace MiBo.Domain.Logic.Client.Index
             }
 
             // Set value
+            responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
+            responseModel.Hotline = DataHelper.ToString(resultObject.Hotline);
             responseModel.ListBanners = listBanners;
             responseModel.ListNewItems = listNewItems;
             responseModel.ListHotItems = listHotItems;
@@ -196,8 +198,12 @@ namespace MiBo.Domain.Logic.Client.Index
             var listNewItems = clientIndexDao.GetListNewItems();
             var listHotItems = clientIndexDao.GetListHotItems();
             var listOfferItems = clientIndexDao.GetListOfferItems();
+            var discountMember = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
+            var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
 
             // Set value
+            getResult.DiscountMember = discountMember;
+            getResult.Hotline = strHotline;
             getResult.ListBanners = listBanners;
             getResult.ListNewItems = itemCom.ToListItemModel(listNewItems);
             getResult.ListHotItems = itemCom.ToListItemModel(listHotItems);

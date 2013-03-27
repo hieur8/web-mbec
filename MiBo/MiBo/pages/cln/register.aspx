@@ -52,8 +52,7 @@
                                     <label for="lastname" class="required">
                                         <em>*</em>Tên</label>
                                     <div class="input-box">
-                                    <asp:TextBox ID="fullName2" class="input-text required" minlength="2" runat="server"></asp:TextBox>
-  
+                                        <asp:TextBox ID="fullName2" class="input-text required" minlength="2" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -84,13 +83,12 @@
                         </li>
                     </ul>
                 </div>
-                
                 <div class="buttons-set">
                     <p class="required">
                         * Bắt buộc</p>
-                    <p class="back-link">
-                        <a href="#" class="back-link"><small>« </small>Quay lại</a></p>
-                    <asp:Button ID="btnRegister" class="design2" runat="server" Text="Đăng ký" OnClick="btnRegister_Click" />
+                    <asp:LinkButton ID="btnRegister" Width="120" class="btn btn-blue" runat="server" OnClick="btnRegister_Click">
+                        <span>Đăng ký</span>
+                    </asp:LinkButton>
                 </div>
             </div>
         </div>

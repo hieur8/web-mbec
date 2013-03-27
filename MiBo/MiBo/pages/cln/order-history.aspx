@@ -58,25 +58,28 @@
                                     <%# Eval("AcceptSlipNo")%>
                                 </td>
                                 <td>
-                                    <span class="nobr"><%# Eval("AcceptDate")%></span>
+                                    <span class="nobr">
+                                        <%# Eval("AcceptDate")%></span>
                                 </td>
                                 <td>
                                     <%# Eval("DeliveryName")%>
                                 </td>
                                 <td>
-                                    <span class="price"><%# Eval("TotalAmount")%></span>
+                                    <span class="price">
+                                        <%# Eval("TotalAmount")%></span>
                                 </td>
                                 <td>
-                                    <em><%# Eval("SlipStatusName")%></em>
+                                    <em>
+                                        <%# Eval("SlipStatusName")%></em>
                                 </td>
                                 <td class="a-center last">
-                                    <span class="nobr"><a href='/order-details.aspx?order=<%# Eval("AcceptSlipNo")%>'>Chi tiết</a></span>
+                                    <span class="nobr"><a href='/order-details.aspx?order=<%# Eval("AcceptSlipNo")%>'>Chi
+                                        tiết</a></span>
                                 </td>
                             </tr>
                         </ItemTemplate>
                         <FooterTemplate>
-                                </tbody>
-                            </table>
+                            </tbody> </table>
                         </FooterTemplate>
                     </asp:Repeater>
                 </div>
