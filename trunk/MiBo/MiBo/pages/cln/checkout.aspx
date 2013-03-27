@@ -4,9 +4,9 @@
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#frmMain").validate(
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#frmMain").validate(
         {
             messages: {
                 ctl00$main$clientName: "Hãy nhập họ và tên người mua hàng",
@@ -15,22 +15,22 @@
                 ctl00$main$deliveryName: "Hãy nhập họ và tên người nhận hàng",
                 ctl00$main$deliveryAddress: "Hãy nhập địa chỉ nơi nhận hàng",
                 ctl00$main$deliveryTell: "Hãy nhập số điện thoại người nhận hàng"
-                
+
             }
         });
-    });
+        });
 
 
-    function makeDelivery() {
-        $("#main_deliveryName").val($("#main_clientName").val());
-        $("#main_deliveryAddress").val($("#main_clientAddress").val());
-        $("#main_deliveryTell").val($("#main_clientTell").val());
-    }
-    function clearDelivery() {
-        $("#main_deliveryName").val('');
-        $("#main_deliveryAddress").val('');
-        $("#main_deliveryTell").val('');
-    }
+        function makeDelivery() {
+            $("#main_deliveryName").val($("#main_clientName").val());
+            $("#main_deliveryAddress").val($("#main_clientAddress").val());
+            $("#main_deliveryTell").val($("#main_clientTell").val());
+        }
+        function clearDelivery() {
+            $("#main_deliveryName").val('');
+            $("#main_deliveryAddress").val('');
+            $("#main_deliveryTell").val('');
+        }
     </script>
     <div class="main-container col2-right-layout">
         <div class="main">
@@ -39,7 +39,7 @@
                     <h1>
                         Thanh toán</h1>
                 </div>
-              <ol class="opc" id="checkoutSteps">
+                <ol class="opc" id="checkoutSteps">
                     <li id="opc-billing" class="section allow active">
                         <div class="step-title">
                             <span class="number">1</span>
@@ -48,7 +48,6 @@
                             <a href="#">Edit</a>
                         </div>
                         <div id="checkout-step-billing" class="step a-item" style="">
-                            
                             <fieldset>
                                 <ul class="form-list">
                                     <li id="billing-new-address-form">
@@ -70,7 +69,7 @@
                                                     <label for="billing:street1" class="required">
                                                         <em>*</em>Địa chỉ</label>
                                                     <div class="input-box">
-                                                       <asp:TextBox class="input-text required" ID="clientAddress" runat="server"></asp:TextBox>
+                                                        <asp:TextBox class="input-text required" ID="clientAddress" runat="server"></asp:TextBox>
                                                     </div>
                                                 </li>
                                                 <li lang="fields">
@@ -78,10 +77,9 @@
                                                         <label for="billing:telephone" class="required">
                                                             <em>*</em>Số điện thoại</label>
                                                         <div class="input-box">
-                                                           <asp:TextBox class="input-text required" ID="clientTell" runat="server"></asp:TextBox>
+                                                            <asp:TextBox class="input-text required" ID="clientTell" runat="server"></asp:TextBox>
                                                         </div>
                                                     </div>
-      
                                                 </li>
                                                 <li class="no-display">
                                                     <input type="hidden" name="billing[save_in_address_book]" value="1"></li>
@@ -89,11 +87,11 @@
                                         </fieldset>
                                     </li>
                                     <li class="control">
-                                    <asp:RadioButton onclick="makeDelivery();" class="radio" Text="Giao hàng đến địa chỉ này" ID="RadioButton1" 
-                                            GroupName="methodDelivery" runat="server" 
-                                            />
+                                        <asp:RadioButton onclick="makeDelivery();" class="radio" Text="Giao hàng đến địa chỉ này"
+                                            ID="RadioButton1" GroupName="methodDelivery" runat="server" />
                                     <li class="control">
-                                        <asp:RadioButton onclick="clearDelivery();" class="radio" Checked="true" Text="Giao hàng đến địa chỉ khác" ID="methodDelivery1" GroupName="methodDelivery" runat="server" />
+                                        <asp:RadioButton onclick="clearDelivery();" class="radio" Checked="true" Text="Giao hàng đến địa chỉ khác"
+                                            ID="methodDelivery1" GroupName="methodDelivery" runat="server" />
                                     </li>
                                 </ul>
                             </fieldset>
@@ -109,7 +107,6 @@
                             <a href="#">Edit</a>
                         </div>
                         <div id="Div3" class="step a-item" style="">
-                       
                             <fieldset>
                                 <ul class="form-list">
                                     <li id="Li4">
@@ -142,7 +139,6 @@
                                                             <asp:TextBox class="input-text required" ID="deliveryTell" runat="server"></asp:TextBox>
                                                         </div>
                                                     </div>
-      
                                                 </li>
                                                 <li lang="fields">
                                                     <div class="field">
@@ -152,7 +148,6 @@
                                                             <asp:TextBox class="input-text" ID="deliveryDate" runat="server"></asp:TextBox>
                                                         </div>
                                                     </div>
-      
                                                 </li>
                                                 <li class="no-display">
                                                     <input type="hidden" name="billing[save_in_address_book]" value="1"></li>
@@ -161,11 +156,10 @@
                                     </li>
                                 </ul>
                             </fieldset>
-                       
                         </div>
                     </li>
                 </ol>
-               <ol class="opc" id="Ol1">
+                <ol class="opc" id="Ol1">
                     <li id="Li1" class="section allow active">
                         <div class="step-title">
                             <span class="number">3</span>
@@ -174,32 +168,31 @@
                             <a href="#">Edit</a>
                         </div>
                         <div id="Div1" class="step a-item" style="">
-                            
-                                                    <input type="hidden" name="billing[save_in_address_book]" value="1">
-                                            <input type="hidden" name="billing[address_id]" value="1120" id="Hidden1">
+                            <input type="hidden" name="billing[save_in_address_book]" value="1">
+                            <input type="hidden" name="billing[address_id]" value="1120" id="Hidden1">
                             <fieldset>
                                 <ul class="form-list">
-
                                     <li class="control">
-                                        <asp:RadioButton Checked="true" GroupName="rbPay" Text="Thanh toán tiền mặt khi nhận hàng" ID="pay1" runat="server" class="radio" />
+                                        <asp:RadioButton Checked="true" GroupName="rbPay" Text="Thanh toán tiền mặt khi nhận hàng"
+                                            ID="pay1" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
-                                    <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Thẻ ATM đăng ký Internet Banking (Miễn phí thanh toán)" ID="pay2" runat="server" class="radio" />
+                                        <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Thẻ ATM đăng ký Internet Banking (Miễn phí thanh toán)"
+                                            ID="pay2" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
-                                    <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Thanh toán bằng thẻ quốc Tế Visa, Master" ID="pay3" runat="server" class="radio" />
+                                        <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Thanh toán bằng thẻ quốc Tế Visa, Master"
+                                            ID="pay3" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
-                                    <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Chuyển khoản ngân hàng (Quý khách tự thanh toán chi phí chuyển khoản)" ID="pay4" runat="server" class="radio" />
+                                        <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Chuyển khoản ngân hàng (Quý khách tự thanh toán chi phí chuyển khoản)"
+                                            ID="pay4" runat="server" class="radio" />
                                     </li>
                                 </ul>
-                               
-                                
                             </fieldset>
-                            
                         </div>
                     </li>
-                </ol> 
+                </ol>
                 <ol class="opc" id="Ol3">
                     <li id="Li2" class="section allow active">
                         <div class="step-title">
@@ -209,7 +202,6 @@
                             <a href="#">Edit</a>
                         </div>
                         <div id="Div2" class="step a-item" style="">
-                            
                             <fieldset>
                                 <ul class="form-list">
                                     <li id="Li5">
@@ -222,24 +214,22 @@
                                                             <label for="billing:firstname" class="required">
                                                                 Ghi chú</label>
                                                             <div class="input-box">
-                                                                <asp:TextBox class="input-text" TextMode="MultiLine" ID="note" 
-                                                                    runat="server" Height="75px" Width="549px"></asp:TextBox>
+                                                                <asp:TextBox class="input-text" TextMode="MultiLine" ID="note" runat="server" Height="75px"
+                                                                    Width="549px"></asp:TextBox>
                                                                 <br />
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </li>
-
                                             </ul>
                                         </fieldset>
-                                       
                                     </li>
                                 </ul>
                             </fieldset>
-                             <div class="buttons-set" id="billing-buttons-container" style="">
-        <p class="required">* Bắt buộc nhập</p>
-        <asp:Button ID="Button1" runat="server" class="design2" Text="Xác nhận" onclick="Button1_Click" />
-        </div>
+                            <div class="buttons-set" id="billing-buttons-container" style="">
+                                <p class="required">* Bắt buộc nhập</p>
+                                <asp:LinkButton ID="Button1" Width="120" runat="server" class="btn btn-blue" OnClick="Button1_Click"><span>Xác nhận</span></asp:LinkButton>
+                            </div>
                             <asp:HiddenField ID="txtClientCd" runat="server" />
                         </div>
                     </li>

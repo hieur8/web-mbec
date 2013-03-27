@@ -12,7 +12,9 @@
                         <div class="my-account">
                             <div class="page-title title-buttons">
                                 <h1>
-                                    Đơn hàng #<%# Eval("AcceptSlipNo")%> - <b><%# Eval("SlipStatusName") %></b>
+                                    Đơn hàng #<%# Eval("AcceptSlipNo")%>
+                                    - <b>
+                                        <%# Eval("SlipStatusName") %></b>
                                 </h1>
                             </div>
                             <p class="order-date">
@@ -123,7 +125,8 @@
                                                 <strong>Tông tiền</strong>
                                             </td>
                                             <td class="last a-right">
-                                                <strong><span class="price"><%# Eval("TotalAmount")%></span></strong>
+                                                <strong><span class="price">
+                                                    <%# Eval("TotalAmount")%></span></strong>
                                             </td>
                                         </tr>
                                     </tfoot>

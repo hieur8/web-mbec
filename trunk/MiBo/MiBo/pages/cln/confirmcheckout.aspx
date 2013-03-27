@@ -22,23 +22,25 @@
                         <div id="checkout-step-login" class="step a-item" style="">
                             <div class="col2-set">
                                 <div class="col-1">
-                                    <h3>Thanh toán nhanh hoặc đăng ký</h3>
+                                    <h3>
+                                        Thanh toán nhanh hoặc đăng ký</h3>
                                     <p>
-                                       <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label></p>
+                                        <asp:Label ID="Label1" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label></p>
                                     <p>
-                                       <span id="main_Label1" style="color:Red;font-weight:bold;"></span></p>
-                                     <ul class="form-list">
+                                        <span id="main_Label1" style="color: Red; font-weight: bold;"></span>
+                                    </p>
+                                    <ul class="form-list">
                                         <li class="control">
-                                            <asp:RadioButton GroupName="rbMethod" class="radio" Text="Thanh toán không cần đăng ký" ID="method1"
-                                                    runat="server" />
+                                            <asp:RadioButton GroupName="rbMethod" class="radio" Text="Thanh toán không cần đăng ký"
+                                                ID="method1" runat="server" Checked="true" />
                                         </li>
                                         <li class="control">
-                                                <asp:RadioButton GroupName="rbMethod" class="radio" Text="Đăng ký thành viên" ID="method2"
-                                                    runat="server" />
+                                            <asp:RadioButton GroupName="rbMethod" class="radio" Text="Đăng ký thành viên" ID="method2"
+                                                runat="server" />
                                         </li>
                                         <li class="control">
-                                                <asp:RadioButton GroupName="rbMethod" class="radio" Text="Đăng nhập" ID="method3"
-                                                    runat="server" />
+                                            <asp:RadioButton GroupName="rbMethod" class="radio" Text="Đăng nhập" ID="method3"
+                                                runat="server" />
                                         </li>
                                     </ul>
                                     <h4>
@@ -50,25 +52,18 @@
                                         <li>Đăng ký bằng tài khoản Facebook hoặc google của bạn </li>
                                     </ul>
                                 </div>
-                                
                             </div>
                             <div class="col2-set">
                                 <div class="col-1">
                                     <div class="buttons-set">
-                                        <p class="required">
-                                            &nbsp;</p>
-                                       <asp:Button ID="Button2" runat="server" Text="Xác nhận" onclick="Button2_Click" 
-                                            />
+                                        <asp:LinkButton ID="Button2" Width="120" runat="server" class="btn btn-blue" OnClick="Button2_Click"><span>Xác nhận</span></asp:LinkButton>
                                     </div>
                                 </div>
-                                
                             </div>
-                           
                         </div>
                     </li>
                 </ol>
             </div>
         </div>
-    </div>
     </div>
 </asp:Content>

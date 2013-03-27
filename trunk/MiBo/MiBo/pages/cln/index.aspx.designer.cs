@@ -22,6 +22,24 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.Repeater rptBanner;
         
         /// <summary>
+        /// litHotline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHotline;
+        
+        /// <summary>
+        /// litDiscountMember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litDiscountMember;
+        
+        /// <summary>
         /// rptNewItem control.
         /// </summary>
         /// <remarks>

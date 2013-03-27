@@ -59,116 +59,162 @@
                             </asp:Repeater>
                         </div>
                         <div class="perfume1">
+                            <div class="tbl-right-box box-176 padd-bg-hotline ui-corner-tbl-top">
+                                <span class="ui-hotline-2"></span>
+                                <p class="padd-hotline-2">
+                                    <span>hotline <b class="color-oran">(GỌI MIỄN PHÍ)</b></span>
+                                </p>
+                                <h4 class="num-hot">
+                                    <asp:Literal ID="litHotline" runat="server"></asp:Literal></h4>
+                                <p>
+                                </p>
+                            </div>
+                            <div id="right-cp" class="bg-cp">
+                                <div class="padd-in-7 tbl-cp" style="padding-top: 0;">
+                                    <div class="c1" style="height: 1px; background: #dbdde0">
+                                    </div>
+                                    <div class="wrapper" style="margin-top: 9px;">
+                                        <a><span class="duty-40x40 duty-1a"></span>
+                                            <p class="font-medium">
+                                                Giảm <asp:Literal ID="litDiscountMember" runat="server"></asp:Literal> cho các thành viên mibo.vn</p>
+                                        </a>
+                                    </div>
+                                    <div class="wrapper">
+                                        <a><span class="duty-40x40 duty-2a"></span>
+                                            <p class="font-medium">
+                                                100% các sản phẩm chính hãng giá tốt</p>
+                                        </a>
+                                    </div>
+                                    <div class="wrapper">
+                                        <a><span class="duty-40x40 duty-3a"></span>
+                                            <p class="font-medium">
+                                                7 ngày đổi trả hàng miễn phí</p>
+                                        </a>
+                                    </div>
+                                    <div class="wrapper">
+                                        <a><span class="duty-40x40 duty-4a"></span>
+                                            <p class="font-medium">
+                                                Giao hàng miễn phí với các đơn hàng trị giá từ 150.000 đ</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- ket thuc silde -->
-                        <div class="tab-display">
-                            <ul class="tabs">
-                                <li  style="background-color:#f8831c" class="active" style=""><a href="#tab1">Sản phẩm mới</a></li>
-                                <li style="background-color:#d7288d" class=""><a href="#tab2">Sản phẩm khuyến mãi</a></li>
-                                <li style="background-color:#00afdc" class=""><a href="#tab3">Sản phẩm xem nhiều</a></li>
+                        <div class="clearer">
+                            <ul class="idTabs idTabsShort">
+                                <li><a href="#idTab1" class="selected">Sản phẩm mới</a></li>
+                                <li><a href="#idTab2">Sản phẩm khuyến mãi</a></li>
+                                <li><a href="#idTab3">Sản phẩm xem nhiều</a></li>
                             </ul>
-                            <div class="tab_container">
-                                <div id="tab1" class="tab_content" style="display: block;">
-                                    <asp:Repeater ID="rptNewItem" runat="server">
-                                        <HeaderTemplate>
-                                            <ul class="products-grid">
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
-                                                class="product-image">
-                                                <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
-                                                    alt='<%# Eval("ItemName") %>'>
-                                            </a>&nbsp;<div class="align-prodname-price-review">
-                                                <h3 class="product-name">
-                                                    <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
-                                                        <%# Eval("ItemName") %></a>
-                                                </h3>
-                                                <div class="price-box">
-                                                    <p style="margin: 0">
-                                                        Thương hiệu :
-                                                        <%# Eval("BrandName") %></p>
-                                                    <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
-                                                        class="price">
-                                                        <%# Eval("Price") %>
-                                                    </span>
-                                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span  style='text-align:right' class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
-                                                    </span>
+                            <div id="more_info_sheets" class="bgcolor bordercolor">
+                                <div id="idTab1" style="padding: 5px;">
+                                    <div>
+                                        <asp:Repeater ID="rptNewItem" runat="server">
+                                            <HeaderTemplate>
+                                                <ul class="products-grid">
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
+                                                    class="product-image">
+                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                        alt='<%# Eval("ItemName") %>'>
+                                                </a>&nbsp;<div class="align-prodname-price-review">
+                                                    <h3 class="product-name">
+                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
+                                                            <%# Eval("ItemName") %></a>
+                                                    </h3>
+                                                    <div class="price-box">
+                                                        <p style="margin: 0">
+                                                            Thương hiệu :
+                                                            <%# Eval("BrandName") %></p>
+                                                        <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
+                                                            class="price">
+                                                            <%# Eval("Price") %>
+                                                        </span>
+                                                            <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span  style='text-align:right' class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            </li>
-                                        </ItemTemplate>
-                                        <FooterTemplate>
-                                            </ul>
-                                        </FooterTemplate>
-                                    </asp:Repeater>
+                                                </li>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </ul>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    </div>
                                 </div>
-                                <div id="tab2" class="tab_content" style="display: none;">
-                                    <asp:Repeater ID="rptOfferItem" runat="server">
-                                        <HeaderTemplate>
-                                            <ul class="products-grid">
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
-                                                class="product-image">
-                                                <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
-                                                    alt='<%# Eval("ItemName") %>'>
-                                            </a>&nbsp;<div class="align-prodname-price-review">
-                                                <h3 class="product-name">
-                                                    <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
-                                                        <%# Eval("ItemName") %></a>
-                                                </h3>
-                                                <div class="price-box">
-                                                    <p style="margin: 0">
-                                                        Thương hiệu :
-                                                        <%# Eval("BrandName") %></p>
-                                                    <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
-                                                        class="price">
-                                                        <%# Eval("Price") %>
-                                                    </span>
-                                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span  style='text-align:right' class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
-                                                    </span>
+                                <div id="idTab2" style="padding: 5px;">
+                                    <div>
+                                        <asp:Repeater ID="rptOfferItem" runat="server">
+                                            <HeaderTemplate>
+                                                <ul class="products-grid">
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
+                                                    class="product-image">
+                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                        alt='<%# Eval("ItemName") %>'>
+                                                </a>&nbsp;<div class="align-prodname-price-review">
+                                                    <h3 class="product-name">
+                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
+                                                            <%# Eval("ItemName") %></a>
+                                                    </h3>
+                                                    <div class="price-box">
+                                                        <p style="margin: 0">
+                                                            Thương hiệu :
+                                                            <%# Eval("BrandName") %></p>
+                                                        <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
+                                                            class="price">
+                                                            <%# Eval("Price") %>
+                                                        </span>
+                                                            <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span  style='text-align:right' class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            </li>
-                                        </ItemTemplate>
-                                        <FooterTemplate>
-                                            </ul>
-                                        </FooterTemplate>
-                                    </asp:Repeater>
+                                                </li>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </ul>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    </div>
                                 </div>
-                                <div id="tab3" class="tab_content" style="display: none;">
-                                    <asp:Repeater ID="rptHotItem" runat="server">
-                                        <HeaderTemplate>
-                                            <ul class="products-grid">
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
-                                                class="product-image">
-                                                <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
-                                                    alt='<%# Eval("ItemName") %>'>
-                                            </a>&nbsp;<div class="align-prodname-price-review">
-                                                <h3 class="product-name">
-                                                    <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
-                                                        <%# Eval("ItemName") %></a>
-                                                </h3>
-                                                <div class="price-box">
-                                                    <p style="margin: 0">
-                                                        Thương hiệu :
-                                                        <%# Eval("BrandName") %></p>
-                                                    <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
-                                                        class="price">
-                                                        <%# Eval("Price") %>
-                                                    </span>
-                                                        <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span  style='text-align:right' class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
-                                                    </span>
+                                <div id="idTab3" style="padding: 5px;">
+                                    <div>
+                                        <asp:Repeater ID="rptHotItem" runat="server">
+                                            <HeaderTemplate>
+                                                <ul class="products-grid">
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
+                                                    class="product-image">
+                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                        alt='<%# Eval("ItemName") %>'>
+                                                </a>&nbsp;<div class="align-prodname-price-review">
+                                                    <h3 class="product-name">
+                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
+                                                            <%# Eval("ItemName") %></a>
+                                                    </h3>
+                                                    <div class="price-box">
+                                                        <p style="margin: 0">
+                                                            Thương hiệu :
+                                                            <%# Eval("BrandName") %></p>
+                                                        <span class="regular-price" id="product-price-181-new"><span style="text-align: right"
+                                                            class="price">
+                                                            <%# Eval("Price") %>
+                                                        </span>
+                                                            <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span  style='text-align:right' class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            </li>
-                                        </ItemTemplate>
-                                        <FooterTemplate>
-                                            </ul>
-                                        </FooterTemplate>
-                                    </asp:Repeater>
+                                                </li>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </ul>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    </div>
                                 </div>
                             </div>
                         </div>

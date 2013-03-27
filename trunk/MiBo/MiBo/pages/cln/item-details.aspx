@@ -27,17 +27,6 @@
             $('.ad-controls').hide();
         });
     </script>
-    <!-- IdTab -->
-    <link rel="stylesheet" type="text/css" href="/pages/resources/styles/jquery.idTabs.css">
-    <script type="text/javascript" src="/pages/resources/scripts/jquery.idTabs.modified.js">
-        
-    </script>
-    <style type="text/css">
-        .table_details td
-        {
-            padding: 5px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
     <div id="fb-root">
@@ -104,6 +93,15 @@
                                                     <%# Eval("Price")%></span>
                                                     <%# Equals("", Eval("ItemDiv")) && Equals("01", Eval("OfferDiv")) ? "<span class='pricesub'>" + Eval("PriceOld") + "</span>" : ""%>
                                                 </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Mã sản phẩm
+                                            </td>
+                                            <td>
+                                                <span>
+                                                    <%# Eval("ItemCd")%></span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -192,13 +190,26 @@
                                 <div class="clearer">
                                     <ul class="idTabs idTabsShort">
                                         <li><a href="#idTab1" class="selected">Mô tả sản phẩm</a></li>
+                                        <li><a href="#idTab2">Thông tin Thương hiệu</a></li>
+                                        <li><a href="#idTab3">Youtube</a></li>
                                     </ul>
                                     <div id="more_info_sheets" class="bgcolor bordercolor">
-                                        <div id="idTab1" class="">
+                                        <div id="idTab1" style="padding: 20px;">
                                             <div>
                                                 <%# Eval("Notes")%>
                                             </div>
                                         </div>
+                                        <div id="idTab2" style="padding: 20px;">
+                                            <div>
+                                                Mô tả chi tiết thông tin của nhà sản xuất
+                                            </div>
+                                        </div>
+                                        <div id="idTab3" style="padding: 20px;">
+                                            <div>
+                                                Trải nghiệm sản phẩm cùng youtube
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="box-collateral box-up-sell">

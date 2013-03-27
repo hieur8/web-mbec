@@ -9,8 +9,6 @@ namespace MiBo.Domain.Model.Client.Master
         public IList<CartItem> Cart { get; set; }
 
         public decimal CartCount { get; set; }
-        public decimal? DiscountMember { get; set; }
-        public string Hotline { get; set; }
         public string Email { get; set; }
         public string ChatYahoo { get; set; }
         public string ChatSkype { get; set; }

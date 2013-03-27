@@ -202,10 +202,11 @@ namespace MiBo.Domain.Common.Utils
             if (DataCheckHelper.IsNull(slipNo))
                 throw new ParamInvalidException();
 
-            var hex10 = DataHelper.ConvertInputNumber(slipNo + pass);
+            var num = DataHelper.ConvertInputNumber(slipNo + pass);
+            var hex10 = decimal.ToInt64(num.GetValueOrDefault(0));
 
             // Return value
-            return hex10.GetValueOrDefault(0).ToString("x10");
+            return hex10.ToString("x10");
         }
     }
 }
