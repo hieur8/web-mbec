@@ -138,6 +138,8 @@ namespace MiBo.Domain.Logic.Client.Index
             // Set value
             responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
             responseModel.Hotline = DataHelper.ToString(resultObject.Hotline);
+            responseModel.ChatYahoo = DataHelper.ToString(resultObject.ChatYahoo);
+            responseModel.ChatSkype = DataHelper.ToString(resultObject.ChatSkype);
             responseModel.ListBanners = listBanners;
             responseModel.ListNewItems = listNewItems;
             responseModel.ListHotItems = listHotItems;
@@ -200,10 +202,14 @@ namespace MiBo.Domain.Logic.Client.Index
             var listOfferItems = clientIndexDao.GetListOfferItems();
             var discountMember = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
             var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
+            var strChatYahoo = mParameterCom.GetString(Logics.PR_CHAT_YAHOO, false);
+            var strChatSkype = mParameterCom.GetString(Logics.PR_CHAT_SKYPE, false);
 
             // Set value
             getResult.DiscountMember = discountMember;
             getResult.Hotline = strHotline;
+            getResult.ChatYahoo = strChatYahoo;
+            getResult.ChatSkype = strChatSkype;
             getResult.ListBanners = listBanners;
             getResult.ListNewItems = itemCom.ToListItemModel(listNewItems);
             getResult.ListHotItems = itemCom.ToListItemModel(listHotItems);

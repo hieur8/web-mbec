@@ -5,6 +5,8 @@ namespace MiBo.Domain.Web.Client.ItemDetails
 {
     public class OutputDetailsModel
     {
+        public string Hotline { get; set; }
+
         public string ItemCd { get; set; }
         public string ItemName { get; set; }
         public string CategoryCd { get; set; }
@@ -17,10 +19,12 @@ namespace MiBo.Domain.Web.Client.ItemDetails
         public string PriceOld { get; set; }
         public string BrandCd { get; set; }
         public string BrandName { get; set; }
+        public string BrandInfo { get; set; }
         public string CountryCd { get; set; }
         public string CountryName { get; set; }
         public string AgeName { get; set; }
-        public string Packing { get; set; }
+        public string LinkVideo { get; set; }
+        public string Material { get; set; }
         public string Notes { get; set; }
         public IList<OutputItemModel> ListOfferItems { get; set; }
         public IList<OutputItemModel> ListRelation { get; set; }

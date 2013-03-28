@@ -12,5 +12,6 @@ namespace MiBo.Domain.Model.Client.ItemDetails
         // Response
         public ItemModel Item { get; set; }
         public IList<ItemModel> ListRelation { get; set; }
+        public string Hotline { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace MiBo.Domain.Model.Client.Items
     public class InitDataModel
     {
         // Request
-        public string ItemName { get; set; }
+        public string SearchText { get; set; }
         public string CategoryCd { get; set; }
         public string AgeCd { get; set; }
         public string GenderCd { get; set; }

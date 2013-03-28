@@ -15,6 +15,10 @@ namespace MiBo.pages.cln
             var response = Invoke(logic, InitRequestModel);
             if (HasError) return;
             litHotline.Text = response.Hotline;
+            lnkChatSkype.Attributes["href"] = string.Format(Logics.LINK_SKYPE_IM, response.ChatSkype);
+            icoChatSkype.Attributes["src"] = string.Format(Logics.LINK_SKYPE_IC, response.ChatSkype);
+            lnkChatYahoo.Attributes["href"] = string.Format(Logics.LINK_YAHOO_IM, response.ChatYahoo);
+            icoChatYahoo.Attributes["src"] = string.Format(Logics.LINK_YAHOO_IC, response.ChatYahoo);
             litDiscountMember.Text = response.DiscountMember;
             rptBanner.DataSource = response.ListBanners;
             rptBanner.DataBind();

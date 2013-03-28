@@ -6748,7 +6748,9 @@ namespace MiBo.Domain.Common.Dao
 		
 		private System.Nullable<decimal> _Viewer;
 		
-		private string _Packing;
+		private string _LinkVideo;
+		
+		private string _Material;
 		
 		private string _SummaryNotes;
 		
@@ -6812,8 +6814,10 @@ namespace MiBo.Domain.Common.Dao
     partial void OnBuyingPriceChanged();
     partial void OnViewerChanging(System.Nullable<decimal> value);
     partial void OnViewerChanged();
-    partial void OnPackingChanging(string value);
-    partial void OnPackingChanged();
+    partial void OnLinkVideoChanging(string value);
+    partial void OnLinkVideoChanged();
+    partial void OnMaterialChanging(string value);
+    partial void OnMaterialChanged();
     partial void OnSummaryNotesChanging(string value);
     partial void OnSummaryNotesChanged();
     partial void OnNotesChanging(string value);
@@ -7129,27 +7133,47 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Packing", DbType="NVarChar(255)")]
-		public string Packing
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LinkVideo", DbType="VarChar(255)")]
+		public string LinkVideo
 		{
 			get
 			{
-				return this._Packing;
+				return this._LinkVideo;
 			}
 			set
 			{
-				if ((this._Packing != value))
+				if ((this._LinkVideo != value))
 				{
-					this.OnPackingChanging(value);
+					this.OnLinkVideoChanging(value);
 					this.SendPropertyChanging();
-					this._Packing = value;
-					this.SendPropertyChanged("Packing");
-					this.OnPackingChanged();
+					this._LinkVideo = value;
+					this.SendPropertyChanged("LinkVideo");
+					this.OnLinkVideoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SummaryNotes", DbType="NVarChar(255)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Material", DbType="NVarChar(255)")]
+		public string Material
+		{
+			get
+			{
+				return this._Material;
+			}
+			set
+			{
+				if ((this._Material != value))
+				{
+					this.OnMaterialChanging(value);
+					this.SendPropertyChanging();
+					this._Material = value;
+					this.SendPropertyChanged("Material");
+					this.OnMaterialChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SummaryNotes", DbType="NVarChar(4000)")]
 		public string SummaryNotes
 		{
 			get

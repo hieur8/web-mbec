@@ -82,7 +82,7 @@
                                 <div class="product-shop">
                                     <h3>
                                         <%# Eval("ItemName")%></h3>
-                                        <hr />
+                                    <hr size="1" />
                                     <table width="100%" border="0" class="table_details">
                                         <tr>
                                             <td width="120">
@@ -133,11 +133,11 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                Qui cách
+                                                Chất liệu
                                             </td>
                                             <td>
                                                 <span>
-                                                    <%# Eval("Packing")%></span>
+                                                    <%# Eval("Material")%></span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -159,6 +159,12 @@
                                                     ID="lnkBuyNow" runat="server">Thêm vào giỏ hàng</asp:LinkButton>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div>
+                                        <ul class="f-left supportInfo">
+                                            <li class="bullet">Giao hàng trong vòng 2 ngày làm việc (trừ chủ nhật)</li>
+                                            <li class="bullet">Hổ trợ khách hàng: <b><%# Eval("Hotline")%></b></li>
+                                        </ul>
                                     </div>
                                 </div>
                                 <div style="padding-left: 15px; z-index: 3" class="product-img-box">
@@ -201,15 +207,17 @@
                                         </div>
                                         <div id="idTab2" style="padding: 20px;">
                                             <div>
-                                                Mô tả chi tiết thông tin của nhà sản xuất
+                                                <%# Eval("BrandInfo")%>
                                             </div>
                                         </div>
                                         <div id="idTab3" style="padding: 20px;">
                                             <div>
-                                                Trải nghiệm sản phẩm cùng youtube
+                                                <center>
+                                                    <iframe width="425" height="349" src='<%# Eval("LinkVideo")%>' frameborder="0" allowfullscreen="true">
+                                                    </iframe>
+                                                </center>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="box-collateral box-up-sell">

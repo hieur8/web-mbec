@@ -1,1 +1,0 @@
-var slipNo = MNumberCom.GetSlipNo("01");
