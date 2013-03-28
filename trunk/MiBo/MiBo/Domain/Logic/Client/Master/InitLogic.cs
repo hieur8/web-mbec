@@ -156,8 +156,6 @@ namespace MiBo.Domain.Logic.Client.Master
             // Set value
             responseModel.CartCount = DataHelper.ToString(Formats.NUMBER, resultObject.CartCount);
             responseModel.Email = DataHelper.ToString(resultObject.Email);
-            responseModel.ChatYahoo = DataHelper.ToString(resultObject.ChatYahoo);
-            responseModel.ChatSkype = DataHelper.ToString(resultObject.ChatSkype);
             responseModel.ListToys = listToys;
             responseModel.ListLearningTools = listLearningTools;
             responseModel.ListBooks = listBooks;
@@ -220,8 +218,6 @@ namespace MiBo.Domain.Logic.Client.Master
 
             // Get data
             var cartCount = cartCom.Count;
-            var strChatYahoo = mParameterCom.GetString(Logics.PR_CHAT_YAHOO, false);
-            var strChatSkype = mParameterCom.GetString(Logics.PR_CHAT_SKYPE, false);
             var strEmail = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT, false);
 
             var listToys = clientMasterDao.GetListCategories(Logics.CD_CATEGORY_DIV_TOYS);
@@ -235,8 +231,6 @@ namespace MiBo.Domain.Logic.Client.Master
             // Set value
             getResult.CartCount = cartCount;
             getResult.Email = strEmail;
-            getResult.ChatYahoo = strChatYahoo;
-            getResult.ChatSkype = strChatSkype;
 
             getResult.ListToys = listToys;
             getResult.ListLearningTools = listLearningTools;

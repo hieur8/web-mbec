@@ -13,5 +13,7 @@ namespace MiBo.Domain.Model.Client.Index
 
         public decimal? DiscountMember { get; set; }
         public string Hotline { get; set; }
+        public string ChatYahoo { get; set; }
+        public string ChatSkype { get; set; }
     }
 }

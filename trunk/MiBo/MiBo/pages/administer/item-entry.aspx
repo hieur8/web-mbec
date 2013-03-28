@@ -151,11 +151,10 @@
                                     </asp:DropDownList>
                                 </td>
                                 <td width="80">
-                                    <span class="label">Qui cách</span>
+                                    <span class="label">Chất liệu</span>
                                 </td>
                                 <td>
-                                    <asp:TextBox Text='<%# Eval("Packing") %>' ID="txtPacking"
-                                        runat="server" CssClass="text-input"></asp:TextBox>
+                                    <asp:TextBox Text='<%# Eval("Material") %>' ID="txtMaterial" runat="server" CssClass="text-input"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>
@@ -223,11 +222,21 @@
                         </table>
                         <table>
                             <tr>
+                                <td width="120">
+                                    <span class="label">Link video</span>
+                                </td>
+                                <td>
+                                    <asp:TextBox Width="750" Text='<%# Eval("LinkVideo") %>' ID="txtLinkVideo" runat="server" CssClass="input-search text-input"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
                                 <td>
                                     <label>
                                         Tóm tắt</label>
-                                    <asp:TextBox Text='<%# Eval("SummaryNotes") %>' ID="txtSummaryNotes" runat="server" TextMode="MultiLine"
-                                    Rows="2"></asp:TextBox>
+                                    <asp:TextBox Text='<%# Eval("SummaryNotes") %>' ID="txtSummaryNotes" runat="server"
+                                        TextMode="MultiLine" Rows="2"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>
@@ -236,8 +245,8 @@
                                 <td>
                                     <label>
                                         Mô tả</label>
-                                    <asp:TextBox Text='<%# Eval("Notes") %>' CssClass="showEditer" ID="txtContents" runat="server" TextMode="MultiLine"
-                                    Rows="5"></asp:TextBox>
+                                    <asp:TextBox Text='<%# Eval("Notes") %>' CssClass="showEditer" ID="txtContents" runat="server"
+                                        TextMode="MultiLine" Rows="5"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>

@@ -10,8 +10,6 @@ namespace MiBo.Domain.Model.Client.Master
 
         public decimal CartCount { get; set; }
         public string Email { get; set; }
-        public string ChatYahoo { get; set; }
-        public string ChatSkype { get; set; }
         public IList<Category> ListToys { get; set; }
         public IList<Category> ListLearningTools { get; set; }
         public IList<Category> ListBooks { get; set; }

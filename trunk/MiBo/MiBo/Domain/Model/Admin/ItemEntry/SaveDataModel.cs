@@ -18,7 +18,8 @@ namespace MiBo.Domain.Model.Admin.ItemEntry
         public string ImagePath { get; set; }
         public decimal? SalesPrice { get; set; }
         public decimal? BuyingPrice { get; set; }
-        public string Packing { get; set; }
+        public string LinkVideo { get; set; }
+        public string Material { get; set; }
         public string SummaryNotes { get; set; }
         public string Notes { get; set; }
         public decimal? SortKey { get; set; }

@@ -57,9 +57,11 @@ namespace MiBo.Domain.Dao
                      select tbl.ItemCd;
 
             var listResult = from tbl in EntityManager.Items
-                             where (tbl.ItemName.Contains(inputObject.ItemName)
-                             || tbl.ItemSearchName.Contains(inputObject.ItemName)
-                             || DataCheckHelper.IsNull(inputObject.ItemName))
+                             where (tbl.ItemName.Contains(inputObject.SearchText)
+                             || tbl.ItemSearchName.Contains(inputObject.SearchText)
+                             || tbl.Category.CategoryName.Contains(inputObject.SearchText)
+                             || tbl.Brand.BrandName.Contains(inputObject.SearchText)
+                             || DataCheckHelper.IsNull(inputObject.SearchText))
                              && (tbl.CategoryCd == inputObject.CategoryCd 
                              || DataCheckHelper.IsNull(inputObject.CategoryCd))
                              && (tbl.AgeCd == inputObject.AgeCd 

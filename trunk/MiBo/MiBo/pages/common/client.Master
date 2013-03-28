@@ -281,26 +281,25 @@
                     </ul>
                 </div>
             </div>
-            <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="235"
+            <div class="fb-like-box" data-href="http://www.facebook.com/mibo.vn" data-width="265"
                 data-height="100" data-show-faces="true" data-stream="false" data-header="true">
             </div>
         </div>
     </div>
     <div class="clear">
     </div>
-    <center>
-        <div style="width: 975px;background-color:#f2f2f2">
-                <div class="address">
-                    <p style="padding-top: 20px">
-                        Copyright © 2013 - Bản quyền của Công Ty TNHH MTV Tin Học Nguyễn Phong.</p>
-                </div>
-                <div class="right-ft-card-follow">
-                    <a href="#" target="_blank">
-                        <img src="/pages/resources/images/bg-ft-card-follow.gif"></a>
-                </div>
-            
+    <div style="width: 1005px; margin: 0 auto; background-color: #f2f2f2">
+        <div class="address">
+            <p style="padding-top: 8px; text-align: left">
+                Đơn vị chủ quản: Tin Học Nguyển Phong<br />
+                Địa chỉ: 96/22A Đường số 5, P.17, Q.Gò Vấp, TP.HCM<br />
+                Giấy chứng nhận đăng ký kinh doanh số 0312106322.</p>
         </div>
-    </center>
+        <div class="right-ft-card-follow">
+            <a href="#" target="_blank">
+                <img src="/pages/resources/images/bg-ft-card-follow.gif"></a>
+        </div>
+    </div>
     </form>
 </body>
 </html>

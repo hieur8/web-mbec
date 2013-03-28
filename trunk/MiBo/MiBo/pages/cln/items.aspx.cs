@@ -33,7 +33,7 @@ namespace MiBo.pages.cln
             get
             {
                 var request = new InitRequestModel();
-                request.ItemName = Request["pnm"];
+                request.SearchText = Request["pnm"];
                 request.CategoryCd = Request["category"];
                 request.AgeCd = Request["age"];
                 request.GenderCd = Request["gender"];

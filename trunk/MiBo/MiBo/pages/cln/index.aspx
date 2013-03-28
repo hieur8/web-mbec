@@ -44,7 +44,7 @@
             <div class="std">
                 <div class="main-content">
                     <div class="header-banner">
-                        <div style="float: left; padding-right: 10px">
+                        <div style="float: left; margin-right: 10px; border: 1px solid #ddd">
                             <asp:Repeater ID="rptBanner" runat="server">
                                 <HeaderTemplate>
                                     <div style="float: left;" class="slider">
@@ -62,7 +62,7 @@
                             <div class="tbl-right-box box-176 padd-bg-hotline ui-corner-tbl-top">
                                 <span class="ui-hotline-2"></span>
                                 <p class="padd-hotline-2">
-                                    <span>hotline <b class="color-oran">(GỌI MIỄN PHÍ)</b></span>
+                                    <span style="font-size: 12px">hotline (24/7)</span>
                                 </p>
                                 <h4 class="num-hot">
                                     <asp:Literal ID="litHotline" runat="server"></asp:Literal></h4>
@@ -76,7 +76,9 @@
                                     <div class="wrapper" style="margin-top: 9px;">
                                         <a><span class="duty-40x40 duty-1a"></span>
                                             <p class="font-medium">
-                                                Giảm <asp:Literal ID="litDiscountMember" runat="server"></asp:Literal> cho các thành viên mibo.vn</p>
+                                                Giảm
+                                                <asp:Literal ID="litDiscountMember" runat="server"></asp:Literal>
+                                                cho các thành viên mibo.vn</p>
                                         </a>
                                     </div>
                                     <div class="wrapper">
@@ -94,8 +96,15 @@
                                     <div class="wrapper">
                                         <a><span class="duty-40x40 duty-4a"></span>
                                             <p class="font-medium">
-                                                Giao hàng miễn phí với các đơn hàng trị giá từ 150.000 đ</p>
+                                                Giao hàng miễn phí với các đơn hàng trị giá từ 200.000 đ</p>
                                         </a>
+                                    </div>
+                                    <hr />
+                                    <div class="wrapper">
+                                        <a id="lnkChatYahoo" runat="server" title="Click vào đây để Chat trực tiếp" style="text-decoration: none; padding: 0 6px">
+                                            <img id="icoChatYahoo" runat="server" style="cursor: pointer; width: 88px" border="0"></a>
+                                        <a id="lnkChatSkype" runat="server" title="Click vào đây để Chat trực tiếp" style="text-decoration: none;  padding: 0 6px">
+                                            <img id="icoChatSkype" runat="server" style="cursor: pointer; width: 72px" border="0"></a>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +117,7 @@
                                 <li><a href="#idTab3">Sản phẩm xem nhiều</a></li>
                             </ul>
                             <div id="more_info_sheets" class="bgcolor bordercolor">
-                                <div id="idTab1" style="padding: 5px;">
+                                <div id="idTab1" style="padding: 4px;">
                                     <div>
                                         <asp:Repeater ID="rptNewItem" runat="server">
                                             <HeaderTemplate>
@@ -117,7 +126,7 @@
                                             <ItemTemplate>
                                                 <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                     class="product-image">
-                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/normal/<%# Eval("ItemImage") %>'
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
                                                     <h3 class="product-name">
@@ -144,7 +153,7 @@
                                         </asp:Repeater>
                                     </div>
                                 </div>
-                                <div id="idTab2" style="padding: 5px;">
+                                <div id="idTab2" style="padding: 4px;">
                                     <div>
                                         <asp:Repeater ID="rptOfferItem" runat="server">
                                             <HeaderTemplate>
@@ -153,7 +162,7 @@
                                             <ItemTemplate>
                                                 <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                     class="product-image">
-                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/normal/<%# Eval("ItemImage") %>'
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
                                                     <h3 class="product-name">
@@ -180,7 +189,7 @@
                                         </asp:Repeater>
                                     </div>
                                 </div>
-                                <div id="idTab3" style="padding: 5px;">
+                                <div id="idTab3" style="padding: 4px;">
                                     <div>
                                         <asp:Repeater ID="rptHotItem" runat="server">
                                             <HeaderTemplate>
@@ -189,7 +198,7 @@
                                             <ItemTemplate>
                                                 <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                     class="product-image">
-                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/normal/<%# Eval("ItemImage") %>'
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
                                                     <h3 class="product-name">

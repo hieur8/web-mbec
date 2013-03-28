@@ -11,5 +11,7 @@ namespace MiBo.Domain.Web.Client.Index
         public IList<OutputItemModel> ListOfferItems { get; set; }
         public string DiscountMember { get; set; }
         public string Hotline { get; set; }
+        public string ChatYahoo { get; set; }
+        public string ChatSkype { get; set; }
     }
 }

@@ -26,6 +26,7 @@ h3            { font-size:16px; font-weight:bold; }
 h4            { font-size:14px; font-weight:bold; }
 h5            { font-size:12px; font-weight:bold; }
 h6            { font-size:11px; font-weight:bold; }
+hr            { border: 0; color: #9E9E9E; background-color: #9E9E9E; height: 1px; width: 100%; text-align: left; }
 
 .fleft { float: left; }
 .fright { float: right; }
@@ -87,7 +88,7 @@ ul,ol         { list-style:none; }
 .page-empty { background:#fff; padding:20px; text-align:left; }
 .page-popup { background:#fff; padding:25px 30px; text-align:left; }
 .main-container { /*background:#fbfaf6 url(../images/bkg_main1.gif) 50% 0 no-repeat;*/ background:#fff; }
-.main { margin:0 auto;min-height:400px;padding:7px 0 10px 0;text-align:left;width:995px; }
+.main { margin:0 auto;min-height:400px;padding:7px 0 10px 0;text-align:left;width:1005px; }
 
 /* Base Columns */
 .col-left { float:left; width:218px; padding:0 0 1px; }
@@ -1589,7 +1590,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* Footer ================================================================================ */
 .footer-container {background-color:#00aff0;float:left;width:100%;min-width:100%;max-width:100%;/* border-top:15px solid #b6d1e2;*/  }
-.footer { /*width:930px; margin:0 auto; padding:10px 10px 50px;*/margin:0 auto;padding:0;width:1004px; padding:0 0 5px;width:975px;}
+.footer { margin:0 auto;padding:0;width:1005px; padding:0 0 5px;}
 .footer .store-switcher { display:inline; margin:0 5px 0 0; color:#fff; }
 .footer .store-switcher label { font-weight:bold; vertical-align:middle; }
 .footer .store-switcher select { padding:0; vertical-align:middle; }
@@ -1701,13 +1702,13 @@ tr.summary-details-excluded { font-style:italic; }
 .searchbox{margin-top:19px;}
 																/* Footer */
 .footer-container .footer .footertopcontainer {width:947px;}
- .top-text {color:#444444;float:left;font-size:13px;font-weight:bold;margin-left:0;margin-left:7px;padding:5px 5px 5px 5px;;text-transform:uppercase;}
+ .top-text {color:#444444;float:left;font-size:13px;font-weight:bold;margin:0;padding: 5px 0;text-transform:uppercase;}
  .footertopcontainer li {background:none repeat scroll 0 0 green;color:#E2EEFA;display:inline;font-size:13px;font-weight:bold;line-height:44px;padding-left:11px;padding-top:8px;text-transform:uppercase;}
  .footertopcontainer li.new-arrival {margin-left:20px;}
  .footertopcontainer li.customer-service {margin-left:20px;}
  .footertopcontainer li.connectus {margin-left:20px;}
-.footer ul.firstcol {display:inline;float:left;margin-left:17px;clear:both;margin-top:2px;}
-.first-block{float:left;padding-top:9px;padding-left:2px;padding-right:5px;height:178px;width:160px;}
+.footer ul.firstcol {display:inline;float:left;margin-left:0px;clear:both;margin-top:2px;}
+.first-block{float:left;padding-top:9px;padding-right:5px;height:178px;width:160px;}
 .second-block{float:left;padding-top:9px;padding-right:5px;height:178px;width:215px;padding-left:2px;}
 .third-block{float:left;padding-top:9px;padding-right:5px;height:178px;width:200px;padding-left:2px;}
 .fourth-block{float:left;padding-top:9px;height:178px;padding-left:2px;}
@@ -1742,7 +1743,7 @@ tr.summary-details-excluded { font-style:italic; }
 .menu-button-container{float:left;padding-bottom:5px;margin-top:5px;}
 .information-icon{background:url(../images/detail-icon.gif) no-repeat;height:30px;width:27px;float:left;margin-left:6px;margin-top:5px;}
 																		/* slider home page */
-.header-banner{width:995px;float:left;clear:both;}
+.header-banner{width:1005px;float:left;clear:both;}
 .col-right-sidebar{width:218px;min-height:300px;float:right;}
 																		/* tabs-home page */
 .tab-display{clear:both;float:left;margin-top:0px;width:100%;border:none}
@@ -1766,7 +1767,7 @@ ul.tabs li.active a{color:#fff;}
 .just-new{margin-top:6px;}
 .youtube-embed{margin-top:6px;}
 .perfume{margin-top:6px;float:left;width:213px;background:url("../images/newsletter-bg.gif") repeat scroll 0 0 transparent;height:100px;border:1px solid #fab4d6;}
-.perfume1{margin-top:6px;float:left;width:213px;}
+.perfume1{margin-top:0px;float:left;width:228px;}
 .connect-us {font-size:14px;font-weight:bold;margin-top:0px;text-transform:uppercase;}
 .connect-us  .social img{margin-top:11px;}
 .connect-us{float:left;}
@@ -2309,7 +2310,12 @@ float: right;
 }
 
 .table_details td {
-    padding: 5px;
+    padding: 3px;
+}
+
+li.bullet
+{
+    padding: 7px 5px 7px 22px; background: url(/pages/resources/images/bullet.png) no-repeat 7px 10px;
 }
 
 
@@ -2365,22 +2371,21 @@ h4.num-hot {
 }
 
 #right-cp {
-    width: 213px;
+    width: 228px;
     float: right;
     border: 1px solid #dbdde0;
     border-top: none;
     padding-bottom: 0px;
-    height: 327px;
+    height: 334px;
     overflow: hidden;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    margin-bottom: 10px;
 }
 
 #right-cp p {
-    font-size: 0.8em;
+    font-size: 1em;
     padding-left: 27px;
     line-height: 18px;
     *padding-left: 0px;
@@ -2397,7 +2402,7 @@ h4.num-hot {
 }
 
 .padd-in-7 .wrapper {
-    padding: 13px 5px;
+    padding: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -2441,4 +2446,9 @@ h4.num-hot {
 
 .duty-4a {
     background-position: 0 -114px;
+}
+
+.supportInfo
+{
+    *margin-top: 5px;
 }

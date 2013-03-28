@@ -92,10 +92,12 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             details.PriceOld = DataHelper.ToString(Formats.CURRENCY, item.SalesPriceOld);
             details.BrandCd = DataHelper.ToString(item.BrandCd);
             details.BrandName = DataHelper.ToString(item.Brand.BrandName);
+            details.BrandInfo = DataHelper.ToString(item.Brand.Notes);
             details.CountryCd = DataHelper.ToString(item.CountryCd);
             details.CountryName = DataHelper.ToString(item.Country.CountryName);
             details.AgeName = DataHelper.ToString(item.Age.AgeName);
-            details.Packing = DataHelper.ToString(item.Packing);
+            details.LinkVideo = DataHelper.ToString(item.LinkVideo);
+            details.Material = DataHelper.ToString(item.Material);
             details.Notes = DataHelper.ToString(item.Notes);
             foreach (var obj in item.ListOfferItems)
             {
@@ -119,7 +121,8 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
                 itemRelation.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
                 listRelation.Add(itemRelation);
             }
-            details.ListRelation = listRelation; 
+            details.ListRelation = listRelation;
+            details.Hotline = DataHelper.ToString(resultObject.Hotline);
             // Set value
             responseModel.Details = new List<OutputDetailsModel>() { details };
 
@@ -185,15 +188,18 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             InitDataModel getResult = null;
             ClientItemDetailsDao clientItemDetailsDao = null;
             ItemCom itemCom = null;
+            MParameterCom mParameterCom = null;
 
             // Variable initialize
             getResult = new InitDataModel();
             clientItemDetailsDao = new ClientItemDetailsDao();
             itemCom = new ItemCom();
+            mParameterCom = new MParameterCom();
 
             // Get data
             var item = clientItemDetailsDao.GetItem(inputObject);
             var listRelation = clientItemDetailsDao.GetListItemsByCategoryCd(item.CategoryCd);
+            var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
 
             // Update data
             itemCom.UpdateViewer(inputObject.ItemCd);
@@ -201,6 +207,7 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             // Set value
             getResult.Item = itemCom.ToItemModel(item);
             getResult.ListRelation = itemCom.ToListItemModel(listRelation);
+            getResult.Hotline = strHotline;
 
             // Return value
             return getResult;
