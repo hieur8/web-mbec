@@ -18,6 +18,7 @@
 
             }
         });
+        $('#<%=passConfirm.ClientID%>').attr('equalTo', '#<%=pass.ClientID%>');
         });
 
 
@@ -35,6 +36,55 @@
     <div class="main-container col2-right-layout">
         <div class="main">
             <div class="col-main">
+            <% if (Session["payMethod"].ToString().Equals("0"))
+               { %>
+            <div class="fieldset">
+                    <h2 class="legend">
+                        Thông tin tài khoản</h2>
+                    <p>
+                        <%
+                   if (Session["error"] != null)
+                   {
+                        %>
+                        <ul class="messages">
+                            <li class="error-msg">
+                                <ul>
+                                    <li>
+                                        <%=Session["error"].ToString()%></li></ul>
+                            </li>
+                        </ul>
+                        <% 
+                       Session["error"] = null;
+                   } %>
+                    </p>
+                    <ul class="form-list">
+                        <li>
+                            <label for="email_address" class="required">
+                                <em>*</em>Địa chỉ email</label>
+                            <div class="input-box">
+                                <asp:TextBox ID="email" class="input-text required email" runat="server"></asp:TextBox>
+                            </div>
+                        </li>
+                        <li class="fields">
+                            <div class="field">
+                                <label for="password" class="required">
+                                    <em>*</em>Mật khẩu</label>
+                                <div class="input-box">
+                                    <asp:TextBox ID="pass" TextMode="Password" minlength="6" class="input-text required"
+                                        runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="confirmation" class="required">
+                                    <em>*</em>Nhập lại mật khẩu</label>
+                                <div class="input-box">
+                                    <asp:TextBox ID="passConfirm" TextMode="Password" class="input-text" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <% } %>
                 <div class="page-title">
                     <h1>
                         Thanh toán</h1>
@@ -228,7 +278,7 @@
                             </fieldset>
                             <div class="buttons-set" id="billing-buttons-container" style="">
                                 <p class="required">* Bắt buộc nhập</p>
-                                <asp:LinkButton ID="Button1" Width="120" runat="server" class="btn btn-blue" OnClick="Button1_Click"><span>Xác nhận</span></asp:LinkButton>
+                                <asp:LinkButton ID="Button1" Width="120" runat="server" class="btn btn-blue" OnClientClick="return $('#frmMain').valid();" OnClick="Button1_Click"><span>Xác nhận</span></asp:LinkButton>
                             </div>
                             <asp:HiddenField ID="txtClientCd" runat="server" />
                         </div>

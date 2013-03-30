@@ -64,6 +64,27 @@
                                 <asp:TextBox ID="email" class="input-text required email" runat="server"></asp:TextBox>
                             </div>
                         </li>
+                        <li>
+                            <label for="fields" class="required">
+                                <em>*</em>Địa chỉ</label>
+                            <div class="input-box">
+                                <asp:TextBox ID="address" class="input-text required" runat="server"></asp:TextBox>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="fields" class="required">
+                                <em>*</em>Số điện thoại chính</label>
+                            <div class="input-box">
+                                <asp:TextBox ID="phone1" class="input-text required" runat="server"></asp:TextBox>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="fields" class="required">
+                                Số điện thoại phụ</label>
+                            <div class="input-box">
+                                <asp:TextBox ID="phone2" class="input-text" runat="server"></asp:TextBox>
+                            </div>
+                        </li>
                         <li class="fields">
                             <div class="field">
                                 <label for="password" class="required">
@@ -86,7 +107,7 @@
                 <div class="buttons-set">
                     <p class="required">
                         * Bắt buộc</p>
-                    <asp:LinkButton ID="btnRegister" Width="120" class="btn btn-blue" runat="server" OnClick="btnRegister_Click">
+                    <asp:LinkButton ID="btnRegister" Width="120" class="btn btn-blue" runat="server" OnClientClick="return $('#frmMain').valid();" OnClick="btnRegister_Click">
                         <span>Đăng ký</span>
                     </asp:LinkButton>
                 </div>

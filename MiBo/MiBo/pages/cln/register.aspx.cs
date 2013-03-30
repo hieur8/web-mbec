@@ -29,6 +29,9 @@ namespace MiBo.pages.cln
                 request.Email = email.Text.Trim().ToString();
                 request.Password = pass.Text.ToString();
                 request.Fullname = fullName.Text.Trim() + " " + fullName2.Text.Trim();
+                request.Address = address.Text.Trim();
+                request.Phone1 = phone1.Text.Trim();
+                request.Phone2 = phone2.Text.Trim();
                 return request;
             }
         }

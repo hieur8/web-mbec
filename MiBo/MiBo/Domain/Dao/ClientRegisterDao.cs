@@ -14,10 +14,13 @@ namespace MiBo.Domain.Dao
 
             // Set data
             var entity = new User();
-            entity.UserCd = Guid.NewGuid();
+            entity.UserCd = inputObject.UserCd;
             entity.Email = inputObject.Email;
             entity.FullName = inputObject.Fullname;
             entity.Password = DataHelper.GetMd5Hash(inputObject.Password);
+            entity.Address = inputObject.Address;
+            entity.Phone1 = inputObject.Phone1;
+            entity.Phone2 = inputObject.Phone2;
             entity.HasNewsletter = false;
             entity.CreateUser = inputObject.Email;
             entity.CreateDate = currentDate;
@@ -27,8 +30,7 @@ namespace MiBo.Domain.Dao
 
             EntityManager.Users.InsertOnSubmit(entity);
 
-            // Submit
-            EntityManager.SubmitChanges();
+            
         }
     }
 }

@@ -9,6 +9,8 @@ using MiBo.Domain.Logic.Client.Checkout;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Web.Client.Checkout;
 using MiBo.Domain.Common.Constants;
+using MiBo.Domain.Web.Client.Register;
+using MiBo.Domain.Logic.Client.Register;
 
 namespace MiBo.pages.cln
 {
@@ -17,7 +19,6 @@ namespace MiBo.pages.cln
         public User result = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (IsPostBack)
             {
                 return;
@@ -59,11 +60,15 @@ namespace MiBo.pages.cln
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
-
+            if (Session["payMethod"].ToString().Equals("0"))
+            {
+                var logicRegister = new SaveOperateLogic();
+                var responseRegister = Invoke(logicRegister, SaveRequestModel);
+                if (HasError) return;
+            }
             var logic = new CheckoutOperateLogic();
             var response = Invoke(logic, CheckoutRequestModel);
-            if (!response.StatusFlag)
+            if (HasError)
             {
                 Session["msgInfo"] = "Có lỗi trong quá trình thanh toán, vui lòng thử lại !";
             }
@@ -84,7 +89,7 @@ namespace MiBo.pages.cln
                 }
                 else
                 {
-                    accept.ClientCd = "no-login@mibo.vn";
+                    accept.ClientCd = email.Text.Trim().ToString();
                 }
                 accept.AcceptDate = DateTime.Now;
                 accept.ClientName = clientName.Text.Trim();
@@ -130,6 +135,18 @@ namespace MiBo.pages.cln
             }
         }
 
-        
+        private SaveRequestModel SaveRequestModel
+        {
+            get
+            {
+                var request = new SaveRequestModel();
+                request.Email = email.Text.Trim().ToString();
+                request.Password = pass.Text.ToString();
+                request.Fullname = clientName.Text.Trim();
+                request.Address = clientAddress.Text.Trim();
+                request.Phone1 = clientTell.Text.Trim();
+                return request;
+            }
+        }
     }
 }

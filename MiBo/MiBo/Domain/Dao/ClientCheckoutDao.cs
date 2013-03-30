@@ -12,8 +12,10 @@ namespace MiBo.Domain.Dao
 {
     public class ClientCheckoutDao : AbstractDao
     {
-        public void makeCheckout(Accept accept, IList<CartItem> cart)
+        public void  makeCheckout(Accept accept, IList<CartItem> cart)
         {
+
+            UserCom userCom = new UserCom();
             accept.AcceptSlipNo = MNumberCom.GetSlipNo(Logics.CD_BUSINESS_ACCEPT);
 
             int i = 0;
@@ -55,6 +57,7 @@ namespace MiBo.Domain.Dao
 
             var number  = MNumberCom.ToMNumber(accept.AcceptSlipNo);
             EntityManager.MNumbers.InsertOnSubmit(number);
+
 
             EntityManager.SubmitChanges();
         }

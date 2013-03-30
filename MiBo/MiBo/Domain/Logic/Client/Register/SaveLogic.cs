@@ -5,6 +5,7 @@ using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.Register;
 using MiBo.Domain.Web.Client.Register;
+using System;
 
 namespace MiBo.Domain.Logic.Client.Register
 {
@@ -125,13 +126,13 @@ namespace MiBo.Domain.Logic.Client.Register
             // Variable initialize
             saveResult = new SaveDataModel();
             clientRegisterDao = new ClientRegisterDao();
-
+            inputObject.UserCd = Guid.NewGuid();
             // Insert infomation
             clientRegisterDao.Insert(inputObject);
 
             // Send mail
-            SendEmail(inputObject.Email);
-
+            SendEmail(inputObject);
+            clientRegisterDao.SubmitChanges();
             // Return value
             return saveResult;
         }
@@ -141,7 +142,7 @@ namespace MiBo.Domain.Logic.Client.Register
         /// </summary>
         /// <param name="param">String</param>
         /// <returns>EmailModel</returns>
-        private void SendEmail(string clientEmail)
+        private void SendEmail(SaveDataModel inputObject)
         {
             // Local variable declaration
             MParameterCom mParameterCom = null;
@@ -150,7 +151,7 @@ namespace MiBo.Domain.Logic.Client.Register
             mParameterCom = new MParameterCom();
 
             // Get data
-            var emailModel = GetEmailModel(clientEmail);
+            var emailModel = GetEmailModel(inputObject);
             var fileTemplate = FileHelper.ToString("/pages/media/email/active.html");
 
             var email = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT, false);
@@ -159,7 +160,7 @@ namespace MiBo.Domain.Logic.Client.Register
             var subject = "Xác nhận tài khoản";
             var body = DataHelper.FormatString(fileTemplate, emailModel);
 
-            MailHelper.SendMail(email, clientEmail, subject, body, hostMail, emailPass);
+            MailHelper.SendMail(email, inputObject.Email, subject, body, hostMail, emailPass);
         }
 
         /// <summary>
@@ -167,7 +168,7 @@ namespace MiBo.Domain.Logic.Client.Register
         /// </summary>
         /// <param name="param">String</param>
         /// <returns>EmailModel</returns>
-        private OutputEmailModel GetEmailModel(string param)
+        private OutputEmailModel GetEmailModel(SaveDataModel inputObject)
         {
             // Local variable declaration
             OutputEmailModel emailModel = null;
@@ -180,14 +181,14 @@ namespace MiBo.Domain.Logic.Client.Register
             mParameterCom = new MParameterCom();
 
             // Get data
-            var user = userCom.GetSingle(param, true);
+
             var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
             var strEmail = mParameterCom.GetString(Logics.PR_EMAIL_SUPPORT, false);
             var strChatYahoo = mParameterCom.GetString(Logics.PR_CHAT_YAHOO, false);
 
             // Set data
-            emailModel.UserCd = DataHelper.ToString(user.UserCd);
-            emailModel.FullName = DataHelper.ToString(user.FullName);
+            emailModel.UserCd = DataHelper.ToString(inputObject.UserCd);
+            emailModel.FullName = DataHelper.ToString(inputObject.Fullname);
             emailModel.Hotline = DataHelper.ToString(strHotline);
             emailModel.EmailSupport = DataHelper.ToString(strEmail);
             emailModel.ChatYahoo = DataHelper.ToString(strChatYahoo); ;

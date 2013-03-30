@@ -40,6 +40,33 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.TextBox email;
         
         /// <summary>
+        /// address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox address;
+        
+        /// <summary>
+        /// phone1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox phone1;
+        
+        /// <summary>
+        /// phone2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox phone2;
+        
+        /// <summary>
         /// pass control.
         /// </summary>
         /// <remarks>
