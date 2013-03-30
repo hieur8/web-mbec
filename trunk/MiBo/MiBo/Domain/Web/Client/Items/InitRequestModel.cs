@@ -1,6 +1,8 @@
-﻿namespace MiBo.Domain.Web.Client.Items
+﻿using MiBo.Domain.Common.Model;
+
+namespace MiBo.Domain.Web.Client.Items
 {
-    public class InitRequestModel
+    public class InitRequestModel : PagerRequest
     {
         public string SearchText { get; set; }
         public string CategoryCd { get; set; }

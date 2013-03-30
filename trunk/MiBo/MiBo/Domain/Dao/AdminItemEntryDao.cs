@@ -37,6 +37,7 @@ namespace MiBo.Domain.Dao
             entity.BuyingPrice = inputObject.BuyingPrice;
             entity.SalesPrice = inputObject.SalesPrice;
             entity.Viewer = decimal.Zero;
+            entity.FileId = inputObject.FileId;
             entity.LinkVideo = inputObject.LinkVideo;
             entity.Material = inputObject.Material;
             entity.SummaryNotes = inputObject.SummaryNotes;

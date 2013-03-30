@@ -89,6 +89,8 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             details.Notes = DataHelper.ToString(item.Notes);
             details.SortKey = DataHelper.ToString(item.SortKey);
             details.DeleteFlag = DataHelper.ToString(item.DeleteFlag);
+            details.FileId = DataHelper.ToString(item.FileId);
+
             var cbCategory = MCodeCom.ToComboItems(resultObject.ListCategory, details.CategoryCd);
             details.ListCategory = cbCategory.ListItems;
             details.CategoryCd = cbCategory.SeletedValue;
@@ -113,7 +115,6 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             var cbDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, details.DeleteFlag);
             details.ListDeleteFlag = cbDeleteFlag.ListItems;
             details.DeleteFlag = cbDeleteFlag.SeletedValue;
-            details.ImagePath = DataHelper.ToString(resultObject.ImagePath);
 
             // Set value
             response.Details = new List<OutputDetailsModel>() { details };
@@ -202,13 +203,9 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             var listUnit = mCodeCom.GetListUnit(false, false);
             var listItemDiv = mCodeCom.GetListCode(Logics.GROUP_ITEM_DIV, null, false, false);
             var listDeleteFlag = mCodeCom.GetListCode(Logics.GROUP_DELETE_FLAG, null, false, false);
-            var imagePath = UploadHelper.GetUploadUrl();
             var item = new Item();
-            if (!IsAdd) {
-                item = adminItemEntryDao.GetSingleItem(inputObject.ItemCd);
-                FileHelper.CopyImages(string.Format(Logics.PATH_IMG_ITEM, item.ItemCd),
-                    imagePath, Logics.EXT_JPEG);
-            }
+            if (!IsAdd) item = adminItemEntryDao.GetSingleItem(inputObject.ItemCd);
+            else item.FileId = DataHelper.GetUniqueKey();
 
             // Set value
             getResult.ListCategory = listCategory;
@@ -219,7 +216,6 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             getResult.ListUnit = listUnit;
             getResult.ListItemDiv = listItemDiv;
             getResult.ListDeleteFlag = listDeleteFlag;
-            getResult.ImagePath = imagePath;
             getResult.Item = item;
 
             // Return value

@@ -8,7 +8,6 @@ namespace MiBo.Domain.Model.Admin.ItemEntry
         public string ItemCd { get; set; }
 
         public Item Item { get; set; }
-        public string ImagePath { get; set; }
         public IList<MCode> ListCategory { get; set; }
         public IList<MCode> ListAge { get; set; }
         public IList<MCode> ListGender { get; set; }

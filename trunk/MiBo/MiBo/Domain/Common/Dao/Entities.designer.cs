@@ -123,6 +123,9 @@ namespace MiBo.Domain.Common.Dao
     partial void InsertUserGroup(UserGroup instance);
     partial void UpdateUserGroup(UserGroup instance);
     partial void DeleteUserGroup(UserGroup instance);
+    partial void InsertStorageFile(StorageFile instance);
+    partial void UpdateStorageFile(StorageFile instance);
+    partial void DeleteStorageFile(StorageFile instance);
     #endregion
 		
 		public EntitiesDataContext() : 
@@ -400,6 +403,14 @@ namespace MiBo.Domain.Common.Dao
 			get
 			{
 				return this.GetTable<UserGroup>();
+			}
+		}
+		
+		public System.Data.Linq.Table<StorageFile> StorageFiles
+		{
+			get
+			{
+				return this.GetTable<StorageFile>();
 			}
 		}
 	}
@@ -2953,6 +2964,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _AgeName;
 		
+		private string _AgeSearchName;
+		
 		private string _Notes;
 		
 		private System.Nullable<decimal> _SortKey;
@@ -2977,6 +2990,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnAgeCdChanged();
     partial void OnAgeNameChanging(string value);
     partial void OnAgeNameChanged();
+    partial void OnAgeSearchNameChanging(string value);
+    partial void OnAgeSearchNameChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnSortKeyChanging(System.Nullable<decimal> value);
@@ -3035,6 +3050,26 @@ namespace MiBo.Domain.Common.Dao
 					this._AgeName = value;
 					this.SendPropertyChanged("AgeName");
 					this.OnAgeNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AgeSearchName", DbType="VarChar(255)")]
+		public string AgeSearchName
+		{
+			get
+			{
+				return this._AgeSearchName;
+			}
+			set
+			{
+				if ((this._AgeSearchName != value))
+				{
+					this.OnAgeSearchNameChanging(value);
+					this.SendPropertyChanging();
+					this._AgeSearchName = value;
+					this.SendPropertyChanged("AgeSearchName");
+					this.OnAgeSearchNameChanged();
 				}
 			}
 		}
@@ -3235,7 +3270,9 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _BannerName;
 		
-		private string _Image;
+		private string _BannerSearchName;
+		
+		private string _FileId;
 		
 		private string _Notes;
 		
@@ -3259,8 +3296,10 @@ namespace MiBo.Domain.Common.Dao
     partial void OnBannerCdChanged();
     partial void OnBannerNameChanging(string value);
     partial void OnBannerNameChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
+    partial void OnBannerSearchNameChanging(string value);
+    partial void OnBannerSearchNameChanged();
+    partial void OnFileIdChanging(string value);
+    partial void OnFileIdChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnSortKeyChanging(System.Nullable<decimal> value);
@@ -3322,22 +3361,42 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(255)")]
-		public string Image
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BannerSearchName", DbType="VarChar(255)")]
+		public string BannerSearchName
 		{
 			get
 			{
-				return this._Image;
+				return this._BannerSearchName;
 			}
 			set
 			{
-				if ((this._Image != value))
+				if ((this._BannerSearchName != value))
 				{
-					this.OnImageChanging(value);
+					this.OnBannerSearchNameChanging(value);
 					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
+					this._BannerSearchName = value;
+					this.SendPropertyChanged("BannerSearchName");
+					this.OnBannerSearchNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileId", DbType="VarChar(255)")]
+		public string FileId
+		{
+			get
+			{
+				return this._FileId;
+			}
+			set
+			{
+				if ((this._FileId != value))
+				{
+					this.OnFileIdChanging(value);
+					this.SendPropertyChanging();
+					this._FileId = value;
+					this.SendPropertyChanged("FileId");
+					this.OnFileIdChanged();
 				}
 			}
 		}
@@ -3513,7 +3572,9 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _BrandName;
 		
-		private string _Image;
+		private string _BrandSearchName;
+		
+		private string _FileId;
 		
 		private string _Notes;
 		
@@ -3539,8 +3600,10 @@ namespace MiBo.Domain.Common.Dao
     partial void OnBrandCdChanged();
     partial void OnBrandNameChanging(string value);
     partial void OnBrandNameChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
+    partial void OnBrandSearchNameChanging(string value);
+    partial void OnBrandSearchNameChanged();
+    partial void OnFileIdChanging(string value);
+    partial void OnFileIdChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnSortKeyChanging(System.Nullable<decimal> value);
@@ -3603,22 +3666,42 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(255)")]
-		public string Image
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrandSearchName", DbType="VarChar(255)")]
+		public string BrandSearchName
 		{
 			get
 			{
-				return this._Image;
+				return this._BrandSearchName;
 			}
 			set
 			{
-				if ((this._Image != value))
+				if ((this._BrandSearchName != value))
 				{
-					this.OnImageChanging(value);
+					this.OnBrandSearchNameChanging(value);
 					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
+					this._BrandSearchName = value;
+					this.SendPropertyChanged("BrandSearchName");
+					this.OnBrandSearchNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileId", DbType="VarChar(255)")]
+		public string FileId
+		{
+			get
+			{
+				return this._FileId;
+			}
+			set
+			{
+				if ((this._FileId != value))
+				{
+					this.OnFileIdChanging(value);
+					this.SendPropertyChanging();
+					this._FileId = value;
+					this.SendPropertyChanged("FileId");
+					this.OnFileIdChanged();
 				}
 			}
 		}
@@ -3819,6 +3902,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _CategoryName;
 		
+		private string _CategorySearchName;
+		
 		private string _CategoryDiv;
 		
 		private string _Notes;
@@ -3845,6 +3930,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnCategoryCdChanged();
     partial void OnCategoryNameChanging(string value);
     partial void OnCategoryNameChanged();
+    partial void OnCategorySearchNameChanging(string value);
+    partial void OnCategorySearchNameChanged();
     partial void OnCategoryDivChanging(string value);
     partial void OnCategoryDivChanged();
     partial void OnNotesChanging(string value);
@@ -3905,6 +3992,26 @@ namespace MiBo.Domain.Common.Dao
 					this._CategoryName = value;
 					this.SendPropertyChanged("CategoryName");
 					this.OnCategoryNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategorySearchName", DbType="VarChar(255)")]
+		public string CategorySearchName
+		{
+			get
+			{
+				return this._CategorySearchName;
+			}
+			set
+			{
+				if ((this._CategorySearchName != value))
+				{
+					this.OnCategorySearchNameChanging(value);
+					this.SendPropertyChanging();
+					this._CategorySearchName = value;
+					this.SendPropertyChanged("CategorySearchName");
+					this.OnCategorySearchNameChanged();
 				}
 			}
 		}
@@ -4125,6 +4232,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _CityName;
 		
+		private string _CitySeachName;
+		
 		private string _Notes;
 		
 		private System.Nullable<decimal> _SortKey;
@@ -4151,6 +4260,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnCityCdChanged();
     partial void OnCityNameChanging(string value);
     partial void OnCityNameChanged();
+    partial void OnCitySeachNameChanging(string value);
+    partial void OnCitySeachNameChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnSortKeyChanging(System.Nullable<decimal> value);
@@ -4210,6 +4321,26 @@ namespace MiBo.Domain.Common.Dao
 					this._CityName = value;
 					this.SendPropertyChanged("CityName");
 					this.OnCityNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CitySeachName", DbType="VarChar(255)")]
+		public string CitySeachName
+		{
+			get
+			{
+				return this._CitySeachName;
+			}
+			set
+			{
+				if ((this._CitySeachName != value))
+				{
+					this.OnCitySeachNameChanging(value);
+					this.SendPropertyChanging();
+					this._CitySeachName = value;
+					this.SendPropertyChanged("CitySeachName");
+					this.OnCitySeachNameChanged();
 				}
 			}
 		}
@@ -4435,6 +4566,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _CountryName;
 		
+		private string _CountrySearchName;
+		
 		private string _Notes;
 		
 		private System.Nullable<decimal> _SortKey;
@@ -4459,6 +4592,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnCountryCdChanged();
     partial void OnCountryNameChanging(string value);
     partial void OnCountryNameChanged();
+    partial void OnCountrySearchNameChanging(string value);
+    partial void OnCountrySearchNameChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnSortKeyChanging(System.Nullable<decimal> value);
@@ -4517,6 +4652,26 @@ namespace MiBo.Domain.Common.Dao
 					this._CountryName = value;
 					this.SendPropertyChanged("CountryName");
 					this.OnCountryNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountrySearchName", DbType="VarChar(255)")]
+		public string CountrySearchName
+		{
+			get
+			{
+				return this._CountrySearchName;
+			}
+			set
+			{
+				if ((this._CountrySearchName != value))
+				{
+					this.OnCountrySearchNameChanging(value);
+					this.SendPropertyChanging();
+					this._CountrySearchName = value;
+					this.SendPropertyChanged("CountrySearchName");
+					this.OnCountrySearchNameChanged();
 				}
 			}
 		}
@@ -5043,6 +5198,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _DistrictName;
 		
+		private string _DistrictSearchName;
+		
 		private string _CityCd;
 		
 		private string _Notes;
@@ -5069,6 +5226,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnDistrictCdChanged();
     partial void OnDistrictNameChanging(string value);
     partial void OnDistrictNameChanged();
+    partial void OnDistrictSearchNameChanging(string value);
+    partial void OnDistrictSearchNameChanged();
     partial void OnCityCdChanging(string value);
     partial void OnCityCdChanged();
     partial void OnNotesChanging(string value);
@@ -5129,6 +5288,26 @@ namespace MiBo.Domain.Common.Dao
 					this._DistrictName = value;
 					this.SendPropertyChanged("DistrictName");
 					this.OnDistrictNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DistrictSearchName", DbType="VarChar(255)")]
+		public string DistrictSearchName
+		{
+			get
+			{
+				return this._DistrictSearchName;
+			}
+			set
+			{
+				if ((this._DistrictSearchName != value))
+				{
+					this.OnDistrictSearchNameChanging(value);
+					this.SendPropertyChanging();
+					this._DistrictSearchName = value;
+					this.SendPropertyChanged("DistrictSearchName");
+					this.OnDistrictSearchNameChanged();
 				}
 			}
 		}
@@ -5616,6 +5795,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _GenderName;
 		
+		private string _GenderSearchName;
+		
 		private string _Notes;
 		
 		private System.Nullable<decimal> _SortKey;
@@ -5640,6 +5821,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnGenderCdChanged();
     partial void OnGenderNameChanging(string value);
     partial void OnGenderNameChanged();
+    partial void OnGenderSearchNameChanging(string value);
+    partial void OnGenderSearchNameChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnSortKeyChanging(System.Nullable<decimal> value);
@@ -5698,6 +5881,26 @@ namespace MiBo.Domain.Common.Dao
 					this._GenderName = value;
 					this.SendPropertyChanged("GenderName");
 					this.OnGenderNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GenderSearchName", DbType="VarChar(255)")]
+		public string GenderSearchName
+		{
+			get
+			{
+				return this._GenderSearchName;
+			}
+			set
+			{
+				if ((this._GenderSearchName != value))
+				{
+					this.OnGenderSearchNameChanging(value);
+					this.SendPropertyChanging();
+					this._GenderSearchName = value;
+					this.SendPropertyChanged("GenderSearchName");
+					this.OnGenderSearchNameChanged();
 				}
 			}
 		}
@@ -6748,6 +6951,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private System.Nullable<decimal> _Viewer;
 		
+		private string _FileId;
+		
 		private string _LinkVideo;
 		
 		private string _Material;
@@ -6814,6 +7019,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnBuyingPriceChanged();
     partial void OnViewerChanging(System.Nullable<decimal> value);
     partial void OnViewerChanged();
+    partial void OnFileIdChanging(string value);
+    partial void OnFileIdChanged();
     partial void OnLinkVideoChanging(string value);
     partial void OnLinkVideoChanged();
     partial void OnMaterialChanging(string value);
@@ -7129,6 +7336,26 @@ namespace MiBo.Domain.Common.Dao
 					this._Viewer = value;
 					this.SendPropertyChanged("Viewer");
 					this.OnViewerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileId", DbType="VarChar(255)")]
+		public string FileId
+		{
+			get
+			{
+				return this._FileId;
+			}
+			set
+			{
+				if ((this._FileId != value))
+				{
+					this.OnFileIdChanging(value);
+					this.SendPropertyChanging();
+					this._FileId = value;
+					this.SendPropertyChanged("FileId");
+					this.OnFileIdChanged();
 				}
 			}
 		}
@@ -10203,6 +10430,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _SupplierName;
 		
+		private string _SupplierSearchName;
+		
 		private string _Address;
 		
 		private string _Phone;
@@ -10229,6 +10458,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnSupplierCdChanged();
     partial void OnSupplierNameChanging(string value);
     partial void OnSupplierNameChanged();
+    partial void OnSupplierSearchNameChanging(string value);
+    partial void OnSupplierSearchNameChanged();
     partial void OnAddressChanging(string value);
     partial void OnAddressChanged();
     partial void OnPhoneChanging(string value);
@@ -10274,7 +10505,7 @@ namespace MiBo.Domain.Common.Dao
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierName", DbType="VarChar(255)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierName", DbType="NVarChar(255)")]
 		public string SupplierName
 		{
 			get
@@ -10290,6 +10521,26 @@ namespace MiBo.Domain.Common.Dao
 					this._SupplierName = value;
 					this.SendPropertyChanged("SupplierName");
 					this.OnSupplierNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierSearchName", DbType="VarChar(255)")]
+		public string SupplierSearchName
+		{
+			get
+			{
+				return this._SupplierSearchName;
+			}
+			set
+			{
+				if ((this._SupplierSearchName != value))
+				{
+					this.OnSupplierSearchNameChanging(value);
+					this.SendPropertyChanging();
+					this._SupplierSearchName = value;
+					this.SendPropertyChanged("SupplierSearchName");
+					this.OnSupplierSearchNameChanged();
 				}
 			}
 		}
@@ -10505,6 +10756,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _UnitName;
 		
+		private string _UnitSearchName;
+		
 		private string _Notes;
 		
 		private System.Nullable<decimal> _SortKey;
@@ -10529,6 +10782,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnUnitCdChanged();
     partial void OnUnitNameChanging(string value);
     partial void OnUnitNameChanged();
+    partial void OnUnitSearchNameChanging(string value);
+    partial void OnUnitSearchNameChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnSortKeyChanging(System.Nullable<decimal> value);
@@ -10587,6 +10842,26 @@ namespace MiBo.Domain.Common.Dao
 					this._UnitName = value;
 					this.SendPropertyChanged("UnitName");
 					this.OnUnitNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitSearchName", DbType="VarChar(255)")]
+		public string UnitSearchName
+		{
+			get
+			{
+				return this._UnitSearchName;
+			}
+			set
+			{
+				if ((this._UnitSearchName != value))
+				{
+					this.OnUnitSearchNameChanging(value);
+					this.SendPropertyChanging();
+					this._UnitSearchName = value;
+					this.SendPropertyChanged("UnitSearchName");
+					this.OnUnitSearchNameChanged();
 				}
 			}
 		}
@@ -11040,6 +11315,308 @@ namespace MiBo.Domain.Common.Dao
 						this._UserCd = default(System.Guid);
 					}
 					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.StorageFiles")]
+	public partial class StorageFile : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _FileId;
+		
+		private decimal _FileNo;
+		
+		private string _FileName;
+		
+		private string _FileGroup;
+		
+		private System.Nullable<decimal> _SortKey;
+		
+		private System.Nullable<bool> _ActiveFlag;
+		
+		private string _CreateUser;
+		
+		private System.Nullable<System.DateTime> _CreateDate;
+		
+		private string _UpdateUser;
+		
+		private System.Nullable<System.DateTime> _UpdateDate;
+		
+		private System.Nullable<bool> _DeleteFlag;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFileIdChanging(string value);
+    partial void OnFileIdChanged();
+    partial void OnFileNoChanging(decimal value);
+    partial void OnFileNoChanged();
+    partial void OnFileNameChanging(string value);
+    partial void OnFileNameChanged();
+    partial void OnFileGroupChanging(string value);
+    partial void OnFileGroupChanged();
+    partial void OnSortKeyChanging(System.Nullable<decimal> value);
+    partial void OnSortKeyChanged();
+    partial void OnActiveFlagChanging(System.Nullable<bool> value);
+    partial void OnActiveFlagChanged();
+    partial void OnCreateUserChanging(string value);
+    partial void OnCreateUserChanged();
+    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateDateChanged();
+    partial void OnUpdateUserChanging(string value);
+    partial void OnUpdateUserChanged();
+    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnUpdateDateChanged();
+    partial void OnDeleteFlagChanging(System.Nullable<bool> value);
+    partial void OnDeleteFlagChanged();
+    #endregion
+		
+		public StorageFile()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileId", DbType="VarChar(255) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string FileId
+		{
+			get
+			{
+				return this._FileId;
+			}
+			set
+			{
+				if ((this._FileId != value))
+				{
+					this.OnFileIdChanging(value);
+					this.SendPropertyChanging();
+					this._FileId = value;
+					this.SendPropertyChanged("FileId");
+					this.OnFileIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileNo", DbType="Decimal(18,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal FileNo
+		{
+			get
+			{
+				return this._FileNo;
+			}
+			set
+			{
+				if ((this._FileNo != value))
+				{
+					this.OnFileNoChanging(value);
+					this.SendPropertyChanging();
+					this._FileNo = value;
+					this.SendPropertyChanged("FileNo");
+					this.OnFileNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="VarChar(255)")]
+		public string FileName
+		{
+			get
+			{
+				return this._FileName;
+			}
+			set
+			{
+				if ((this._FileName != value))
+				{
+					this.OnFileNameChanging(value);
+					this.SendPropertyChanging();
+					this._FileName = value;
+					this.SendPropertyChanged("FileName");
+					this.OnFileNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileGroup", DbType="VarChar(255)")]
+		public string FileGroup
+		{
+			get
+			{
+				return this._FileGroup;
+			}
+			set
+			{
+				if ((this._FileGroup != value))
+				{
+					this.OnFileGroupChanging(value);
+					this.SendPropertyChanging();
+					this._FileGroup = value;
+					this.SendPropertyChanged("FileGroup");
+					this.OnFileGroupChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SortKey", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> SortKey
+		{
+			get
+			{
+				return this._SortKey;
+			}
+			set
+			{
+				if ((this._SortKey != value))
+				{
+					this.OnSortKeyChanging(value);
+					this.SendPropertyChanging();
+					this._SortKey = value;
+					this.SendPropertyChanged("SortKey");
+					this.OnSortKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActiveFlag", DbType="Bit")]
+		public System.Nullable<bool> ActiveFlag
+		{
+			get
+			{
+				return this._ActiveFlag;
+			}
+			set
+			{
+				if ((this._ActiveFlag != value))
+				{
+					this.OnActiveFlagChanging(value);
+					this.SendPropertyChanging();
+					this._ActiveFlag = value;
+					this.SendPropertyChanged("ActiveFlag");
+					this.OnActiveFlagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(255)")]
+		public string CreateUser
+		{
+			get
+			{
+				return this._CreateUser;
+			}
+			set
+			{
+				if ((this._CreateUser != value))
+				{
+					this.OnCreateUserChanging(value);
+					this.SendPropertyChanging();
+					this._CreateUser = value;
+					this.SendPropertyChanged("CreateUser");
+					this.OnCreateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateUser", DbType="VarChar(255)")]
+		public string UpdateUser
+		{
+			get
+			{
+				return this._UpdateUser;
+			}
+			set
+			{
+				if ((this._UpdateUser != value))
+				{
+					this.OnUpdateUserChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateUser = value;
+					this.SendPropertyChanged("UpdateUser");
+					this.OnUpdateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit")]
+		public System.Nullable<bool> DeleteFlag
+		{
+			get
+			{
+				return this._DeleteFlag;
+			}
+			set
+			{
+				if ((this._DeleteFlag != value))
+				{
+					this.OnDeleteFlagChanging(value);
+					this.SendPropertyChanging();
+					this._DeleteFlag = value;
+					this.SendPropertyChanged("DeleteFlag");
+					this.OnDeleteFlagChanged();
 				}
 			}
 		}

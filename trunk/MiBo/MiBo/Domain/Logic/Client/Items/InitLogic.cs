@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using MiBo.Domain.Common.Helper;
+﻿using MiBo.Domain.Common.Helper;
+using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.Items;
@@ -40,6 +40,8 @@ namespace MiBo.Domain.Logic.Client.Items
             // Convert data input
             DataHelper.ConvertInput(request, inputObject);
 
+            inputObject = PagingHelper.CopyPagerRequest<InitDataModel>(request, inputObject);
+
             // Return value
             return inputObject;
         }
@@ -53,12 +55,12 @@ namespace MiBo.Domain.Logic.Client.Items
         {
             // Local variable declaration
             InitResponseModel responseModel = null;
-            IList<OutputItemModel> listItems = null;
+            PagerResponse<OutputItemModel> listItems = null;
             OutputItemModel item = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
-            listItems = new List<OutputItemModel>();
+            listItems = new PagerResponse<OutputItemModel>();
 
             // Get value
             foreach (var obj in resultObject.ListItems)
@@ -77,6 +79,9 @@ namespace MiBo.Domain.Logic.Client.Items
 
                 listItems.Add(item);
             }
+            listItems.AllRecordCount = resultObject.ListItems.AllRecordCount;
+            listItems.Limit = resultObject.ListItems.Limit;
+            listItems.Offset = resultObject.ListItems.Offset;
 
             // Set value
             responseModel.ListItems = listItems;
@@ -144,7 +149,8 @@ namespace MiBo.Domain.Logic.Client.Items
             var listItems = clientItemsDao.GetListItems(inputObject);
 
             // Set value
-            getResult.ListItems = itemCom.ToListItemModel(listItems);
+            getResult.ListItems = PagingHelper.GetPagerList(
+                itemCom.ToListItemModel(listItems), inputObject);
 
             // Return value
             return getResult;

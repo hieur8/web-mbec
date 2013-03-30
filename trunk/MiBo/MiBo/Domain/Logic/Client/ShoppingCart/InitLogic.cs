@@ -62,11 +62,13 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
             OutputItemModel item = null;
             IList<OutputItemModel> listOfferItems = null;
             OutputItemModel offerItem = null;
+            StorageFileCom storageFileCom = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
             listItems = new List<OutputItemModel>();
             listOfferItems = new List<OutputItemModel>();
+            storageFileCom = new StorageFileCom();
 
             // Get value
             foreach (var obj in resultObject.ListItems)
@@ -85,7 +87,9 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
                     offerItem = new OutputItemModel();
                     offerItem.ItemCd = DataHelper.ToString(sub.OfferItemCd);
                     offerItem.ItemName = DataHelper.ToString(sub.Item.ItemName);
-                    offerItem.ItemImage = DataHelper.ToString(FileHelper.GetSmallImage(ItemCom.GetImagePath(sub.Item.ItemCd), Logics.EXT_JPEG));
+                    var storageFile = storageFileCom.GetSingle(sub.Item.FileId, true);
+                    var itemImage = storageFile != null ? storageFile.FileName : "default.jpg";
+                    offerItem.ItemImage = DataHelper.ToString(itemImage);
                     offerItem.Quantity = DataHelper.ToString(Formats.NUMBER, sub.OfferItemQtty * obj.Quantity);
                     listOfferItems.Add(offerItem);
                 }

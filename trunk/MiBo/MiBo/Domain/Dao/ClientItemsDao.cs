@@ -130,7 +130,5 @@ namespace MiBo.Domain.Dao
             // Return value
             return listResult.ToList();
         }
-
-        
     }
 }

@@ -78,7 +78,7 @@
         <asp:FormView ID="fvwItemDatails" runat="server" RenderOuterTable="false">
             <ItemTemplate>
                 <asp:HiddenField ID="hidStatus" Value='<%# Eval("Status") %>' runat="server" />
-                <asp:HiddenField ID="hidImagePath" Value='<%# Eval("ImagePath") %>' runat="server" />
+                <asp:HiddenField ID="hidFileId" Value='<%# Eval("FileId") %>' runat="server" />
                 <asp:HiddenField ID="hidItemSearchName" Value='<%# Eval("ItemSearchName") %>' runat="server" />
                 <div class="tab-content default-tab" id="tabInfo">
                     <fieldset>
@@ -215,7 +215,7 @@
                                     </asp:DropDownList>
                                 </td>
                                 <td>
-                                    <span class="label"></span><a class="button" href='/pages/administer/upload-image.aspx?g=item&p=<%# Eval("ImagePath") %>'
+                                    <span class="label"></span><a class="button" href='/pages/administer/upload-image.aspx?fg=items&fid=<%# Eval("FileId") %>'
                                         onclick="return popitup(this);">Upload hình</a>
                                 </td>
                             </tr>

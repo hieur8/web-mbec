@@ -63,18 +63,23 @@ namespace MiBo.Domain.Common.Utils
         {
             // Local variable declaration
             ItemModel itemModel = null;
+            StorageFileCom storageFileCom = null;
 
             // Variable initialize
             itemModel = new ItemModel();
+            storageFileCom = new StorageFileCom();
 
             // Copy infomation
             DataHelper.CopyObject(item, itemModel);
 
             // Get value
-            var itemImage = FileHelper.GetSmallImage(itemModel.ImagePath, Logics.EXT_JPEG);
+            var storageFile = storageFileCom.GetSingle(item.FileId, true);
+            var itemImage = storageFile != null ? storageFile.FileName : "default.jpg";
+            var storageFiles = storageFileCom.GetListActive(item.FileId, true);
 
             // Set value
-            itemModel.ItemImage = itemImage.Name;
+            itemModel.ItemImage = itemImage;
+            itemModel.ItemImages = storageFiles;
             itemModel.ListOfferItems = new List<OfferItem>();
 
             // Check offer

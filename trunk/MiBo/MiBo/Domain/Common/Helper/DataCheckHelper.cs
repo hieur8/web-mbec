@@ -75,7 +75,7 @@ namespace MiBo.Domain.Common.Helper
         /// <returns>True/False</returns>
         public static bool IsNull(ICollection data)
         {
-            return (data == null || data.Count < 0);
+            return (data == null || data.Count <= 0);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace MiBo.Domain.Common.Helper
         /// <returns>True/False</returns>
         public static bool IsNull<T>(ICollection<T> data)
         {
-            return (data == null || data.Count < 0);
+            return (data == null || data.Count <= 0);
         }
 
         /// <summary>

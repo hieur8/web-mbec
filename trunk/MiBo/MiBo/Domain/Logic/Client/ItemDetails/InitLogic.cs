@@ -64,12 +64,16 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             OutputItemModel offerItem = null;
             OutputImageModel imageItem = null;
             OutputItemModel itemRelation = null;
+            StorageFileCom storageFileCom = null;
+
             // Variable initialize
             responseModel = new InitResponseModel();
             details = new OutputDetailsModel();
             listImages = new List<OutputImageModel>();
             listOfferItems = new List<OutputItemModel>();
             listRelation = new List<OutputItemModel>();
+            storageFileCom = new StorageFileCom();
+
             // Get value
             var item = resultObject.Item;
 
@@ -78,11 +82,11 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
             details.CategoryCd = DataHelper.ToString(item.CategoryCd);
             details.CategoryName = DataHelper.ToString(item.Category.CategoryName);
             details.ItemImage = DataHelper.ToString(item.ItemImage);
-            foreach (var obj in FileHelper.GetSmallImages(item.ImagePath, Logics.EXT_JPEG))
+            foreach (var obj in item.ItemImages)
             {
                 imageItem = new OutputImageModel();
                 imageItem.ItemCd = DataHelper.ToString(item.ItemCd);
-                imageItem.ItemImage = DataHelper.ToString(obj.Name);
+                imageItem.ItemImage = DataHelper.ToString(obj.FileName);
                 listImages.Add(imageItem);
             }
             details.ListImages = listImages;
@@ -104,7 +108,9 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
                 offerItem = new OutputItemModel();
                 offerItem.ItemCd = DataHelper.ToString(obj.OfferItemCd);
                 offerItem.ItemName = DataHelper.ToString(obj.Item.ItemName);
-                offerItem.ItemImage = DataHelper.ToString(FileHelper.GetSmallImage(ItemCom.GetImagePath(obj.Item.ItemCd), Logics.EXT_JPEG));
+                var storageFile = storageFileCom.GetSingle(obj.Item.FileId, true);
+                var itemImage = storageFile != null ? storageFile.FileName : "default.jpg";
+                offerItem.ItemImage = DataHelper.ToString(itemImage);
                 offerItem.Quantity = DataHelper.ToString(Formats.NUMBER, obj.OfferItemQtty);
                 listOfferItems.Add(offerItem);
             }

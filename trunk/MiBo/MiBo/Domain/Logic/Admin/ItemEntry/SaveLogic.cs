@@ -6,6 +6,7 @@ using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Admin.ItemEntry;
 using MiBo.Domain.Web.Admin.ItemEntry;
+using MiBo.Domain.Common.Utils;
 
 namespace MiBo.Domain.Logic.Admin.ItemEntry
 {
@@ -120,8 +121,6 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             adminItemEntryDao = new AdminItemEntryDao();
 
             // Check valid
-            if(!FileHelper.ExistImages(inputObject.ImagePath, Logics.EXT_JPEG))
-                throw new ExecuteException("E_MSG_00012", "Hình ảnh");
             if (IsAdd && adminItemEntryDao.IsExistItem(inputObject.ItemCd))
                 throw new DataExistException("Sản phẩm");
             if (IsEdit && !adminItemEntryDao.IsExistItem(inputObject.ItemCd))
@@ -138,15 +137,23 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             // Local variable declaration
             SaveDataModel saveResult = null;
             AdminItemEntryDao adminItemEntryDao = null;
+            StorageFileCom storageFileCom = null;
 
             // Variable initialize
             saveResult = new SaveDataModel();
             adminItemEntryDao = new AdminItemEntryDao();
+            storageFileCom = new StorageFileCom();
 
             if (IsAdd) adminItemEntryDao.InsertItem(inputObject); // Insert 
             else adminItemEntryDao.UpdateItem(inputObject); // Update
-            FileHelper.DeleteImages(string.Format(Logics.PATH_IMG_ITEM, inputObject.ItemCd), Logics.EXT_JPEG);
-            FileHelper.MoveImages(inputObject.ImagePath, string.Format(Logics.PATH_IMG_ITEM, inputObject.ItemCd), Logics.EXT_JPEG);
+
+            // Update StorageFile
+            foreach (var storageFile in storageFileCom.GetListActive(inputObject.FileId, false))
+            {
+                storageFile.ActiveFlag = true;
+                storageFileCom.UpdateActiveFlag(storageFile, false);
+            }
+            storageFileCom.SubmitChanges();
 
             return saveResult;
         }

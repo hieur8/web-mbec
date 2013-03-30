@@ -174,4 +174,10 @@
   <data name="I_MSG_00003" xml:space="preserve">
     <value>Kích hoạt thành công. Bạn có thể đăng nhập.</value>
   </data>
+  <data name="I_MSG_00004" xml:space="preserve">
+    <value>Xóa thành công.</value>
+  </data>
+  <data name="I_MSG_00005" xml:space="preserve">
+    <value>Tải lên thành công.</value>
+  </data>
 </root>

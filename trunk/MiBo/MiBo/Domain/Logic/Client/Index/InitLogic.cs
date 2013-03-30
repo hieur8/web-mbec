@@ -77,7 +77,7 @@ namespace MiBo.Domain.Logic.Client.Index
 
                 banner.BannerCd = DataHelper.ToString(obj.BannerCd);
                 banner.BannerName = DataHelper.ToString(obj.BannerName);
-                banner.Image = DataHelper.ToString(obj.Image);
+                banner.Image = DataHelper.ToString(obj.FileId);
 
                 listBanners.Add(banner);
             }

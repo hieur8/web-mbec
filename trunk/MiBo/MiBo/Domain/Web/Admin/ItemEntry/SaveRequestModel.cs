@@ -35,10 +35,10 @@ namespace MiBo.Domain.Web.Admin.ItemEntry
         public string BuyingPrice { get; set; }
         [ValidRequired(MessageParam = "Chất liệu")]
         public string Material { get; set; }
-        [ValidRequired(MessageParam = "Link video")]
-        public string LinkVideo { get; set; }
+        [ValidRequired(MessageParam = "Mã hình ảnh")]
+        public string FileId { get; set; }
 
-        public string ImagePath { get; set; }
+        public string LinkVideo { get; set; }
         public string SummaryNotes { get; set; }
         public string Notes { get; set; }
         public string SortKey { get; set; }

@@ -126,7 +126,7 @@
                                             <ItemTemplate>
                                                 <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                     class="product-image">
-                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/normal/<%# Eval("ItemImage") %>'
+                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/normal/<%# Eval("ItemImage") %>'
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
                                                     <h3 class="product-name">
@@ -162,7 +162,7 @@
                                             <ItemTemplate>
                                                 <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                     class="product-image">
-                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/normal/<%# Eval("ItemImage") %>'
+                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/normal/<%# Eval("ItemImage") %>'
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
                                                     <h3 class="product-name">
@@ -198,7 +198,7 @@
                                             <ItemTemplate>
                                                 <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                     class="product-image">
-                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/<%# Eval("ItemCd") %>/normal/<%# Eval("ItemImage") %>'
+                                                    <img width="170" height="170" border="0" src='/pages/media/images/items/normal/<%# Eval("ItemImage") %>'
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
                                                     <h3 class="product-name">
