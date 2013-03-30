@@ -15,7 +15,7 @@ namespace MiBo.Domain.Model.Admin.ItemEntry
         public string CountryCd { get; set; }
         public string UnitCd { get; set; }
         public string ItemDiv { get; set; }
-        public string ImagePath { get; set; }
+        public string FileId { get; set; }
         public decimal? SalesPrice { get; set; }
         public decimal? BuyingPrice { get; set; }
         public string LinkVideo { get; set; }

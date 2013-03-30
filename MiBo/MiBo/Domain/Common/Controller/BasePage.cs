@@ -81,7 +81,7 @@ namespace MiBo.Domain.Common.Controller
 
         protected void Refresh()
         {
-            Redirect(Request.Path);
+            Redirect(Request.Url.AbsoluteUri);
         }
 
         protected void Redirect(string url)

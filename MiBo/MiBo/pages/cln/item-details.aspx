@@ -163,7 +163,8 @@
                                     <div>
                                         <ul class="f-left supportInfo">
                                             <li class="bullet">Giao hàng trong vòng 2 ngày làm việc (trừ chủ nhật)</li>
-                                            <li class="bullet">Hổ trợ khách hàng: <b><%# Eval("Hotline")%></b></li>
+                                            <li class="bullet">Hổ trợ khách hàng: <b>
+                                                <%# Eval("Hotline")%></b></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -180,9 +181,9 @@
                                                         <ul class="ad-thumb-list">
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
-                                                        <li><a href='/pages/media/images/items/<%# Eval("ItemCd")%>/larger/<%# Eval("ItemImage")%>'>
-                                                            <img src='/pages/media/images/items/<%# Eval("ItemCd")%>/small/<%# Eval("ItemImage")%>'
-                                                                width="60px" height="60px" class="image0" alt="" />
+                                                        <li><a href='/pages/media/images/items/larger/<%# Eval("ItemImage")%>'>
+                                                            <img src='/pages/media/images/items/small/<%# Eval("ItemImage")%>' width="60px" height="60px"
+                                                                class="image0" alt="" />
                                                         </a></li>
                                                     </ItemTemplate>
                                                     <FooterTemplate>
@@ -197,7 +198,7 @@
                                     <ul class="idTabs idTabsShort">
                                         <li><a href="#idTab1" class="selected">Mô tả sản phẩm</a></li>
                                         <li><a href="#idTab2">Thông tin Thương hiệu</a></li>
-                                        <li><a href="#idTab3">Youtube</a></li>
+                                        <%# Equals("", Eval("LinkVideo")) ? "" : "<li><a href='#idTab3'>Youtube</a></li>"%>
                                     </ul>
                                     <div id="more_info_sheets" class="bgcolor bordercolor">
                                         <div id="idTab1" style="padding: 20px;">
@@ -210,14 +211,9 @@
                                                 <%# Eval("BrandInfo")%>
                                             </div>
                                         </div>
-                                        <div id="idTab3" style="padding: 20px;">
-                                            <div>
-                                                <center>
-                                                    <iframe width="425" height="349" src='<%# Eval("LinkVideo")%>' frameborder="0" allowfullscreen="true">
-                                                    </iframe>
-                                                </center>
-                                            </div>
-                                        </div>
+                                        <%# Equals("", Eval("LinkVideo")) ? "" : 
+                                            "<div id='idTab3' style='padding: 20px;'><div><center><iframe width='425' height='349' src='" + Eval("LinkVideo") + "'  frameborder='0' allowfullscreen='true'></iframe></center></div></div>"
+                                        %>
                                     </div>
                                 </div>
                                 <div class="box-collateral box-up-sell">
@@ -249,8 +245,8 @@
                                             <li style="height: 70px; padding: 2px">
                                                 <div class="product-images" style="float: left">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
-                                                        <img src="/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>"
-                                                            alt="<%# Eval("ItemName")%>" width="60" height="60"></a>
+                                                        <img src="/pages/media/images/items/small/<%# Eval("ItemImage") %>" alt="<%# Eval("ItemName")%>"
+                                                            width="60" height="60"></a>
                                                 </div>
                                                 <div style="float: left; width: 140px">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
@@ -281,8 +277,8 @@
                                             <li style="height: 70px; padding: 2px">
                                                 <div class="product-images" style="float: left">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
-                                                        <img src="/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>"
-                                                            alt="<%# Eval("ItemName")%>" width="60" height="60"></a>
+                                                        <img src="/pages/media/images/items/small/<%# Eval("ItemImage") %>" alt="<%# Eval("ItemName")%>"
+                                                            width="60" height="60"></a>
                                                 </div>
                                                 <div style="float: left; width: 140px">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
@@ -310,7 +306,7 @@
                     if (Session["haveBuy"] != null)
                     {
                 %>
-                <script>
+                <script type="text/javascript">
                     showSuccessToast();
                 </script>
                 <% 

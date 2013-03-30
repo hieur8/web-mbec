@@ -4,6 +4,7 @@ using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Items;
 using MiBo.Domain.Web.Client.Items;
+using System.Collections.Generic;
 
 namespace MiBo.pages.cln
 {
@@ -16,6 +17,37 @@ namespace MiBo.pages.cln
             if (HasError) return;
             rptItem.DataSource = response.ListItems;
             rptItem.DataBind();
+
+            var totalPageNumber = response.ListItems.TotalPageNumber;
+            if (totalPageNumber > 5)
+                totalPageNumber = 5;
+
+            var listPager = new List<int>();
+            var start = response.ListItems.CurrentPageNumber - 2;
+            var end = response.ListItems.CurrentPageNumber + 2;
+            if (start < 1)
+                start = 1;
+            if (end > response.ListItems.TotalPageNumber)
+                end = (int)response.ListItems.TotalPageNumber;
+
+            if (response.ListItems.IsExistPrePage)
+            {
+                listPager.Add(1);
+                listPager.Add(response.ListItems.CurrentPageNumber - 1);
+            }
+            
+            for (int i = 1; i <= totalPageNumber; i++)
+            {
+                
+            }
+            if (response.ListItems.IsExistNextPage)
+            {
+                listPager.Add(response.ListItems.CurrentPageNumber + 1);
+                listPager.Add((int)response.ListItems.TotalPageNumber);
+            }
+
+
+            "<<   <   2   3   4   5   6   >   >>".Clone();
         }
 
         protected void lnkBuy_Command(object sender, CommandEventArgs e)

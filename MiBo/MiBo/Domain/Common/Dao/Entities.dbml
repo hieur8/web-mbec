@@ -119,6 +119,7 @@
     <Type Name="Age">
       <Column Name="AgeCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="AgeName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AgeSearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -133,7 +134,8 @@
     <Type Name="Banner">
       <Column Name="BannerCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="BannerName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Image" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="BannerSearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FileId" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -147,7 +149,8 @@
     <Type Name="Brand">
       <Column Name="BrandCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="BrandName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Image" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="BrandSearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FileId" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -162,6 +165,7 @@
     <Type Name="Category">
       <Column Name="CategoryCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CategoryName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CategorySearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="CategoryDiv" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
@@ -177,6 +181,7 @@
     <Type Name="City">
       <Column Name="CityCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CityName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CitySeachName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -192,6 +197,7 @@
     <Type Name="Country">
       <Column Name="CountryCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CountryName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CountrySearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -222,6 +228,7 @@
     <Type Name="District">
       <Column Name="DistrictCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DistrictName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DistrictSearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="CityCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
@@ -250,6 +257,7 @@
     <Type Name="Gender">
       <Column Name="GenderCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="GenderName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GenderSearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -315,6 +323,7 @@
       <Column Name="SalesPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="BuyingPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="Viewer" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="FileId" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="LinkVideo" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Material" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="SummaryNotes" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
@@ -465,7 +474,8 @@
   <Table Name="dbo.Suppliers" Member="Suppliers">
     <Type Name="Supplier">
       <Column Name="SupplierCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SupplierName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SupplierSearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Address" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Phone" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
@@ -481,6 +491,7 @@
     <Type Name="Unit">
       <Column Name="UnitCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="UnitName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UnitSearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -502,6 +513,21 @@
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Group_UserGroup" Member="Group" ThisKey="GroupCd" OtherKey="GroupCd" Type="Group" IsForeignKey="true" />
       <Association Name="User_UserGroup" Member="User" ThisKey="UserCd" OtherKey="UserCd" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StorageFiles" Member="StorageFiles">
+    <Type Name="StorageFile">
+      <Column Name="FileId" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileNo" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FileGroup" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ActiveFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

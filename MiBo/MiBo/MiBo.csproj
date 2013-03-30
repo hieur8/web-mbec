@@ -74,6 +74,7 @@
     <Content Include="pages\administer\item-list.aspx" />
     <Content Include="pages\administer\param-list.aspx" />
     <Content Include="pages\administer\upload-image.aspx" />
+    <Content Include="pages\administer\upload-image1.aspx" />
     <Content Include="pages\administer\user-change-password.aspx" />
     <Content Include="pages\administer\user-login.aspx" />
     <Content Include="pages\cln\active.aspx" />
@@ -103,33 +104,6 @@
     <Content Include="pages\media\images\banners\S5.jpg" />
     <Content Include="pages\media\images\banners\S6.jpg" />
     <Content Include="pages\media\images\banners\S7.jpg" />
-    <Content Include="pages\media\images\items\01\normal\01.jpg" />
-    <Content Include="pages\media\images\items\01\normal\02.jpg" />
-    <Content Include="pages\media\images\items\01\larger\01.jpg" />
-    <Content Include="pages\media\images\items\01\larger\02.jpg" />
-    <Content Include="pages\media\images\items\01\small\01.jpg" />
-    <Content Include="pages\media\images\items\01\small\02.jpg" />
-    <Content Include="pages\media\images\items\02\normal\01.jpg" />
-    <Content Include="pages\media\images\items\02\larger\01.jpg" />
-    <Content Include="pages\media\images\items\02\small\01.jpg" />
-    <Content Include="pages\media\images\items\03\normal\01.jpg" />
-    <Content Include="pages\media\images\items\03\larger\01.jpg" />
-    <Content Include="pages\media\images\items\03\small\01.jpg" />
-    <Content Include="pages\media\images\items\04\larger\13e463af968a18986a0727ef032d8417.jpg" />
-    <Content Include="pages\media\images\items\04\larger\a88de6db08e69ddde7172a2307366bbc.jpg" />
-    <Content Include="pages\media\images\items\04\larger\f05e0faaffab82c5fada83b064b749f3.jpg" />
-    <Content Include="pages\media\images\items\04\normal\13e463af968a18986a0727ef032d8417.jpg" />
-    <Content Include="pages\media\images\items\04\normal\a88de6db08e69ddde7172a2307366bbc.jpg" />
-    <Content Include="pages\media\images\items\04\normal\f05e0faaffab82c5fada83b064b749f3.jpg" />
-    <Content Include="pages\media\images\items\04\small\13e463af968a18986a0727ef032d8417.jpg" />
-    <Content Include="pages\media\images\items\04\small\a88de6db08e69ddde7172a2307366bbc.jpg" />
-    <Content Include="pages\media\images\items\04\small\f05e0faaffab82c5fada83b064b749f3.jpg" />
-    <Content Include="pages\media\images\items\05\normal\01.jpg" />
-    <Content Include="pages\media\images\items\05\larger\01.jpg" />
-    <Content Include="pages\media\images\items\05\small\01.jpg" />
-    <Content Include="pages\media\images\items\06\normal\01.jpg" />
-    <Content Include="pages\media\images\items\06\larger\01.jpg" />
-    <Content Include="pages\media\images\items\06\small\01.jpg" />
     <Content Include="pages\resources\images\a.gif" />
     <Content Include="pages\resources\images\add-to-cart.png" />
     <Content Include="pages\resources\images\ad_next.png" />
@@ -675,6 +649,7 @@
     <Compile Include="Domain\Common\Dao\MCodeComDao.cs" />
     <Compile Include="Domain\Common\Dao\MNumberComDao.cs" />
     <Compile Include="Domain\Common\Dao\MParameterComDao.cs" />
+    <Compile Include="Domain\Common\Dao\StorageFileComDao.cs" />
     <Compile Include="Domain\Common\Dao\UserComDao.cs" />
     <Compile Include="Domain\Common\Enum\MessageType.cs" />
     <Compile Include="Domain\Common\Enum\RatioType.cs" />
@@ -691,6 +666,7 @@
     <Compile Include="Domain\Common\Helper\MailHelper.cs" />
     <Compile Include="Domain\Common\Helper\MessageHelper.cs" />
     <Compile Include="Domain\Common\Helper\PageHelper.cs" />
+    <Compile Include="Domain\Common\Helper\PagingHelper.cs" />
     <Compile Include="Domain\Common\Helper\UploadHelper.cs" />
     <Compile Include="Domain\Common\Logic\IOperateLogic.cs" />
     <Compile Include="Domain\Common\Model\AcceptModel.cs" />
@@ -698,9 +674,14 @@
     <Compile Include="Domain\Common\Model\ComboItem.cs" />
     <Compile Include="Domain\Common\Model\ComboModel.cs" />
     <Compile Include="Domain\Common\Model\FileModel.cs" />
+    <Compile Include="Domain\Common\Model\ImageSizeModel.cs" />
     <Compile Include="Domain\Common\Model\ItemModel.cs" />
     <Compile Include="Domain\Common\Model\Message.cs" />
     <Compile Include="Domain\Common\Model\MessageResponse.cs" />
+    <Compile Include="Domain\Common\Model\PagerModel.cs" />
+    <Compile Include="Domain\Common\Model\PagerRequest.cs" />
+    <Compile Include="Domain\Common\Model\PagerResponse.cs" />
+    <Compile Include="Domain\Common\Model\PagerResult.cs" />
     <Compile Include="Domain\Common\Model\UploadModel.cs" />
     <Compile Include="Domain\Common\Utils\CartCom.cs" />
     <Compile Include="Domain\Common\Utils\DataCom.cs" />
@@ -708,6 +689,7 @@
     <Compile Include="Domain\Common\Utils\MCodeCom.cs" />
     <Compile Include="Domain\Common\Utils\MNumberCom.cs" />
     <Compile Include="Domain\Common\Utils\MParameterCom.cs" />
+    <Compile Include="Domain\Common\Utils\StorageFileCom.cs" />
     <Compile Include="Domain\Common\Utils\UserCom.cs" />
     <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
     <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
@@ -749,6 +731,14 @@
     <Compile Include="Domain\Logic\Admin\ParamList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ParamList\UpdateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ParamList\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UploadImage\DeleteLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UploadImage\DeleteOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UploadImage\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UploadImage\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UploadImage\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UploadImage\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UploadImage\UploadLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UploadImage\UploadOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserChangePassword\SaveLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserChangePassword\SaveOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserLogin\AuthLogic.cs" />
@@ -800,6 +790,10 @@
     <Compile Include="Domain\Model\Admin\ItemList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ParamList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ParamList\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UploadImage\DeleteDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UploadImage\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UploadImage\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UploadImage\UploadDataModel.cs" />
     <Compile Include="Domain\Model\Admin\UserChangePassword\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\UserLogin\AuthDataModel.cs" />
     <Compile Include="Domain\Model\Client\AcceptDetails\InitDataModel.cs" />
@@ -847,6 +841,15 @@
     <Compile Include="Domain\Web\Admin\ParamList\OutputParamModel.cs" />
     <Compile Include="Domain\Web\Admin\ParamList\UpdateRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ParamList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UploadImage\DeleteRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UploadImage\DeleteResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UploadImage\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UploadImage\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UploadImage\OutputImageModel.cs" />
+    <Compile Include="Domain\Web\Admin\UploadImage\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UploadImage\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UploadImage\UploadRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UploadImage\UploadResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\UserChangePassword\SaveRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\UserChangePassword\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\UserLogin\AuthRequestModel.cs" />
@@ -964,6 +967,13 @@
     </Compile>
     <Compile Include="pages\administer\upload-image.aspx.designer.cs">
       <DependentUpon>upload-image.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\upload-image1.aspx.cs">
+      <DependentUpon>upload-image1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\upload-image1.aspx.designer.cs">
+      <DependentUpon>upload-image1.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\user-change-password.aspx.cs">
       <DependentUpon>user-change-password.aspx</DependentUpon>
@@ -1112,14 +1122,14 @@
     <Compile Include="pages\common\error.aspx.designer.cs">
       <DependentUpon>error.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\handler\UploadImageHandler.ashx.cs">
-      <DependentUpon>UploadImageHandler.ashx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="pages\media\temp\" />
+    <Folder Include="pages\handler\" />
+    <Folder Include="pages\media\images\items\larger\" />
+    <Folder Include="pages\media\images\items\normal\" />
+    <Folder Include="pages\media\images\items\small\" />
     <Folder Include="pages\resources\fonts\" />
   </ItemGroup>
   <ItemGroup>
@@ -1130,7 +1140,6 @@
     <Content Include="pages\common\client.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="pages\handler\UploadImageHandler.ashx" />
     <None Include="Domain\Common\Dao\Entities.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Entities.designer.cs</LastGenOutput>

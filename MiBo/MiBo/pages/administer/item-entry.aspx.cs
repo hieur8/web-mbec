@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MiBo.Domain.Web.Admin.ItemEntry;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Admin.ItemEntry;
+using MiBo.Domain.Web.Admin.ItemEntry;
 
 namespace MiBo.pages.administer
 {
@@ -59,7 +56,7 @@ namespace MiBo.pages.administer
             {
                 var request = new SaveRequestModel();
                 request.Status = ((HiddenField)fvwItemDatails.FindControl("hidStatus")).Value;
-                request.ImagePath = ((HiddenField)fvwItemDatails.FindControl("hidImagePath")).Value;
+                request.FileId = ((HiddenField)fvwItemDatails.FindControl("hidFileId")).Value;
                 request.ItemSearchName = ((HiddenField)fvwItemDatails.FindControl("hidItemSearchName")).Value;
                 request.ItemCd = ((TextBox)fvwItemDatails.FindControl("txtItemCd")).Text;
                 request.ItemName = ((TextBox)fvwItemDatails.FindControl("txtItemName")).Text;

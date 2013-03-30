@@ -11,7 +11,7 @@ namespace MiBo.Domain.Common.Model
         public decimal? Amount { get { return Quantity * SalesPrice; } }
         public string OfferDiv { get; set; }
         public string ItemImage { get; set; }
-        public string ImagePath { get { return string.Format(Logics.PATH_IMG_ITEM, ItemCd); } }
+        public IList<StorageFile> ItemImages { get; set; }
         public IList<OfferItem> ListOfferItems { get; set; }
     }
 }

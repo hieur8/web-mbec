@@ -119,11 +119,12 @@ namespace MiBo.Domain.Logic.Admin.ParamList
                     throw new ExecuteException("E_MSG_00001", string.Format("Giá trị ({0})", i + 1));
                 if (paramType == Logics.PT_DATE && !DataCheckHelper.IsDate(obj.ParamValue))
                     throw new ExecuteException("E_MSG_00001", string.Format("Giá trị ({0})", i + 1));
+                i++;
             }
         }
 
         /// <summary>
-        /// Update item to cart
+        /// Update data
         /// </summary>
         /// <param name="inputObject">DataModel</param>
         /// <returns>DataModel</returns>

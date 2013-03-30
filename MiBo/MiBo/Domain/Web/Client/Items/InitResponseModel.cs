@@ -5,6 +5,8 @@ namespace MiBo.Domain.Web.Client.Items
 {
     public class InitResponseModel : MessageResponse
     {
-        public IList<OutputItemModel> ListItems { get; set; }
+        public string CategoryCd { get; set; }
+        public string CategoryName { get; set; }
+        public PagerResponse<OutputItemModel> ListItems { get; set; }
     }
 }

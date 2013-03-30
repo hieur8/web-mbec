@@ -266,5 +266,23 @@ namespace Resources {
                 return ResourceManager.GetString("I_MSG_00003", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xóa thành công..
+        /// </summary>
+        internal static string I_MSG_00004 {
+            get {
+                return ResourceManager.GetString("I_MSG_00004", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tải lên thành công..
+        /// </summary>
+        internal static string I_MSG_00005 {
+            get {
+                return ResourceManager.GetString("I_MSG_00005", resourceCulture);
+            }
+        }
     }
 }

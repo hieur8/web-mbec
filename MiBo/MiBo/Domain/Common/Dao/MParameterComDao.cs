@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MiBo.Domain.Common.Constants;
+using MiBo.Domain.Common.Helper;
 
 namespace MiBo.Domain.Common.Dao
 {
@@ -151,11 +152,8 @@ namespace MiBo.Domain.Common.Dao
 
             // Set value
             entity.ParamValue = param.ParamValue;
-            entity.UpdateUser = param.UpdateUser;
+            entity.UpdateUser = PageHelper.UserName;
             entity.UpdateDate = DateTime.Now;
-
-            // Update
-            EntityManager.SubmitChanges();
         }
     }
 }

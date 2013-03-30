@@ -793,6 +793,17 @@ namespace MiBo.Domain.Common.Helper
         }
 
         /// <summary>
+        /// Cast Object(T)
+        /// </summary>
+        /// <typeparam name="T">Object(T)</typeparam>
+        /// <param name="src">Object</param>
+        /// <returns>Object(T)</returns>
+        public static T AutoCast<T>(object src)
+        {
+            return (T)src;
+        }
+
+        /// <summary>
         /// Convert IEnumerable to data table
         /// </summary>
         /// <param name="data">IEnumerable</param>

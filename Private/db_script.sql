@@ -90,6 +90,30 @@ CREATE TABLE [MNumbers]
 GO
 
 -- =============================================
+-- Create table [StorageFiles]
+-- =============================================
+IF OBJECT_ID('[StorageFiles]', 'U') IS NOT NULL
+    DROP TABLE [StorageFiles]
+GO
+
+CREATE TABLE [StorageFiles]
+(
+    [FileId] VARCHAR(255),
+	[FileNo] DECIMAL,
+	[FileName] VARCHAR(255),
+	[FileGroup] VARCHAR(255),
+	[SortKey] DECIMAL,
+	[ActiveFlag] BIT,
+    [CreateUser] VARCHAR(255),
+    [CreateDate] DATETIME,
+    [UpdateUser] VARCHAR(255),
+    [UpdateDate] DATETIME,
+    [DeleteFlag] BIT,
+    PRIMARY KEY ([FileId], [FileNo])
+)
+GO
+
+-- =============================================
 -- Create table [Units]
 -- =============================================
 IF OBJECT_ID('[Units]', 'U') IS NOT NULL
@@ -100,6 +124,7 @@ CREATE TABLE [Units]
 (
     [UnitCd] VARCHAR(255),
     [UnitName] NVARCHAR(255),
+	[UnitSearchName] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),
@@ -122,6 +147,7 @@ CREATE TABLE [Categories]
 (
     [CategoryCd] VARCHAR(255),
     [CategoryName] NVARCHAR(255),
+	[CategorySearchName] VARCHAR(255),
 	[CategoryDiv] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
@@ -145,6 +171,7 @@ CREATE TABLE [Ages]
 (
     [AgeCd] VARCHAR(255),
     [AgeName] NVARCHAR(255),
+	[AgeSearchName] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),
@@ -167,6 +194,7 @@ CREATE TABLE [Genders]
 (
     [GenderCd] VARCHAR(255),
     [GenderName] NVARCHAR(255),
+	[GenderSearchName] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),
@@ -189,7 +217,8 @@ CREATE TABLE [Brands]
 (
     [BrandCd] VARCHAR(255),
     [BrandName] NVARCHAR(255),
-	[Image] VARCHAR(255),
+	[BrandSearchName] VARCHAR(255),
+	[FileId] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),
@@ -237,6 +266,7 @@ CREATE TABLE [Countries]
 (
     [CountryCd] VARCHAR(255),
     [CountryName] NVARCHAR(255),
+	[CountrySearchName] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),
@@ -259,6 +289,7 @@ CREATE TABLE [Cities]
 (
     [CityCd] VARCHAR(255),
     [CityName] NVARCHAR(255),
+	[CitySeachName] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),
@@ -281,6 +312,7 @@ CREATE TABLE [Districts]
 (
     [DistrictCd] VARCHAR(255),
     [DistrictName] NVARCHAR(255),
+	[DistrictSearchName] VARCHAR(255),
     [CityCd] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
@@ -360,6 +392,7 @@ CREATE TABLE [Items]
 	[SalesPrice] DECIMAL,
     [BuyingPrice] DECIMAL,
 	[Viewer] DECIMAL,
+	[FileId] VARCHAR(255),
 	[LinkVideo] VARCHAR(255),
 	[Material] NVARCHAR(255),
 	[SummaryNotes] NVARCHAR(4000),
@@ -468,7 +501,8 @@ GO
 CREATE TABLE [Suppliers]
 (
     [SupplierCd] VARCHAR(255),
-    [SupplierName] VARCHAR(255),
+    [SupplierName] NVARCHAR(255),
+	[SupplierSearchName] VARCHAR(255),
     [Address] VARCHAR(255),
     [Phone] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
@@ -493,7 +527,8 @@ CREATE TABLE [Banners]
 (
     [BannerCd] VARCHAR(255),
     [BannerName] VARCHAR(255),
-    [Image] VARCHAR(255),
+	[BannerSearchName] VARCHAR(255),
+    [FileId] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),

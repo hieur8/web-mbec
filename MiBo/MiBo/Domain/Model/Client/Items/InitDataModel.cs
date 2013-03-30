@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MiBo.Domain.Model.Client.Items
 {
-    public class InitDataModel
+    public class InitDataModel : PagerModel
     {
         // Request
         public string SearchText { get; set; }
@@ -15,6 +15,6 @@ namespace MiBo.Domain.Model.Client.Items
         public string ShowCd { get; set; }
 
         // Response
-        public IList<ItemModel> ListItems { get; set; }
+        public PagerResult<ItemModel> ListItems { get; set; }
     }
 }

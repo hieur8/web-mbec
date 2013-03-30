@@ -90,7 +90,7 @@
                                             </td>
                                             <td>
                                                 <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
-                                                    <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                    <img src='/pages/media/images/items/small/<%# Eval("ItemImage") %>'
                                                         width="60" height="60" alt='<%# Eval("ItemName")%>'></a>
                                             </td>
                                             <td class="a-right">
@@ -136,7 +136,7 @@
                                         <ItemTemplate>
                                             <li class="item odd"><a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'
                                                 title='<%# Eval("ItemName")%>' style="width: 60px; height: 60px;">
-                                                <img src='/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>'
+                                                <img src='/pages/media/images/items/small/<%# Eval("ItemImage") %>'
                                                     alt='<%# Eval("ItemName")%>' width="60" height="60">
                                             </a>
                                                 <div class="product-details">
