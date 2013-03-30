@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true" CodeBehind="Changes.aspx.cs" Inherits="MiBo.pages.cln.Changes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true" CodeBehind="changes.aspx.cs" Inherits="MiBo.pages.cln.changes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
 

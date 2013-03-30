@@ -74,11 +74,10 @@
     <Content Include="pages\administer\item-list.aspx" />
     <Content Include="pages\administer\param-list.aspx" />
     <Content Include="pages\administer\upload-image.aspx" />
-    <Content Include="pages\administer\upload-image1.aspx" />
     <Content Include="pages\administer\user-change-password.aspx" />
     <Content Include="pages\administer\user-login.aspx" />
     <Content Include="pages\cln\active.aspx" />
-    <Content Include="pages\cln\channel.html" />
+    <Content Include="pages\cln\changes.aspx" />
     <Content Include="pages\cln\checkout.aspx" />
     <Content Include="pages\cln\confirmcheckout.aspx" />
     <Content Include="pages\cln\FAQ.aspx" />
@@ -90,10 +89,12 @@
     <Content Include="pages\cln\order-details.aspx" />
     <Content Include="pages\cln\order-history.aspx" />
     <Content Include="pages\cln\overview.aspx" />
+    <Content Include="pages\cln\privacy-policy.aspx" />
     <Content Include="pages\cln\profile-edit.aspx" />
     <Content Include="pages\cln\profile.aspx" />
     <Content Include="pages\cln\register.aspx" />
     <Content Include="pages\cln\shopping-cart.aspx" />
+    <Content Include="pages\cln\terms-of-use.aspx" />
     <Content Include="pages\common\error.aspx" />
     <Content Include="pages\media\email\accept-new.html" />
     <Content Include="pages\media\email\active.html" />
@@ -968,13 +969,6 @@
     <Compile Include="pages\administer\upload-image.aspx.designer.cs">
       <DependentUpon>upload-image.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\administer\upload-image1.aspx.cs">
-      <DependentUpon>upload-image1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\administer\upload-image1.aspx.designer.cs">
-      <DependentUpon>upload-image1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="pages\administer\user-change-password.aspx.cs">
       <DependentUpon>user-change-password.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -995,6 +989,13 @@
     </Compile>
     <Compile Include="pages\cln\active.aspx.designer.cs">
       <DependentUpon>active.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\changes.aspx.cs">
+      <DependentUpon>changes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\changes.aspx.designer.cs">
+      <DependentUpon>changes.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\checkout.aspx.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
@@ -1073,6 +1074,13 @@
     <Compile Include="pages\cln\overview.aspx.designer.cs">
       <DependentUpon>overview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\cln\privacy-policy.aspx.cs">
+      <DependentUpon>privacy-policy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\privacy-policy.aspx.designer.cs">
+      <DependentUpon>privacy-policy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\cln\profile-edit.aspx.cs">
       <DependentUpon>profile-edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1100,6 +1108,13 @@
     </Compile>
     <Compile Include="pages\cln\shopping-cart.aspx.designer.cs">
       <DependentUpon>shopping-cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\terms-of-use.aspx.cs">
+      <DependentUpon>terms-of-use.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\terms-of-use.aspx.designer.cs">
+      <DependentUpon>terms-of-use.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\common\administer.Master.cs">
       <DependentUpon>administer.Master</DependentUpon>
