@@ -60,7 +60,9 @@ namespace MiBo.Domain.Dao
                              where (tbl.ItemName.Contains(inputObject.SearchText)
                              || tbl.ItemSearchName.Contains(inputObject.SearchText)
                              || tbl.Category.CategoryName.Contains(inputObject.SearchText)
+                             || tbl.Category.CategorySearchName.Contains(inputObject.SearchText)
                              || tbl.Brand.BrandName.Contains(inputObject.SearchText)
+                             || tbl.Brand.BrandSearchName.Contains(inputObject.SearchText)
                              || DataCheckHelper.IsNull(inputObject.SearchText))
                              && (tbl.CategoryCd == inputObject.CategoryCd 
                              || DataCheckHelper.IsNull(inputObject.CategoryCd))

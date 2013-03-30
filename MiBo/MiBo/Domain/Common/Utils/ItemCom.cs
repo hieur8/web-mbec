@@ -12,11 +12,6 @@ namespace MiBo.Domain.Common.Utils
         private readonly ItemComDao _comDao;
         public ItemCom() { _comDao = new ItemComDao(); }
 
-        public static string GetImagePath(string itemCd)
-        {
-            return string.Format(Logics.PATH_IMG_ITEM, itemCd);
-        }
-
         /// <summary>
         /// Update viewer
         /// </summary>

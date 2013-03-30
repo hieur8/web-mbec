@@ -72,17 +72,11 @@
         // Description for group user
         public const string GP_ADMINISTRATORS = "administrators";
         public const string GP_USERS = "users";
-
-        // Description for extension
-        public const string EXT_JPEG = "*.jpg";
-
-        // Description for path upload
-        public const string PATH_IMG_ITEM = "\\pages\\media\\images\\items\\{0}\\";
         
         // Description for link website
         public const string LINK_SKYPE_IC = "http://mystatus.skype.com/mediumicon/{0}";
         public const string LINK_SKYPE_IM = "skype:{0}?chat";
-        public const string LINK_YAHOO_IC = "http://opi.yahoo.com/online?u={0}&m=g&t=14";
+        public const string LINK_YAHOO_IC = "http://opi.yahoo.com/online?u={0}&m=g&t=19";
         public const string LINK_YAHOO_IM = "ymsgr:sendIM?{0}";
     }
 }

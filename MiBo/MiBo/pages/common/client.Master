@@ -106,7 +106,7 @@
                                                                 ID="lnkDelete" runat="server" CssClass="img-cart-delete"><span style="margin-left: 0;
                                                                     margin-right: 0; float: left;" class="ui-icon-16x16 ui-delete"></span></asp:LinkButton>
                                                             <span class="count-cart-s color-red">x<%# Eval("Quantity") %></span><a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>"
-                                                                style="color: #000"><img src="/pages/media/images/items/<%# Eval("ItemCd") %>/small/<%# Eval("ItemImage") %>"
+                                                                style="color: #000"><img src="/pages/media/images/items/small/<%# Eval("ItemImage") %>"
                                                                     class="img-cart-byer" width="60" height="60"></a><p>
                                                                         <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" id="itemcart" class="itemcart">
                                                                             <%# Eval("ItemName")%></a><span class="color-red"><%# Eval("Price") %></span></p>

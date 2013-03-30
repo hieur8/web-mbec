@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace MiBo.pages.cln
 {
-    public partial class Changes : System.Web.UI.Page
+    public partial class changes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
