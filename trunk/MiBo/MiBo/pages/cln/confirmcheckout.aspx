@@ -31,7 +31,7 @@
                                     </p>
                                     <ul class="form-list">
                                         <li class="control">
-                                            <asp:RadioButton GroupName="rbMethod" class="radio" Text="Thanh toán không cần đăng ký"
+                                            <asp:RadioButton GroupName="rbMethod" class="radio" Text="Đăng ký trong quá trình thanh toán"
                                                 ID="method1" runat="server" Checked="true" />
                                         </li>
                                         <li class="control">
