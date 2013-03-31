@@ -105,6 +105,24 @@
     <Content Include="pages\media\images\banners\S5.jpg" />
     <Content Include="pages\media\images\banners\S6.jpg" />
     <Content Include="pages\media\images\banners\S7.jpg" />
+    <Content Include="pages\media\images\items\larger\bcfcb87bda1ed406f9d9949fb53deb5d.jpg" />
+    <Content Include="pages\media\images\items\larger\cae3a1d95cec0de91ec13db789d746c8.jpg" />
+    <Content Include="pages\media\images\items\larger\ce42a95453428b3e253af21b42101b74.jpg" />
+    <Content Include="pages\media\images\items\larger\d06320f2cb56d5f4a538e134c0d30c13.jpg" />
+    <Content Include="pages\media\images\items\larger\f67e094e7a618049a0cd331c2b87b120.jpg" />
+    <Content Include="pages\media\images\items\larger\f69c953491bc05bb456fcf9596985129.jpg" />
+    <Content Include="pages\media\images\items\normal\bcfcb87bda1ed406f9d9949fb53deb5d.jpg" />
+    <Content Include="pages\media\images\items\normal\cae3a1d95cec0de91ec13db789d746c8.jpg" />
+    <Content Include="pages\media\images\items\normal\ce42a95453428b3e253af21b42101b74.jpg" />
+    <Content Include="pages\media\images\items\normal\d06320f2cb56d5f4a538e134c0d30c13.jpg" />
+    <Content Include="pages\media\images\items\normal\f67e094e7a618049a0cd331c2b87b120.jpg" />
+    <Content Include="pages\media\images\items\normal\f69c953491bc05bb456fcf9596985129.jpg" />
+    <Content Include="pages\media\images\items\small\bcfcb87bda1ed406f9d9949fb53deb5d.jpg" />
+    <Content Include="pages\media\images\items\small\cae3a1d95cec0de91ec13db789d746c8.jpg" />
+    <Content Include="pages\media\images\items\small\ce42a95453428b3e253af21b42101b74.jpg" />
+    <Content Include="pages\media\images\items\small\d06320f2cb56d5f4a538e134c0d30c13.jpg" />
+    <Content Include="pages\media\images\items\small\f67e094e7a618049a0cd331c2b87b120.jpg" />
+    <Content Include="pages\media\images\items\small\f69c953491bc05bb456fcf9596985129.jpg" />
     <Content Include="pages\resources\images\a.gif" />
     <Content Include="pages\resources\images\add-to-cart.png" />
     <Content Include="pages\resources\images\ad_next.png" />
@@ -228,6 +246,8 @@
     <Content Include="pages\resources\images\shop-bag.gif" />
     <Content Include="pages\resources\images\shop-bag.png" />
     <Content Include="pages\resources\images\shortcut-button-bg.gif" />
+    <Content Include="pages\resources\images\skype-off.png" />
+    <Content Include="pages\resources\images\skype-on.png" />
     <Content Include="pages\resources\images\skype-user.png" />
     <Content Include="pages\resources\images\sliderNumber-Act-bg.png" />
     <Content Include="pages\resources\images\sliderNumber-normal-bg.png" />
@@ -244,9 +264,13 @@
     <Content Include="pages\resources\images\toys-shadow-bg.png" />
     <Content Include="pages\resources\images\tr.png" />
     <Content Include="pages\resources\images\trans.gif" />
+    <Content Include="pages\resources\images\uparrow.gif" />
     <Content Include="pages\resources\images\uparrow.png" />
+    <Content Include="pages\resources\images\upArrow1.gif" />
     <Content Include="pages\resources\images\updated-shopping-bg.gif" />
     <Content Include="pages\resources\images\warning.png" />
+    <Content Include="pages\resources\images\yahoo-off.png" />
+    <Content Include="pages\resources\images\yahoo-on.png" />
     <Content Include="pages\resources\scripts\classes\adapter\jquery\adapter.js" />
     <Content Include="pages\resources\scripts\classes\adapter\jquery\jquery.tinymce.js" />
     <Content Include="pages\resources\scripts\classes\adapter\prototype\adapter.js" />
@@ -680,6 +704,7 @@
     <Compile Include="Domain\Common\Model\Message.cs" />
     <Compile Include="Domain\Common\Model\MessageResponse.cs" />
     <Compile Include="Domain\Common\Model\PagerModel.cs" />
+    <Compile Include="Domain\Common\Model\PagerSupport.cs" />
     <Compile Include="Domain\Common\Model\PagerRequest.cs" />
     <Compile Include="Domain\Common\Model\PagerResponse.cs" />
     <Compile Include="Domain\Common\Model\PagerResult.cs" />
@@ -1142,9 +1167,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="pages\handler\" />
-    <Folder Include="pages\media\images\items\larger\" />
-    <Folder Include="pages\media\images\items\normal\" />
-    <Folder Include="pages\media\images\items\small\" />
     <Folder Include="pages\resources\fonts\" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Logic;
 using MiBo.Domain.Common.Model;
+using System.Collections.Generic;
 
 namespace MiBo.Domain.Common.Controller
 {
@@ -31,6 +32,82 @@ namespace MiBo.Domain.Common.Controller
 
             // Call base class
             base.InitializeCulture();
+        }
+
+        public string GetPagingInfo<T>(PagerResponse<T> list)
+        {
+            var pagingDisplay = string.Empty;
+
+            var start = list.Offset + 1;
+            var end = list.CurrentPageNumber * list.Limit;
+            var total = list.AllRecordCount;
+            if (end > total) end = (int)total;
+
+            return string.Format("Sản phẩm {0} đến {1} của tất cả {2}", start, end, total);
+        }
+
+        public IList<PagerModel> GetPaging<T>(PagerResponse<T> list, int pagerSize, string forControl)
+        {
+            var listPager = new List<PagerModel>();
+            var totalPageNumber = list.TotalPageNumber;
+            var currentPageNumber = list.CurrentPageNumber;
+
+            // Get start & end
+            var start = currentPageNumber - pagerSize / 2;
+            if (start > totalPageNumber - pagerSize && start <= totalPageNumber)
+                start = (int)totalPageNumber - pagerSize;
+            if (start < 0) start = 0;
+            var end = start + pagerSize;
+            if (end > totalPageNumber) end = (int)totalPageNumber;
+
+            // Get first & pre
+            if (list.IsExistPrePage)
+            {
+                var first = new PagerModel();
+                first.Name = "Đầu";
+                first.Page = 1;
+                first.Limit = list.Limit;
+                first.ForControl = forControl;
+                listPager.Add(first);
+
+                var pre = new PagerModel();
+                pre.Name = "Trước";
+                pre.Page = list.CurrentPageNumber - 1;
+                pre.Limit = list.Limit;
+                pre.ForControl = forControl;
+                listPager.Add(pre);
+            }
+
+            // Get page
+            for (int i = start; i < end; i++)
+            {
+                var page = new PagerModel();
+                page.Name = (i + 1).ToString();
+                page.Page = i + 1;
+                page.Limit = list.Limit;
+                page.ForControl = forControl;
+                listPager.Add(page);
+            }
+
+            // Get next last
+            if (list.IsExistNextPage)
+            {
+                var next = new PagerModel();
+                next.Name = "Sau";
+                next.Page = currentPageNumber + 1;
+                next.Limit = list.Limit;
+                next.ForControl = forControl;
+                listPager.Add(next);
+
+                var last = new PagerModel();
+                last.Name = "Cuối";
+                last.Page = (int)totalPageNumber;
+                last.Limit = list.Limit;
+                last.ForControl = forControl;
+                listPager.Add(last);
+            }
+
+            return listPager;
         }
 
         protected T Invoke<T>(IOperateLogic<T> logic, object obj) where T : MessageResponse
