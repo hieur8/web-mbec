@@ -1,4 +1,5 @@
-﻿using MiBo.Domain.Common.Helper;
+﻿using MiBo.Domain.Common.Constants;
+using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
@@ -70,13 +71,14 @@ namespace MiBo.Domain.Logic.Client.Items
                 item.ItemCd = DataHelper.ToString(obj.ItemCd);
                 item.ItemName = DataHelper.ToString(obj.ItemName);
                 item.ItemImage = DataHelper.ToString(obj.ItemImage);
+                item.BrandCd = DataHelper.ToString(obj.BrandCd);
+                item.BrandName = DataHelper.ToString(obj.Brand.BrandName);
                 item.ItemDiv = DataHelper.ToString(obj.ItemDiv);
                 item.OfferDiv = DataHelper.ToString(obj.OfferDiv);
                 item.Price = DataHelper.ToString(Formats.CURRENCY, obj.SalesPrice);
                 item.PriceOld = DataHelper.ToString(Formats.CURRENCY, obj.SalesPriceOld);
                 item.SummaryNotes = DataHelper.ToString(obj.SummaryNotes);
                 item.UpdateDate = DataHelper.ToString(Formats.UPDATE_DATE, obj.UpdateDate);
-
                 listItems.Add(item);
             }
             listItems.AllRecordCount = resultObject.ListItems.AllRecordCount;
@@ -84,6 +86,13 @@ namespace MiBo.Domain.Logic.Client.Items
             listItems.Offset = resultObject.ListItems.Offset;
 
             // Set value
+            responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
+            responseModel.Hotline = DataHelper.ToString(resultObject.Hotline);
+            responseModel.ChatYahooIM = DataHelper.GetYahooIM(resultObject.ChatYahoo);
+            responseModel.ChatSkypeIM = DataHelper.GetSkypeIM(resultObject.ChatSkype);
+            responseModel.ChatYahooIcon = DataHelper.GetYahooIcon(resultObject.ChatYahoo);
+            responseModel.ChatSkypeIcon = DataHelper.GetSkypeIcon(resultObject.ChatSkype);
+            responseModel.Title = DataHelper.ToString(resultObject.Title);
             responseModel.ListItems = listItems;
 
             // Return value
@@ -139,16 +148,41 @@ namespace MiBo.Domain.Logic.Client.Items
             InitDataModel getResult = null;
             ClientItemsDao clientItemsDao = null;
             ItemCom itemCom = null;
+            MParameterCom mParameterCom = null;
 
             // Variable initialize
             getResult = new InitDataModel();
             clientItemsDao = new ClientItemsDao();
             itemCom = new ItemCom();
+            mParameterCom = new MParameterCom();
 
             // Get data
             var listItems = clientItemsDao.GetListItems(inputObject);
+            var discountMember = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
+            var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
+            var strChatYahoo = mParameterCom.GetString(Logics.PR_CHAT_YAHOO, false);
+            var strChatSkype = mParameterCom.GetString(Logics.PR_CHAT_SKYPE, false);
+
+            // Title
+            var title = string.Empty;
+            if (!DataCheckHelper.IsNull(inputObject.SearchText))
+                title = "Tìm kiếm";
+            else if (!DataCheckHelper.IsNull(inputObject.CategoryCd))
+                title = clientItemsDao.GetCategoryName(inputObject.CategoryCd);
+            else if (!DataCheckHelper.IsNull(inputObject.BrandCd))
+                title = clientItemsDao.GetBrandName(inputObject.BrandCd);
+            else if (!DataCheckHelper.IsNull(inputObject.AgeCd))
+                title = clientItemsDao.GetAgeName(inputObject.AgeCd);
+            else if (!DataCheckHelper.IsNull(inputObject.GenderCd))
+                title = clientItemsDao.GetGenderName(inputObject.GenderCd);
+            else title = "Tất cả";
 
             // Set value
+            getResult.Title = title;
+            getResult.DiscountMember = discountMember;
+            getResult.Hotline = strHotline;
+            getResult.ChatYahoo = strChatYahoo;
+            getResult.ChatSkype = strChatSkype;
             getResult.ListItems = PagingHelper.GetPagerList(
                 itemCom.ToListItemModel(listItems), inputObject);
 

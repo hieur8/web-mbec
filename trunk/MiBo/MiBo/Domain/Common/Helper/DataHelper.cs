@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using MiBo.Domain.Common.Model;
 using Resources;
+using System.Net;
 
 namespace MiBo.Domain.Common.Helper
 {
@@ -801,6 +802,80 @@ namespace MiBo.Domain.Common.Helper
         public static T AutoCast<T>(object src)
         {
             return (T)src;
+        }
+
+        /// <summary>
+        /// Get yahoo im
+        /// </summary>
+        /// <typeparam name="user">Yahoo user</typeparam>
+        /// <returns>Yahoo im</returns>
+        public static string GetYahooIM(string user)
+        {
+            return string.Format("ymsgr:sendIM?{0}", user);
+        }
+
+        /// <summary>
+        /// Get yahoo icon
+        /// </summary>
+        /// <typeparam name="user">Yahoo user</typeparam>
+        /// <returns>Yahoo icon</returns>
+        public static string GetYahooIcon(string user)
+        {
+            var linkPath = string.Format("http://opi.yahoo.com/online?u={0}&m=t&t=1", user);
+            var icon = string.Empty;
+            
+            try
+            {
+                using (var wc = new WebClient())
+                {
+                    var status = wc.DownloadString(linkPath);
+                    if (status == "01") icon = "yahoo-on.png";
+                    else icon = "yahoo-off.png";
+                }
+            }
+            catch (Exception)
+            {
+                icon = string.Empty;
+            }
+
+            return icon;
+        }
+
+        /// <summary>
+        /// Get skype im
+        /// </summary>
+        /// <typeparam name="user">Skype user</typeparam>
+        /// <returns>skype im</returns>
+        public static string GetSkypeIM(string user)
+        {
+            return string.Format("skype:{0}?chat", user);
+        }
+
+        /// <summary>
+        /// Get skype icon
+        /// </summary>
+        /// <typeparam name="user">Skype user</typeparam>
+        /// <returns>Skype icon</returns>
+        public static string GetSkypeIcon(string user)
+        {
+            var linkPath = string.Format("http://mystatus.skype.com/{0}.num", user);
+            var icon = string.Empty;
+
+            try
+            {
+                using (var wc = new WebClient())
+                {
+                    var status = wc.DownloadString(linkPath);
+                    if (status == "2") icon = "skype-on.png";
+                    else icon = "skype-off.png";
+                }
+            }
+            catch (Exception)
+            {
+                icon = string.Empty;
+            }
+
+            return icon;
         }
 
         /// <summary>

@@ -10,9 +10,6 @@ namespace MiBo.pages.common
 {
     public partial class client : BaseMasterPage
     {
-        public const string YAHOO_ONLINE = "http://opi.yahoo.com/online?u={0}&t=2";
-        public const string YAHOO_LINK = "ymsgr:sendim?{0}";
-
         protected void Page_Load(object sender, EventArgs e)
         {
             var logic = new InitOperateLogic();

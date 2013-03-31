@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using MiBo.Domain.Common.Model;
 using System.Linq.Expressions;
-using System.Data.SqlClient;
-using System;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.Domain.Common.Helper
 {
@@ -25,10 +24,10 @@ namespace MiBo.Domain.Common.Helper
             return allField.Contains(sortBy);
         }
 
-        public static PagerResult<T> GetPagerList<T>(IList<T> list, PagerModel criteria)
+        public static PagerResult<T> GetPagerList<T>(IList<T> list, PagerSupport criteria)
         {
             var result = new PagerResult<T>();
-            var limit = 10;
+            var limit = 20;
             var offset = 0;
 
             if (!DataCheckHelper.IsNull(criteria.Limit))
@@ -67,7 +66,7 @@ namespace MiBo.Domain.Common.Helper
             return result;
         }
 
-        public static T CopyPagerRequest<T>(PagerRequest request, PagerModel criteria)
+        public static T CopyPagerRequest<T>(PagerRequest request, PagerSupport criteria)
         {
             criteria.Limit = DataHelper.ConvertInputNumber(request.Limit);
             criteria.Offset = DataHelper.ConvertInputNumber(request.Offset);
@@ -79,7 +78,7 @@ namespace MiBo.Domain.Common.Helper
             return DataHelper.AutoCast<T>(criteria);
         }
 
-        public static T CopyPagerModel<T>(PagerModel model, PagerModel criteria)
+        public static T CopyPagerModel<T>(PagerSupport model, PagerSupport criteria)
         {
             criteria.Limit = model.Limit;
             criteria.Offset = model.Offset;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MiBo.Domain.Model.Client.Items
 {
-    public class InitDataModel : PagerModel
+    public class InitDataModel : PagerSupport
     {
         // Request
         public string SearchText { get; set; }
@@ -16,5 +16,10 @@ namespace MiBo.Domain.Model.Client.Items
 
         // Response
         public PagerResult<ItemModel> ListItems { get; set; }
+        public string Title { get; set; }
+        public decimal? DiscountMember { get; set; }
+        public string Hotline { get; set; }
+        public string ChatYahoo { get; set; }
+        public string ChatSkype { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Items;
 using MiBo.Domain.Web.Client.Items;
-using System.Collections.Generic;
+using MiBo.Domain.Common.Helper;
 
 namespace MiBo.pages.cln
 {
@@ -15,39 +15,18 @@ namespace MiBo.pages.cln
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
             if (HasError) return;
+            litTitle.Text = response.Title;
+            litHotline.Text = response.Hotline;
+            lnkChatSkype.Attributes["href"] = response.ChatSkypeIM;
+            icoChatSkype.Attributes["src"] = "/pages/resources/images/" + response.ChatSkypeIcon;
+            lnkChatYahoo.Attributes["href"] = response.ChatYahooIM;
+            icoChatYahoo.Attributes["src"] = "/pages/resources/images/" + response.ChatYahooIcon;
+            litDiscountMember.Text = response.DiscountMember;
+            litPagingInfo.Text = GetPagingInfo(response.ListItems);
             rptItem.DataSource = response.ListItems;
             rptItem.DataBind();
-
-            var totalPageNumber = response.ListItems.TotalPageNumber;
-            if (totalPageNumber > 5)
-                totalPageNumber = 5;
-
-            var listPager = new List<int>();
-            var start = response.ListItems.CurrentPageNumber - 2;
-            var end = response.ListItems.CurrentPageNumber + 2;
-            if (start < 1)
-                start = 1;
-            if (end > response.ListItems.TotalPageNumber)
-                end = (int)response.ListItems.TotalPageNumber;
-
-            if (response.ListItems.IsExistPrePage)
-            {
-                listPager.Add(1);
-                listPager.Add(response.ListItems.CurrentPageNumber - 1);
-            }
-            
-            for (int i = 1; i <= totalPageNumber; i++)
-            {
-                
-            }
-            if (response.ListItems.IsExistNextPage)
-            {
-                listPager.Add(response.ListItems.CurrentPageNumber + 1);
-                listPager.Add((int)response.ListItems.TotalPageNumber);
-            }
-
-
-            "<<   <   2   3   4   5   6   >   >>".Clone();
+            rptPaging.DataSource = GetPaging(response.ListItems, 10, "rptItem");
+            rptPaging.DataBind();
         }
 
         protected void lnkBuy_Command(object sender, CommandEventArgs e)
@@ -70,8 +49,13 @@ namespace MiBo.pages.cln
                 request.AgeCd = Request["age"];
                 request.GenderCd = Request["gender"];
                 request.BrandCd = Request["brand"];
-                request.PriceCd = Request["price"];
                 request.ShowCd = Request["show"];
+
+                request.Limit = Request["limit"];
+                request.Offset = Request["offset"];
+                request.SortBy = Request["sortBy"];
+                request.IsAsc = Request["isAsc"];
+
                 return request;
             }
         }

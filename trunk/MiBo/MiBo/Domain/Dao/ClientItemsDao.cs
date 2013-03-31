@@ -132,5 +132,50 @@ namespace MiBo.Domain.Dao
             // Return value
             return listResult.ToList();
         }
+
+        public string GetCategoryName(string categoryCd)
+        {
+            var listResult = from tbl in EntityManager.Categories
+                             where tbl.CategoryCd == categoryCd
+                             && tbl.DeleteFlag == false
+                             orderby tbl.SortKey ascending
+                             select tbl.CategoryName;
+
+            return listResult.SingleOrDefault();
+        }
+
+        public string GetBrandName(string brandCd)
+        {
+            var listResult = from tbl in EntityManager.Brands
+                             where tbl.BrandCd == brandCd
+                             && tbl.DeleteFlag == false
+                             orderby tbl.SortKey ascending
+                             select tbl.BrandName;
+
+            return listResult.SingleOrDefault();
+        }
+
+        public string GetAgeName(string ageCd)
+        {
+            var listResult = from tbl in EntityManager.Ages
+                             where tbl.AgeCd == ageCd
+                             && tbl.DeleteFlag == false
+                             orderby tbl.SortKey ascending
+                             select tbl.AgeName;
+
+            return listResult.SingleOrDefault();
+        }
+
+        public string GetGenderName(string genderCd)
+        {
+            var listResult = from tbl in EntityManager.Genders
+                             where tbl.GenderCd == genderCd
+                             && tbl.DeleteFlag == false
+                             orderby tbl.SortKey ascending
+                             select tbl.GenderName;
+
+            return listResult.SingleOrDefault();
+        }
+
     }
 }

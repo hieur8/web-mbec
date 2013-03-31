@@ -343,11 +343,11 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 
 /* Pager */
 .pager { font-size:11px; background: #e7f1f3; padding:4px 8px; border-top:1px solid #e2e2e2; text-align:center; }
-.pager .amount { margin-left:20px;float:left;position:relative;top:3px;}
+.pager .amount { margin-left:10px;float:left;position:relative;top:3px;}
 .pager .limiter { float:right; }
 .pager .limiter label { vertical-align:middle; }
 .pager .limiter select { padding:0; margin:0 0 1px; vertical-align:middle; }
-.pager .pages { float:left;margin:0 25px;position:relative;top:3px; }
+.pager .pages { float:right;margin:0 10px;position:relative;top:3px; }
 .pager .pages ol { display:inline; }
 .pager .pages li { display:inline; margin:0 2px; }
 .pager .pages .current {color:#5D502D;font-weight:bold;}
@@ -361,7 +361,7 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 .sorter .link-feed {}
 
 /* Toolbar */
-.toolbar {width:767px;clear:both;}
+.toolbar {width:769px;clear:both;}
 .toolbar .pager { padding:5px 8px 0; border:1px solid #d2e1e8;font-size:12px;}
 .toolbar .sorter { border-bottom:1px solid #fff; }
 .toolbar-bottom {}

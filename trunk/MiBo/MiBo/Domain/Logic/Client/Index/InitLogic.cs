@@ -138,8 +138,10 @@ namespace MiBo.Domain.Logic.Client.Index
             // Set value
             responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
             responseModel.Hotline = DataHelper.ToString(resultObject.Hotline);
-            responseModel.ChatYahoo = DataHelper.ToString(resultObject.ChatYahoo);
-            responseModel.ChatSkype = DataHelper.ToString(resultObject.ChatSkype);
+            responseModel.ChatYahooIM = DataHelper.GetYahooIM(resultObject.ChatYahoo);
+            responseModel.ChatSkypeIM = DataHelper.GetSkypeIM(resultObject.ChatSkype);
+            responseModel.ChatYahooIcon = DataHelper.GetYahooIcon(resultObject.ChatYahoo);
+            responseModel.ChatSkypeIcon = DataHelper.GetSkypeIcon(resultObject.ChatSkype);
             responseModel.ListBanners = listBanners;
             responseModel.ListNewItems = listNewItems;
             responseModel.ListHotItems = listHotItems;
