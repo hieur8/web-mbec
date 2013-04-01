@@ -129,7 +129,10 @@ namespace MiBo.pages.cln
                 accept.Notes = note.Text;
                 request.Accept = accept;
                 request.Cart = Session["Cart"];
-
+                if (Session["GiftCd"] != null)
+                {
+                    accept.GiftCd = Session["GiftCd"].ToString();
+                }
                 return request;
                
             }

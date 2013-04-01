@@ -1683,7 +1683,7 @@ tr.summary-details-excluded { font-style:italic; }
 /* New Css */
 																	/* Header part */
 .clear{clear:both;}
-.search-checkout-container{float:right;}
+.search-checkout-container{float:right;padding-top:20px;}
 .search-checkout-container .search-container{background:url("../images/dummy/searchsep.png") no-repeat scroll 100% 0 transparent;float:left;height:61px;padding-right:24px;}
 .checkout-container-header{float:left;height:55px;margin-left:13px;padding-left:45px;width:222px;}
 .checkout-container-header .mybag{font-family:arial, sans-serif;font-size:13px;font-weight:normal;margin-top:7px;text-align:left;text-transform:uppercase;}
