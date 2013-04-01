@@ -20,6 +20,8 @@ namespace MiBo.pages.cln
             {
                 Session["Cart"] = null;
                 Session["payMethod"] = null;
+                Session["GiftCd"] = null;
+                Session["GiftPrice"] = null;
             }
         }
 
