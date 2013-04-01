@@ -10,7 +10,6 @@ namespace MiBo.Domain.Common.Model
         public decimal Price { get; set; }
         public decimal Quantity { get; set; }
         public decimal Amount { get { return Quantity * Price; } }
-
         public CartItem()
         {
         }

@@ -49,6 +49,24 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.Repeater rptOfferItems;
         
         /// <summary>
+        /// txtGift control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGift;
+        
+        /// <summary>
+        /// LinkButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        
+        /// <summary>
         /// lblSubTotal control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,24 @@ namespace MiBo.pages.cln {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSubTotal;
+        
+        /// <summary>
+        /// LblGiftPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblGiftPrice;
+        
+        /// <summary>
+        /// LblTotalPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblTotalPrice;
         
         /// <summary>
         /// HyperLinkTT control.

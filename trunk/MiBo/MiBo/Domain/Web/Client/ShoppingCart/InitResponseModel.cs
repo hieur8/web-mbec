@@ -8,5 +8,6 @@ namespace MiBo.Domain.Web.Client.ShoppingCart
         public IList<OutputItemModel> ListItems { get; set; }
         public IList<OutputItemModel> ListOfferItems { get; set; }
         public string TotalAmount { get; set; }
+        public decimal TotalAmountDecimal { get; set; }
     }
 }

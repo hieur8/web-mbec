@@ -99,6 +99,7 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
 
             // Set value
             responseModel.TotalAmount = DataHelper.ToString(Formats.CURRENCY, resultObject.TotalAmount);
+            responseModel.TotalAmountDecimal = resultObject.TotalAmount;
             responseModel.ListItems = listItems;
             responseModel.ListOfferItems = listOfferItems;
 
@@ -193,7 +194,6 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
             // Set value
             getResult.ListItems = listItems;
             getResult.TotalAmount = cartCom.TotalAmount;
-
             // Return value
             return getResult;
         }
