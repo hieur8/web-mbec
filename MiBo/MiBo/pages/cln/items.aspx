@@ -108,8 +108,7 @@
                             <div class="wrapper" style="margin-top: 9px;">
                                 <a><span class="duty-40x40 duty-1a"></span>
                                     <p class="font-medium">
-                                        Giảm
-                                        <asp:Literal ID="litDiscountMember" runat="server"></asp:Literal>
+                                        Tặng thẻ giảm giá tương đương 10% giá trị đơn hàng 
                                         cho các thành viên mibo.vn</p>
                                 </a>
                             </div>
@@ -122,7 +121,7 @@
                             <div class="wrapper">
                                 <a><span class="duty-40x40 duty-3a"></span>
                                     <p class="font-medium">
-                                        7 ngày đổi trả hàng miễn phí</p>
+                                        7 ngày đổi trả hàng miễn <br /> phí</p>
                                 </a>
                             </div>
                             <div class="wrapper">

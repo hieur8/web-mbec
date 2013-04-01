@@ -21,7 +21,6 @@ namespace MiBo.pages.cln
             icoChatSkype.Attributes["src"] = "/pages/resources/images/" + response.ChatSkypeIcon;
             lnkChatYahoo.Attributes["href"] = response.ChatYahooIM;
             icoChatYahoo.Attributes["src"] = "/pages/resources/images/" + response.ChatYahooIcon;
-            litDiscountMember.Text = response.DiscountMember;
             litPagingInfo.Text = GetPagingInfo(response.ListItems);
             rptItem.DataSource = response.ListItems;
             rptItem.DataBind();
