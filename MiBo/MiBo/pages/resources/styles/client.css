@@ -1836,7 +1836,27 @@ button.btn-cart span span{background-position:100%;line-height:30px;padding-righ
 #shopping-cart-table tr td.prod-short-description{color:#424242;}
 #shopping-cart-table tr{color:#424242;}
 #shopping-cart-table tr.first th.prod-image-cart-table{padding-left:31px;}
-#shopping-cart-table tr.first th{color:#1b1b1b;}
+#shopping-cart-table tr.first th
+{
+border-top: none;
+border-left: none;
+border-right: 1px solid #e9e9e9;
+border-bottom: 1px solid #e9e9e9;
+color: #555;
+font-size: 15px;
+font-weight: bold;
+padding: 8px 12px 8px 0px;
+text-shadow: 1px 1px 1px #ffffff;
+line-height: 17px !important;
+background: #fdfdfd;
+background: -moz-linear-gradient(top, #fdfdfd 0%, #f4f4f4 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#f4f4f4));
+background: -webkit-linear-gradient(top, #fdfdfd 0%,#f4f4f4 100%);
+background: -o-linear-gradient(top, #fdfdfd 0%,#f4f4f4 100%);
+background: -ms-linear-gradient(top, #fdfdfd 0%,#f4f4f4 100%);
+background: linear-gradient(to bottom, #fdfdfd 0%,#f4f4f4 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#f4f4f4',GradientType=0 );
+	}
 																	/* one page checkout */
 #checkout-review-table tfoot td{border-top:1px solid #DADADA;}
 																/* multiple shipping */
@@ -2450,5 +2470,16 @@ h4.num-hot {
 
 .supportInfo
 {
-    *margin-top: 5px;
+    margin-top: 5px;
+}
+
+.icon-gift{
+display: inline-block;
+width: 30px;
+height: 20px;
+line-height: 28px;
+vertical-align: text-top;
+background-image: url("../images/card.png");
+background-repeat: no-repeat;
+padding-right:5px;
 }

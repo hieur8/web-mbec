@@ -8,3 +8,8 @@ C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\bin\MiBo.pdb
 C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\obj\Debug\MiBo.dll
 C:\Users\Vega\Work\Web\C#\vn\mibo\MiBo\MiBo\obj\Debug\MiBo.pdb
+D:\Mibo\MiBo\MiBo\obj\Debug\ResolveAssemblyReference.cache
+D:\Mibo\MiBo\MiBo\bin\MiBo.dll
+D:\Mibo\MiBo\MiBo\bin\MiBo.pdb
+D:\Mibo\MiBo\MiBo\obj\Debug\MiBo.dll
+D:\Mibo\MiBo\MiBo\obj\Debug\MiBo.pdb

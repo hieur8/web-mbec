@@ -11,7 +11,9 @@ namespace MiBo.Domain.Common.Utils
         public bool Empty { get { return Items.Count == 0; } }
         public decimal Count { get { return Items.Sum(o => o.Quantity); } }
         public decimal TotalAmount { get { return Items.Sum(item => item.Amount); } }
-
+        public string GiftCd { get; set; }
+        public decimal GiftPrice { get; set; }
+        public decimal TotalPrice { get { return Items.Sum(item => item.Amount) - GiftPrice; } }
         public CartItem this[int index]
         {
             get

@@ -164,6 +164,7 @@
     <Content Include="pages\resources\images\bullet_black.png" />
     <Content Include="pages\resources\images\bullet_on.png" />
     <Content Include="pages\resources\images\buttons-checkout.png" />
+    <Content Include="pages\resources\images\card.png" />
     <Content Include="pages\resources\images\cart-icon.png" />
     <Content Include="pages\resources\images\close.gif" />
     <Content Include="pages\resources\images\ddlcat.png" />
@@ -799,6 +800,8 @@
     <Compile Include="Domain\Logic\Client\Profile\SaveOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\Register\SaveLogic.cs" />
     <Compile Include="Domain\Logic\Client\Register\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Client\ShoppingCart\GiftLogic.cs" />
+    <Compile Include="Domain\Logic\Client\ShoppingCart\GiftOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\DeleteOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\ShoppingCart\InitLogic.cs" />
@@ -928,6 +931,8 @@
     <Compile Include="Domain\Web\Client\Register\OutputEmailModel.cs" />
     <Compile Include="Domain\Web\Client\Register\SaveRequestModel.cs" />
     <Compile Include="Domain\Web\Client\Register\SaveResponseModel.cs" />
+    <Compile Include="Domain\Web\Client\ShoppingCart\GiftRequestModel.cs" />
+    <Compile Include="Domain\Web\Client\ShoppingCart\GiftResponseModel.cs" />
     <Compile Include="Domain\Web\Client\ShoppingCart\DeleteRequestModel.cs" />
     <Compile Include="Domain\Web\Client\ShoppingCart\DeleteResponseModel.cs" />
     <Compile Include="Domain\Web\Client\ShoppingCart\InitRequestModel.cs" />

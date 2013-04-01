@@ -57,11 +57,11 @@
                             </colgroup>
                             <thead>
                                 <tr class="first last">
-                                    <th rowspan="1" class="a-center">
-                                        <span class="nobr">Tên sản phẩm</span>
-                                    </th>
                                     <th rowspan="1" class="a-center prod-image-cart-table">
                                         Hình ảnh
+                                    </th>
+                                    <th rowspan="1" class="a-center">
+                                        <span class="nobr">Tên sản phẩm</span>
                                     </th>
                                     <th class="a-center" colspan="1">
                                         <span class="nobr">Giá</span>
@@ -81,6 +81,11 @@
                                 <asp:Repeater ID="rptCartItem" runat="server">
                                     <ItemTemplate>
                                         <tr class="first last odd">
+                                            <td style="width: 70px">
+                                                <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
+                                                    <img src='/pages/media/images/items/small/<%# Eval("ItemImage") %>' width="60" height="60"
+                                                        alt='<%# Eval("ItemName")%>'></a>
+                                            </td>
                                             <td>
                                                 <asp:HiddenField ID="hidItemCd" runat="server" Value='<%# Eval("ItemCd") %>' />
                                                 <h2 class="product-name">
@@ -88,24 +93,19 @@
                                                         <%# Eval("ItemName")%></a>
                                                 </h2>
                                             </td>
-                                            <td>
-                                                <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
-                                                    <img src='/pages/media/images/items/small/<%# Eval("ItemImage") %>'
-                                                        width="60" height="60" alt='<%# Eval("ItemName")%>'></a>
-                                            </td>
-                                            <td class="a-right">
+                                            <td class="a-right" style="width: 100px">
                                                 <span class="cart-price"><span class="price">
                                                     <%# Eval("Price") %></span> </span>
                                             </td>
-                                            <td class="a-center">
+                                            <td class="a-center" style="width: 100px">
                                                 <asp:TextBox Text='<%# Eval("Quantity") %>' MaxLength="6" Width="80px" CssClass="input-text qty"
                                                     ID="txtItemQtty" runat="server"></asp:TextBox>
                                             </td>
-                                            <td class="a-right">
+                                            <td class="a-right" style="width: 100px">
                                                 <span class="cart-price"><span class="price">
                                                     <%# Eval("Amount") %></span> </span>
                                             </td>
-                                            <td class="a-center padding-part-removebutton last">
+                                            <td class="a-center padding-part-removebutton last" style="width: 10px">
                                                 <asp:LinkButton OnCommand="lnkDelete_Command" CommandArgument='<%# Eval("ItemCd") %>'
                                                     ID="lnkDelete" runat="server" CssClass="btn-remove2">Xóa</asp:LinkButton>
                                             </td>
@@ -116,7 +116,7 @@
                             <tfoot>
                                 <tr class="first last">
                                     <td colspan="6" class="last a-right">
-                                        <asp:LinkButton ID="LinkButtonCon" class="btn btn-orange f-left" runat="server" OnClick="LinkButtonCon_Click"><span>Tiếp tục mua hàng</span></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButtonCon" class="btn btn-blue f-left" runat="server" OnClick="LinkButtonCon_Click"><span>Tiếp tục mua hàng</span></asp:LinkButton>
                                         <asp:LinkButton ID="btnUpdate" OnClick="btnUpdate_Click" class="btn btn-blue" runat="server"><span>Cập nhật giỏ hàng</span></asp:LinkButton>
                                     </td>
                                 </tr>
@@ -136,19 +136,18 @@
                                         <ItemTemplate>
                                             <li class="item odd"><a class="product-image" href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'
                                                 title='<%# Eval("ItemName")%>' style="width: 60px; height: 60px;">
-                                                <img src='/pages/media/images/items/small/<%# Eval("ItemImage") %>'
-                                                    alt='<%# Eval("ItemName")%>' width="60" height="60">
-                                            </a>
-                                                <div class="product-details">
-                                                    <p class="product-name">
-                                                        <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
-                                                            <%# Eval("ItemName")%>
-                                                        </a>
-                                                        <br />
-                                                        Số lượng:
-                                                        <%# Eval("Quantity")%>
-                                                    </p>
-                                                </div>
+                                                <img src='/pages/media/images/items/small/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName")%>'
+                                                    width="60" height="60">
+                                            </a>&nbsp;&nbsp;<div class="product-details">
+                                                <p class="product-name">
+                                                    <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'>
+                                                        <%# Eval("ItemName")%>
+                                                    </a>
+                                                    <br />
+                                                    Số lượng:
+                                                    <%# Eval("Quantity")%>
+                                                </p>
+                                            </div>
                                             </li>
                                         </ItemTemplate>
                                         <FooterTemplate>
@@ -157,30 +156,73 @@
                                     </asp:Repeater>
                                 </div>
                             </div>
-                            <div class="totals">
-                                <table id="shopping-cart-totals-table">
-                                    <colgroup>
-                                        <col>
-                                        <col width="1">
-                                    </colgroup>
-                                    <tfoot>
-                                        <tr>
-                                            <td style="" class="a-right" colspan="1">
-                                                <strong>Tổng tiền</strong>
-                                            </td>
-                                            <td style="" class="a-right">
-                                                <strong>
-                                                    <asp:Label CssClass="price" ID="lblSubTotal" runat="server" Text="0"></asp:Label></strong>
-                                                <br />
-                                                <p style="margin-top: 21px;">
-                                                    <asp:LinkButton class="btn btn-orange" Width="122" ID="HyperLinkTT" runat="server"
-                                                        OnClick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                            <div class="col-2">
+                                <div class="discount">
+                                    <h3>
+                                        <i class="icon-gift"></i><span>Mã giảm giá</span></h3>
+                                    <div class="discount-form">
+                                        <label for="coupon_code">
+                                            Nhập mã Gift Card nếu bạn có.</label>
+                                        <input type="hidden" name="remove" id="remove-coupone" value="0">
+                                        <div class="input-box">
+                                            <asp:TextBox ID="txtGift" CssClass="input-text" runat="server"></asp:TextBox>
+                                        </div>
+                                        <div class="buttons-set" style="text-align: center">
+                                            <asp:LinkButton class="btn btn-blue" Width="122" ID="LinkButton1" runat="server"
+                                                OnClick="LinkButton1_Click"><span>Áp dụng</span></asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="totals" style="background-color:#dbf4ff">
+                            <table id="shopping-cart-totals-table">
+                                <colgroup>
+                                    <col>
+                                    <col width="1">
+                                </colgroup>
+                                <tfoot>
+                                    <tr>
+                                        <td style="" class="a-right" colspan="1">
+                                            Tổng tiền sản phẩm
+                                        </td>
+                                        <td style="" class="a-right">
+                                            <span class="price">
+                                                <asp:Label CssClass="price" ID="lblSubTotal" runat="server" Text="0"></asp:Label></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="" class="a-right" colspan="1">
+                                            Giảm giá Gift Card
+                                            <br />
+                                            <%
+                                                if (Session["GiftCd"] != null)
+                                                {
+                                            %>
+                                            <b><%=Session["GiftCd"].ToString()%></b>
+                                            <% } %>
+                                        </td>
+                                        <td style="" class="a-right">
+                                            <span class="price">
+                                                -<asp:Label CssClass="price" ID="LblGiftPrice" runat="server" Text="0"></asp:Label></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="a-right" colspan="1">
+                                            <strong>Tổng tiền</strong>
+                                        </td>
+                                        <td style="border-top:1px solid #BBBBBB" class="a-right">
+                                            <strong>
+                                                <asp:Label CssClass="price" ID="LblTotalPrice" runat="server" Text="0"></asp:Label></strong>
+                                            <br />
+                                            <p style="margin-top: 21px; text-align: center">
+                                                <asp:LinkButton class="btn btn-orange" Width="122" ID="HyperLinkTT" runat="server"
+                                                    OnClick="HyperLinkTT_Click"><span>Thanh toán</span></asp:LinkButton>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
                 </div>
