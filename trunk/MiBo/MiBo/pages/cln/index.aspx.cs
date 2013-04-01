@@ -15,6 +15,10 @@ namespace MiBo.pages.cln
             var response = Invoke(logic, InitRequestModel);
             if (HasError) return;
             litHotline.Text = response.Hotline;
+            lnkChatSkype.Attributes["href"] = response.ChatSkypeIM;
+            icoChatSkype.Attributes["src"] = "/pages/resources/images/" + response.ChatSkypeIcon;
+            lnkChatYahoo.Attributes["href"] = response.ChatYahooIM;
+            icoChatYahoo.Attributes["src"] = "/pages/resources/images/" + response.ChatYahooIcon;
             rptBanner.DataSource = response.ListBanners;
             rptBanner.DataBind();
             rptNewItem.DataSource = response.ListNewItems;
@@ -23,6 +27,7 @@ namespace MiBo.pages.cln
             rptOfferItem.DataBind();
             rptHotItem.DataSource = response.ListHotItems;
             rptHotItem.DataBind();
+
         }
 
         protected void lnkBuy_Command(object sender, CommandEventArgs e)
