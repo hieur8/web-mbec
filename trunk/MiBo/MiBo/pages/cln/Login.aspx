@@ -25,8 +25,14 @@
                                 <div class="clear">
                                 </div>
                                 <p>
-                                    Hãy là thành viên của Mibo.vn. bạn sẽ được những ưu đãi cực kỳ lớn như giảm 5% cho
-                                    mỗi hóa đơn và còn nhiều khuyến mãi khác. Hãy đăng ký ngay , chỉ 30 giây !</p>
+                                    Hãy là thành viên của mibo.vn bạn sẽ nhận được những ưu đãi sau :
+                                    <ul style="list-style-type:circle; padding: 5px 20px;">
+                                        <li>Tặng thẻ giảm giá tương đương 10% giá trị đơn hàng (không áp dụng đối với sản phẩm khuyến mãi).</li>
+                                        <li>Chiết khấu thưởng 1% khi tổng giá trị các đơn hàng đạt trên 5 triệu.</li>
+                                        <li>Tặng phiếu mua hàng 200.000đ khi tổng giá trị các đơn hàng đạt trên 20 triệu.</li>
+                                        <li>Khách hàng không phải thành viên của mibo.vn vẫn được ưu đãi tại mục 2 và 3</li>
+                                    </ul>
+                                    Hãy đăng ký ngay, chỉ 30 giây!</p>
                             </div>
                         </div>
                         <div class="col-2 registered-users">

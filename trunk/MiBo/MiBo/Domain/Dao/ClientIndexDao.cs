@@ -31,7 +31,7 @@ namespace MiBo.Domain.Dao
                              orderby tbl.SortKey ascending
                              select tbl;
 
-            return listResult.Take(20).ToList();
+            return listResult.Take(10).ToList();
         }
 
         public IList<Item> GetListHotItems()
@@ -41,7 +41,7 @@ namespace MiBo.Domain.Dao
                              orderby tbl.Viewer descending
                              select tbl;
 
-            return listResult.Take(20).ToList();
+            return listResult.Take(10).ToList();
         }
 
         public IList<Item> GetListOfferItems()
@@ -65,7 +65,7 @@ namespace MiBo.Domain.Dao
                              select tbl;
 
             // Return value
-            return listResult.Take(20).ToList();
+            return listResult.Take(10).ToList();
         }
     }
 }
