@@ -194,7 +194,7 @@ CREATE TABLE [Genders]
 (
     [GenderCd] VARCHAR(255),
     [GenderName] NVARCHAR(255),
-	[GenderSearchName] VARCHAR(255),
+    [GenderSearchName] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),
@@ -217,8 +217,8 @@ CREATE TABLE [Brands]
 (
     [BrandCd] VARCHAR(255),
     [BrandName] NVARCHAR(255),
-	[BrandSearchName] VARCHAR(255),
-	[FileId] VARCHAR(255),
+    [BrandSearchName] VARCHAR(255),
+    [FileId] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),
@@ -312,7 +312,7 @@ CREATE TABLE [Districts]
 (
     [DistrictCd] VARCHAR(255),
     [DistrictName] NVARCHAR(255),
-	[DistrictSearchName] VARCHAR(255),
+    [DistrictSearchName] VARCHAR(255),
     [CityCd] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
@@ -563,7 +563,8 @@ CREATE TABLE [Accepts]
     [DeliveryAddress] NVARCHAR(255),
     [DeliveryTel] VARCHAR(255),
     [PaymentMethods] VARCHAR(255),
-	[ViewId] VARCHAR(255),
+    [ViewId] VARCHAR(255),
+    [GiftCd] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [CreateUser] VARCHAR(255),
     [CreateDate] DATETIME,
@@ -591,7 +592,7 @@ CREATE TABLE [AcceptDetails]
     [DetailQtty] DECIMAL,
     [DetailPrice] DECIMAL,
     [DetailAmt] DECIMAL,
-	[Discount] DECIMAL,
+    [Discount] DECIMAL,
     [DetailNotes] NVARCHAR(255),
     [CreateUser] VARCHAR(255),
     [CreateDate] DATETIME,
@@ -821,5 +822,26 @@ CREATE TABLE [Newsletter]
     [UpdateDate] DATETIME,
     [DeleteFlag] BIT,
     PRIMARY KEY ([Email])
+)
+GO
+-- =============================================
+-- Create table [GiftCard]
+-- =============================================
+IF OBJECT_ID('[GiftCard]', 'U') IS NOT NULL
+    DROP TABLE [GiftCard]
+GO
+
+CREATE TABLE [GiftCard]
+(
+    [GiftCd] VARCHAR(255),
+    [Price] VARCHAR(255),
+    [StartDate] DATETIME,
+    [EndDate] DATETIME,
+    [Notes] NVARCHAR(MAX),
+    [CreateDate] DATETIME,
+    [UpdateUser] VARCHAR(255),
+    [UpdateDate] DATETIME,
+    [DeleteFlag] BIT,
+    PRIMARY KEY ([GiftCd])
 )
 GO
