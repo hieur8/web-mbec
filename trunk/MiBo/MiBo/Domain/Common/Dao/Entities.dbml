@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MiBoDB" Class="EntitiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=HIEU-PC\SQLEXPRESS;Initial Catalog=MiBoDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MiBoDBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Users" Member="Users">
-    <Type Name="User">
-      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="FullName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="CityCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Phone1" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Phone2" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="HasNewsletter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="User_UserGroup" Member="UserGroups" ThisKey="UserCd" OtherKey="UserCd" Type="UserGroup" />
-      <Association Name="City_User" Member="City" ThisKey="CityCd" OtherKey="CityCd" Type="City" IsForeignKey="true" />
-    </Type>
-  </Table>
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=MiBoDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MiBoDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.AcceptDetailIOs" Member="AcceptDetailIOs">
     <Type Name="AcceptDetailIO">
       <Column Name="AcceptSlipNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -39,6 +19,26 @@
       <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="AcceptIO_AcceptDetailIO" Member="AcceptIO" ThisKey="AcceptSlipNo,SlipHistoryNo" OtherKey="AcceptSlipNo,SlipHistoryNo" Type="AcceptIO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserCd" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CityCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Phone1" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Phone2" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="HasNewsletter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_UserGroup" Member="UserGroups" ThisKey="UserCd" OtherKey="UserCd" Type="UserGroup" />
+      <Association Name="City_User" Member="City" ThisKey="CityCd" OtherKey="CityCd" Type="City" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.AcceptDetails" Member="AcceptDetails">
@@ -272,7 +272,7 @@
   <Table Name="dbo.GiftCard" Member="GiftCards">
     <Type Name="GiftCard">
       <Column Name="GiftCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Price" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
