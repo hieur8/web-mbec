@@ -65,7 +65,7 @@
       <LastGenOutput>Messages.designer.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="index.htm" />
+    <Content Include="admin.htm" />
     <Content Include="pages\administer\accept-list.aspx" />
     <Content Include="pages\administer\banner-list.aspx" />
     <Content Include="pages\administer\category-list.aspx" />

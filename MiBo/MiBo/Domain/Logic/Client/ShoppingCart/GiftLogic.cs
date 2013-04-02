@@ -23,10 +23,6 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
         #endregion
 
         #region Private Method
-
-
-   
-
         /// <summary>
         /// Execute processing.
         /// </summary>
@@ -46,7 +42,7 @@ namespace MiBo.Domain.Logic.Client.ShoppingCart
             {
                 responseModel.IsExit = true;
                 responseModel.GiftCd = card.GiftCd;
-                responseModel.Price = decimal.Parse(card.Price);
+                responseModel.Price = card.Price.Value;
             }
             else
             {

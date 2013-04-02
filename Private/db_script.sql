@@ -834,7 +834,7 @@ GO
 CREATE TABLE [GiftCard]
 (
     [GiftCd] VARCHAR(255),
-    [Price] VARCHAR(255),
+    [Price] DECIMAL,
     [StartDate] DATETIME,
     [EndDate] DATETIME,
     [Notes] NVARCHAR(MAX),
