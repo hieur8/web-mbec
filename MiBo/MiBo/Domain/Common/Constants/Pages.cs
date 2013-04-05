@@ -21,5 +21,9 @@
         public const string ADMIN_ITEM_LIST = "/pages/administer/item-list.aspx";
         public const string ADMIN_ACCEPT_ENTRY = "/pages/administer/accept-entry.aspx";
         public const string ADMIN_ACCEPT_LIST = "/pages/administer/accept-list.aspx";
+        public const string ADMIN_BRAND_ENTRY = "/pages/administer/brand-entry.aspx";
+        public const string ADMIN_BRAND_LIST = "/pages/administer/brand-list.aspx";
+        public const string ADMIN_CATEGORY_ENTRY = "/pages/administer/category-entry.aspx";
+        public const string ADMIN_CATEGORY_LIST = "/pages/administer/category-list.aspx";
     }
 }

@@ -68,6 +68,8 @@
     <Content Include="admin.htm" />
     <Content Include="pages\administer\accept-list.aspx" />
     <Content Include="pages\administer\banner-list.aspx" />
+    <Content Include="pages\administer\brand-list.aspx" />
+    <Content Include="pages\administer\category-entry.aspx" />
     <Content Include="pages\administer\category-list.aspx" />
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-entry.aspx" />
@@ -721,6 +723,8 @@
     <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
     <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
     <Compile Include="Domain\Dao\AdminAcceptListDao.cs" />
+    <Compile Include="Domain\Dao\AdminBrandListDao.cs" />
+    <Compile Include="Domain\Dao\AdminCategoryEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminCategoryListDao.cs" />
     <Compile Include="Domain\Dao\AdminItemEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminItemListDao.cs" />
@@ -742,6 +746,14 @@
     <Compile Include="Domain\Logic\Admin\AcceptList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\UpdateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BrandList\FilterLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BrandList\FilterOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BrandList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BrandList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\CategoryEntry\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\CategoryEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\CategoryEntry\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\CategoryEntry\SaveOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\CategoryList\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\CategoryList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\CategoryList\UpdateLogic.cs" />
@@ -811,6 +823,10 @@
     <Compile Include="Domain\Model\Admin\AcceptList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\BrandList\FilterDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\BrandList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\CategoryEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\CategoryEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\CategoryList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\CategoryList\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\InitDataModel.cs" />
@@ -850,6 +866,16 @@
     <Compile Include="Domain\Web\Admin\AcceptList\OutputAcceptModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\UpdateRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandList\FilterRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandList\FilterResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandList\OutputBrandModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryEntry\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryEntry\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryEntry\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\CategoryEntry\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\CategoryList\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\CategoryList\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\CategoryList\OutputCategoryModel.cs" />
@@ -956,6 +982,20 @@
     </Compile>
     <Compile Include="pages\administer\banner-list.aspx.designer.cs">
       <DependentUpon>banner-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\brand-list.aspx.cs">
+      <DependentUpon>brand-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\brand-list.aspx.designer.cs">
+      <DependentUpon>brand-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\category-entry.aspx.cs">
+      <DependentUpon>category-entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\category-entry.aspx.designer.cs">
+      <DependentUpon>category-entry.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\category-list.aspx.cs">
       <DependentUpon>category-list.aspx</DependentUpon>

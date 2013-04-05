@@ -146,9 +146,9 @@
         <tbody>
             <asp:Repeater ID="rptAccepts" runat="server">
                 <ItemTemplate>
-                    <tr>
+                    <tr ctrl="row">
                         <td>
-                            <asp:CheckBox ID="chkEdit" runat="server" />
+                            <asp:CheckBox  ctrl="edit" ID="chkEdit" runat="server" />
                             <asp:HiddenField ID="hidAcceptSlipNo" runat="server" Value='<%# Eval("AcceptSlipNo") %>' />
                         </td>
                         <td>
@@ -160,7 +160,7 @@
                             <%# Eval("AcceptSlipNo")%>
                         </td>
                         <td>
-                            <asp:DropDownList DataSource='<%# Eval("ListSlipStatus") %>' SelectedValue='<%# Bind("SlipStatus") %>'
+                            <asp:DropDownList ctrl="data" DataSource='<%# Eval("ListSlipStatus") %>' SelectedValue='<%# Bind("SlipStatus") %>'
                                 DataValueField="Code" DataTextField="Name" ID="ddlSlipStatus" runat="server"
                                 CssClass="input-search text-input">
                             </asp:DropDownList>

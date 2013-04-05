@@ -47,7 +47,13 @@
             $("a").removeClass("current");
             $(menuId).addClass("current");
             $(linkId).addClass("current");
-        }
+        };
+
+        $(document).ready(function () {
+            $('input[ctrl=data], select[ctrl=data]').change(function () {
+                $(this).parents('tr[ctrl=row]').find('[span[ctrl=edit] input[type=checkbox]').attr('checked', 'true');
+            });
+        });
     </script>
     <title>MiBo</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -88,9 +94,15 @@
                             <li><a id="lnkItemEntry" href="/pages/administer/item-entry.aspx">Thêm/sửa sản phẩm</a></li>
                         </ul>
                     </li>
+                    <li><a id="mnuBrands" href="#" class="nav-top-item">Quản lý thương hiệu</a>
+                        <ul>
+                            <li><a id="lnkBrands" href="/pages/administer/brand-list.aspx">Danh sách thương hiệu</a></li>
+                        </ul>
+                    </li>
                     <li><a id="mnuCategories" href="#" class="nav-top-item">Quản lý loại sản phẩm</a>
                         <ul>
                             <li><a id="lnkCategories" href="/pages/administer/category-list.aspx">Danh sách loại sản phẩm</a></li>
+                            <li><a id="lnkCategoryEntry" href="/pages/administer/category-entry.aspx">Thêm loại sản phẩm</a></li>
                         </ul>
                     </li>
                     <li><a id="mnuSystems" href="#" class="nav-top-item">Quản lý hệ thống</a>
