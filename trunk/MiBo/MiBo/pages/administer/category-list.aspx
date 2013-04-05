@@ -55,30 +55,30 @@
         <tbody>
             <asp:Repeater ID="rptCategories" runat="server">
                 <ItemTemplate>
-                    <tr>
+                    <tr ctrl="row">
                         <td>
-                            <asp:CheckBox ID="chkEdit" runat="server" />
+                            <asp:CheckBox ctrl="edit" ID="chkEdit" runat="server" />
                             <asp:HiddenField ID="hidCategoryCd" Value='<%# Eval("CategoryCd") %>' runat="server" />
                         </td>
                         <td>
                             <%# Eval("CategoryCd")%>
                         </td>
                         <td>
-                            <asp:TextBox Width="200" Text='<%# Eval("CategoryName")%>' ID="txtCategoryName" runat="server"
+                            <asp:TextBox ctrl="data" Width="200" Text='<%# Eval("CategoryName")%>' ID="txtCategoryName" runat="server"
                                 CssClass="text-input"></asp:TextBox>
                         </td>
                         <td>
-                            <asp:DropDownList DataSource='<%# Eval("ListCategoryDiv") %>' SelectedValue='<%# Bind("CategoryDiv") %>'
+                            <asp:DropDownList ctrl="data" DataSource='<%# Eval("ListCategoryDiv") %>' SelectedValue='<%# Bind("CategoryDiv") %>'
                                 DataValueField="Code" DataTextField="Name" ID="ddlCategoryDiv" runat="server"
                                 CssClass="text-input">
                             </asp:DropDownList>
                         </td>
                         <td>
-                            <asp:TextBox Width="80" Text='<%# Eval("SortKey")%>' ID="txtSortKey" runat="server"
+                            <asp:TextBox ctrl="data" Width="80" Text='<%# Eval("SortKey")%>' ID="txtSortKey" runat="server"
                                 CssClass="text-input"></asp:TextBox>
                         </td>
                         <td>
-                            <asp:DropDownList DataSource='<%# Eval("ListDeleteFlag") %>' SelectedValue='<%# Bind("DeleteFlag") %>'
+                            <asp:DropDownList ctrl="data" DataSource='<%# Eval("ListDeleteFlag") %>' SelectedValue='<%# Bind("DeleteFlag") %>'
                                 DataValueField="Code" DataTextField="Name" ID="ddlDeleteFlag" runat="server"
                                 CssClass="text-input">
                             </asp:DropDownList>

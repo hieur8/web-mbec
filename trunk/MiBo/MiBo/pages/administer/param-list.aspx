@@ -52,9 +52,9 @@
         <tbody>
             <asp:Repeater ID="rptParams" runat="server">
                 <ItemTemplate>
-                    <tr>
+                    <tr ctrl="row">
                         <td>
-                            <asp:CheckBox ID="chkEdit" runat="server" />
+                            <asp:CheckBox ctrl="edit" ID="chkEdit" runat="server" />
                             <asp:HiddenField ID="hidParamCd" Value='<%# Eval("ParamCd") %>' runat="server" />
                             <asp:HiddenField ID="hidParamType" Value='<%# Eval("ParamType") %>' runat="server" />
                         </td>
@@ -65,7 +65,7 @@
                             <%# Eval("ParamName")%>
                         </td>
                         <td>
-                            <asp:TextBox Width="150" Text='<%# Eval("ParamValue")%>' value='<%# Eval("ParamValue")%>'
+                            <asp:TextBox ctrl="data" Width="150" Text='<%# Eval("ParamValue")%>' value='<%# Eval("ParamValue")%>'
                                 ID="txtParamValue" runat="server" CssClass="text-input" TextMode='<%# Equals(Eval("ParamType"),"Password")?TextBoxMode.Password:TextBoxMode.SingleLine %>'></asp:TextBox>
                         <td>
                             <%# Eval("Notes")%>
