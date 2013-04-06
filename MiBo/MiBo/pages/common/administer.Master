@@ -116,6 +116,11 @@
                             <li><a id="lnkCategoryEntry" href="/pages/administer/category-entry.aspx">Thêm loại sản phẩm</a></li>
                         </ul>
                     </li>
+                    <li><a id="mnuGifts" href="#" class="nav-top-item">Quản lý thẻ quà tặng</a>
+                        <ul>
+                            <li><a id="lnkGifts" href="/pages/administer/gift-list.aspx">Danh sách thẻ quà tặng</a></li>
+                        </ul>
+                    </li>
                     <li><a id="mnuSystems" href="#" class="nav-top-item">Quản lý hệ thống</a>
                         <ul>
                             <li><a id="lnkParmas" href="/pages/administer/param-list.aspx">Tham số hệ thống</a></li>

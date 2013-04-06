@@ -48,6 +48,7 @@
         public const string GROUP_CATEGORY_DIV = "sys-category-div";
         public const string GROUP_PRICE_DIV = "sys-price-div";
         public const string GROUP_SLIP_STATUS = "sys-slip-status";
+        public const string GROUP_GIFT_STATUS = "sys-gift-status";
         public const string GROUP_PAYMENT_METHODS = "sys-payment-methods";
 
         // Description for master code
@@ -59,6 +60,10 @@
         public const string CD_CATEGORY_DIV_TOYS = "01";
         public const string CD_CATEGORY_DIV_LEARNING_TOOLS = "02";
         public const string CD_CATEGORY_DIV_BOOKS = "03";
+
+        public const string CD_GIFT_STATUS_INACTIVE = "01";
+        public const string CD_GIFT_STATUS_ACTIVE = "02";
+        public const string CD_GIFT_STATUS_USED = "03";
 
         // Description for business code
         public const string CD_BUSINESS_ACCEPT = "01";
