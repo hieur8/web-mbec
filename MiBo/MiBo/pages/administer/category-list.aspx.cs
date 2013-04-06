@@ -49,6 +49,7 @@ namespace MiBo.pages.administer
                     category = new OutputCategoryModel();
                     category.CategoryCd = ((HiddenField)row.FindControl("hidCategoryCd")).Value;
                     category.CategoryName = ((TextBox)row.FindControl("txtCategoryName")).Text;
+                    category.CategorySearchName = ((HiddenField)row.FindControl("hidCategorySearchName")).Value;
                     category.CategoryDiv = ((DropDownList)row.FindControl("ddlCategoryDiv")).SelectedValue;
                     category.SortKey = ((TextBox)row.FindControl("txtSortKey")).Text;
                     category.DeleteFlag = ((DropDownList)row.FindControl("ddlDeleteFlag")).SelectedValue;

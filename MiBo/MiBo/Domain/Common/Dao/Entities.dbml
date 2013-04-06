@@ -107,6 +107,7 @@
       <Column Name="PaymentMethods" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="ViewId" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="GiftCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UseGiftCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />

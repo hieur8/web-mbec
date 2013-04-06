@@ -49,6 +49,16 @@
             $(linkId).addClass("current");
         };
 
+        function getObjectById(id) {
+            if (document.getElementById)
+                var returnVar = document.getElementById(id);
+            else if (document.all)
+                var returnVar = document.all[id];
+            else if (document.layers)
+                var returnVar = document.layers[id];
+            return returnVar;
+        };
+
         $(document).ready(function () {
             $('input[ctrl=data], select[ctrl=data]').change(function () {
                 $(this).parents('tr[ctrl=row]').find('[span[ctrl=edit] input[type=checkbox]').attr('checked', 'true');
@@ -97,6 +107,7 @@
                     <li><a id="mnuBrands" href="#" class="nav-top-item">Quản lý thương hiệu</a>
                         <ul>
                             <li><a id="lnkBrands" href="/pages/administer/brand-list.aspx">Danh sách thương hiệu</a></li>
+                            <li><a id="lnkBrandEntry" href="/pages/administer/brand-entry.aspx">Thêm/sửa thương hiệu</a></li>
                         </ul>
                     </li>
                     <li><a id="mnuCategories" href="#" class="nav-top-item">Quản lý loại sản phẩm</a>

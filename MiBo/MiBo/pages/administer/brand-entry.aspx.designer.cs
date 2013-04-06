@@ -10,15 +10,15 @@
 namespace MiBo.pages.administer {
     
     
-    public partial class category_entry {
+    public partial class brand_entry {
         
         /// <summary>
-        /// fvwCategoryDatails control.
+        /// fvwBrandDatails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvwCategoryDatails;
+        protected global::System.Web.UI.WebControls.FormView fvwBrandDatails;
     }
 }

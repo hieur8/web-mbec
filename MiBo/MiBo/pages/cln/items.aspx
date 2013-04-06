@@ -7,7 +7,7 @@
     <div class="main-container col2-right-layout">
         <div class="main">
             <div class="col-main" style="width: 769px; border: 1px solid #ddd">
-                <div class="breadcrumbs">
+                <div class="breadcrumbs" style="height: 35px; border-bottom: 1px solid #ddd">
                     <ul style="width: 580px; float: left; padding: 10px 0;">
                         <li class="home"><a href="" title="Trở về trang chủ">Trang chủ</a> <span>/ </span>
                         </li>
@@ -23,7 +23,6 @@
                             <option value="Price">Giá</option>
                         </select>
                     </div>
-                    <hr />
                 </div>
                 <div class="category-products" style="width: 769px">
                     <div class="grid-view" style="width: 769px; border: 0">
@@ -67,7 +66,6 @@
                     </div>
                 </div>
                 <div class="toolbar" style="border: 0;">
-                    <hr />
                     <div class="pager">
                         <p class="amount">
                             <asp:Literal ID="litPagingInfo" runat="server"></asp:Literal>
@@ -109,7 +107,7 @@
                                 <a><span class="duty-40x40 duty-1a"></span>
                                     <p class="font-medium">
                                         Tặng thẻ giảm giá tương đương 10% giá trị đơn hàng 
-                                        cho các thành viên mibo.vn</p>
+                                     </p>
                                 </a>
                             </div>
                             <div class="wrapper">

@@ -2433,6 +2433,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _GiftCd;
 		
+		private string _UseGiftCd;
+		
 		private string _Notes;
 		
 		private string _CreateUser;
@@ -2483,6 +2485,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnViewIdChanged();
     partial void OnGiftCdChanging(string value);
     partial void OnGiftCdChanged();
+    partial void OnUseGiftCdChanging(string value);
+    partial void OnUseGiftCdChanged();
     partial void OnNotesChanging(string value);
     partial void OnNotesChanged();
     partial void OnCreateUserChanging(string value);
@@ -2819,6 +2823,26 @@ namespace MiBo.Domain.Common.Dao
 					this._GiftCd = value;
 					this.SendPropertyChanged("GiftCd");
 					this.OnGiftCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UseGiftCd", DbType="VarChar(255)")]
+		public string UseGiftCd
+		{
+			get
+			{
+				return this._UseGiftCd;
+			}
+			set
+			{
+				if ((this._UseGiftCd != value))
+				{
+					this.OnUseGiftCdChanging(value);
+					this.SendPropertyChanging();
+					this._UseGiftCd = value;
+					this.SendPropertyChanged("UseGiftCd");
+					this.OnUseGiftCdChanged();
 				}
 			}
 		}

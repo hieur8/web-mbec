@@ -40,15 +40,6 @@
     <!-- /TinyMCE -->
     <!-- MyScript -->
     <script type="text/javascript">
-        function getObjectById(id) {
-            if (document.getElementById)
-                var returnVar = document.getElementById(id);
-            else if (document.all)
-                var returnVar = document.all[id];
-            else if (document.layers)
-                var returnVar = document.layers[id];
-            return returnVar;
-        }
         function popitup(val) {
             var newwindow = window.open(val.href, 'uploadimage', 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=550,height=400');
             if (window.focus) { newwindow.focus() }

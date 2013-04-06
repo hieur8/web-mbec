@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using MiBo.Domain.Common.Constants;
-using MiBo.Domain.Common.Dao;
+﻿using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
-using MiBo.Domain.Dao;
-using MiBo.Domain.Model.Admin.ItemEntry;
-using MiBo.Domain.Web.Admin.ItemEntry;
 using MiBo.Domain.Common.Utils;
+using MiBo.Domain.Dao;
+using MiBo.Domain.Model.Admin.BrandEntry;
+using MiBo.Domain.Web.Admin.BrandEntry;
 
-namespace MiBo.Domain.Logic.Admin.ItemEntry
+namespace MiBo.Domain.Logic.Admin.BrandEntry
 {
     public class SaveLogic
     {
@@ -111,16 +109,16 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
         private void Check(SaveDataModel inputObject)
         {
             // Local variable declaration
-            AdminItemEntryDao adminItemEntryDao = null;
+            AdminBrandEntryDao adminBrandEntryDao = null;
 
             // Variable initialize
-            adminItemEntryDao = new AdminItemEntryDao();
+            adminBrandEntryDao = new AdminBrandEntryDao();
 
             // Check valid
-            if (IsAdd && adminItemEntryDao.IsExistItem(inputObject.ItemCd))
-                throw new DataExistException("Sản phẩm");
-            if (IsEdit && !adminItemEntryDao.IsExistItem(inputObject.ItemCd))
-                throw new DataNotExistException("Sản phẩm");
+            if (IsAdd && adminBrandEntryDao.IsExistBrand(inputObject.BrandCd))
+                throw new DataExistException("Thương hiệu");
+            if (IsEdit && !adminBrandEntryDao.IsExistBrand(inputObject.BrandCd))
+                throw new DataNotExistException("Thương hiệu");
         }
 
         /// <summary>
@@ -132,16 +130,16 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
         {
             // Local variable declaration
             SaveDataModel saveResult = null;
-            AdminItemEntryDao adminItemEntryDao = null;
+            AdminBrandEntryDao adminBrandEntryDao = null;
             StorageFileCom storageFileCom = null;
 
             // Variable initialize
             saveResult = new SaveDataModel();
-            adminItemEntryDao = new AdminItemEntryDao();
+            adminBrandEntryDao = new AdminBrandEntryDao();
             storageFileCom = new StorageFileCom();
 
-            if (IsAdd) adminItemEntryDao.InsertItem(inputObject); // Insert 
-            else adminItemEntryDao.UpdateItem(inputObject); // Update
+            if (IsAdd) adminBrandEntryDao.InsertBrand(inputObject); // Insert 
+            else adminBrandEntryDao.UpdateBrand(inputObject); // Update
 
             // Update StorageFile
             foreach (var storageFile in storageFileCom.GetListActive(inputObject.FileId, false))
