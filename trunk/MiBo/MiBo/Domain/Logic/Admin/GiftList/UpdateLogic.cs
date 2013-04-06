@@ -3,10 +3,10 @@ using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
-using MiBo.Domain.Model.Admin.AcceptList;
-using MiBo.Domain.Web.Admin.AcceptList;
+using MiBo.Domain.Model.Admin.GiftList;
+using MiBo.Domain.Web.Admin.GiftList;
 
-namespace MiBo.Domain.Logic.Admin.AcceptList
+namespace MiBo.Domain.Logic.Admin.GiftList
 {
     public class UpdateLogic
     {
@@ -102,23 +102,23 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
         private void Check(UpdateDataModel inputObject)
         {
             // Local variable declaration
-            AdminAcceptListDao adminAcceptListDao = null;
+            AdminGiftListDao adminGiftListDao = null;
             MCodeCom mCodeCom = null;
 
             // Variable initialize
-            adminAcceptListDao = new AdminAcceptListDao();
+            adminGiftListDao = new AdminGiftListDao();
             mCodeCom = new MCodeCom();
 
             // Check valid
             int i = 0;
-            foreach (var obj in inputObject.ListAccepts)
+            foreach (var obj in inputObject.ListGifts)
             {
-                if (DataCheckHelper.IsNull(obj.SlipStatus))
+                if (DataCheckHelper.IsNull(obj.GiftStatus))
                     throw new ExecuteException("E_MSG_00004", string.Format("Trạng thái ({0})", i + 1));
-                if(!mCodeCom.IsExist(Logics.GROUP_SLIP_STATUS, obj.SlipStatus, false))
+                if (!mCodeCom.IsExist(Logics.GROUP_GIFT_STATUS, obj.GiftStatus, false))
                     throw new DataNotExistException(string.Format("Trạng thái ({0})", i + 1));
-                if (!adminAcceptListDao.IsExistAccept(obj.AcceptSlipNo))
-                    throw new DataNotExistException(string.Format("Hóa đơn ({0})", i + 1));
+                if (!adminGiftListDao.IsExistGift(obj.GiftCd))
+                    throw new DataNotExistException(string.Format("Thẻ ({0})", i + 1));
 
                 i++;
             }
@@ -133,19 +133,19 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
         {
             // Local variable declaration
             UpdateDataModel getResult = null;
-            AdminAcceptListDao adminAcceptListDao = null;
+            AdminGiftListDao adminGiftListDao = null;
 
             // Variable initialize
             getResult = new UpdateDataModel();
-            adminAcceptListDao = new AdminAcceptListDao();
+            adminGiftListDao = new AdminGiftListDao();
 
             // Update data
-            foreach (var obj in inputObject.ListAccepts)
+            foreach (var obj in inputObject.ListGifts)
             {
-                adminAcceptListDao.UpdateAccept(obj);
+                adminGiftListDao.UpdateGift(obj);
             }
             // Submit data
-            adminAcceptListDao.SubmitChanges();
+            adminGiftListDao.SubmitChanges();
 
             // Return value
             return getResult;

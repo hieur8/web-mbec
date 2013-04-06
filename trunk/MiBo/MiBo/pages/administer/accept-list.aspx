@@ -11,7 +11,7 @@
                 "bLengthChange": false,
                 "aaSorting": [],
                 "sScrollX": "100%",
-                "sScrollXInner": "2190",
+                "sScrollXInner": "2340",
                 "bScrollCollapse": true,
                 "sPaginationType": "full_numbers"
             });
@@ -126,6 +126,9 @@
                 <th width="150">
                     Ngày giao
                 </th>
+                <th width="150">
+                    Thẻ quà tặng
+                </th>
                 <th width="180">
                     Mã khách hàng
                 </th>
@@ -170,6 +173,9 @@
                         </td>
                         <td>
                             <%# Eval("DeliveryDate")%>
+                        </td>
+                        <td>
+                            <%# Eval("GiftCd")%>
                         </td>
                         <td>
                             <%# Eval("ClientCd")%>

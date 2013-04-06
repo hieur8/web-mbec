@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Helper;
-using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
-using MiBo.Domain.Model.Admin.AcceptList;
-using MiBo.Domain.Web.Admin.AcceptList;
+using MiBo.Domain.Model.Admin.GiftList;
+using MiBo.Domain.Web.Admin.GiftList;
 using Resources;
+using MiBo.Domain.Common.Model;
 
-namespace MiBo.Domain.Logic.Admin.AcceptList
+namespace MiBo.Domain.Logic.Admin.GiftList
 {
     public class FilterLogic
     {
@@ -55,56 +55,39 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
         {
             // Local variable declaration
             FilterResponseModel responseModel = null;
-            IList<OutputAcceptModel> listAccepts = null;
+            IList<OutputGiftModel> listGifts = null;
             MCodeCom mCodeCom = null;
-            OutputAcceptModel accept = null;
+            OutputGiftModel gift = null;
 
             // Variable initialize
             responseModel = new FilterResponseModel();
-            listAccepts = new List<OutputAcceptModel>();
+            listGifts = new List<OutputGiftModel>();
             mCodeCom = new MCodeCom();
 
             // Get value
-            var slipStatusName = string.Empty;
-            var paymentMethodsName = string.Empty;
             var deleteFlagName = string.Empty;
-            var cbSlipStatus = new ComboModel();
-            foreach (var obj in resultObject.ListAccepts)
+            ComboModel cbGiftStatus = null;
+            foreach (var obj in resultObject.ListGifts)
             {
-                accept = new OutputAcceptModel();
-                accept.AcceptSlipNo = DataHelper.ToString(obj.AcceptSlipNo);
-                accept.SlipStatus = DataHelper.ToString(obj.SlipStatus);
-                slipStatusName = mCodeCom.GetCodeName(Logics.GROUP_SLIP_STATUS, accept.SlipStatus);
-                accept.SlipStatusName = DataHelper.ToString(slipStatusName);
-                accept.AcceptDate = DataHelper.ToString(Formats.DATE, obj.AcceptDate);
-                accept.DeliveryDate = DataHelper.ToString(Formats.DATE, obj.DeliveryDate);
-                accept.ClientCd = DataHelper.ToString(obj.ClientCd);
-                accept.ClientName = DataHelper.ToString(obj.ClientName);
-                accept.ClientAddress = DataHelper.ToString(obj.ClientAddress);
-                accept.ClientTel = DataHelper.ToString(obj.ClientTel);
-                accept.DeliveryCd = DataHelper.ToString(obj.DeliveryCd);
-                accept.DeliveryName = DataHelper.ToString(obj.DeliveryName);
-                accept.DeliveryAddress = DataHelper.ToString(obj.DeliveryAddress);
-                accept.DeliveryTel = DataHelper.ToString(obj.DeliveryTel);
-                accept.PaymentMethods = DataHelper.ToString(obj.PaymentMethods);
-                paymentMethodsName = mCodeCom.GetCodeName(Logics.GROUP_PAYMENT_METHODS, accept.PaymentMethods);
-                accept.PaymentMethodsName = DataHelper.ToString(paymentMethodsName);
-                accept.GiftCd = DataHelper.ToString(obj.GiftCd);
-                accept.ViewId = DataHelper.ToString(obj.ViewId);
-                accept.Notes = DataHelper.ToString(obj.Notes);
-                accept.UpdateUser = DataHelper.ToString(obj.UpdateUser);
-                accept.UpdateDate = DataHelper.ToString(Formats.UPDATE_DATE, obj.UpdateDate);
-                accept.DeleteFlag = DataHelper.ToString(obj.DeleteFlag);
-                deleteFlagName = mCodeCom.GetCodeName(Logics.GROUP_DELETE_FLAG, accept.DeleteFlag);
-                accept.DeleteFlagName = DataHelper.ToString(deleteFlagName);
-                cbSlipStatus = MCodeCom.ToComboItems(resultObject.ListSlipStatus, accept.SlipStatus);
-                accept.ListSlipStatus = cbSlipStatus.ListItems;
-                accept.SlipStatus = cbSlipStatus.SeletedValue;
-                listAccepts.Add(accept);
+                gift = new OutputGiftModel();
+
+                gift.GiftCd = DataHelper.ToString(obj.GiftCd);
+                gift.GiftStatus = DataHelper.ToString(obj.GiftStatus);
+                gift.StartDate = DataHelper.ToString(Formats.DATE, obj.StartDate);
+                gift.EndDate = DataHelper.ToString(Formats.DATE, obj.EndDate);
+                gift.Price = DataHelper.ToString(Formats.CURRENCY, obj.Price);
+                gift.UpdateDate = DataHelper.ToString(Formats.UPDATE_DATE, obj.UpdateDate);
+                gift.DeleteFlag = DataHelper.ToString(obj.DeleteFlag);
+                deleteFlagName = mCodeCom.GetCodeName(Logics.GROUP_DELETE_FLAG, gift.DeleteFlag);
+                gift.DeleteFlagName = DataHelper.ToString(deleteFlagName);
+                cbGiftStatus = MCodeCom.ToComboItems(resultObject.ListGiftStatus, gift.GiftStatus);
+                gift.ListGiftStatus = cbGiftStatus.ListItems;
+                gift.GiftStatus = cbGiftStatus.SeletedValue;
+                listGifts.Add(gift);
             }
 
             // Set value
-            responseModel.ListAccepts = listAccepts;
+            responseModel.ListGifts = listGifts;
 
             // Return value
             return responseModel;
@@ -165,20 +148,20 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
             // Local variable declaration
             FilterDataModel getResult = null;
             MCodeCom mCodeCom = null;
-            AdminAcceptListDao adminAcceptListDao = null;
+            AdminGiftListDao adminGiftListDao = null;
 
             // Variable initialize
             getResult = new FilterDataModel();
             mCodeCom = new MCodeCom();
-            adminAcceptListDao = new AdminAcceptListDao();
+            adminGiftListDao = new AdminGiftListDao();
 
             // Get data
-            var listSlipStatus = mCodeCom.GetListCode(Logics.GROUP_SLIP_STATUS, null, true, false);
-            var listAccepts = adminAcceptListDao.GetListAccepts(inputObject);
+            var listGiftStatus = mCodeCom.GetListCode(Logics.GROUP_GIFT_STATUS, null, true, false);
+            var listGifts = adminGiftListDao.GetListGifts(inputObject);
 
             // Set value
-            getResult.ListSlipStatus = listSlipStatus;
-            getResult.ListAccepts = listAccepts;
+            getResult.ListGiftStatus = listGiftStatus;
+            getResult.ListGifts = listGifts;
 
             // Return value
             return getResult;

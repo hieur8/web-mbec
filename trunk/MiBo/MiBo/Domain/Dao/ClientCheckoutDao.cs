@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Dao;
@@ -7,8 +9,6 @@ using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
-using System.Text;
-using System;
 
 namespace MiBo.Domain.Dao
 {
@@ -72,7 +72,8 @@ namespace MiBo.Domain.Dao
                 gift.CreateDate = accept.CreateDate;
                 gift.UpdateUser = accept.UpdateUser;
                 gift.UpdateDate = accept.UpdateDate;
-                gift.DeleteFlag = true;
+                gift.DeleteFlag = false;
+                gift.GiftStatus = Logics.CD_GIFT_STATUS_INACTIVE;
                 EntityManager.GiftCards.InsertOnSubmit(gift);
                 accept.GiftCd = gift.GiftCd;
             }
@@ -81,7 +82,7 @@ namespace MiBo.Domain.Dao
                 if (IsExist<GiftCard>(accept.UseGiftCd, false))
                 {
                     GiftCard useGift = GetSingle<GiftCard>(accept.UseGiftCd, false);
-                    useGift.DeleteFlag = true;
+                    useGift.GiftStatus = Logics.CD_GIFT_STATUS_USED;
                 }
             }
             var number  = MNumberCom.ToMNumber(accept.AcceptSlipNo);

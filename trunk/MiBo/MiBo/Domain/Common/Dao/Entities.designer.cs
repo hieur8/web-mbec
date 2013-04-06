@@ -6158,6 +6158,8 @@ namespace MiBo.Domain.Common.Dao
 		
 		private string _GiftCd;
 		
+		private string _GiftStatus;
+		
 		private System.Nullable<decimal> _Price;
 		
 		private System.Nullable<System.DateTime> _StartDate;
@@ -6180,6 +6182,8 @@ namespace MiBo.Domain.Common.Dao
     partial void OnCreated();
     partial void OnGiftCdChanging(string value);
     partial void OnGiftCdChanged();
+    partial void OnGiftStatusChanging(string value);
+    partial void OnGiftStatusChanged();
     partial void OnPriceChanging(System.Nullable<decimal> value);
     partial void OnPriceChanged();
     partial void OnStartDateChanging(System.Nullable<System.DateTime> value);
@@ -6219,6 +6223,26 @@ namespace MiBo.Domain.Common.Dao
 					this._GiftCd = value;
 					this.SendPropertyChanged("GiftCd");
 					this.OnGiftCdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiftStatus", DbType="VarChar(255)")]
+		public string GiftStatus
+		{
+			get
+			{
+				return this._GiftStatus;
+			}
+			set
+			{
+				if ((this._GiftStatus != value))
+				{
+					this.OnGiftStatusChanging(value);
+					this.SendPropertyChanging();
+					this._GiftStatus = value;
+					this.SendPropertyChanged("GiftStatus");
+					this.OnGiftStatusChanged();
 				}
 			}
 		}

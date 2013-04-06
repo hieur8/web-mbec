@@ -85,7 +85,7 @@ namespace MiBo.Domain.Logic.Client.Checkout
             responseModel.StatusFlag = true;
 
             // Send mail
-            SendEmail(inputObject.Accept.ClientCd, inputObject.Accept.AcceptSlipNo);
+            //SendEmail(inputObject.Accept.ClientCd, inputObject.Accept.AcceptSlipNo);
 
             // Execute convert ouput.
             responseModel = Convert(resultObject);

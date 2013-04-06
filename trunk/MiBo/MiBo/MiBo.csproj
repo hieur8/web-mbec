@@ -72,6 +72,7 @@
     <Content Include="pages\administer\brand-list.aspx" />
     <Content Include="pages\administer\category-entry.aspx" />
     <Content Include="pages\administer\category-list.aspx" />
+    <Content Include="pages\administer\gift-list.aspx" />
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-entry.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
@@ -728,6 +729,7 @@
     <Compile Include="Domain\Dao\AdminBrandListDao.cs" />
     <Compile Include="Domain\Dao\AdminCategoryEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminCategoryListDao.cs" />
+    <Compile Include="Domain\Dao\AdminGiftListDao.cs" />
     <Compile Include="Domain\Dao\AdminItemEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminItemListDao.cs" />
     <Compile Include="Domain\Dao\ClientAcceptDetailsDao.cs" />
@@ -764,6 +766,12 @@
     <Compile Include="Domain\Logic\Admin\CategoryList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\CategoryList\UpdateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\CategoryList\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftList\FilterLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftList\FilterOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftList\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftList\UpdateOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\SaveLogic.cs" />
@@ -837,6 +845,9 @@
     <Compile Include="Domain\Model\Admin\CategoryEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\CategoryList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\CategoryList\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GiftList\FilterDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GiftList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GiftList\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
@@ -894,6 +905,13 @@
     <Compile Include="Domain\Web\Admin\CategoryList\OutputCategoryModel.cs" />
     <Compile Include="Domain\Web\Admin\CategoryList\UpdateRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\CategoryList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftList\FilterRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftList\FilterResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftList\OutputGiftModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftList\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftList\UpdateResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\OutputDetailsModel.cs" />
@@ -1023,6 +1041,13 @@
     </Compile>
     <Compile Include="pages\administer\category-list.aspx.designer.cs">
       <DependentUpon>category-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\gift-list.aspx.cs">
+      <DependentUpon>gift-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\gift-list.aspx.designer.cs">
+      <DependentUpon>gift-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

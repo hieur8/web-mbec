@@ -20,6 +20,7 @@ namespace MiBo.Domain.Web.Admin.AcceptList
         public string DeliveryTel { get; set; }
         public string PaymentMethods { get; set; }
         public string PaymentMethodsName { get; set; }
+        public string GiftCd { get; set; }
         public string ViewId { get; set; }
         public string Notes { get; set; }
         public string UpdateUser { get; set; }

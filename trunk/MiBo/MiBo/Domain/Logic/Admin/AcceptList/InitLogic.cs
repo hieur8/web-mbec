@@ -89,6 +89,7 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
                 accept.PaymentMethods = DataHelper.ToString(obj.PaymentMethods);
                 paymentMethodsName = mCodeCom.GetCodeName(Logics.GROUP_PAYMENT_METHODS, accept.PaymentMethods);
                 accept.PaymentMethodsName = DataHelper.ToString(paymentMethodsName);
+                accept.GiftCd = DataHelper.ToString(obj.GiftCd);
                 accept.ViewId = DataHelper.ToString(obj.ViewId);
                 accept.Notes = DataHelper.ToString(obj.Notes);
                 accept.UpdateUser = DataHelper.ToString(obj.UpdateUser);
