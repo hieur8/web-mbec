@@ -367,7 +367,7 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 .toolbar-bottom {}
 
 /* Data Table */
-.data-table { width:100%; border:1px solid #c8ecf2; }
+.data-table { width:100%; border:1px solid #ddd; }
 .data-table .odd  {  }
 .data-table .even { }
 /*.data-table tr.odd:hover,
@@ -393,20 +393,20 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 .data-table tfoot strong { font-size:16px; }
 
 .data-table tbody th,
-.data-table tbody td { border-bottom:1px solid #c8ecf2;}
+.data-table tbody td { border-bottom:1px solid #ddd;}
 /* Bundle products tables */
 .data-table tbody.odd tr {}
 .data-table tbody.even tr {  }
 .data-table tbody.odd tr td,
 .data-table tbody.even tr td { border-bottom:0; }
 .data-table tbody.odd tr.border td,
-.data-table tbody.even tr.border td { border-bottom:1px solid #C8ECF2; }
+.data-table tbody.even tr.border td { border-bottom:1px solid #ddd; }
 
 .data-table tbody td .option-label { font-weight:bold; font-style:italic; }
 .data-table tbody td .option-value { padding-left:10px; }
 
 /* Generic Info Box */
-.info-box {  border:1px solid #C8ECF2!important; padding:12px 15px; margin:0 0 15px; }
+.info-box {  border:1px solid #ddd!important; padding:12px 15px; margin:0 0 15px; }
 .info-box h2 { font-weight:bold; font-size:13px; }
 
 .info-table th { font-weight:bold; padding:2px 15px 2px 0; }
@@ -1162,7 +1162,7 @@ tr.summary-details-excluded { font-style:italic; }
 .cart .cart-collaterals .col2-set { float:left; width:658px; }
 .cart .cart-collaterals .col2-set .col-2 { width:294px; }
 
-.cart .crosssell { border:1px solid #C8ECF2; padding:8px 20px; }
+.cart .crosssell { border:1px solid #ddd; padding:8px 20px; }
 .cart .crosssell h2 { font-size:13px; font-weight:bold;color:#262626; }
 .cart .crosssell .product-image { float:left; height:123px;width:111px; border:1px solid #d0cdc9; }
 .cart .crosssell .product-details { margin-left:80px; }
@@ -1172,7 +1172,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* Discount Codes & Estimate Shipping and Tax Boxes */
 .cart .discount,
-.cart .shipping { border:1px solid #C8ECF2; padding:12px 15px; margin:0 0 18px; }
+.cart .shipping { border:1px solid #ddd; padding:12px 15px; margin:0 0 18px; }
 .cart .discount h2,
 .cart .shipping h2 { background-position:0 0; background-repeat:no-repeat; font:bold 13px/16px arial, sans-serif; padding:0 0 0 0px; color:#262626; text-transform:uppercase; }
 .cart .discount button span,
@@ -1824,7 +1824,7 @@ button.btn-cart span span{background-position:100%;line-height:30px;padding-righ
 .catalog-product-view .upsell-text-alignment .ratings .rating-links{white-space:pre-line;}
 .catalog-product-view .upsell-text-alignment .ratings .rating-links .separator{display:none;}
 																	/* my cart page */
-#shopping-cart-table tr.last td{border-bottom:1px solid #C8ECF2 !important;}
+#shopping-cart-table tr.last td{border-bottom:1px solid #ddd !important;}
 #shopping-cart-table{border-bottom:none;}
 #shopping-cart-table .product-name a{font-weight:bold;color:#00aff0;font-size:16px;}
 #shopping-cart-table .product-name a:hover{color:#06659b;}
@@ -2491,4 +2491,16 @@ position: relative;
 left: 0px;
 top: 0px;
 float: right;
+}
+
+bgextra 
+{
+	background: #fdfdfd;
+background: -moz-linear-gradient(top, #fdfdfd 0%, #f4f4f4 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#f4f4f4));
+background: -webkit-linear-gradient(top, #fdfdfd 0%,#f4f4f4 100%);
+background: -o-linear-gradient(top, #fdfdfd 0%,#f4f4f4 100%);
+background: -ms-linear-gradient(top, #fdfdfd 0%,#f4f4f4 100%);
+background: linear-gradient(to bottom, #fdfdfd 0%,#f4f4f4 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#f4f4f4',GradientType=0 );
 }

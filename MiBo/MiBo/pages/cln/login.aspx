@@ -101,7 +101,7 @@
                         <div class="col-2 registered-users">
                             <div class="buttons-set">
                                 <a href="#" class="f-left">bạn đã quên mật khẩu?</a>
-                                <asp:LinkButton ID="btnLogin" class="btn btn-blue" Width="120" runat="server" OnClick="btnLogin_Click"><span>Đăng nhập</span></asp:LinkButton>
+                                <asp:LinkButton ID="btnLogin" OnClientClick="return $('#frmMain').valid();" class="btn btn-blue" Width="120" runat="server" OnClick="btnLogin_Click"><span>Đăng nhập</span></asp:LinkButton>
                             </div>
                         </div>
                     </div>
