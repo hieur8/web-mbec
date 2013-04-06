@@ -33,12 +33,12 @@ namespace MiBo.pages.cln
             }
             if (Session["GiftCd"] != null)
             {
-                LblGiftPrice.Text = DataHelper.ToString(Formats.NUMBER, (decimal)Session["GiftPrice"]);
+                LblGiftPrice.Text = DataHelper.ToString(Formats.CURRENCY, (decimal)Session["GiftPrice"]);
                 decimal total = responseModel.TotalAmountDecimal - decimal.Parse(Session["GiftPrice"].ToString());
-                LblTotalPrice.Text = DataHelper.ToString(Formats.NUMBER, total);
+                LblTotalPrice.Text = DataHelper.ToString(Formats.CURRENCY, total);
                 if (total > 100000)
                 {
-                    Label1.Text = (total * 10 / 100).ToString();
+                    Label1.Text = DataHelper.ToString(Formats.CURRENCY,(total * 10 / 100));
                 }
             }
             else

@@ -2484,7 +2484,7 @@ padding-right:5px;
 }
 
 .landscape {
-background: url('../images/GiftCard.png');
+background: url("../images/GiftCard.png");
 width: 277px;
 height: 148px;
 position: relative;
