@@ -131,7 +131,7 @@ namespace MiBo.pages.cln
                 request.Cart = Session["Cart"];
                 if (Session["GiftCd"] != null)
                 {
-                    accept.GiftCd = Session["GiftCd"].ToString();
+                    accept.UseGiftCd = Session["GiftCd"].ToString();
                 }
                 return request;
                

@@ -7,6 +7,8 @@ using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
+using System.Text;
+using System;
 
 namespace MiBo.Domain.Dao
 {
@@ -14,7 +16,8 @@ namespace MiBo.Domain.Dao
     {
         public void  makeCheckout(Accept accept, IList<CartItem> cart)
         {
-
+            ItemCom itemCom = new ItemCom();
+            decimal priceGift = 0;
             UserCom userCom = new UserCom();
             accept.AcceptSlipNo = MNumberCom.GetSlipNo(Logics.CD_BUSINESS_ACCEPT);
 
@@ -29,11 +32,13 @@ namespace MiBo.Domain.Dao
 
             accept.DeliveryCd = DataHelper.GetUniqueKey();
             accept.ViewId = MNumberCom.GenViewId(accept.AcceptSlipNo, Logics.CD_BUSINESS_ACCEPT);
-            EntityManager.Accepts.InsertOnSubmit(accept);
+            
             int countNo = 1;
             foreach (CartItem item in cart)
             {           
                 AcceptDetail detail = new AcceptDetail();
+                
+
                 detail.AcceptSlipNo = accept.AcceptSlipNo;
                 detail.DetailNo = countNo++;
                 detail.ItemCd = item.ItemCd;
@@ -53,11 +58,35 @@ namespace MiBo.Domain.Dao
                 detail.UpdateDate = accept.UpdateDate;
                 detail.DeleteFlag = false;
                 EntityManager.AcceptDetails.InsertOnSubmit(detail);
+                if (!itemCom.HasOffer(item.ItemCd))
+                {
+                    priceGift = priceGift + itemResult.SalesPrice.Value * item.Quantity;
+                }
             }
 
+            if (priceGift != 0 && priceGift > 100000)
+            {
+                GiftCard gift = new GiftCard();
+                gift.GiftCd = RandomString(10, true);
+                gift.Price = priceGift * 10 / 100;
+                gift.CreateDate = accept.CreateDate;
+                gift.UpdateUser = accept.UpdateUser;
+                gift.UpdateDate = accept.UpdateDate;
+                gift.DeleteFlag = true;
+                EntityManager.GiftCards.InsertOnSubmit(gift);
+                accept.GiftCd = gift.GiftCd;
+            }
+            if (accept.UseGiftCd != null)
+            {
+                if (IsExist<GiftCard>(accept.UseGiftCd, false))
+                {
+                    GiftCard useGift = GetSingle<GiftCard>(accept.UseGiftCd, false);
+                    useGift.DeleteFlag = true;
+                }
+            }
             var number  = MNumberCom.ToMNumber(accept.AcceptSlipNo);
             EntityManager.MNumbers.InsertOnSubmit(number);
-
+            EntityManager.Accepts.InsertOnSubmit(accept);
 
             EntityManager.SubmitChanges();
         }
@@ -75,6 +104,22 @@ namespace MiBo.Domain.Dao
             acceptModel.TotalAmount = acceptModel.AcceptDetails.Where(o => o.DeleteFlag == false).Sum(o => o.DetailAmt);
 
             return acceptModel;
+        }
+
+        private static string RandomString(int size, bool lowerCase)
+        {
+            StringBuilder sb = new StringBuilder();
+            char c;
+            Random rand = new Random();
+            for (int i = 0; i < size; i++)
+            {
+                c = Convert.ToChar(Convert.ToInt32(rand.Next(65, 87)));
+                sb.Append(c);
+            }
+            if (lowerCase)
+                return sb.ToString().ToLower();
+            return sb.ToString();
+
         }
     }
 }
