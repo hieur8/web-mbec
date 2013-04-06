@@ -50,7 +50,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         } (document, 'script', 'facebook-jssdk'));
     </script>
-    <form id="frmMain" runat="server">
+    <form id="frmMain" runat="server" defaultbutton="LinkButton1">
     <div class="wrapper">
         <div class="page">
             <div class="header-container">
