@@ -2483,3 +2483,13 @@ background-image: url("../images/card.png");
 background-repeat: no-repeat;
 padding-right:5px;
 }
+
+.landscape {
+background: url('../images/GiftCard.png');
+width: 277px;
+height: 148px;
+position: relative;
+left: 0px;
+top: 0px;
+float: right;
+}

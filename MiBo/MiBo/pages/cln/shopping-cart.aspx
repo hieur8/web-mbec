@@ -81,7 +81,7 @@
                                 <asp:Repeater ID="rptCartItem" runat="server">
                                     <ItemTemplate>
                                         <tr class="first last odd">
-                                            <td style="width: 70px">
+                                            <td style="width: 70px;text-align:center">
                                                 <a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title='<%# Eval("ItemName")%>'>
                                                     <img src='/pages/media/images/items/small/<%# Eval("ItemImage") %>' width="60" height="60"
                                                         alt='<%# Eval("ItemName")%>'></a>
@@ -98,7 +98,7 @@
                                                     <%# Eval("Price") %></span> </span>
                                             </td>
                                             <td class="a-center" style="width: 100px">
-                                                <asp:TextBox Text='<%# Eval("Quantity") %>' MaxLength="6" Width="80px" CssClass="input-text qty"
+                                                <asp:TextBox Text='<%# Eval("Quantity") %>' MaxLength="3" Width="80px" CssClass="input-text qty"
                                                     ID="txtItemQtty" runat="server"></asp:TextBox>
                                             </td>
                                             <td class="a-right" style="width: 100px">
@@ -128,7 +128,7 @@
                             <div class="col-1">
                                 <div class="crosssell">
                                     <h2>
-                                        Danh sách sản phẩm khuyến mãi</h2>
+                                        Khuyến mãi kèm theo</h2>
                                     <asp:Repeater ID="rptOfferItems" runat="server">
                                         <HeaderTemplate>
                                             <ul id="crosssell-products-list">
@@ -154,6 +154,9 @@
                                             </ul>
                                         </FooterTemplate>
                                     </asp:Repeater>
+                                </div><br />
+                                <div class="crosssell" style="height:160px">
+                                <div class="landscape" ><div style="left:25px;top:112px;position:relative;color:Red;font-weight:bold;font-size:16px;"><asp:Label ID="Label1" runat="server"></asp:Label> đ</div></div>
                                 </div>
                             </div>
                             <div class="col-2">
