@@ -565,6 +565,7 @@ CREATE TABLE [Accepts]
     [PaymentMethods] VARCHAR(255),
     [ViewId] VARCHAR(255),
     [GiftCd] VARCHAR(255),
+    [UseGiftCd] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [CreateUser] VARCHAR(255),
     [CreateDate] DATETIME,
