@@ -9,6 +9,8 @@
             $("#frmMain").validate(
         {
             messages: {
+                ctl00$main$email: "Hãy nhập địa chỉ email",
+                ctl00$main$pass: "Hãy nhập mật khẩu",
                 ctl00$main$clientName: "Hãy nhập họ và tên người mua hàng",
                 ctl00$main$clientAddress: "Hãy nhập địa chỉ nơi mua hàng",
                 ctl00$main$clientTell: "Hãy nhập số điện thoại nơi mua hàng",

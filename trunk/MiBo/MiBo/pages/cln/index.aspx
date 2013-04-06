@@ -44,7 +44,7 @@
             <div class="std">
                 <div class="main-content">
                     <div class="header-banner">
-                        <div style="float: left; margin-right: 10px; border: 1px solid #ddd;padding-left:1px">
+                        <div style="float: left; margin-right: 9px; border: 1px solid #ddd;margin-left:1px;">
                             <asp:Repeater ID="rptBanner" runat="server">
                                 <HeaderTemplate>
                                     <div style="float: left;" class="slider">
@@ -76,8 +76,7 @@
                                     <div class="wrapper" style="margin-top: 9px;">
                                         <a><span class="duty-40x40 duty-1a"></span>
                                             <p class="font-medium">
-                                                Tặng thẻ giảm giá tương đương 10% giá trị đơn hàng 
-                                                cho các thành viên mibo.vn</p>
+                                                Tặng thẻ giảm giá tương đương 10% giá trị đơn hàng</p>
                                         </a>
                                     </div>
                                     <div class="wrapper">

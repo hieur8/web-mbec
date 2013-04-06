@@ -126,9 +126,12 @@
                     <div class="cart-collaterals">
                         <div class="col2-set">
                             <div class="col-1">
-                                <div class="crosssell">
-                                    <h2>
-                                        Khuyến mãi kèm theo</h2>
+                            <div style="background: linear-gradient(to bottom, #fdfdfd 0%,#f4f4f4 100%);border: 1px solid #ddd;height:30px;padding-left:5px;padding-top:7px;border-bottom:0"  ><b>
+                                        Khuyến mãi kèm theo</b></div>
+                            <div class="crosssell" >
+                                
+                                    
+                                        
                                     <asp:Repeater ID="rptOfferItems" runat="server">
                                         <HeaderTemplate>
                                             <ul id="crosssell-products-list">
@@ -161,11 +164,9 @@
                             </div>
                             <div class="col-2">
                                 <div class="discount">
-                                   <h3>
-                                        <i class="icon-gift"></i><span>Mã giảm giá</span></h3>
                                     <div class="discount-form">
                                         <label for="coupon_code">
-                                            Nhập mã Gift Card nếu bạn có.</label>
+                                            <i class="icon-gift"></i>Nhập mã Gift Card nếu bạn có.</label>
                                         <input type="hidden" name="remove" id="remove-coupone" value="0">
                                         <div class="input-box">
                                             <asp:TextBox ID="txtGift" CssClass="input-text" runat="server"></asp:TextBox>
