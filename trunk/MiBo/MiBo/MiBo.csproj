@@ -68,6 +68,7 @@
     <Content Include="admin.htm" />
     <Content Include="pages\administer\accept-list.aspx" />
     <Content Include="pages\administer\banner-list.aspx" />
+    <Content Include="pages\administer\brand-entry.aspx" />
     <Content Include="pages\administer\brand-list.aspx" />
     <Content Include="pages\administer\category-entry.aspx" />
     <Content Include="pages\administer\category-list.aspx" />
@@ -723,6 +724,7 @@
     <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
     <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
     <Compile Include="Domain\Dao\AdminAcceptListDao.cs" />
+    <Compile Include="Domain\Dao\AdminBrandEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminBrandListDao.cs" />
     <Compile Include="Domain\Dao\AdminCategoryEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminCategoryListDao.cs" />
@@ -746,6 +748,10 @@
     <Compile Include="Domain\Logic\Admin\AcceptList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\UpdateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BrandEntry\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BrandEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BrandEntry\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BrandEntry\SaveOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\BrandList\FilterLogic.cs" />
     <Compile Include="Domain\Logic\Admin\BrandList\FilterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\BrandList\InitLogic.cs" />
@@ -823,6 +829,8 @@
     <Compile Include="Domain\Model\Admin\AcceptList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\BrandEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\BrandEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\BrandList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\BrandList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\CategoryEntry\InitDataModel.cs" />
@@ -866,6 +874,11 @@
     <Compile Include="Domain\Web\Admin\AcceptList\OutputAcceptModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\UpdateRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandEntry\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandEntry\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandEntry\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\BrandEntry\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\BrandList\FilterRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\BrandList\FilterResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\BrandList\InitRequestModel.cs" />
@@ -982,6 +995,13 @@
     </Compile>
     <Compile Include="pages\administer\banner-list.aspx.designer.cs">
       <DependentUpon>banner-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\brand-entry.aspx.cs">
+      <DependentUpon>brand-entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\brand-entry.aspx.designer.cs">
+      <DependentUpon>brand-entry.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\brand-list.aspx.cs">
       <DependentUpon>brand-list.aspx</DependentUpon>

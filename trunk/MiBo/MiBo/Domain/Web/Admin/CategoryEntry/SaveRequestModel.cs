@@ -7,6 +7,8 @@ namespace MiBo.Domain.Web.Admin.CategoryEntry
         public string CategoryCd { get; set; }
         [ValidRequired(MessageParam = "Tên loại")]
         public string CategoryName { get; set; }
+        [ValidRequired(MessageParam = "Tên tìm kiếm")]
+        public string CategorySearchName { get; set; }
         [ValidRequired(MessageParam = "Chủng loại")]
         public string CategoryDiv { get; set; }
         [ValidRequired(MessageParam = "Thứ tự")]

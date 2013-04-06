@@ -4,6 +4,7 @@
     {
         public string CategoryCd { get; set; }
         public string CategoryName { get; set; }
+        public string CategorySearchName { get; set; }
         public string CategoryDiv { get; set; }
         public decimal? SortKey { get; set; }
         public bool? DeleteFlag { get; set; }

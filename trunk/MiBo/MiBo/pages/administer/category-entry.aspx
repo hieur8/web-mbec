@@ -2,6 +2,16 @@
     AutoEventWireup="true" CodeBehind="category-entry.aspx.cs" Inherits="MiBo.pages.administer.category_entry" %>
 
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
+    <!-- MyScript -->
+    <script type="text/javascript">
+        function getaliastext(val) {
+            var s = generateAlias(val);
+            var hidCategorySearchNameId = "#" + '<%= fvwCategoryDatails.FindControl("hidCategorySearchName").ClientID %>'
+            var txtCategorySearchNameId = "#" + '<%= fvwCategoryDatails.FindControl("txtCategorySearchName").ClientID %>'
+            $(hidCategorySearchNameId).val(s)
+            $(txtCategorySearchNameId).val(s);
+        }
+    </script>
     <title>Thêm loại sản phẩm</title>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
@@ -15,23 +25,28 @@
         </div>
     </div>
     <div class="content-box-content">
-        <asp:FormView ID="fvwItemDatails" runat="server" RenderOuterTable="false">
+        <asp:FormView ID="fvwCategoryDatails" runat="server" RenderOuterTable="false">
             <ItemTemplate>
                 <div class="tab-content default-tab" id="tabInfo">
                     <fieldset>
                         <table>
                             <tr>
-                                <td width="100">
+                                <td width="120">
                                     <span class="label">Mã loại</span>
                                 </td>
-                                <td width="160">
+                                <td width="180">
                                     <asp:TextBox Width="100" ID="txtCategoryCd" runat="server" CssClass="text-input"></asp:TextBox>
                                 </td>
-                                <td width="100">
+                                <td width="120">
                                     <span class="label">Tên loại</span>
                                 </td>
+                                <td width="194">
+                                    <asp:TextBox Width="180" ID="txtCategoryName" runat="server" CssClass="text-input"
+                                    onchange="getaliastext(this.value)"></asp:TextBox>
+                                </td>
                                 <td>
-                                    <asp:TextBox Width="180" ID="txtCategoryName" runat="server" CssClass="text-input"></asp:TextBox>
+                                    <asp:HiddenField ID="hidCategorySearchName" runat="server" />
+                                    <asp:TextBox Width="180" ID="txtCategorySearchName" runat="server" CssClass="text-input" Enabled="false"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>

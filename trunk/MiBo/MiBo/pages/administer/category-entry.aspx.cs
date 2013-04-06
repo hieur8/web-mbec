@@ -19,8 +19,8 @@ namespace MiBo.pages.administer
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
             if (HasError) return;
-            fvwItemDatails.DataSource = response.Details;
-            fvwItemDatails.DataBind();
+            fvwCategoryDatails.DataSource = response.Details;
+            fvwCategoryDatails.DataBind();
         }
 
         protected void btnSave_Command(object sender, CommandEventArgs e)
@@ -50,11 +50,12 @@ namespace MiBo.pages.administer
             get
             {
                 var request = new SaveRequestModel();
-                request.CategoryCd = ((TextBox)fvwItemDatails.FindControl("txtCategoryCd")).Text;
-                request.CategoryName = ((TextBox)fvwItemDatails.FindControl("txtCategoryName")).Text;
-                request.CategoryDiv = ((DropDownList)fvwItemDatails.FindControl("ddlCategoryDiv")).SelectedValue;
-                request.SortKey = ((TextBox)fvwItemDatails.FindControl("txtSortKey")).Text;
-                request.DeleteFlag = ((DropDownList)fvwItemDatails.FindControl("ddlDeleteFlag")).SelectedValue;
+                request.CategoryCd = ((TextBox)fvwCategoryDatails.FindControl("txtCategoryCd")).Text;
+                request.CategoryName = ((TextBox)fvwCategoryDatails.FindControl("txtCategoryName")).Text;
+                request.CategorySearchName = ((HiddenField)fvwCategoryDatails.FindControl("hidCategorySearchName")).Value;
+                request.CategoryDiv = ((DropDownList)fvwCategoryDatails.FindControl("ddlCategoryDiv")).SelectedValue;
+                request.SortKey = ((TextBox)fvwCategoryDatails.FindControl("txtSortKey")).Text;
+                request.DeleteFlag = ((DropDownList)fvwCategoryDatails.FindControl("ddlDeleteFlag")).SelectedValue;
 
                 return request;
             }

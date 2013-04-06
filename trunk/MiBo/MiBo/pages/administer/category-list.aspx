@@ -16,6 +16,17 @@
                 "sPaginationType": "full_numbers"
             });
         });
+
+        $(document).ready(function () {
+            $('input[ctrl=data], select[ctrl=data]').change(function () {
+                $(this).parents('tr[ctrl=row]').find('[span[ctrl=edit] input[type=checkbox]').attr('checked', 'true');
+            });
+        });
+
+        function getaliastext(elm) {
+            var s = generateAlias(elm.value);
+            $(elm).parents('tr[ctrl=row]').find('[span[ctrl=temp] input[type=hidden]').val(s);
+        }
     </script>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
@@ -64,8 +75,12 @@
                             <%# Eval("CategoryCd")%>
                         </td>
                         <td>
-                            <asp:TextBox ctrl="data" Width="200" Text='<%# Eval("CategoryName")%>' ID="txtCategoryName" runat="server"
-                                CssClass="text-input"></asp:TextBox>
+                            <span ctrl="temp">
+                                <asp:HiddenField ID="hidCategorySearchName" Value='<%# Eval("CategorySearchName") %>'
+                                    runat="server" />
+                            </span>
+                            <asp:TextBox ctrl="data" Width="200" Text='<%# Eval("CategoryName")%>' ID="txtCategoryName"
+                                runat="server" CssClass="text-input" onchange='getaliastext(this)'></asp:TextBox>
                         </td>
                         <td>
                             <asp:DropDownList ctrl="data" DataSource='<%# Eval("ListCategoryDiv") %>' SelectedValue='<%# Bind("CategoryDiv") %>'
@@ -74,8 +89,8 @@
                             </asp:DropDownList>
                         </td>
                         <td>
-                            <asp:TextBox ctrl="data" Width="80" Text='<%# Eval("SortKey")%>' ID="txtSortKey" runat="server"
-                                CssClass="text-input"></asp:TextBox>
+                            <asp:TextBox ctrl="data" Width="80" Text='<%# Eval("SortKey")%>' ID="txtSortKey"
+                                runat="server" CssClass="text-input"></asp:TextBox>
                         </td>
                         <td>
                             <asp:DropDownList ctrl="data" DataSource='<%# Eval("ListDeleteFlag") %>' SelectedValue='<%# Bind("DeleteFlag") %>'

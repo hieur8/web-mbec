@@ -21,6 +21,7 @@ namespace MiBo.Domain.Dao
             var entity = new Category();
             entity.CategoryCd = inputObject.CategoryCd;
             entity.CategoryName = inputObject.CategoryName;
+            entity.CategorySearchName = inputObject.CategorySearchName;
             entity.CategoryDiv = inputObject.CategoryDiv;
             entity.Notes = string.Empty;
             entity.SortKey = inputObject.SortKey;

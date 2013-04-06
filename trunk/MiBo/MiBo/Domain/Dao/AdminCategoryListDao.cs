@@ -32,6 +32,7 @@ namespace MiBo.Domain.Dao
             // Set item
             var entity = GetSingle<Category>(param.CategoryCd, true);
             entity.CategoryName = param.CategoryName;
+            entity.CategorySearchName = param.CategorySearchName;
             entity.CategoryDiv = param.CategoryDiv;
             entity.SortKey = param.SortKey;
             entity.DeleteFlag = param.DeleteFlag;

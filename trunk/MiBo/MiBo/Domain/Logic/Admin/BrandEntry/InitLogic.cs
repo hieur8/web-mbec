@@ -1,17 +1,22 @@
 ﻿using System.Collections.Generic;
 using MiBo.Domain.Common.Constants;
+using MiBo.Domain.Common.Dao;
+using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
-using MiBo.Domain.Common.Model;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
-using MiBo.Domain.Model.Admin.CategoryList;
-using MiBo.Domain.Web.Admin.CategoryList;
-using Resources;
+using MiBo.Domain.Model.Admin.BrandEntry;
+using MiBo.Domain.Web.Admin.BrandEntry;
 
-namespace MiBo.Domain.Logic.Admin.CategoryList
+namespace MiBo.Domain.Logic.Admin.BrandEntry
 {
     public class InitLogic
     {
+        #region Private variable
+        private string _status;
+        private bool IsAdd { get { return _status == Logics.CODE_STATUS_ADD; } }
+        #endregion
+
         #region Invoke Method
         /// <summary>
         /// Initialization process.
@@ -20,8 +25,8 @@ namespace MiBo.Domain.Logic.Admin.CategoryList
         /// <returns>ResponseModel</returns>
         public InitResponseModel Invoke(InitRequestModel request)
         {
-            var responseModel = Execute(request);
-            return responseModel;
+            var response = Execute(request);
+            return response;
         }
         #endregion
 
@@ -41,6 +46,7 @@ namespace MiBo.Domain.Logic.Admin.CategoryList
 
             // Convert data input
             DataHelper.ConvertInput(request, inputObject);
+            _status = DataHelper.ConvertInputString(request.Status);
 
             // Return value
             return inputObject;
@@ -54,43 +60,32 @@ namespace MiBo.Domain.Logic.Admin.CategoryList
         private InitResponseModel Convert(InitDataModel resultObject)
         {
             // Local variable declaration
-            InitResponseModel responseModel = null;
-            IList<OutputCategoryModel> listCategories = null;
-            OutputCategoryModel category = null;
+            InitResponseModel response = null;
+            OutputDetailsModel details = null;
 
             // Variable initialize
-            responseModel = new InitResponseModel();
-            listCategories = new List<OutputCategoryModel>();
+            response = new InitResponseModel();
+            details = new OutputDetailsModel();
 
             // Get value
-            var cbCategoryDiv = new ComboModel();
-            var cbDeleteFlag = new ComboModel();
-            foreach (var obj in resultObject.ListCategories)
-            {
-                category = new OutputCategoryModel();
-                category.CategoryCd = DataHelper.ToString(obj.CategoryCd);
-                category.CategoryName = DataHelper.ToString(obj.CategoryName);
-                category.CategorySearchName = DataHelper.ToString(obj.CategorySearchName);
-                category.CategoryDiv = DataHelper.ToString(obj.CategoryDiv);
-                category.SortKey = DataHelper.ToString(Formats.NUMBER, obj.SortKey);
-                category.DeleteFlag = DataHelper.ToString(obj.DeleteFlag);
-                category.UpdateDate = DataHelper.ToString(Formats.UPDATE_DATE, obj.UpdateDate);
-
-                cbCategoryDiv = MCodeCom.ToComboItems(resultObject.ListCategoryDiv, category.CategoryDiv);
-                category.ListCategoryDiv = cbCategoryDiv.ListItems;
-                category.CategoryDiv = cbCategoryDiv.SeletedValue;
-                cbDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, category.DeleteFlag);
-                category.ListDeleteFlag = cbDeleteFlag.ListItems;
-                category.DeleteFlag = cbDeleteFlag.SeletedValue;
-
-                listCategories.Add(category);
-            }
+            var brand = resultObject.Brand;
+            details.Status = DataHelper.ToString(_status);
+            details.BrandCd = DataHelper.ToString(brand.BrandCd);
+            details.BrandName = DataHelper.ToString(brand.BrandName);
+            details.BrandSearchName = DataHelper.ToString(brand.BrandSearchName);
+            details.FileId = DataHelper.ToString(brand.FileId);
+            details.Notes = DataHelper.ToString(brand.Notes);
+            details.SortKey = DataHelper.ToString(brand.SortKey);
+            details.DeleteFlag = DataHelper.ToString(brand.DeleteFlag);
+            var cbDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, details.DeleteFlag);
+            details.ListDeleteFlag = cbDeleteFlag.ListItems;
+            details.DeleteFlag = cbDeleteFlag.SeletedValue;
 
             // Set value
-            responseModel.ListCategories = listCategories;
+            response.Details = new List<OutputDetailsModel>() { details };
 
             // Return value
-            return responseModel;
+            return response;
         }
 
         /// <summary>
@@ -101,35 +96,50 @@ namespace MiBo.Domain.Logic.Admin.CategoryList
         private InitResponseModel Execute(InitRequestModel request)
         {
             // Local variable declaration
-            InitResponseModel responseModel = null;
+            InitResponseModel response = null;
             InitDataModel inputObject = null;
             InitDataModel resultObject = null;
 
             // Variable initialize
-            responseModel = new InitResponseModel();
+            response = new InitResponseModel();
 
             // Execute convert input.
             inputObject = Convert(request);
 
-            // Check infomation
+            // Check processing
             Check(inputObject);
 
             // Get infomation
             resultObject = GetInfo(inputObject);
 
             // Execute convert ouput.
-            responseModel = Convert(resultObject);
+            response = Convert(resultObject);
 
-            // Return value
-            return responseModel;
+            return response;
         }
 
         /// <summary>
-        /// Check processing.
+        /// Check processing
         /// </summary>
         /// <param name="inputObject">DataModel</param>
+        /// <returns>DataModel</returns>
         private void Check(InitDataModel inputObject)
         {
+            // Local variable declaration
+            AdminBrandEntryDao adminBrandEntryDao = null;
+
+            // Variable initialize
+            adminBrandEntryDao = new AdminBrandEntryDao();
+
+            // Check valid
+            if (!IsAdd)
+            {
+                if (DataCheckHelper.IsNull(inputObject.BrandCd))
+                    throw new ExecuteException("E_MSG_DATA_00004", "Mã thương hiệu");
+
+                if (!adminBrandEntryDao.IsExistBrand(inputObject.BrandCd))
+                    throw new DataNotExistException("Thương");
+            }
         }
 
         /// <summary>
@@ -142,22 +152,22 @@ namespace MiBo.Domain.Logic.Admin.CategoryList
             // Local variable declaration
             InitDataModel getResult = null;
             MCodeCom mCodeCom = null;
-            AdminCategoryListDao adminCategoryListDao = null;
+            AdminBrandEntryDao adminBrandEntryDao = null;
 
             // Variable initialize
             getResult = new InitDataModel();
             mCodeCom = new MCodeCom();
-            adminCategoryListDao = new AdminCategoryListDao();
+            adminBrandEntryDao = new AdminBrandEntryDao();
 
             // Get data
-            var listCategoryDiv = mCodeCom.GetListCode(Logics.GROUP_CATEGORY_DIV, null, false, false);
             var listDeleteFlag = mCodeCom.GetListCode(Logics.GROUP_DELETE_FLAG, null, false, false);
-            var listAccepts = adminCategoryListDao.GetListCategories();
+            var brand = new Brand();
+            if (!IsAdd) brand = adminBrandEntryDao.GetSingleBrand(inputObject.BrandCd);
+            else brand.FileId = DataHelper.GetUniqueKey();
 
             // Set value
-            getResult.ListCategoryDiv = listCategoryDiv;
             getResult.ListDeleteFlag = listDeleteFlag;
-            getResult.ListCategories = listAccepts;
+            getResult.Brand = brand;
 
             // Return value
             return getResult;

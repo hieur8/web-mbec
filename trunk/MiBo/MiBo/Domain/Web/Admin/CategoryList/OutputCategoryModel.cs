@@ -7,6 +7,7 @@ namespace MiBo.Domain.Web.Admin.CategoryList
     {
         public string CategoryCd { get; set; }
         public string CategoryName { get; set; }
+        public string CategorySearchName { get; set; }
         public string CategoryDiv { get; set; }
         public string SortKey { get; set; }
         public string DeleteFlag { get; set; }
