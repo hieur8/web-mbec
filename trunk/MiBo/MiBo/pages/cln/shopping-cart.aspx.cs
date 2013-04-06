@@ -26,11 +26,24 @@ namespace MiBo.pages.cln
             rptOfferItems.DataSource = responseModel.ListOfferItems;
             rptOfferItems.DataBind();
             lblSubTotal.Text = responseModel.TotalAmount;
+            Label1.Text = "0";
+            if (responseModel.TotalAmountDecimal > 100000)
+            {
+                Label1.Text = (responseModel.TotalAmountDecimal * 10 / 100).ToString();
+            }
             if (Session["GiftCd"] != null)
             {
-                LblGiftPrice.Text = DataHelper.ToString(Formats.NUMBER,(decimal)Session["GiftPrice"]);
+                LblGiftPrice.Text = DataHelper.ToString(Formats.NUMBER, (decimal)Session["GiftPrice"]);
                 decimal total = responseModel.TotalAmountDecimal - decimal.Parse(Session["GiftPrice"].ToString());
                 LblTotalPrice.Text = DataHelper.ToString(Formats.NUMBER, total);
+                if (total > 100000)
+                {
+                    Label1.Text = (total * 10 / 100).ToString();
+                }
+            }
+            else
+            {
+                LblTotalPrice.Text = responseModel.TotalAmount;
             }
         }
 
