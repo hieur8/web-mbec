@@ -379,7 +379,7 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 .data-table th { padding:3px 8px; font-weight:bold; }
 .data-table td { padding:3px 8px; }
 
-.data-table thead th { font-weight:normal; border-right:1px solid #c2d3e0; padding:2px 8px; color:#424242; white-space:nowrap; vertical-align:middle; }
+.data-table thead th { font-weight:normal; border-right:0; padding:2px 8px; color:#424242; white-space:nowrap; vertical-align:middle; }
 .data-table thead th.wrap { white-space:normal; }
 .data-table thead th a,
 .data-table thead th a:hover { color:#fff; }
@@ -389,11 +389,11 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 .data-table tfoot { border-bottom:1px solid #d9dde3; }
 .data-table tfoot tr.first td { }
 .data-table tfoot tr {  }
-.data-table tfoot td { padding-top:1px; padding-bottom:1px;  border-bottom:0; border-right:1px solid #C8ECF2; }
+.data-table tfoot td { padding-top:1px; padding-bottom:1px;  border-bottom:0;}
 .data-table tfoot strong { font-size:16px; }
 
 .data-table tbody th,
-.data-table tbody td { border-bottom:1px solid #c8ecf2; border-right:1px solid #c8ecf2; }
+.data-table tbody td { border-bottom:1px solid #c8ecf2;}
 /* Bundle products tables */
 .data-table tbody.odd tr {}
 .data-table tbody.even tr {  }
@@ -1826,7 +1826,7 @@ button.btn-cart span span{background-position:100%;line-height:30px;padding-righ
 																	/* my cart page */
 #shopping-cart-table tr.last td{border-bottom:1px solid #C8ECF2 !important;}
 #shopping-cart-table{border-bottom:none;}
-#shopping-cart-table .product-name a{font-weight:normal;color:#00aff0;}
+#shopping-cart-table .product-name a{font-weight:bold;color:#00aff0;font-size:16px;}
 #shopping-cart-table .product-name a:hover{color:#06659b;}
 #shopping-cart-table .cart-price .price{color:#CE6D06;font-size:14px;font-weight:bold;}
 #shopping-cart-table input.qty {color:#424242;;}
@@ -1840,7 +1840,6 @@ button.btn-cart span span{background-position:100%;line-height:30px;padding-righ
 {
 border-top: none;
 border-left: none;
-border-right: 1px solid #e9e9e9;
 border-bottom: 1px solid #e9e9e9;
 color: #555;
 font-size: 15px;

@@ -161,7 +161,7 @@
                             </div>
                             <div class="col-2">
                                 <div class="discount">
-                                    <h3>
+                                   <h3>
                                         <i class="icon-gift"></i><span>Mã giảm giá</span></h3>
                                     <div class="discount-form">
                                         <label for="coupon_code">
