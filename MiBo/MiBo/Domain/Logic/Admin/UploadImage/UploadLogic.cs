@@ -135,11 +135,16 @@ namespace MiBo.Domain.Logic.Admin.UploadImage
             param.SortKey = inputObject.SortKey;
 
             // Upload data
-            var uploadList = StorageFileCom.MapImageSize[param.FileGroup];
+            // Upload Full size
+            var path = string.Format("/pages/media/images/{0}/{1}/{2}",
+                    inputObject.FileGroup, "zoom", param.FileName);
+            UploadHelper.UploadImage(inputObject.InputStream, path);
 
+            // Upload Fix size
+            var uploadList = StorageFileCom.MapImageSize[param.FileGroup];
             foreach (var obj in uploadList)
 	        {
-                var path = string.Format("/pages/media/images/{0}/{1}/{2}",
+                path = string.Format("/pages/media/images/{0}/{1}/{2}",
                     inputObject.FileGroup, obj.SizeName, param.FileName);
                 UploadHelper.UploadImage(inputObject.InputStream, obj.Width, obj.Height, path);
 	        }

@@ -1257,6 +1257,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="pages\handler\" />
+    <Folder Include="pages\media\images\items\zoom\" />
     <Folder Include="pages\resources\fonts\" />
   </ItemGroup>
   <ItemGroup>

@@ -29,7 +29,10 @@ namespace MiBo.Domain.Common.Helper
             grp = Graphics.FromImage(bmp);
 
             // Resize
+            grp.CompositingQuality = CompositingQuality.HighQuality;
             grp.SmoothingMode = SmoothingMode.HighQuality;
+            grp.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            grp.PixelOffsetMode = PixelOffsetMode.HighQuality;
             grp.Clear(Color.White);
             grp.DrawImage(img, 0, 0, width, height);
             grp.Dispose();
