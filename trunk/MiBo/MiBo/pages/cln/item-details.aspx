@@ -3,6 +3,8 @@
 
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
     <!-- Spin -->
+    <script src="/pages/resources/scripts/jquery.jqzoom-core-pack.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/pages/resources/styles/jquery.jqzoom.css">
     <script src="/pages/resources/scripts/jquery-spin.js" type="text/javascript"></script>
     <script type="text/javascript">
         $.spin.imageBasePath = '/pages/resources/images/';
@@ -17,16 +19,44 @@
         }
     </script>
     <!-- Galleries -->
-    <link rel="stylesheet" type="text/css" href="/pages/resources/styles/jquery.ad-gallery.css">
-    <script type="text/javascript" src="/pages/resources/scripts/jquery.ad-gallery.min.js"></script>
     <script type="text/javascript">
-        $(function () {
-            var galleries = $('.ad-gallery').adGallery({
-                display_next_and_prev: false
+        $(document).ready(function () {
+            $('.jqzoom').jqzoom({
+                zoomType: 'standard',
+                lens: true,
+                preloadImages: false,
+                alwaysOn: false
             });
-            $('.ad-controls').hide();
+
         });
     </script>
+    <style>
+        ul#thumblist
+        {
+            display: block;
+        }
+        ul#thumblist li
+        {
+            float: left;
+            margin-right: 2px;
+            list-style: none;
+        }
+        ul#thumblist li a
+        {
+            display: block;
+            border: 1px solid #CCC;
+        }
+        ul#thumblist li a.zoomThumbActive
+        {
+            border: 1px solid #00aff0;
+        }
+        
+        .jqzoom
+        {
+            text-decoration: none;
+            float: left;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
     <div id="fb-root">
@@ -169,30 +199,29 @@
                                     </div>
                                 </div>
                                 <div style="padding-left: 15px; z-index: 3" class="product-img-box">
-                                    <div id="gallery" style="z-index: 3" class="ad-gallery">
-                                        <div class="ad-image-wrapper" style="z-index: 3; border: 1px solid #ccc">
-                                        </div>
-                                        <div class="ad-controls">
-                                        </div>
-                                        <div class="ad-nav">
-                                            <div class="ad-thumbs">
-                                                <asp:Repeater ID="rptItemImage" runat="server" DataSource='<%# Eval("ListImages")%>'>
+                                
+                                    <div class="clearfix">
+                                        <a href="./pages/media/images/items/zoom/<%=firstImage%>"
+                                            class="jqzoom" rel='gal1' title="Mibo.vn">
+                                            <img src="./pages/media/images/items/larger/<%=firstImage%>"
+                                                title="triumph" style="z-index:2333;border: 4px solid #666;width:400px;height:400px;border:1px solid #ddd;margin-bottom:5px;">
+                                        </a></div>
+                                        <br /> <br />
+                                        <div class="clearfix">
+                                        <asp:Repeater ID="rptItemImage" runat="server" DataSource='<%# Eval("ListImages")%>'>
                                                     <HeaderTemplate>
-                                                        <ul class="ad-thumb-list">
+                                                        <ul id="thumblist" class="clearfix">
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
-                                                        <li><a href='/pages/media/images/items/larger/<%# Eval("ItemImage")%>'>
-                                                            <img src='/pages/media/images/items/small/<%# Eval("ItemImage")%>' width="60px" height="60px"
-                                                                class="image0" alt="" />
-                                                        </a></li>
+                                                    <li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: './pages/media/images/items/larger/<%# Eval("ItemImage")%>',largeimage: './pages/media/images/items/zoom/<%# Eval("ItemImage")%>'}">
+                                                    <img src="./pages/media/images/items/small/<%# Eval("ItemImage")%>" width="60px" height="60px"></a></li>
                                                     </ItemTemplate>
                                                     <FooterTemplate>
                                                         </ul>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
-                                            </div>
                                         </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="clearer">
                                     <ul class="idTabs idTabsShort">

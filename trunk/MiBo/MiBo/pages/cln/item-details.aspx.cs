@@ -9,6 +9,7 @@ namespace MiBo.pages.cln
 {
     public partial class item_details : BasePage
     {
+        public string firstImage = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
@@ -17,6 +18,7 @@ namespace MiBo.pages.cln
             if (HasError) return;
             fvwItemDetails.DataSource = response.Details;
             fvwItemDetails.DataBind();
+            firstImage = response.Details[0].ListImages[0].ItemImage;
         }
 
         protected void lnkBuy_Command(object sender, CommandEventArgs e)
