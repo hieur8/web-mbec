@@ -89,9 +89,7 @@ namespace MiBo.Domain.Logic.Client.Items
             responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
             responseModel.Hotline = DataHelper.ToString(resultObject.Hotline);
             responseModel.ChatYahooIM = DataHelper.GetYahooIM(resultObject.ChatYahoo);
-            responseModel.ChatSkypeIM = DataHelper.GetSkypeIM(resultObject.ChatSkype);
             responseModel.ChatYahooIcon = DataHelper.GetYahooIcon(resultObject.ChatYahoo);
-            responseModel.ChatSkypeIcon = DataHelper.GetSkypeIcon(resultObject.ChatSkype);
             responseModel.Title = DataHelper.ToString(resultObject.Title);
             responseModel.ListItems = listItems;
 
@@ -161,8 +159,7 @@ namespace MiBo.Domain.Logic.Client.Items
             var discountMember = mParameterCom.GetNumber(Logics.PR_DISCOUNT_MEMBER, false);
             var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
             var strChatYahoo = mParameterCom.GetString(Logics.PR_CHAT_YAHOO, false);
-            var strChatSkype = mParameterCom.GetString(Logics.PR_CHAT_SKYPE, false);
-
+            
             // Title
             var title = string.Empty;
             if (!DataCheckHelper.IsNull(inputObject.SearchText))
@@ -182,7 +179,6 @@ namespace MiBo.Domain.Logic.Client.Items
             getResult.DiscountMember = discountMember;
             getResult.Hotline = strHotline;
             getResult.ChatYahoo = strChatYahoo;
-            getResult.ChatSkype = strChatSkype;
             getResult.ListItems = PagingHelper.GetPagerList(
                 itemCom.ToListItemModel(listItems), inputObject);
 

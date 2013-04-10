@@ -133,9 +133,7 @@
                                 <a id="lnkChatYahoo" runat="server" title="Click vào đây để Chat trực tiếp" style="text-decoration: none;
                                     padding: 0 6px">
                                     <img id="icoChatYahoo" runat="server" style="cursor: pointer; width: 72px" border="0"></a>
-                                <a id="lnkChatSkype" runat="server" title="Click vào đây để Chat trực tiếp" style="text-decoration: none;
-                                    padding: 0 6px">
-                                    <img id="icoChatSkype" runat="server" style="cursor: pointer; width: 72px" border="0"></a>
+                                
                             </div>
                         </div>
                     </div>

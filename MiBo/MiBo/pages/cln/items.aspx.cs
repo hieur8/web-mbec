@@ -17,8 +17,7 @@ namespace MiBo.pages.cln
             if (HasError) return;
             litTitle.Text = response.Title;
             litHotline.Text = response.Hotline;
-            lnkChatSkype.Attributes["href"] = response.ChatSkypeIM;
-            icoChatSkype.Attributes["src"] = "/pages/resources/images/" + response.ChatSkypeIcon;
+           
             lnkChatYahoo.Attributes["href"] = response.ChatYahooIM;
             icoChatYahoo.Attributes["src"] = "/pages/resources/images/" + response.ChatYahooIcon;
             litPagingInfo.Text = GetPagingInfo(response.ListItems);
