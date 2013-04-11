@@ -273,7 +273,7 @@ namespace MiBo.Domain.Common.Helper
             index = result.IndexOf(" ", size, StringComparison.CurrentCulture);
             if (index < 0) index = size;
             // Convert
-            return result.Substring(0, index);
+            return result.Substring(0, index) + " ...";
         }
 
         /// <summary>

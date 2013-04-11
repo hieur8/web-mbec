@@ -69,7 +69,7 @@ namespace MiBo.Domain.Logic.Client.Items
                 item = new OutputItemModel();
 
                 item.ItemCd = DataHelper.ToString(obj.ItemCd);
-                item.ItemName = DataHelper.ToString(obj.ItemName);
+                item.ItemName = DataHelper.ToSubString(obj.ItemName, 20);
                 item.ItemImage = DataHelper.ToString(obj.ItemImage);
                 item.BrandCd = DataHelper.ToString(obj.BrandCd);
                 item.BrandName = DataHelper.ToString(obj.Brand.BrandName);

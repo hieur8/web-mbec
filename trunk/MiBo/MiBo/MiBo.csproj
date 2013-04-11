@@ -129,6 +129,7 @@
     <Content Include="pages\media\images\items\small\f69c953491bc05bb456fcf9596985129.jpg" />
     <Content Include="pages\resources\images\a.gif" />
     <Content Include="pages\resources\images\add-to-cart.png" />
+    <Content Include="pages\resources\images\advertise.jpg" />
     <Content Include="pages\resources\images\ad_next.png" />
     <Content Include="pages\resources\images\ad_prev.png" />
     <Content Include="pages\resources\images\ad_scroll_back.png" />
@@ -144,6 +145,7 @@
     <Content Include="pages\resources\images\bg-button-red.gif" />
     <Content Include="pages\resources\images\bg-content-box.gif" />
     <Content Include="pages\resources\images\bg-form-field.gif" />
+    <Content Include="pages\resources\images\bg-ft-card-follow.gif" />
     <Content Include="pages\resources\images\bg-login-top.png" />
     <Content Include="pages\resources\images\bg-login.gif" />
     <Content Include="pages\resources\images\bg-menu-item-blue.gif" />
@@ -186,6 +188,7 @@
     <Content Include="pages\resources\images\ftr-mdl-bg4545.gif" />
     <Content Include="pages\resources\images\ftr-we-accp-left.gif" />
     <Content Include="pages\resources\images\ftr-we-accp-middle.gif" />
+    <Content Include="pages\resources\images\GiftCard.png" />
     <Content Include="pages\resources\images\go-btn-bg.gif" />
     <Content Include="pages\resources\images\green-dream_09.gif" />
     <Content Include="pages\resources\images\green-dream_11.gif" />
@@ -193,6 +196,7 @@
     <Content Include="pages\resources\images\green-dream_19.gif" />
     <Content Include="pages\resources\images\green-dream_20.gif" />
     <Content Include="pages\resources\images\green-dream_23.gif" />
+    <Content Include="pages\resources\images\home-icon.png" />
     <Content Include="pages\resources\images\icons\cross_circle.png" />
     <Content Include="pages\resources\images\icons\cross_grey_small.png" />
     <Content Include="pages\resources\images\icons\delete.png" />
@@ -276,6 +280,7 @@
     <Content Include="pages\resources\images\warning.png" />
     <Content Include="pages\resources\images\yahoo-off.png" />
     <Content Include="pages\resources\images\yahoo-on.png" />
+    <Content Include="pages\resources\images\zoomloader.gif" />
     <Content Include="pages\resources\scripts\classes\adapter\jquery\adapter.js" />
     <Content Include="pages\resources\scripts\classes\adapter\jquery\jquery.tinymce.js" />
     <Content Include="pages\resources\scripts\classes\adapter\prototype\adapter.js" />
@@ -353,7 +358,9 @@
     <Content Include="pages\resources\scripts\jquery.hoverIntent.minified.js" />
     <Content Include="pages\resources\scripts\jquery.idTabs.modified.js" />
     <Content Include="pages\resources\scripts\jquery.iframe-transport.js" />
+    <Content Include="pages\resources\scripts\jquery.jqzoom-core-pack.js" />
     <Content Include="pages\resources\scripts\jquery.jtslider.min.js" />
+    <Content Include="pages\resources\scripts\jquery.reveal.js" />
     <Content Include="pages\resources\scripts\jquery.scroll.js" />
     <Content Include="pages\resources\scripts\jquery.slider.min.js" />
     <Content Include="pages\resources\scripts\jquery.tinymce.js" />
@@ -632,6 +639,7 @@
     <Content Include="pages\resources\styles\invalid.css" />
     <Content Include="pages\resources\styles\jquery.ad-gallery.css" />
     <Content Include="pages\resources\styles\jquery.fileupload-ui.css" />
+    <Content Include="pages\resources\styles\jquery.jqzoom.css" />
     <Content Include="pages\resources\styles\jquery.slider.css" />
     <Content Include="pages\resources\styles\jquery.slider.ie6.css" />
     <Content Include="pages\resources\styles\jquery.toastmessage.css" />
@@ -641,6 +649,7 @@
     <Content Include="pages\resources\styles\red.css" />
     <Content Include="pages\resources\styles\reset.css" />
     <Content Include="pages\resources\styles\ajaxshake.btn.css" />
+    <Content Include="pages\resources\styles\reveal.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

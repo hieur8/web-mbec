@@ -58,6 +58,15 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.Repeater rptNewItem;
         
         /// <summary>
+        /// lnkAllNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkAllNew;
+        
+        /// <summary>
         /// rptOfferItem control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace MiBo.pages.cln {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptOfferItem;
+        
+        /// <summary>
+        /// lnkAllOffer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkAllOffer;
         
         /// <summary>
         /// rptHotItem control.

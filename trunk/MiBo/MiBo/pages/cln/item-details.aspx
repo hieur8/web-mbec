@@ -275,7 +275,7 @@
                                                 <div class="product-images" style="float: left">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
                                                         <img src="/pages/media/images/items/small/<%# Eval("ItemImage") %>" alt="<%# Eval("ItemName")%>"
-                                                            width="60" height="60"></a>
+                                                            width="60" height="60" style="padding: 0 5px 0 5px"></a>
                                                 </div>
                                                 <div style="float: left; width: 140px">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
@@ -307,7 +307,7 @@
                                                 <div class="product-images" style="float: left">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
                                                         <img src="/pages/media/images/items/small/<%# Eval("ItemImage") %>" alt="<%# Eval("ItemName")%>"
-                                                            width="60" height="60"></a>
+                                                            width="60" height="60" style="padding: 0 5px 0 5px"></a>
                                                 </div>
                                                 <div style="float: left; width: 140px">
                                                     <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>">
