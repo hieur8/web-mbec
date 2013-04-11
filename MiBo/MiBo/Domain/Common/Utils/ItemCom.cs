@@ -71,6 +71,7 @@ namespace MiBo.Domain.Common.Utils
             var storageFile = storageFileCom.GetSingle(item.FileId, true);
             var itemImage = storageFile != null ? storageFile.FileName : "default.jpg";
             var storageFiles = storageFileCom.GetListActive(item.FileId, true);
+            if (DataCheckHelper.IsNull(storageFiles)) storageFiles.Add(new StorageFile() { FileName = "default.jpg" });
 
             // Set value
             itemModel.ItemImage = itemImage;

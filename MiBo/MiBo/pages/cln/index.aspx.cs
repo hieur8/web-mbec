@@ -26,7 +26,8 @@ namespace MiBo.pages.cln
             rptOfferItem.DataBind();
             rptHotItem.DataSource = response.ListHotItems;
             rptHotItem.DataBind();
-
+            if (response.ListNewItems.Count < 10) lnkAllNew.Visible = false;
+            if (response.ListOfferItems.Count < 10) lnkAllOffer.Visible = false;
         }
 
         protected void lnkBuy_Command(object sender, CommandEventArgs e)
