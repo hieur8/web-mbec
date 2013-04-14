@@ -3,6 +3,11 @@ using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Register;
 using MiBo.Domain.Web.Client.Register;
+using MiBo.Domain.Common.Utils;
+using MiBo.Domain.Common.Dao;
+using System.Collections;
+using System.Collections.Generic;
+using MiBo.Domain.Common.Model;
 
 namespace MiBo.pages.cln
 {
@@ -10,7 +15,11 @@ namespace MiBo.pages.cln
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack) return;
+            MCodeCom codeCom = new MCodeCom();
+            IList<ComboItem> citylst = MCodeCom.ToComboItems(codeCom.GetListCity(), "294").ListItems;
+            DropDownList1.DataSource = citylst;
+            DropDownList1.DataBind();
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -32,6 +41,7 @@ namespace MiBo.pages.cln
                 request.Address = address.Text.Trim();
                 request.Phone1 = phone1.Text.Trim();
                 request.Phone2 = phone2.Text.Trim();
+                request.CityCd = DropDownList1.SelectedValue;
                 return request;
             }
         }

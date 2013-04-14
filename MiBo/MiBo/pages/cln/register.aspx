@@ -73,6 +73,14 @@
                         </li>
                         <li>
                             <label for="fields" class="required">
+                                <em>*</em>Tỉnh thành</label>
+                            <div class="input-box">
+                                <asp:DropDownList ID="DropDownList1" DataValueField="Code" DataTextField="Name" runat="server">
+                                </asp:DropDownList>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="fields" class="required">
                                 <em>*</em>Số điện thoại chính</label>
                             <div class="input-box">
                                 <asp:TextBox ID="phone1" class="input-text required" runat="server"></asp:TextBox>

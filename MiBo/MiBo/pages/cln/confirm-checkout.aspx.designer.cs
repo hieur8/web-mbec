@@ -10,7 +10,7 @@
 namespace MiBo.pages.cln {
     
     
-    public partial class checkout {
+    public partial class confirm_checkout {
         
         /// <summary>
         /// email control.
@@ -19,25 +19,7 @@ namespace MiBo.pages.cln {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
-        
-        /// <summary>
-        /// pass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pass;
-        
-        /// <summary>
-        /// passConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox passConfirm;
+        protected global::System.Web.UI.WebControls.Label email;
         
         /// <summary>
         /// clientName control.
@@ -46,7 +28,7 @@ namespace MiBo.pages.cln {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox clientName;
+        protected global::System.Web.UI.WebControls.Label clientName;
         
         /// <summary>
         /// clientAddress control.
@@ -55,7 +37,7 @@ namespace MiBo.pages.cln {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox clientAddress;
+        protected global::System.Web.UI.WebControls.Label clientAddress;
         
         /// <summary>
         /// DropDownList1 control.
@@ -73,25 +55,7 @@ namespace MiBo.pages.cln {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox clientTell;
-        
-        /// <summary>
-        /// RadioButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
-        
-        /// <summary>
-        /// methodDelivery1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton methodDelivery1;
+        protected global::System.Web.UI.WebControls.Label clientTell;
         
         /// <summary>
         /// deliveryName control.
@@ -100,7 +64,7 @@ namespace MiBo.pages.cln {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox deliveryName;
+        protected global::System.Web.UI.WebControls.Label deliveryName;
         
         /// <summary>
         /// deliveryAddress control.
@@ -109,7 +73,7 @@ namespace MiBo.pages.cln {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox deliveryAddress;
+        protected global::System.Web.UI.WebControls.Label deliveryAddress;
         
         /// <summary>
         /// DropDownList2 control.
@@ -127,7 +91,7 @@ namespace MiBo.pages.cln {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox deliveryTell;
+        protected global::System.Web.UI.WebControls.Label deliveryTell;
         
         /// <summary>
         /// pay1 control.
@@ -184,12 +148,30 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.LinkButton Button1;
         
         /// <summary>
-        /// txtClientCd control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtClientCd;
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
     }
 }
