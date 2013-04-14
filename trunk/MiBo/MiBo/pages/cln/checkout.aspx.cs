@@ -119,7 +119,6 @@ namespace MiBo.pages.cln
                 accept.ClientAddress = clientAddress.Text.Trim();
                 accept.ClientTel = clientTell.Text.Trim();
                 accept.DeliveryName = deliveryName.Text.Trim();
-                accept.DeliveryName = deliveryName.Text;
                 accept.DeliveryAddress = deliveryAddress.Text;
                 accept.DeliveryTel = deliveryTell.Text;
                 accept.Notes = note.Text.ToString();
