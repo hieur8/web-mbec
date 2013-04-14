@@ -12,6 +12,18 @@ namespace MiBo.pages.common
         {
             if(!PageHelper.HasAuthByAdmin)
                 Response.Redirect(GetUrlWithReturnUrl(Pages.ADMIN_USER_LOGIN));
+            if (PageHelper.AuthRole(Logics.RL_ACCEPTS))
+                mAccepts.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_ITEMS))
+                mItems.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_BRANDS))
+                mBrands.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_CATEGORIES))
+                mCategories.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_GIFTS))
+                mGifts.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_SYSTEMS))
+                mSystems.Visible = true;
         }
 
         protected void lnkSignOut_Command(object sender, CommandEventArgs e)

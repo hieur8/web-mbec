@@ -5,6 +5,7 @@ using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Model.Admin.ParamList;
 using MiBo.Domain.Web.Admin.ParamList;
 using Resources;
+using MiBo.Domain.Common.Exceptions;
 
 namespace MiBo.Domain.Logic.Admin.ParamList
 {
@@ -122,6 +123,9 @@ namespace MiBo.Domain.Logic.Admin.ParamList
         /// <param name="inputObject">DataModel</param>
         private void Check(InitDataModel inputObject)
         {
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_SYSTEMS))
+                throw new ExecuteException("E_MSG_00013");
         }
 
         /// <summary>

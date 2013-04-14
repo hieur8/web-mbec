@@ -116,6 +116,10 @@ namespace MiBo.Domain.Logic.Admin.ItemEntry
             // Variable initialize
             adminItemEntryDao = new AdminItemEntryDao();
 
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_ITEMS))
+                throw new ExecuteException("E_MSG_00013");
+
             // Check valid
             if (IsAdd && adminItemEntryDao.IsExistItem(inputObject.ItemCd))
                 throw new DataExistException("Sản phẩm");

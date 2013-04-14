@@ -76,6 +76,16 @@
 
         // Description for group user
         public const string GP_ADMINISTRATORS = "administrators";
+        public const string GP_STAFFSELLERS = "staffsellers";
         public const string GP_USERS = "users";
+
+        // Description for roles
+        public const string RL_USERS = "role-users";
+        public const string RL_ACCEPTS = "role-accepts";
+        public const string RL_ITEMS = "role-items";
+        public const string RL_BRANDS = "role-brands";
+        public const string RL_CATEGORIES = "role-categories";
+        public const string RL_GIFTS = "role-gifts";
+        public const string RL_SYSTEMS = "role-systems";
     }
 }

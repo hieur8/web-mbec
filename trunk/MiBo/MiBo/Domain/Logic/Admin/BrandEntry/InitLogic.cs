@@ -131,6 +131,10 @@ namespace MiBo.Domain.Logic.Admin.BrandEntry
             // Variable initialize
             adminBrandEntryDao = new AdminBrandEntryDao();
 
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_BRANDS))
+                throw new ExecuteException("E_MSG_00013");
+
             // Check valid
             if (!IsAdd)
             {

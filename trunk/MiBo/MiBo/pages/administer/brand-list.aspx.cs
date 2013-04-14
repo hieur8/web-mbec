@@ -14,7 +14,7 @@ namespace MiBo.pages.administer
             if (IsPostBack) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
-            if (HasError) return;
+            if (HasError) { Redirect(Pages.ADMIN_INDEX); return; }
             rptBrands.DataSource = response.ListBrands;
             rptBrands.DataBind();
             ddlDeleteFlag.DataSource = response.ListDeleteFlag;

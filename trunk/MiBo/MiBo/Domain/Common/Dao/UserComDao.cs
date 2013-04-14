@@ -145,5 +145,21 @@ namespace MiBo.Domain.Common.Dao
 
             return count == decimal.One;
         }
+
+        /// <summary>
+        /// Get user role
+        /// </summary>
+        /// <param name="groupCd">GroupCd</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>True/False</returns>
+        public IList<Role> GetUserRoles(string groupCd, bool ignoreDeleteFlag)
+        {
+            var result = from tbl in EntityManager.GroupRoles
+                         where tbl.GroupCd == groupCd
+                         && (tbl.DeleteFlag == false || ignoreDeleteFlag)
+                         select tbl.Role;
+
+            return result.ToList();
+        }
     }
 }

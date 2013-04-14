@@ -113,7 +113,8 @@ namespace MiBo.Domain.Logic.Admin.UserLogin
             // Auth infomation
             var user = userCom.GetSingle(inputObject.UserName, inputObject.Password);
             if (user == null) throw new ExecuteException("E_MSG_00008");
-            if (!userCom.AuthUserInGroups(user.UserCd, Logics.GP_ADMINISTRATORS, false))
+            if (!userCom.AuthUserInGroups(user.UserCd, Logics.GP_ADMINISTRATORS, false)
+                && !userCom.AuthUserInGroups(user.UserCd, Logics.GP_STAFFSELLERS, false))
                 throw new ExecuteException("E_MSG_00013");
 
             // Set value

@@ -109,6 +109,10 @@ namespace MiBo.Domain.Logic.Admin.GiftList
             adminGiftListDao = new AdminGiftListDao();
             mCodeCom = new MCodeCom();
 
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_GIFTS))
+                throw new ExecuteException("E_MSG_00013");
+
             // Check valid
             int i = 0;
             foreach (var obj in inputObject.ListGifts)
