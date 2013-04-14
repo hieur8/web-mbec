@@ -34,6 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MSCaptcha, Version=1.0.2832.11804, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MSCaptcha.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -64,6 +68,9 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Messages.designer.cs</LastGenOutput>
     </Content>
+    <Content Include="bin\MiBo.dll" />
+    <Content Include="bin\MiBo.pdb" />
+    <Content Include="bin\MSCaptcha.dll" />
     <Content Include="Global.asax" />
     <Content Include="admin.htm" />
     <Content Include="pages\administer\accept-list.aspx" />
@@ -83,6 +90,7 @@
     <Content Include="pages\cln\active.aspx" />
     <Content Include="pages\cln\changes.aspx" />
     <Content Include="pages\cln\checkout.aspx" />
+    <Content Include="pages\cln\confirm-checkout.aspx" />
     <Content Include="pages\cln\confirmcheckout.aspx" />
     <Content Include="pages\cln\FAQ.aspx" />
     <Content Include="pages\cln\index.aspx" />
@@ -1127,6 +1135,13 @@
     </Compile>
     <Compile Include="pages\cln\checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\confirm-checkout.aspx.cs">
+      <DependentUpon>confirm-checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\confirm-checkout.aspx.designer.cs">
+      <DependentUpon>confirm-checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\confirmcheckout.aspx.cs">
       <DependentUpon>confirmcheckout.aspx</DependentUpon>

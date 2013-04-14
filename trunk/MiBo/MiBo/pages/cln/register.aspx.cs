@@ -24,6 +24,12 @@ namespace MiBo.pages.cln
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            ccJoin.ValidateCaptcha(TextBox1.Text);
+            if (!ccJoin.UserValidated)
+            {
+                Label1.Text = "Mã bảo vệ chưa chính xác";
+                return;
+            }
             var logic = new SaveOperateLogic();
             var response = Invoke(logic, SaveRequestModel);
             if (HasError) return;
