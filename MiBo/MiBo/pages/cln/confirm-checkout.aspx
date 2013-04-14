@@ -232,8 +232,9 @@
                                     </li>
                                 </ul>
                             </fieldset>
+                            
                             <div class="buttons-set" id="billing-buttons-container" style="">
-                            <a href="#" class="btn btn-brown" onclick="javascript:window.history.back();" ><span>Chỉnh sửa</span></a>
+                            <a href="#" onclick="JavaScript:window.history.back(1);return false;" class="btn btn-brown" ><span>Chỉnh sửa</span></a>
                                 <asp:LinkButton ID="Button1" Width="120" runat="server" class="btn btn-blue" onclick="Button1_Click"
                                     ><span>Xác nhận</span></asp:LinkButton>
                             </div>
