@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MiBo.Domain.Common.Constants;
+using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Model.Admin.CategoryEntry;
@@ -113,6 +114,9 @@ namespace MiBo.Domain.Logic.Admin.CategoryEntry
         /// <returns>DataModel</returns>
         private void Check(InitDataModel inputObject)
         {
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_CATEGORIES))
+                throw new ExecuteException("E_MSG_00013");
         }
 
         /// <summary>

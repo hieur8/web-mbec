@@ -106,6 +106,10 @@ namespace MiBo.Domain.Logic.Admin.ParamList
             // Variable initialize
             mParameterCom = new MParameterCom();
 
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_SYSTEMS))
+                throw new ExecuteException("E_MSG_00013");
+
             // Check valid
             int i = 0;
             foreach (var obj in inputObject.ListParams)

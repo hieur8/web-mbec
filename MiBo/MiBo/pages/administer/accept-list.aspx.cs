@@ -15,7 +15,7 @@ namespace MiBo.pages.administer
             if (IsPostBack) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
-            if (HasError) return;
+            if (HasError) { Redirect(Pages.ADMIN_INDEX); return; }
             rptAccepts.DataSource = response.ListAccepts;
             rptAccepts.DataBind();
             txtAcceptDataStart.Text = response.AcceptDateStart;

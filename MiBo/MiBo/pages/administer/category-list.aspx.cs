@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Admin.CategoryList;
 using MiBo.Domain.Web.Admin.CategoryList;
@@ -14,7 +15,7 @@ namespace MiBo.pages.administer
             if (IsPostBack) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
-            if (HasError) return;
+            if (HasError) { Redirect(Pages.ADMIN_INDEX); return; }
             rptCategories.DataSource = response.ListCategories;
             rptCategories.DataBind();
         }

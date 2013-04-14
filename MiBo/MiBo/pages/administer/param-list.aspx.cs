@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
+using System.Web.UI.WebControls;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Admin.ParamList;
 using MiBo.Domain.Web.Admin.ParamList;
-using System.Collections.Generic;
-using System.Web.UI.WebControls;
 
 namespace MiBo.pages.administer
 {
@@ -15,7 +15,7 @@ namespace MiBo.pages.administer
             if (IsPostBack) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
-            if (HasError) return;
+            if (HasError) { Redirect(Pages.ADMIN_INDEX); return; }
             rptParams.DataSource = response.ListParams;
             rptParams.DataBind();
         }

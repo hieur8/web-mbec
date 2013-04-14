@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MiBo.Domain.Common.Constants;
+using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
@@ -128,6 +129,9 @@ namespace MiBo.Domain.Logic.Admin.BrandList
         /// <param name="inputObject">DataModel</param>
         private void Check(InitDataModel inputObject)
         {
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_BRANDS))
+                throw new ExecuteException("E_MSG_00013");
         }
 
         /// <summary>

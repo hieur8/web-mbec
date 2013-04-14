@@ -109,6 +109,10 @@ namespace MiBo.Domain.Logic.Admin.CategoryList
             adminCategoryListDao = new AdminCategoryListDao();
             mCodeCom = new MCodeCom();
 
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_CATEGORIES))
+                throw new ExecuteException("E_MSG_00013");
+
             // Check valid
             int i = 0;
             foreach (var obj in inputObject.ListCategories)

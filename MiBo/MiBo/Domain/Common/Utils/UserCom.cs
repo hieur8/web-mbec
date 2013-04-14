@@ -263,5 +263,33 @@ namespace MiBo.Domain.Common.Utils
             //Return value
             return result;
         }
+
+        public IList<string> GetUserRoles(Guid userCd, bool ignoreDeleteFlag)
+        {
+            // Check param
+            if (DataCheckHelper.IsNull(userCd))
+                throw new ParamInvalidException();
+
+            // Get user
+            var user = GetSingle(userCd, ignoreDeleteFlag);
+
+            // Get user group
+            var groups = user.UserGroups;
+
+            // Get role
+            var result = new List<string>();
+            foreach (var g in groups)
+            {
+                var roles = _comDao.GetUserRoles(g.GroupCd, ignoreDeleteFlag);
+                foreach (var r in roles)
+                {
+                    if(!result.Contains(r.RoleCd))
+                        result.Add(r.RoleCd);
+                }
+            }
+
+            // Return value
+            return result;
+        }
     }
 }

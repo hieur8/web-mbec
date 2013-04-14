@@ -127,7 +127,7 @@
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
                                                     <h3 class="product-name">
-                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
+                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("Tooltip") %>'>
                                                             <%# Eval("ItemName") %></a>
                                                     </h3>
                                                     <div class="price-box">
@@ -164,7 +164,7 @@
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
                                                     <h3 class="product-name">
-                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
+                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("Tooltip") %>'>
                                                             <%# Eval("ItemName") %></a>
                                                     </h3>
                                                     <div class="price-box">
@@ -201,7 +201,7 @@
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
                                                     <h3 class="product-name">
-                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'>
+                                                        <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("Tooltip") %>'>
                                                             <%# Eval("ItemName") %></a>
                                                     </h3>
                                                     <div class="price-box">

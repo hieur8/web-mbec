@@ -4,6 +4,7 @@
     {
         public string ItemCd { get; set; }
         public string ItemName { get; set; }
+        public string Tooltip { get; set; }
         public string ItemImage { get; set; }
         public string BrandCd { get; set; }
         public string BrandName { get; set; }

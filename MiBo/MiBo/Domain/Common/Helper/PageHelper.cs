@@ -69,6 +69,17 @@ namespace MiBo.Domain.Common.Helper
             HttpContext.Current.Response.Redirect(Pages.ERROR_PAGE);
         }
 
+        public static bool AuthRole(string roleCd)
+        {
+            var userCom = new UserCom();
+            var userCd = PageHelper.UserCd;
+            if (DataCheckHelper.IsNull(userCd)) return false;
+            if (!userCom.IsExist(userCd, false)) return false;
+            var roles = userCom.GetUserRoles(userCd, false);
+            if(!roles.Contains(roleCd)) return false;
+            return true;
+        }
+
         public static bool HasAuthenticated
         {
             get
@@ -88,7 +99,10 @@ namespace MiBo.Domain.Common.Helper
                 var userCd = PageHelper.UserCd;
                 if (DataCheckHelper.IsNull(userCd)) return false;
                 if (!userCom.IsExist(userCd, false)) return false;
-                if (!userCom.AuthUserInGroups(userCd, Logics.GP_ADMINISTRATORS, false)) return false;
+                if (!userCom.AuthUserInGroups(userCd, Logics.GP_ADMINISTRATORS, false)
+                    && !userCom.AuthUserInGroups(userCd, Logics.GP_STAFFSELLERS, false)) 
+                    return false;
+
                 return true;
             }
         }

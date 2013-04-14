@@ -109,6 +109,10 @@ namespace MiBo.Domain.Logic.Admin.CategoryEntry
             adminCategoryEntryDao = new AdminCategoryEntryDao();
             mCodeCom = new MCodeCom();
 
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_CATEGORIES))
+                throw new ExecuteException("E_MSG_00013");
+
             // Check valid
             var dFlag = DataHelper.ToString(inputObject.DeleteFlag);
 

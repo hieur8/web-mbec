@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Admin.GiftList;
 using MiBo.Domain.Web.Admin.GiftList;
@@ -17,7 +15,7 @@ namespace MiBo.pages.administer
             if (IsPostBack) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
-            if (HasError) return;
+            if (HasError) { Redirect(Pages.ADMIN_INDEX); return; }
             rptGifts.DataSource = response.ListGifts;
             rptGifts.DataBind();
             ddlGiftStatus.DataSource = response.ListGiftStatus;

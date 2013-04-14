@@ -109,6 +109,10 @@ namespace MiBo.Domain.Logic.Admin.AcceptList
             adminAcceptListDao = new AdminAcceptListDao();
             mCodeCom = new MCodeCom();
 
+            // Check role
+            if (!PageHelper.AuthRole(Logics.RL_ACCEPTS))
+                throw new ExecuteException("E_MSG_00013");
+
             // Check valid
             int i = 0;
             foreach (var obj in inputObject.ListAccepts)

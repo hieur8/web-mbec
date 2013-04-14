@@ -15,7 +15,7 @@ namespace MiBo.pages.administer
             if (Page.IsPostBack) return;
             var logic = new InitOperateLogic();
             var response = Invoke(logic, InitRequestModel);
-            if (HasError) return;
+            if (HasError) { Redirect(Pages.ADMIN_INDEX); return; }
             fvwItemDatails.DataSource = response.Details;
             fvwItemDatails.DataBind();
         }

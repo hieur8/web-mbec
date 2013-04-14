@@ -37,7 +37,7 @@
                                 </a>
                                     <div class="align-prodname-price-review">
                                         <h3 class="product-name">
-                                            <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("ItemName") %>'
+                                            <a href="/item-details.aspx?pid=<%# Eval("ItemCd") %>" title='<%# Eval("Tooltip") %>'
                                                 class="title">
                                                 <%# Eval("ItemName") %>
                                             </a>
