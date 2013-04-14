@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true"
     CodeBehind="register.aspx.cs" Inherits="MiBo.pages.cln.register" %>
 
+<%@ Register Assembly="MSCaptcha" Namespace="MSCaptcha" TagPrefix="cc1" %>
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
@@ -110,12 +111,24 @@
                                 </div>
                             </div>
                         </li>
+                        <li>
+                            <label for="fields" class="required">
+                                Nhập mã bảo vệ bên dưới</label>
+                            <div class="input-box">
+                                <cc1:CaptchaControl ID="ccJoin" runat="server" CaptchaBackgroundNoise="Extreme" CaptchaLength="4"
+                                    CaptchaHeight="60" CaptchaWidth="210" CaptchaLineNoise="High" CaptchaMinTimeout="5"
+                                    CaptchaMaxTimeout="240" /><br />
+                                    <asp:TextBox ID="TextBox1" class="input-text" runat="server"></asp:TextBox><br />
+                                <asp:Label ID="Label1" runat="server" Style="color: #FF3300"></asp:Label>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="buttons-set">
                     <p class="required">
                         * Bắt buộc</p>
-                    <asp:LinkButton ID="btnRegister" Width="120" class="btn btn-blue" runat="server" OnClientClick="return $('#frmMain').valid();" OnClick="btnRegister_Click">
+                    <asp:LinkButton ID="btnRegister" Width="120" class="btn btn-blue" runat="server"
+                        OnClientClick="return $('#frmMain').valid();" OnClick="btnRegister_Click">
                         <span>Đăng ký</span>
                     </asp:LinkButton>
                 </div>

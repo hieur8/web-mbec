@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true" CodeBehind="confirm-checkout.aspx.cs" Inherits="MiBo.pages.cln.confirm_checkout" %>
+<%@ Register Assembly="MSCaptcha" Namespace="MSCaptcha" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
@@ -227,6 +228,17 @@
                                                         </div>
                                                     </div>
                                                 </li>
+                                                <li>
+                            <label for="fields" class="required">
+                                Nhập mã bảo vệ bên dưới</label>
+                            <div class="input-box">
+                                <cc1:CaptchaControl ID="ccJoin" runat="server" CaptchaBackgroundNoise="Extreme" CaptchaLength="4"
+                                    CaptchaHeight="60" CaptchaWidth="210" CaptchaLineNoise="High" CaptchaMinTimeout="5"
+                                    CaptchaMaxTimeout="240" /><br />
+                                    <asp:TextBox ID="TextBox1" class="input-text" runat="server"></asp:TextBox><br />
+                                <asp:Label ID="Label4" runat="server" Style="color: #FF3300"></asp:Label>
+                            </div>
+                        </li>
                                             </ul>
                                         </fieldset>
                                     </li>

@@ -106,6 +106,12 @@ namespace MiBo.pages.cln
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            ccJoin.ValidateCaptcha(TextBox1.Text);
+            if (!ccJoin.UserValidated)
+            {
+                Label4.Text = "Mã bảo vệ chưa chính xác";
+                return;
+            }
             if (Session["payMethod"].ToString().Equals("0"))
             {
                 var logic = new SaveOperateLogic();
