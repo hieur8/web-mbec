@@ -1,50 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true"
-    CodeBehind="checkout.aspx.cs" Inherits="MiBo.pages.cln.checkout" %>
-
-<asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true" CodeBehind="confirm-checkout.aspx.cs" Inherits="MiBo.pages.cln.confirm_checkout" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#frmMain").validate(
-        {
-            messages: {
-                ctl00$main$email: "Hãy nhập địa chỉ email",
-                ctl00$main$pass: "Hãy nhập mật khẩu",
-                ctl00$main$clientName: "Hãy nhập họ và tên người mua hàng",
-                ctl00$main$clientAddress: "Hãy nhập địa chỉ nơi mua hàng",
-                ctl00$main$clientTell: "Hãy nhập số điện thoại nơi mua hàng",
-                ctl00$main$deliveryName: "Hãy nhập họ và tên người nhận hàng",
-                ctl00$main$deliveryAddress: "Hãy nhập địa chỉ nơi nhận hàng",
-                ctl00$main$deliveryTell: "Hãy nhập số điện thoại người nhận hàng"
-
-            }
-        });
-            $('#<%=passConfirm.ClientID%>').attr('equalTo', '#<%=pass.ClientID%>');
-        });
-
-
-        function makeDelivery() {
-            $("#main_deliveryName").val($("#main_clientName").val());
-            $("#main_deliveryAddress").val($("#main_clientAddress").val());
-            $("#main_deliveryTell").val($("#main_clientTell").val());
-            $("#main_DropDownList2").val($("#main_DropDownList1").val());
-            $("#main_deliveryName").attr("disabled", "disabled");
-            $("#main_deliveryAddress").attr("disabled", "disabled");
-            $("#main_deliveryTell").attr("disabled", "disabled");
-            $("#main_DropDownList2").attr("disabled", "disabled");
-        }
-        function clearDelivery() {
-            $("#main_deliveryName").val('');
-            $("#main_deliveryAddress").val('');
-            $("#main_deliveryTell").val('');
-            $("#main_DropDownList2").val('294');
-            $("#main_deliveryName").removeAttr("disabled");
-            $("#main_deliveryAddress").removeAttr("disabled");
-            $("#main_deliveryTell").removeAttr("disabled");
-            $("#main_DropDownList2").removeAttr("disabled");
-        }
-    </script>
+<asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
     <div class="main-container col2-right-layout">
         <div class="main">
             <div class="col-main">
@@ -66,33 +23,17 @@
                             </li>
                         </ul>
                         <% 
-                           Session["error"] = null;
-                       } %>
+                       Session["error"] = null;
+                   } %>
                     </p>
                     <ul class="form-list">
                         <li>
                             <label for="email_address" class="required">
                                 <em>*</em>Địa chỉ email</label>
                             <div class="input-box">
-                                <asp:TextBox ID="email" class="input-text required email" runat="server"></asp:TextBox>
+                                <B><asp:Label ID="email" runat="server"></asp:Label></B>
                             </div>
-                        </li>
-                        <li class="fields">
-                            <div class="field">
-                                <label for="password" class="required">
-                                    <em>*</em>Mật khẩu</label>
-                                <div class="input-box">
-                                    <asp:TextBox ID="pass" TextMode="Password" minlength="6" class="input-text required"
-                                        runat="server"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label for="confirmation" class="required">
-                                    <em>*</em>Nhập lại mật khẩu</label>
-                                <div class="input-box">
-                                    <asp:TextBox ID="passConfirm" TextMode="Password" class="input-text" runat="server"></asp:TextBox>
-                                </div>
-                            </div>
+                            
                         </li>
                     </ul>
                 </div>
@@ -122,7 +63,7 @@
                                                             <label for="billing:firstname" class="required">
                                                                 <em>*</em>Họ và tên</label>
                                                             <div class="input-box">
-                                                                <asp:TextBox class="input-text required" minlength="2" ID="clientName" runat="server"></asp:TextBox>
+                                                            <B><asp:Label ID="clientName" runat="server"></asp:Label></B>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -131,14 +72,16 @@
                                                     <label for="billing:street1" class="required">
                                                         <em>*</em>Địa chỉ</label>
                                                     <div class="input-box">
-                                                        <asp:TextBox class="input-text required" ID="clientAddress" runat="server"></asp:TextBox>
+                                                    <B><asp:Label ID="clientAddress" runat="server"></asp:Label></B>
+                                                    
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <label for="fields" class="required">
                                                         <em>*</em>Tỉnh thành</label>
                                                     <div class="input-box">
-                                                        <asp:DropDownList ID="DropDownList1" DataValueField="Code" DataTextField="Name" runat="server">
+                                                        <asp:DropDownList ID="DropDownList1" DataValueField="Code" DataTextField="Name" 
+                                                            runat="server" Enabled="False">
                                                         </asp:DropDownList>
                                                     </div>
                                                 </li>
@@ -147,7 +90,8 @@
                                                         <label for="billing:telephone" class="required">
                                                             <em>*</em>Số điện thoại</label>
                                                         <div class="input-box">
-                                                            <asp:TextBox class="input-text required" ID="clientTell" runat="server"></asp:TextBox>
+                                                        <B><asp:Label ID="clientTell" runat="server"></asp:Label></B>
+                                                          
                                                         </div>
                                                     </div>
                                                 </li>
@@ -155,14 +99,6 @@
                                                     <input type="hidden" name="billing[save_in_address_book]" value="1"></li>
                                             </ul>
                                         </fieldset>
-                                    </li>
-                                    <li class="control">
-                                        <asp:RadioButton onclick="makeDelivery();" class="radio" Text="Giao hàng đến địa chỉ này"
-                                            ID="RadioButton1" GroupName="methodDelivery" runat="server" />
-                                    </li>
-                                    <li class="control">
-                                        <asp:RadioButton onclick="clearDelivery();" class="radio" Text="Giao hàng đến địa chỉ khác"
-                                            ID="methodDelivery1" GroupName="methodDelivery" runat="server" />
                                     </li>
                                 </ul>
                             </fieldset>
@@ -190,7 +126,8 @@
                                                             <label for="billing:firstname" class="required">
                                                                 <em>*</em>Họ và tên người nhận</label>
                                                             <div class="input-box">
-                                                                <asp:TextBox class="input-text required" ID="deliveryName" runat="server"></asp:TextBox>
+                                                            <B><asp:Label ID="deliveryName" runat="server"></asp:Label></B>
+                                                             
                                                             </div>
                                                         </div>
                                                     </div>
@@ -199,15 +136,15 @@
                                                     <label for="billing:street1" class="required">
                                                         <em>*</em>Địa chỉ nơi giao hàng</label>
                                                     <div class="input-box">
-                                                        <asp:TextBox class="input-text required" ID="deliveryAddress" runat="server"></asp:TextBox>
+                                                    <B><asp:Label ID="deliveryAddress" runat="server"></asp:Label></B>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <label for="fields" class="required">
                                                         <em>*</em>Tỉnh thành</label>
                                                     <div class="input-box">
-                                                        <asp:DropDownList ID="DropDownList2" DataValueField="Code" DataTextField="Name" runat="server"
-                                                           >
+                                                        <asp:DropDownList ID="DropDownList2" DataValueField="Code" DataTextField="Name" 
+                                                            runat="server" Enabled="False">
                                                         </asp:DropDownList>
                                                     </div>
                                                 </li>
@@ -216,7 +153,7 @@
                                                         <label for="billing:telephone" class="required">
                                                             <em>*</em>Số điện thoại nơi giao hàng</label>
                                                         <div class="input-box">
-                                                            <asp:TextBox class="input-text required" ID="deliveryTell" runat="server"></asp:TextBox>
+                                                        <B><asp:Label ID="deliveryTell" runat="server"></asp:Label></B>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -284,7 +221,7 @@
                                                                 Ghi chú</label>
                                                             <div class="input-box">
                                                                 <asp:TextBox class="input-text" TextMode="MultiLine" ID="note" runat="server" Height="75px"
-                                                                    Width="549px"></asp:TextBox>
+                                                                    Width="549px" Enabled="False"></asp:TextBox>
                                                                 <br />
                                                             </div>
                                                         </div>
@@ -296,12 +233,10 @@
                                 </ul>
                             </fieldset>
                             <div class="buttons-set" id="billing-buttons-container" style="">
-                                <p class="required">
-                                    * Bắt buộc nhập</p>
-                                <asp:LinkButton ID="Button1" Width="120" runat="server" class="btn btn-blue" OnClientClick="return $('#frmMain').valid();"
-                                    OnClick="Button1_Click"><span>Xác nhận</span></asp:LinkButton>
+                            <a href="#" class="btn btn-brown" onclick="javascript:window.history.back();" ><span>Chỉnh sửa</span></a>
+                                <asp:LinkButton ID="Button1" Width="120" runat="server" class="btn btn-blue" onclick="Button1_Click"
+                                    ><span>Xác nhận</span></asp:LinkButton>
                             </div>
-                            <asp:HiddenField ID="txtClientCd" runat="server" />
                         </div>
                     </li>
                 </ol>
@@ -310,14 +245,13 @@
                 <div id="checkout-progress-wrapper">
                     <div class="block block-progress">
                         <div class="block-title">
-                            <strong><span>Quá trình mua hàng</span></strong>
+                            <strong><span>Đơn hàng</span></strong>
                         </div>
                         <div class="block-content">
                             <dl>
-                                <dt>Thông tin đơn hàng</dt>
-                                <dt>Thông tin giao hàng</dt>
-                                <dt>Phương thức thanh toán</dt>
-                                <dt>Xác nhận đơn hàng</dt>
+                                <dt>Tổng tiền:<asp:Label ForeColor="Red" ID="Label1" runat="server" Text="0"></asp:Label></dt>
+                                <dt>Phí giao hàng:<asp:Label ForeColor="Red" ID="Label2" runat="server" Text="Miễn phí"></asp:Label></dt>
+                                <dt>Tổng cộng:<asp:Label ForeColor="Red" ID="Label3" runat="server" Text="0"></asp:Label></dt>
                             </dl>
                         </div>
                     </div>

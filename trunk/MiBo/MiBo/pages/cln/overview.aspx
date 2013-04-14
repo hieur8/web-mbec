@@ -10,6 +10,7 @@
     %>
     <center>
      <h1>Đặt hàng thành công</h1>
+     <p>Đơn hàng của bạn đã được gởi đến bộ phận bán hàng của Mibo. Bạn cũng có thể theo dõi đơn hàng của bạn <a href="order-history.aspx">tại đây</a></p>
          <p>
              <asp:LinkButton ID="Button1" Width="140" class="btn btn-blue" runat="server" onclick="Button1_Click">
              <span>Quay lại trang chủ</span></asp:LinkButton>

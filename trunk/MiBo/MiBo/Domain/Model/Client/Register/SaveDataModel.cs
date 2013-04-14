@@ -7,6 +7,7 @@ namespace MiBo.Domain.Model.Client.Register
         public string Fullname { get; set; }
         public string Password { get; set; }
         public string Address { get; set; }
+        public string CityCd { get; set; }
         public string Phone1 { get; set; }
         public string Phone2 { get; set; }
         public Guid UserCd { get; set; }

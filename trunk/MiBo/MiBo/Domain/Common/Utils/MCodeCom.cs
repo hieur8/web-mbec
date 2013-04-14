@@ -308,5 +308,21 @@ namespace MiBo.Domain.Common.Utils
 
             return listResult;
         }
+
+        public IList<MCode> GetListCity()
+        {
+            var data = _comDao.GetListCity(false);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.CityCd;
+                code.CodeName = obj.CityName;
+                listResult.Add(code);
+            }
+
+            return listResult;
+        }
     }
 }

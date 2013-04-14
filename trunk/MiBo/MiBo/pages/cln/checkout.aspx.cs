@@ -11,6 +11,11 @@ using MiBo.Domain.Web.Client.Checkout;
 using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Web.Client.Register;
 using MiBo.Domain.Logic.Client.Register;
+using MiBo.Domain.Common.Utils;
+using MiBo.Domain.Common.Model;
+using MiBo.Domain.Common.Helper;
+using Resources;
+using MiBo.Domain.Model.Client.Checkout;
 
 namespace MiBo.pages.cln
 {
@@ -25,6 +30,16 @@ namespace MiBo.pages.cln
             }
             else
             {
+                //load data
+                MCodeCom codeCom = new MCodeCom();
+                IList<ComboItem> citylst = MCodeCom.ToComboItems(codeCom.GetListCity(), "294").ListItems;
+                DropDownList1.DataSource = citylst;
+                DropDownList1.DataBind();
+                DropDownList1.SelectedValue = "294";
+                DropDownList2.DataSource = citylst;
+                DropDownList2.DataBind();
+                DropDownList2.SelectedValue = "294";
+
                 UserComDao userCom = new UserComDao();
                 if (Session["Cart"] == null || Session["payMethod"] == null)
                 {
@@ -49,37 +64,45 @@ namespace MiBo.pages.cln
                         clientAddress.Text = result.Address;
                         clientTell.Text = result.Phone1;
                         txtClientCd.Value = result.Email;
+                        DropDownList1.SelectedValue = result.CityCd;
+
+                        RadioButton1.Checked = true;
+
+                        deliveryName.Text = result.FullName;
+                        deliveryAddress.Text = result.Address;
+                        deliveryTell.Text = result.Phone1;
+                        DropDownList2.SelectedValue = result.CityCd;
+
                     }
 
 
                 }
+                else
+                {
+                    methodDelivery1.Checked = true;
+                }
+
+
             }
-           
-        
+
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (Session["payMethod"].ToString().Equals("0"))
             {
-                var logicRegister = new SaveOperateLogic();
-                var responseRegister = Invoke(logicRegister, SaveRequestModel);
-                if (HasError) return;
+                setSaveRequestModel();
             }
-            var logic = new CheckoutOperateLogic();
-            var response = Invoke(logic, CheckoutRequestModel);
-            if (HasError)
-            {
-                Session["msgInfo"] = "Có lỗi trong quá trình thanh toán, vui lòng thử lại !";
-            }
+            setCheckoutRequestModel();
 
-            Response.Redirect(Pages.CLIENT_OVERVIEW);
+            Session["hasCheckout"] = true;
+            Response.Redirect(Pages.CLIENT_CONFIRM_CHECKOUT);
         }
-        private CheckoutRequestModel CheckoutRequestModel
+        private void setCheckoutRequestModel()
         {
-            get
-            {
-                var request = new CheckoutRequestModel();
+         
+                CheckoutRequestModel request = new CheckoutRequestModel();
                 DateTime dateNow = DateTime.Now;
                 Accept accept = new Accept();
                 if (Session["payMethod"].ToString().Equals("1"))
@@ -96,17 +119,11 @@ namespace MiBo.pages.cln
                 accept.ClientAddress = clientAddress.Text.Trim();
                 accept.ClientTel = clientTell.Text.Trim();
                 accept.DeliveryName = deliveryName.Text.Trim();
-                if (!deliveryDate.Text.Equals(""))
-                {
-                    accept.WishDeliveryDate = DateTime.Parse(deliveryDate.Text.Trim());
-                }
                 accept.DeliveryName = deliveryName.Text;
                 accept.DeliveryAddress = deliveryAddress.Text;
                 accept.DeliveryTel = deliveryTell.Text;
                 accept.Notes = note.Text.ToString();
-                accept.CreateUser = accept.ClientCd;
                 accept.CreateDate = dateNow;
-                accept.UpdateUser = accept.ClientCd;
                 accept.UpdateDate = dateNow;
                 accept.DeleteFlag = false;
                 if (pay1.Checked)
@@ -127,29 +144,31 @@ namespace MiBo.pages.cln
                     accept.SlipStatus = "04";
                 }
                 accept.Notes = note.Text;
+                accept.CreateUser = DropDownList1.SelectedValue;
+                accept.UpdateUser = DropDownList2.SelectedValue;
+                
                 request.Accept = accept;
                 request.Cart = Session["Cart"];
+            
                 if (Session["GiftCd"] != null)
                 {
                     accept.UseGiftCd = Session["GiftCd"].ToString();
                 }
-                return request;
-               
-            }
+                Session["CheckoutRequestModel"] = request;      
         }
 
-        private SaveRequestModel SaveRequestModel
+        private void setSaveRequestModel()
         {
-            get
-            {
-                var request = new SaveRequestModel();
+                SaveRequestModel request = new SaveRequestModel();
                 request.Email = email.Text.Trim().ToString();
                 request.Password = pass.Text.ToString();
                 request.Fullname = clientName.Text.Trim();
                 request.Address = clientAddress.Text.Trim();
                 request.Phone1 = clientTell.Text.Trim();
-                return request;
-            }
+                request.CityCd = DropDownList1.SelectedValue;
+                Session["SaveRequestModel"] = request;
         }
+
+
     }
 }

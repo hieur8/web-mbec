@@ -12,7 +12,7 @@
         public const string CLIENT_CHECKOUT = "/checkout.aspx";
         public const string CLIENT_REGISTER = "/register.aspx";
         public const string CLIENT_ACTIVE = "/active.aspx";
-
+        public const string CLIENT_CONFIRM_CHECKOUT = "/confirm-checkout.aspx";
         // Admin
         public const string ADMIN_INDEX = "/pages/administer/index.aspx";
         public const string ADMIN_USER_LOGIN = "/pages/administer/user-login.aspx";

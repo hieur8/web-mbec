@@ -21,6 +21,7 @@ namespace MiBo.Domain.Dao
             entity.Address = inputObject.Address;
             entity.Phone1 = inputObject.Phone1;
             entity.Phone2 = inputObject.Phone2;
+            entity.CityCd = inputObject.CityCd;
             entity.HasNewsletter = false;
             entity.CreateUser = inputObject.Email;
             entity.CreateDate = currentDate;

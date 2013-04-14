@@ -165,5 +165,12 @@ namespace MiBo.Domain.Common.Dao
             if (listResult == null) listResult = new List<Unit>();
             return listResult;
         }
+
+        public IEnumerable<City> GetListCity(bool ignoreDeleteFlag)
+        {
+            var listResult = GetList<City>(ignoreDeleteFlag);
+            if (listResult == null) listResult = new List<City>();
+            return listResult;
+        }
     }
 }
