@@ -142,7 +142,7 @@ namespace MiBo.Domain.Logic.Admin.BrandEntry
                     throw new ExecuteException("E_MSG_DATA_00004", "Mã thương hiệu");
 
                 if (!adminBrandEntryDao.IsExistBrand(inputObject.BrandCd))
-                    throw new DataNotExistException("Thương");
+                    throw new DataNotExistException("Thương hiệu");
             }
         }
 

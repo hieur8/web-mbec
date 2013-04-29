@@ -2,6 +2,7 @@
 using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Model.Client.Register;
+using MiBo.Domain.Common.Constants;
 
 namespace MiBo.Domain.Dao
 {
@@ -29,9 +30,18 @@ namespace MiBo.Domain.Dao
             entity.UpdateDate = currentDate;
             entity.DeleteFlag = true;
 
-            EntityManager.Users.InsertOnSubmit(entity);
+            var entityGroupUser = new UserGroup();
+            entityGroupUser.UserCd = inputObject.UserCd;
+            entityGroupUser.GroupCd = Logics.GP_USERS;
+            entityGroupUser.CreateUser = inputObject.Email;
+            entityGroupUser.CreateDate = currentDate;
+            entityGroupUser.UpdateUser = inputObject.Email;
+            entityGroupUser.UpdateDate = currentDate;
+            entityGroupUser.DeleteFlag = true;
 
-            
+            // Insert data
+            EntityManager.Users.InsertOnSubmit(entity);
+            EntityManager.UserGroups.InsertOnSubmit(entityGroupUser);
         }
     }
 }

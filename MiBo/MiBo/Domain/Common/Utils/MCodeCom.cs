@@ -309,6 +309,79 @@ namespace MiBo.Domain.Common.Utils
             return listResult;
         }
 
+        /// <summary>
+        /// Get list role
+        /// </summary>
+        /// <param name="nullValue">NullValue</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List role</returns>
+        public IList<MCode> GetListRole(bool nullValue, bool ignoreDeleteFlag)
+        {
+            var data = _comDao.GetListRole(ignoreDeleteFlag);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            if (nullValue) listResult.Add(code);
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.RoleCd;
+                code.CodeName = obj.RoleName;
+                listResult.Add(code);
+            }
+
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list group
+        /// </summary>
+        /// <param name="nullValue">NullValue</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List group</returns>
+        public IList<MCode> GetListGroup(bool nullValue, bool ignoreDeleteFlag)
+        {
+            var data = _comDao.GetListGroup(ignoreDeleteFlag);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            if (nullValue) listResult.Add(code);
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.GroupCd;
+                code.CodeName = obj.GroupName;
+                listResult.Add(code);
+            }
+
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list city
+        /// </summary>
+        /// <param name="nullValue">NullValue</param>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List city</returns>
+        public IList<MCode> GetListCity(bool nullValue, bool ignoreDeleteFlag)
+        {
+            var data = _comDao.GetListCity(ignoreDeleteFlag);
+            var listResult = new List<MCode>();
+            var code = new MCode();
+            if (nullValue) listResult.Add(code);
+            foreach (var obj in data)
+            {
+                code = new MCode();
+                code.CodeCd = obj.CityCd;
+                code.CodeName = obj.CityName;
+                listResult.Add(code);
+            }
+
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list city
+        /// </summary>
+        /// <returns>List city</returns>
         public IList<MCode> GetListCity()
         {
             var data = _comDao.GetListCity(false);

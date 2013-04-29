@@ -24,6 +24,8 @@ namespace MiBo.pages.common
                 mGifts.Visible = true;
             if (PageHelper.AuthRole(Logics.RL_SYSTEMS))
                 mSystems.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_USERS))
+                mUsers.Visible = true;
         }
 
         protected void lnkSignOut_Command(object sender, CommandEventArgs e)

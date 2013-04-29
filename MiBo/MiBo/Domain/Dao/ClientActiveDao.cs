@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Dao;
 
 namespace MiBo.Domain.Dao
@@ -19,9 +18,18 @@ namespace MiBo.Domain.Dao
                              select tbl;
             var entity = listResult.SingleOrDefault();
 
+            var listResultUserGroup = from tbl in EntityManager.UserGroups
+                                      where tbl.UserCd == userCd 
+                                      && tbl.GroupCd == Logics.GP_USERS
+                                      select tbl;
+            var entityUserGroup = listResultUserGroup.SingleOrDefault();
+
             // Set data
             entity.UpdateDate = currentDate;
             entity.DeleteFlag = false;
+
+            entityUserGroup.UpdateDate = currentDate;
+            entityUserGroup.DeleteFlag = false;
 
             // Submit
             EntityManager.SubmitChanges();

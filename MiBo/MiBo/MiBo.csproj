@@ -80,12 +80,18 @@
     <Content Include="pages\administer\category-entry.aspx" />
     <Content Include="pages\administer\category-list.aspx" />
     <Content Include="pages\administer\gift-list.aspx" />
+    <Content Include="pages\administer\group-entry.aspx" />
+    <Content Include="pages\administer\group-list.aspx" />
+    <Content Include="pages\administer\group-role-entry.aspx" />
+    <Content Include="pages\administer\group-role-list.aspx" />
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-entry.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
     <Content Include="pages\administer\param-list.aspx" />
     <Content Include="pages\administer\upload-image.aspx" />
     <Content Include="pages\administer\user-change-password.aspx" />
+    <Content Include="pages\administer\user-entry.aspx" />
+    <Content Include="pages\administer\user-list.aspx" />
     <Content Include="pages\administer\user-login.aspx" />
     <Content Include="pages\cln\active.aspx" />
     <Content Include="pages\cln\changes.aspx" />
@@ -205,6 +211,7 @@
     <Content Include="pages\resources\images\green-dream_20.gif" />
     <Content Include="pages\resources\images\green-dream_23.gif" />
     <Content Include="pages\resources\images\home-icon.png" />
+    <Content Include="pages\resources\images\icons\add.png" />
     <Content Include="pages\resources\images\icons\cross_circle.png" />
     <Content Include="pages\resources\images\icons\cross_grey_small.png" />
     <Content Include="pages\resources\images\icons\delete.png" />
@@ -747,8 +754,14 @@
     <Compile Include="Domain\Dao\AdminCategoryEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminCategoryListDao.cs" />
     <Compile Include="Domain\Dao\AdminGiftListDao.cs" />
+    <Compile Include="Domain\Dao\AdminGroupEntryDao.cs" />
+    <Compile Include="Domain\Dao\AdminGroupListDao.cs" />
+    <Compile Include="Domain\Dao\AdminGroupRoleEntryDao.cs" />
+    <Compile Include="Domain\Dao\AdminGroupRoleListDao.cs" />
     <Compile Include="Domain\Dao\AdminItemEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminItemListDao.cs" />
+    <Compile Include="Domain\Dao\AdminUserEntryDao.cs" />
+    <Compile Include="Domain\Dao\AdminUserListDao.cs" />
     <Compile Include="Domain\Dao\ClientAcceptDetailsDao.cs" />
     <Compile Include="Domain\Dao\ClientAcceptsDao.cs" />
     <Compile Include="Domain\Dao\ClientActiveDao.cs" />
@@ -789,6 +802,22 @@
     <Compile Include="Domain\Logic\Admin\GiftList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\GiftList\UpdateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\GiftList\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupEntry\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupEntry\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupEntry\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupList\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupList\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupRoleEntry\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupRoleEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupRoleEntry\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupRoleEntry\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupRoleList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupRoleList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupRoleList\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GroupRoleList\UpdateOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemEntry\SaveLogic.cs" />
@@ -811,6 +840,14 @@
     <Compile Include="Domain\Logic\Admin\UploadImage\UploadOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserChangePassword\SaveLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserChangePassword\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserEntry\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserEntry\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserEntry\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserList\FilterLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserList\FilterOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\UserList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserLogin\AuthLogic.cs" />
     <Compile Include="Domain\Logic\Admin\UserLogin\AuthOperateLogic.cs" />
     <Compile Include="Domain\Logic\Client\AcceptDetails\InitLogic.cs" />
@@ -865,6 +902,14 @@
     <Compile Include="Domain\Model\Admin\GiftList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\GiftList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\GiftList\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GroupEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GroupEntry\SaveDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GroupList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GroupList\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GroupRoleEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GroupRoleEntry\SaveDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GroupRoleList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GroupRoleList\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
@@ -876,6 +921,10 @@
     <Compile Include="Domain\Model\Admin\UploadImage\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\UploadImage\UploadDataModel.cs" />
     <Compile Include="Domain\Model\Admin\UserChangePassword\SaveDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UserEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UserEntry\SaveDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UserList\FilterDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\UserList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\UserLogin\AuthDataModel.cs" />
     <Compile Include="Domain\Model\Client\AcceptDetails\InitDataModel.cs" />
     <Compile Include="Domain\Model\Client\Accepts\InitDataModel.cs" />
@@ -929,6 +978,21 @@
     <Compile Include="Domain\Web\Admin\GiftList\OutputGiftModel.cs" />
     <Compile Include="Domain\Web\Admin\GiftList\UpdateRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\GiftList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupEntry\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupEntry\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupEntry\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupEntry\SaveResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupList\OutputGroupModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupList\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleList\OutputGroupRoleModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleList\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleList\UpdateResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemEntry\OutputDetailsModel.cs" />
@@ -944,6 +1008,11 @@
     <Compile Include="Domain\Web\Admin\ParamList\OutputParamModel.cs" />
     <Compile Include="Domain\Web\Admin\ParamList\UpdateRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ParamList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleEntry\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleEntry\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleEntry\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GroupRoleEntry\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\UploadImage\DeleteRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\UploadImage\DeleteResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\UploadImage\InitRequestModel.cs" />
@@ -955,6 +1024,16 @@
     <Compile Include="Domain\Web\Admin\UploadImage\UploadResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\UserChangePassword\SaveRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\UserChangePassword\SaveResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserEntry\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserEntry\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserEntry\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserEntry\SaveResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserList\FilterRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserList\FilterResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\UserList\OutputUserModel.cs" />
     <Compile Include="Domain\Web\Admin\UserLogin\AuthRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\UserLogin\AuthResponseModel.cs" />
     <Compile Include="Domain\Web\Client\AcceptDetails\InitRequestModel.cs" />
@@ -1066,6 +1145,34 @@
     <Compile Include="pages\administer\gift-list.aspx.designer.cs">
       <DependentUpon>gift-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\administer\group-entry.aspx.cs">
+      <DependentUpon>group-entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\group-entry.aspx.designer.cs">
+      <DependentUpon>group-entry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\group-list.aspx.cs">
+      <DependentUpon>group-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\group-list.aspx.designer.cs">
+      <DependentUpon>group-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\group-role-entry.aspx.cs">
+      <DependentUpon>group-role-entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\group-role-entry.aspx.designer.cs">
+      <DependentUpon>group-role-entry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\group-role-list.aspx.cs">
+      <DependentUpon>group-role-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\group-role-list.aspx.designer.cs">
+      <DependentUpon>group-role-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\administer\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1107,6 +1214,20 @@
     </Compile>
     <Compile Include="pages\administer\user-change-password.aspx.designer.cs">
       <DependentUpon>user-change-password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\user-entry.aspx.cs">
+      <DependentUpon>user-entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\user-entry.aspx.designer.cs">
+      <DependentUpon>user-entry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\user-list.aspx.cs">
+      <DependentUpon>user-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\user-list.aspx.designer.cs">
+      <DependentUpon>user-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\user-login.aspx.cs">
       <DependentUpon>user-login.aspx</DependentUpon>

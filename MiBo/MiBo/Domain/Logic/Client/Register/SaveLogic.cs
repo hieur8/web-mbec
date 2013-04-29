@@ -1,11 +1,11 @@
-﻿using MiBo.Domain.Common.Constants;
+﻿using System;
+using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Exceptions;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Common.Utils;
 using MiBo.Domain.Dao;
 using MiBo.Domain.Model.Client.Register;
 using MiBo.Domain.Web.Client.Register;
-using System;
 
 namespace MiBo.Domain.Logic.Client.Register
 {

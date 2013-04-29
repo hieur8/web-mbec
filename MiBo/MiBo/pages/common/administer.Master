@@ -127,6 +127,14 @@
 
                         </ul>
                     </li>
+                    <li id="mUsers" runat="server" visible="false"><a id="mnuUsers" href="#" class="nav-top-item">Quản lý tài khoản</a>
+                        <ul>
+                            <li><a id="lnkUsers" href="/pages/administer/user-list.aspx">Danh sách tài khoản</a></li>
+                            <li><a id="lnkUserEntry" href="/pages/administer/user-entry.aspx">Thêm/sửa tài khoản</a></li>
+                            <li><a id="lnkGroups" href="/pages/administer/group-list.aspx">Danh sách nhóm</a></li>
+                            <li><a id="lnkGroupEntry" href="/pages/administer/group-entry.aspx">Thêm nhóm</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <!-- End #main-nav -->
             </div>
