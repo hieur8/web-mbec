@@ -5,6 +5,7 @@
         // Description for common
         public const string TEXT_BLANK = "";
         public const string LOCALE_DEFAULT = "vi-VN";
+        public const string PASSWORD_DEFAULT = "mibovn";
 
         // Description for delimiter
         public const char DELIMITER_SKIP_CODE = ',';

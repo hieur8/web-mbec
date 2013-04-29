@@ -99,8 +99,7 @@ namespace MiBo.Domain.Common.Helper
                 var userCd = PageHelper.UserCd;
                 if (DataCheckHelper.IsNull(userCd)) return false;
                 if (!userCom.IsExist(userCd, false)) return false;
-                if (!userCom.AuthUserInGroups(userCd, Logics.GP_ADMINISTRATORS, false)
-                    && !userCom.AuthUserInGroups(userCd, Logics.GP_STAFFSELLERS, false)) 
+                if (userCom.AuthUserInGroups(userCd, Logics.GP_USERS, false)) 
                     return false;
 
                 return true;

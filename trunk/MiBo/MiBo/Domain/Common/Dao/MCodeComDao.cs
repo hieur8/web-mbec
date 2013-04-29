@@ -166,6 +166,35 @@ namespace MiBo.Domain.Common.Dao
             return listResult;
         }
 
+        /// <summary>
+        /// Get list role
+        /// </summary>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List role</returns>
+        public IEnumerable<Role> GetListRole(bool ignoreDeleteFlag)
+        {
+            var listResult = GetList<Role>(ignoreDeleteFlag);
+            if (listResult == null) listResult = new List<Role>();
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list group
+        /// </summary>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List group</returns>
+        public IEnumerable<Group> GetListGroup(bool ignoreDeleteFlag)
+        {
+            var listResult = GetList<Group>(ignoreDeleteFlag);
+            if (listResult == null) listResult = new List<Group>();
+            return listResult;
+        }
+
+        /// <summary>
+        /// Get list city
+        /// </summary>
+        /// <param name="ignoreDeleteFlag">IgnoreDeleteFlag</param>
+        /// <returns>List city</returns>
         public IEnumerable<City> GetListCity(bool ignoreDeleteFlag)
         {
             var listResult = GetList<City>(ignoreDeleteFlag);

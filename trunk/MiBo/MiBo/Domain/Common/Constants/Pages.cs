@@ -17,6 +17,8 @@
         public const string ADMIN_INDEX = "/pages/administer/index.aspx";
         public const string ADMIN_USER_LOGIN = "/pages/administer/user-login.aspx";
         public const string ADMIN_USER_CHANGE_PASSWORD = "/pages/administer/user-change-password.aspx";
+        public const string ADMIN_USER_ENTRY = "/pages/administer/user-entry.aspx";
+        public const string ADMIN_USER_LIST = "/pages/administer/user-list.aspx";
         public const string ADMIN_ITEM_ENTRY = "/pages/administer/item-entry.aspx";
         public const string ADMIN_ITEM_LIST = "/pages/administer/item-list.aspx";
         public const string ADMIN_ACCEPT_ENTRY = "/pages/administer/accept-entry.aspx";
@@ -25,5 +27,9 @@
         public const string ADMIN_BRAND_LIST = "/pages/administer/brand-list.aspx";
         public const string ADMIN_CATEGORY_ENTRY = "/pages/administer/category-entry.aspx";
         public const string ADMIN_CATEGORY_LIST = "/pages/administer/category-list.aspx";
+        public const string ADMIN_GROUP_ENTRY = "/pages/administer/group-entry.aspx";
+        public const string ADMIN_GROUP_LIST = "/pages/administer/group-list.aspx";
+        public const string ADMIN_GROUP_ROLE_ENTRY = "/pages/administer/group-role-entry.aspx";
+        public const string ADMIN_GROUP_ROLE_LIST = "/pages/administer/group-role-list.aspx";
     }
 }
