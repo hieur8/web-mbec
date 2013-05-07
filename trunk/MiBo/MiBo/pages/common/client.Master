@@ -226,7 +226,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="#" data-reveal-id="myModal">Dịch vụ quà tặng</a></li>
+                        <li><a href="#" data-reveal-id="myModal2">Dịch vụ quà tặng</a></li>
                     </ul>
                 </div>
             </div>
@@ -256,8 +256,7 @@
                     Mua sắm an toàn</div>
                 <div class="content-text">
                     <ul class="firstcol">
-                        <li class="staticlinks"><a href="#">Hướng dẫn đặt hàng</a></li>
-                        <li class="staticlinks"><a href="#">Hướng dẫn thanh toán</a></li>
+                        <li class="staticlinks"><a href="PayInfo.aspx">Hình thức thanh toán</a></li>
                         <li class="staticlinks"><a href="privacy-policy.aspx">Chính sách bảo mật</a></li>
                         <li class="staticlinks"><a href="terms-of-use.aspx">Điều khoản sử dụng</a></li>
                     </ul>
@@ -269,7 +268,7 @@
                     Về MIBO.VN</div>
                 <div class="content-text">
                     <ul class="firstcol">
-                        <li class="staticlinks"><a href="#24-hours-products ">Giới thiệu mibo.vn</a></li>
+                        <li class="staticlinks"><a href="#" data-reveal-id="myModal3">Giới thiệu mibo.vn</a></li>
                         <li class="staticlinks"><a href="#gift-vouchers">Tuyển Dụng </a></li>
                     </ul>
                 </div>
@@ -283,10 +282,16 @@
     </div>
     <div style="width: 1005px; margin: 0 auto; background-color: #f2f2f2">
         <div class="address">
-            <p style="padding-top: 8px; text-align: left">
+        <table>
+        <tr>
+        <td valign="bottom"><img alt="Nguyen Phong" style="padding:5px;padding-top:10px" src="/pages/resources/images/NP.jpg" /></td>
+        <td><p style="padding-top: 8px; text-align: left">
                 Đơn vị chủ quản: Tin Học Nguyễn Phong<br />
                 Địa chỉ: 96/22A Đường số 5, P.17, Q.Gò Vấp, TP.HCM<br />
-                Giấy chứng nhận đăng ký kinh doanh số 0312106322.</p>
+                Giấy chứng nhận đăng ký kinh doanh số 0312106322.</p></td>
+        </tr>
+        </table>
+            
         </div>
         <div class="right-ft-card-follow">
             <a href="#" target="_blank">
@@ -294,7 +299,7 @@
         </div>
     </div>
     </form>
-    <div id="myModal" style="text-align:left" class="reveal-modal">
+    <div id="myModal2" style="text-align:left" class="reveal-modal">
 			<h1>Dịch vụ quà tặng</h1>
 			<p>Chỉ với 10.000 VND cho gói dịch vụ quà tặng của mibo.vn</p>
             <p>Sản phẩm sẽ được gỡ bỏ túi nhựa bảo vệ bên ngoài , bọc trong giấy lụa mỏng,
@@ -320,6 +325,16 @@ nhiệm.</li>
 <p style="font-weight:bold">Vui lòng gọi (08) 22149922 nếu bạn cần thêm thông tin.</p>
 			<a class="close-reveal-modal">&#215;</a>
 		</div>
+        <div id="myModal3" style="text-align:left" class="reveal-modal">
+        <h1>Giới thiệu</h1>
+			<p>Thế giới đồ chơi trẻ em xin kính chào quý khách !!!</p>
+            <p>
+Mibo.vn là website chuyên cung cấp đồ chơi và đồ dùng học tập cho bé từ lúc chào đời cho đến đến lứa tuổi tinh nghịch thích tìm tòi, học hỏi khám phá. Được phân phối trực tiếp từ các thương hiệu sản xuất đồ chơi nổi tiếng trên thế giới cũng như Việt Nam nên bên cạnh việc đảm bảo tiêu chuẩn chất lượng và an toàn cho sức khỏe thì các sản phẩm do mibo.vn cung cấp còn mang tính giáo dục cao cũng như giúp phát triển tiềm năng trí tuệ cho trẻ. Với mẫu mã vô cùng phong phú, đa dạng, bé sẽ thỏa sức khám phá và sáng tạo.</p>
+<p>Mibo.vn cam kết không bán hàng Trung Quốc, hàng kém chất lượng để bảo vệ sức khỏe cho bé yêu của bạn do đó bạn có thể yên tâm khi mua hàng.</p>
+<p>Hãy đến với mibo.vn chắc chắn các bạn sẽ hài lòng từ cách phục vụ, chăm sóc khách hàng đến chất lượng sản phẩm.</p>
+
+        <a class="close-reveal-modal">&#215;</a>
+        </div>
 </body>
 </html>
 <% 
