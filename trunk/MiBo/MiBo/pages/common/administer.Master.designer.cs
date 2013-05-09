@@ -67,6 +67,15 @@ namespace MiBo.pages.common {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mItems;
         
         /// <summary>
+        /// mOffers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mOffers;
+        
+        /// <summary>
         /// mBrands control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,24 @@ namespace MiBo.pages.common {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mGifts;
+        
+        /// <summary>
+        /// lnkGifts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkGifts;
+        
+        /// <summary>
+        /// lnkGiftEntry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkGiftEntry;
         
         /// <summary>
         /// mSystems control.

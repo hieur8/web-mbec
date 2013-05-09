@@ -51,6 +51,7 @@
         public const string GROUP_SLIP_STATUS = "sys-slip-status";
         public const string GROUP_GIFT_STATUS = "sys-gift-status";
         public const string GROUP_PAYMENT_METHODS = "sys-payment-methods";
+        public const string GROUP_OFFER_DIV = "sys-offer-div";
 
         // Description for master code
         public const string CD_ITEM_DIV_NONE = "01";
@@ -87,6 +88,8 @@
         public const string RL_BRANDS = "role-brands";
         public const string RL_CATEGORIES = "role-categories";
         public const string RL_GIFTS = "role-gifts";
+        public const string RL_GIFT_ENTRY = "role-gift-entry";
         public const string RL_SYSTEMS = "role-systems";
+        public const string RL_OFFERS = "role-offers";
     }
 }

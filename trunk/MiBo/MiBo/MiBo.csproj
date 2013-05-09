@@ -68,9 +68,6 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Messages.designer.cs</LastGenOutput>
     </Content>
-    <Content Include="bin\MiBo.dll" />
-    <Content Include="bin\MiBo.pdb" />
-    <Content Include="bin\MSCaptcha.dll" />
     <Content Include="Global.asax" />
     <Content Include="admin.htm" />
     <Content Include="pages\administer\accept-list.aspx" />
@@ -79,6 +76,7 @@
     <Content Include="pages\administer\brand-list.aspx" />
     <Content Include="pages\administer\category-entry.aspx" />
     <Content Include="pages\administer\category-list.aspx" />
+    <Content Include="pages\administer\gift-entry.aspx" />
     <Content Include="pages\administer\gift-list.aspx" />
     <Content Include="pages\administer\group-entry.aspx" />
     <Content Include="pages\administer\group-list.aspx" />
@@ -87,6 +85,8 @@
     <Content Include="pages\administer\index.aspx" />
     <Content Include="pages\administer\item-entry.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
+    <Content Include="pages\administer\offer-entry.aspx" />
+    <Content Include="pages\administer\offer-list.aspx" />
     <Content Include="pages\administer\param-list.aspx" />
     <Content Include="pages\administer\upload-image.aspx" />
     <Content Include="pages\administer\user-change-password.aspx" />
@@ -107,6 +107,7 @@
     <Content Include="pages\cln\order-details.aspx" />
     <Content Include="pages\cln\order-history.aspx" />
     <Content Include="pages\cln\overview.aspx" />
+    <Content Include="pages\cln\PayInfo.aspx" />
     <Content Include="pages\cln\privacy-policy.aspx" />
     <Content Include="pages\cln\profile-edit.aspx" />
     <Content Include="pages\cln\profile.aspx" />
@@ -753,6 +754,7 @@
     <Compile Include="Domain\Dao\AdminBrandListDao.cs" />
     <Compile Include="Domain\Dao\AdminCategoryEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminCategoryListDao.cs" />
+    <Compile Include="Domain\Dao\AdminGiftEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminGiftListDao.cs" />
     <Compile Include="Domain\Dao\AdminGroupEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminGroupListDao.cs" />
@@ -760,6 +762,8 @@
     <Compile Include="Domain\Dao\AdminGroupRoleListDao.cs" />
     <Compile Include="Domain\Dao\AdminItemEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminItemListDao.cs" />
+    <Compile Include="Domain\Dao\AdminOfferEntryDao.cs" />
+    <Compile Include="Domain\Dao\AdminOfferListDao.cs" />
     <Compile Include="Domain\Dao\AdminUserEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminUserListDao.cs" />
     <Compile Include="Domain\Dao\ClientAcceptDetailsDao.cs" />
@@ -796,6 +800,10 @@
     <Compile Include="Domain\Logic\Admin\CategoryList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\CategoryList\UpdateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\CategoryList\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftEntry\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftEntry\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\GiftEntry\SaveOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\GiftList\FilterLogic.cs" />
     <Compile Include="Domain\Logic\Admin\GiftList\FilterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\GiftList\InitLogic.cs" />
@@ -826,6 +834,16 @@
     <Compile Include="Domain\Logic\Admin\ItemList\FilterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ItemList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferEntry\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferEntry\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferEntry\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferList\FilterLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferList\FilterOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferList\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferList\UpdateOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ParamList\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ParamList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\ParamList\UpdateLogic.cs" />
@@ -899,6 +917,8 @@
     <Compile Include="Domain\Model\Admin\CategoryEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\CategoryList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\CategoryList\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GiftEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\GiftEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\GiftList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\GiftList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\GiftList\UpdateDataModel.cs" />
@@ -914,6 +934,11 @@
     <Compile Include="Domain\Model\Admin\ItemEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferEntry\SaveDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferList\FilterDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferList\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ParamList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ParamList\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\UploadImage\DeleteDataModel.cs" />
@@ -971,6 +996,11 @@
     <Compile Include="Domain\Web\Admin\CategoryList\OutputCategoryModel.cs" />
     <Compile Include="Domain\Web\Admin\CategoryList\UpdateRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\CategoryList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftEntry\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftEntry\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftEntry\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\GiftEntry\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\GiftList\FilterRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\GiftList\FilterResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\GiftList\InitRequestModel.cs" />
@@ -1003,6 +1033,18 @@
     <Compile Include="Domain\Web\Admin\ItemList\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemList\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ItemList\OutputItemModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferEntry\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferEntry\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferEntry\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferEntry\SaveResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferList\FilterRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferList\FilterResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferList\OutputOfferModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferList\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferList\UpdateResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ParamList\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\ParamList\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\ParamList\OutputParamModel.cs" />
@@ -1138,6 +1180,13 @@
     <Compile Include="pages\administer\category-list.aspx.designer.cs">
       <DependentUpon>category-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\administer\gift-entry.aspx.cs">
+      <DependentUpon>gift-entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\gift-entry.aspx.designer.cs">
+      <DependentUpon>gift-entry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\administer\gift-list.aspx.cs">
       <DependentUpon>gift-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1193,6 +1242,20 @@
     </Compile>
     <Compile Include="pages\administer\item-list.aspx.designer.cs">
       <DependentUpon>item-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\offer-entry.aspx.cs">
+      <DependentUpon>offer-entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\offer-entry.aspx.designer.cs">
+      <DependentUpon>offer-entry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\offer-list.aspx.cs">
+      <DependentUpon>offer-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\offer-list.aspx.designer.cs">
+      <DependentUpon>offer-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\param-list.aspx.cs">
       <DependentUpon>param-list.aspx</DependentUpon>
@@ -1333,6 +1396,13 @@
     </Compile>
     <Compile Include="pages\cln\overview.aspx.designer.cs">
       <DependentUpon>overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\cln\PayInfo.aspx.cs">
+      <DependentUpon>PayInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\PayInfo.aspx.designer.cs">
+      <DependentUpon>PayInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\cln\privacy-policy.aspx.cs">
       <DependentUpon>privacy-policy.aspx</DependentUpon>

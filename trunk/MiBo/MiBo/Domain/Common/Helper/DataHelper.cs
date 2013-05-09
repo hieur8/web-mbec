@@ -878,6 +878,21 @@ namespace MiBo.Domain.Common.Helper
             return icon;
         }
 
+        public static string RandomString(int size, bool lowerCase)
+        {
+            var sb = new StringBuilder();
+            char c;
+            var rand = new Random();
+            for (int i = 0; i < size; i++)
+            {
+                c = Convert.ToChar(Convert.ToInt32(rand.Next(65, 87)));
+                sb.Append(c);
+            }
+            if (lowerCase)
+                return sb.ToString().ToLower();
+            return sb.ToString();
+        }
+
         /// <summary>
         /// Convert IEnumerable to data table
         /// </summary>

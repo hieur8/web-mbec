@@ -104,6 +104,12 @@
                             <li><a id="lnkItemEntry" href="/pages/administer/item-entry.aspx">Thêm/sửa sản phẩm</a></li>
                         </ul>
                     </li>
+                    <li id="mOffers" runat="server" visible="false"><a id="mnuOffers" href="#" class="nav-top-item">Quản lý khuyến mãi</a>
+                        <ul>
+                            <li><a id="lnkOffers" href="/pages/administer/offer-list.aspx">Danh sách khuyến mãi</a></li>
+                            <li><a id="lnkOfferEntry" href="/pages/administer/offer-entry.aspx">Thêm khuyến mãi</a></li>
+                        </ul>
+                    </li>
                     <li id="mBrands" runat="server" visible="false"><a id="mnuBrands" href="#" class="nav-top-item">Quản lý thương hiệu</a>
                         <ul>
                             <li><a id="lnkBrands" href="/pages/administer/brand-list.aspx">Danh sách thương hiệu</a></li>
@@ -118,7 +124,8 @@
                     </li>
                     <li id="mGifts" runat="server" visible="false"><a id="mnuGifts" href="#" class="nav-top-item">Quản lý thẻ quà tặng</a>
                         <ul>
-                            <li><a id="lnkGifts" href="/pages/administer/gift-list.aspx">Danh sách thẻ quà tặng</a></li>
+                            <li><a runat="server" visible="false" id="lnkGifts" href="/pages/administer/gift-list.aspx">Danh sách thẻ quà tặng</a></li>
+                            <li><a runat="server" visible="false" id="lnkGiftEntry" href="/pages/administer/gift-entry.aspx">Tạo thẻ quà tặng</a></li>
                         </ul>
                     </li>
                     <li id="mSystems" runat="server" visible="false"><a id="mnuSystems" href="#" class="nav-top-item">Quản lý hệ thống</a>

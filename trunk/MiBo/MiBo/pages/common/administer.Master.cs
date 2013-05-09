@@ -20,12 +20,18 @@ namespace MiBo.pages.common
                 mBrands.Visible = true;
             if (PageHelper.AuthRole(Logics.RL_CATEGORIES))
                 mCategories.Visible = true;
-            if (PageHelper.AuthRole(Logics.RL_GIFTS))
+            if (PageHelper.AuthRole(Logics.RL_GIFTS) || PageHelper.AuthRole(Logics.RL_GIFT_ENTRY))
                 mGifts.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_GIFTS))
+                lnkGifts.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_GIFT_ENTRY))
+                lnkGiftEntry.Visible = true;
             if (PageHelper.AuthRole(Logics.RL_SYSTEMS))
                 mSystems.Visible = true;
             if (PageHelper.AuthRole(Logics.RL_USERS))
                 mUsers.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_OFFERS))
+                mOffers.Visible = true;
         }
 
         protected void lnkSignOut_Command(object sender, CommandEventArgs e)
