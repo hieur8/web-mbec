@@ -31,5 +31,11 @@
         public const string ADMIN_GROUP_LIST = "/pages/administer/group-list.aspx";
         public const string ADMIN_GROUP_ROLE_ENTRY = "/pages/administer/group-role-entry.aspx";
         public const string ADMIN_GROUP_ROLE_LIST = "/pages/administer/group-role-list.aspx";
+        public const string ADMIN_GIFT_ENTRY = "/pages/administer/gift-entry.aspx";
+        public const string ADMIN_GIFT_LIST = "/pages/administer/gift-list.aspx";
+        public const string ADMIN_OFFER_ENTRY = "/pages/administer/offer-entry.aspx";
+        public const string ADMIN_OFFER_LIST = "/pages/administer/offer-list.aspx";
+        public const string ADMIN_OFFER_ITEM_ENTRY = "/pages/administer/offer-item-entry.aspx";
+        public const string ADMIN_OFFER_ITEM_LIST = "/pages/administer/offer-item-list.aspx";
     }
 }

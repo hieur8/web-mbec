@@ -30,7 +30,7 @@ namespace MiBo.pages.administer
 
         protected void btnList_Command(object sender, CommandEventArgs e)
         {
-            Response.Redirect(Pages.ADMIN_CATEGORY_LIST);
+            Response.Redirect(Pages.ADMIN_GROUP_LIST);
         }
 
         private InitRequestModel InitRequestModel

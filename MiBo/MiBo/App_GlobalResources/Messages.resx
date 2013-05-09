@@ -163,6 +163,9 @@
   <data name="E_MSG_00014" xml:space="preserve">
     <value>Hóa đơn đăng ký thất bại. Vui liên hệ support@mibo.vn để được hổ trợ.</value>
   </data>
+  <data name="E_MSG_00015" xml:space="preserve">
+    <value>{0} phải nhỏ hơn {1}.</value>
+  </data>
 
   <!-- Info -->
   <data name="I_MSG_00001" xml:space="preserve">
