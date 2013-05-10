@@ -11,7 +11,7 @@
                 "bLengthChange": false,
                 "aaSorting": [],
                 "sScrollX": "100%",
-                "sScrollXInner": "1580",
+                "sScrollXInner": "1860",
                 "bScrollCollapse": true,
                 "sPaginationType": "full_numbers"
             });
@@ -68,19 +68,19 @@
                 <th width="60">
                     &nbsp;
                 </th>
-                <th width="120">
+                <th width="180">
                     Mã khuyến mãi
                 </th>
-                <th width="180">
+                <th width="220">
                     Loại khuyến mãi
                 </th>
-                <th width="120">
+                <th width="180">
                     Mã sản phẩm
                 </th>
-                <th width="120">
+                <th width="180">
                     Ngày bắt đầu
                 </th>
-                <th width="120">
+                <th width="180">
                     Ngày kết thúc
                 </th>
                 <th width="120">
@@ -110,7 +110,7 @@
                                 AlternateText="Danh sách sản phẩm" ToolTip='Danh sách sản phẩm' ImageUrl="/pages/resources/images/icons/view.png"
                                 ID="btnList" runat="server" Visible='<%# Equals("02", Eval("OfferDiv")) %>' />
                             <asp:ImageButton OnCommand="btnAction_Command" CommandName="add" CommandArgument='<%# Eval("OfferCd") %>'
-                                AlternateText="Thêm sản phẩm" ToolTip='Thềm sản phẩm' ImageUrl="/pages/resources/images/icons/add.png"
+                                AlternateText="Thêm sản phẩm" ToolTip='Thêm sản phẩm' ImageUrl="/pages/resources/images/icons/add.png"
                                 ID="btnAdd" runat="server" Visible='<%# Equals("02", Eval("OfferDiv")) %>' />
                         </td>
                         <td>

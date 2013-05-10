@@ -86,6 +86,8 @@
     <Content Include="pages\administer\item-entry.aspx" />
     <Content Include="pages\administer\item-list.aspx" />
     <Content Include="pages\administer\offer-entry.aspx" />
+    <Content Include="pages\administer\offer-item-entry.aspx" />
+    <Content Include="pages\administer\offer-item-list.aspx" />
     <Content Include="pages\administer\offer-list.aspx" />
     <Content Include="pages\administer\param-list.aspx" />
     <Content Include="pages\administer\upload-image.aspx" />
@@ -763,6 +765,8 @@
     <Compile Include="Domain\Dao\AdminItemEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminItemListDao.cs" />
     <Compile Include="Domain\Dao\AdminOfferEntryDao.cs" />
+    <Compile Include="Domain\Dao\AdminOfferItemEntryDao.cs" />
+    <Compile Include="Domain\Dao\AdminOfferItemListDao.cs" />
     <Compile Include="Domain\Dao\AdminOfferListDao.cs" />
     <Compile Include="Domain\Dao\AdminUserEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminUserListDao.cs" />
@@ -838,6 +842,14 @@
     <Compile Include="Domain\Logic\Admin\OfferEntry\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferEntry\SaveLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferEntry\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferItemEntry\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferItemEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferItemEntry\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferItemEntry\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferItemList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferItemList\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferItemList\UpdateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferItemList\UpdateOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferList\FilterLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferList\FilterOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferList\InitLogic.cs" />
@@ -936,6 +948,10 @@
     <Compile Include="Domain\Model\Admin\ItemList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\OfferEntry\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\OfferEntry\SaveDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferItemEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferItemEntry\SaveDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferItemList\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferItemList\UpdateDataModel.cs" />
     <Compile Include="Domain\Model\Admin\OfferList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\OfferList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\OfferList\UpdateDataModel.cs" />
@@ -1038,6 +1054,16 @@
     <Compile Include="Domain\Web\Admin\OfferEntry\OutputDetailsModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferEntry\SaveRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferEntry\SaveResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemEntry\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemEntry\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemEntry\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemEntry\SaveResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemList\OutputOfferItemModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemList\UpdateRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferItemList\UpdateResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferList\FilterRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferList\FilterResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferList\InitRequestModel.cs" />
@@ -1249,6 +1275,20 @@
     </Compile>
     <Compile Include="pages\administer\offer-entry.aspx.designer.cs">
       <DependentUpon>offer-entry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\offer-item-entry.aspx.cs">
+      <DependentUpon>offer-item-entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\offer-item-entry.aspx.designer.cs">
+      <DependentUpon>offer-item-entry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\offer-item-list.aspx.cs">
+      <DependentUpon>offer-item-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\offer-item-list.aspx.designer.cs">
+      <DependentUpon>offer-item-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\offer-list.aspx.cs">
       <DependentUpon>offer-list.aspx</DependentUpon>
