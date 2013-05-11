@@ -5,7 +5,10 @@
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
     <script type="text/javascript">
+
         $(document).ready(function () {
+            if ($('#main_RadioButton1').is(':checked')) { $("#olDelivery").hide(); }
+            if ($('#main_methodDelivery1').is(':checked')) { $("#olDelivery").show(); }
             $("#frmMain").validate(
         {
             messages: {
@@ -25,24 +28,10 @@
 
 
         function makeDelivery() {
-            $("#main_deliveryName").val($("#main_clientName").val());
-            $("#main_deliveryAddress").val($("#main_clientAddress").val());
-            $("#main_deliveryTell").val($("#main_clientTell").val());
-            $("#main_DropDownList2").val($("#main_DropDownList1").val());
-            $("#main_deliveryName").attr("disabled", "disabled");
-            $("#main_deliveryAddress").attr("disabled", "disabled");
-            $("#main_deliveryTell").attr("disabled", "disabled");
-            $("#main_DropDownList2").attr("disabled", "disabled");
+            $("#olDelivery").hide();
         }
         function clearDelivery() {
-            $("#main_deliveryName").val('');
-            $("#main_deliveryAddress").val('');
-            $("#main_deliveryTell").val('');
-            $("#main_DropDownList2").val('294');
-            $("#main_deliveryName").removeAttr("disabled");
-            $("#main_deliveryAddress").removeAttr("disabled");
-            $("#main_deliveryTell").removeAttr("disabled");
-            $("#main_DropDownList2").removeAttr("disabled");
+            $("#olDelivery").show();
         }
     </script>
     <div class="main-container col2-right-layout">
@@ -169,7 +158,7 @@
                         </div>
                     </li>
                 </ol>
-                <ol class="opc" id="Ol2">
+                <ol class="opc" id="olDelivery">
                     <li id="Li3" class="section allow active">
                         <div class="step-title">
                             <span class="number">2</span>
@@ -246,7 +235,7 @@
                                             ID="pay1" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
-                                        <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Thẻ ATM đăng ký Internet Banking (Miễn phí thanh toán)"
+                                        <asp:RadioButton GroupName="rbPay" Text="Thanh toán trực truyến Internet Banking (Onepay)"
                                             ID="pay2" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
@@ -325,4 +314,5 @@
             </div>
         </div>
     </div>
+
 </asp:Content>

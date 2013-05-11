@@ -15,6 +15,7 @@ namespace MiBo.Domain.Web.Client.AcceptDetails
         public string PaymentMethods { get; set; }
         public string PaymentMethodsName { get; set; }
         public string TotalAmount { get; set; }
+        public string ShipAmount { get; set; }
         public IList<OutputAcceptDetailsModel> ListAcceptDetails { get; set; }
     }
 }

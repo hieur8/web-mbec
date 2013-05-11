@@ -24,6 +24,7 @@ namespace MiBo.pages.cln
         public User result = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (IsPostBack)
             {
                 return;
@@ -77,12 +78,8 @@ namespace MiBo.pages.cln
 
 
                 }
-                else
-                {
-                    methodDelivery1.Checked = true;
-                }
-
-
+                
+                    
             }
 
 
@@ -118,9 +115,18 @@ namespace MiBo.pages.cln
                 accept.ClientName = clientName.Text.Trim();
                 accept.ClientAddress = clientAddress.Text.Trim();
                 accept.ClientTel = clientTell.Text.Trim();
+                accept.ClientCityCd = DropDownList1.SelectedValue;
                 accept.DeliveryName = deliveryName.Text.Trim();
                 accept.DeliveryAddress = deliveryAddress.Text;
                 accept.DeliveryTel = deliveryTell.Text;
+                accept.DeliveryCityCd = DropDownList2.SelectedValue;
+                if (RadioButton1.Checked == true)
+                {
+                    accept.DeliveryName = accept.ClientName;
+                    accept.DeliveryAddress = accept.ClientAddress;
+                    accept.DeliveryTel = accept.ClientTel;
+                    accept.DeliveryCityCd = accept.ClientCityCd;
+                }
                 accept.Notes = note.Text.ToString();
                 accept.CreateDate = dateNow;
                 accept.UpdateDate = dateNow;
@@ -132,7 +138,8 @@ namespace MiBo.pages.cln
                 }
                 else if (pay2.Checked)
                 {
-                    accept.SlipStatus = "02";
+                    accept.PaymentMethods = "02";
+                    accept.SlipStatus = "03";
                 }
                 else if (pay3.Checked)
                 {
@@ -143,8 +150,8 @@ namespace MiBo.pages.cln
                     accept.SlipStatus = "04";
                 }
                 accept.Notes = note.Text;
-                accept.CreateUser = DropDownList1.SelectedValue;
-                accept.UpdateUser = DropDownList2.SelectedValue;
+                accept.CreateUser = accept.ClientCd;
+                accept.UpdateUser = accept.ClientCd;
                 
                 request.Accept = accept;
                 request.Cart = Session["Cart"];

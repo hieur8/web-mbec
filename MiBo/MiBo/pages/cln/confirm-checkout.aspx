@@ -180,21 +180,9 @@
                             <fieldset>
                                 <ul class="form-list">
                                     <li class="control">
-                                        <asp:RadioButton Checked="true" GroupName="rbPay" Text="Thanh toán tiền mặt khi nhận hàng"
-                                            ID="pay1" runat="server" class="radio" />
+                                        <asp:Label ID="lblPay" runat="server" Text=""></asp:Label>
                                     </li>
-                                    <li class="control">
-                                        <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Thẻ ATM đăng ký Internet Banking (Miễn phí thanh toán)"
-                                            ID="pay2" runat="server" class="radio" />
-                                    </li>
-                                    <li class="control">
-                                        <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Thanh toán bằng thẻ quốc Tế Visa, Master"
-                                            ID="pay3" runat="server" class="radio" />
-                                    </li>
-                                    <li class="control">
-                                        <asp:RadioButton GroupName="rbPay" Enabled="false" Text="Chuyển khoản ngân hàng (Quý khách tự thanh toán chi phí chuyển khoản)"
-                                            ID="pay4" runat="server" class="radio" />
-                                    </li>
+
                                 </ul>
                             </fieldset>
                         </div>

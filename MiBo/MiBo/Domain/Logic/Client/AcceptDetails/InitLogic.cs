@@ -81,8 +81,10 @@ namespace MiBo.Domain.Logic.Client.AcceptDetails
             var paymentMethodsName = mCodeCom.GetCodeContent(Logics.GROUP_PAYMENT_METHODS, accept.PaymentMethods);
             details.PaymentMethods = DataHelper.ToString(accept.PaymentMethods);
             details.PaymentMethodsName = DataHelper.ToString(paymentMethodsName);
-            var totalAmount = accept.AcceptDetails.Sum(o => o.DetailAmt);
+            var totalItem = accept.AcceptDetails.Sum(o => o.DetailAmt);
+            var totalAmount = accept.TotalAmt;
             details.TotalAmount = DataHelper.ToString(Formats.CURRENCY, totalAmount);
+            details.ShipAmount = DataHelper.ToString(Formats.CURRENCY, totalAmount - totalItem);
             foreach (var obj in accept.AcceptDetails)
             {
                 acceptDetails = new OutputAcceptDetailsModel();

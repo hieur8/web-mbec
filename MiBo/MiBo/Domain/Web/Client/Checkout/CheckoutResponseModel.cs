@@ -5,7 +5,7 @@ namespace MiBo.Domain.Web.Client.Checkout
 {
     public class CheckoutResponseModel : MessageResponse
     {
-        public bool StatusFlag { get; set; }
+        public string AcceptSlipNo { get; set; }
         
     }
 }

@@ -4,6 +4,8 @@
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="main" runat="server">
+<div class="main-container">
+<div class="main">
     <%
         if (Session["msgInfo"] == null)
         {  
@@ -24,4 +26,5 @@
           <h1><%=Session["msgInfo"].ToString()%></h1>
           <% } %>
      </center>
+     </div></div>
 </asp:Content>

@@ -58,7 +58,7 @@ namespace MiBo.Domain.Logic.Client.Checkout
             // Variable initialize
             responseModel = new CheckoutResponseModel();
 
-            responseModel.StatusFlag = resultObject.StatusFlag;
+            responseModel.AcceptSlipNo = resultObject.AcceptSlipNo;
 
             return responseModel;
         }
@@ -81,8 +81,7 @@ namespace MiBo.Domain.Logic.Client.Checkout
             inputObject = Convert(request);
 
             ClientCheckoutDao checkoutDao = new ClientCheckoutDao();
-            checkoutDao.makeCheckout(inputObject.Accept, inputObject.Cart);
-            responseModel.StatusFlag = true;
+            resultObject.AcceptSlipNo = checkoutDao.makeCheckout(inputObject.Accept, inputObject.Cart);
 
             // Send mail
             //SendEmail(inputObject.Accept.ClientCd, inputObject.Accept.AcceptSlipNo);
