@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MiBoDB" Class="EntitiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=MiBoDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MiBoDBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=HIEU-PC\SQLEXPRESS;Initial Catalog=MiBoDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MiBoDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.AcceptDetailIOs" Member="AcceptDetailIOs">
     <Type Name="AcceptDetailIO">
       <Column Name="AcceptSlipNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -100,14 +100,18 @@
       <Column Name="ClientName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="ClientAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="ClientTel" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ClientCityCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="DeliveryCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="DeliveryName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="DeliveryAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="DeliveryTel" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DeliveryCityCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="PaymentMethods" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="ViewId" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="GiftCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="UseGiftCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="TotalAmt" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="GenId" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />

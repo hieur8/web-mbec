@@ -94,40 +94,13 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.Label deliveryTell;
         
         /// <summary>
-        /// pay1 control.
+        /// lblPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton pay1;
-        
-        /// <summary>
-        /// pay2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton pay2;
-        
-        /// <summary>
-        /// pay3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton pay3;
-        
-        /// <summary>
-        /// pay4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton pay4;
+        protected global::System.Web.UI.WebControls.Label lblPay;
         
         /// <summary>
         /// note control.

@@ -9,6 +9,7 @@ namespace MiBo.Domain.Model.Client.Checkout
         public bool StatusFlag { get; set; }
         public Accept Accept { get; set; }
         public IList<CartItem> Cart { get; set; }
+        public string AcceptSlipNo { get; set; }
     }
 }
 

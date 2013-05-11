@@ -31,12 +31,12 @@ namespace MiBo.pages.cln {
         protected global::System.Web.UI.WebControls.TextBox pass;
         
         /// <summary>
-        /// btnLogin control.
+        /// LinkButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnLogin;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
     }
 }

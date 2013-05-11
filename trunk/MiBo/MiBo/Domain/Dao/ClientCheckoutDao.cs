@@ -14,7 +14,7 @@ namespace MiBo.Domain.Dao
 {
     public class ClientCheckoutDao : AbstractDao
     {
-        public void  makeCheckout(Accept accept, IList<CartItem> cart)
+        public String makeCheckout(Accept accept, IList<CartItem> cart)
         {
             ItemCom itemCom = new ItemCom();
             decimal priceGift = 0;
@@ -90,6 +90,7 @@ namespace MiBo.Domain.Dao
             EntityManager.Accepts.InsertOnSubmit(accept);
 
             EntityManager.SubmitChanges();
+            return accept.AcceptSlipNo;
         }
 
         public AcceptModel GetAccept(string acceptSlipNo)
@@ -121,6 +122,32 @@ namespace MiBo.Domain.Dao
                 return sb.ToString().ToLower();
             return sb.ToString();
 
+        }
+
+        public void updateStatus(String acceptSlipNo, string status)
+        {
+            Accept result = GetSingle<Accept>(acceptSlipNo, false);
+            if (result != null)
+            {
+                result.SlipStatus = status;
+                EntityManager.SubmitChanges();
+            }
+           
+        }
+
+        public Accept getAcceptById(string slipNo)
+        {
+            return GetSingle<Accept>(slipNo, false);
+        }
+
+        public void updateGenId(String acceptSlipNo, string genId)
+        {
+            Accept result = GetSingle<Accept>(acceptSlipNo, false);
+            if (result != null)
+            {
+                result.GenId = genId;
+                EntityManager.SubmitChanges();
+            }
         }
     }
 }

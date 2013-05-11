@@ -15,11 +15,14 @@ using Resources;
 using MiBo.Domain.Logic.Client.Register;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Client.Checkout;
+using System.Text;
 
 namespace MiBo.pages.cln
 {
     public partial class confirm_checkout : BasePage
     {
+        public decimal total = 0;
+        public string genId = DataHelper.GetUniqueKey();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
@@ -63,24 +66,31 @@ namespace MiBo.pages.cln
             clientName.Text = accept.ClientName;
             clientAddress.Text = accept.ClientAddress;
             clientTell.Text = accept.ClientTel;
-            DropDownList1.SelectedValue = accept.CreateUser;
+            DropDownList1.SelectedValue = accept.ClientCityCd;
             deliveryName.Text = accept.DeliveryName;
             deliveryAddress.Text = accept.DeliveryAddress;
             deliveryTell.Text = accept.DeliveryTel;
-            DropDownList2.SelectedValue = accept.UpdateUser;
+            DropDownList2.SelectedValue = accept.DeliveryCityCd;
             note.Text = accept.Notes;
-
+            if (accept.PaymentMethods == "01")
+            {
+                lblPay.Text = "Thanh toán tiền mặt khi nhận hàng";
+            }
+            else if (accept.PaymentMethods == "02")
+            {
+                lblPay.Text = "Thanh toán trực truyến Internet Banking (Onepay)";
+            }
             IList<CartItem> cart = (IList<CartItem>)Session["Cart"];
             CartCom cartCom = new CartCom(cart);
             decimal amount = cartCom.TotalAmount;
             decimal ship = 0;
-            decimal total = amount;
             if (Session["GiftPrice"] != null && Session["GiftCd"] != null)
             {
                 amount = amount - (decimal)Session["GiftPrice"];
 
             }
-            if (accept.UpdateUser == "294")
+            total = amount;
+            if (accept.DeliveryCityCd == "294")
             {
                 if (amount < 200000)
                 {
@@ -102,10 +112,12 @@ namespace MiBo.pages.cln
                 Label2.Text = DataHelper.ToString(Formats.CURRENCY, ship);
             }
             Label3.Text = DataHelper.ToString(Formats.CURRENCY, total);
+            Session["TotalAmt"] = total;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
             ccJoin.ValidateCaptcha(TextBox1.Text);
             if (!ccJoin.UserValidated)
             {
@@ -118,10 +130,20 @@ namespace MiBo.pages.cln
                 var response = Invoke(logic, SaveRequestModel);
                 if (HasError) return;
             }
-
             var checkout = new CheckoutOperateLogic();
             var result = Invoke(checkout, CheckoutRequestModel);
             if (HasError) return;
+            Session["Cart"] = null;
+            Session["payMethod"] = null;
+            Session["GiftCd"] = null;
+            Session["GiftPrice"] = null;
+            Session["AcceptSlipNo"] = null;
+            Session["isFirstPay"] = true;
+            Session["AcceptSlipNo"] = result.AcceptSlipNo;
+            if (CheckoutRequestModel.Accept.PaymentMethods == "02")
+            {
+                makePay(CheckoutRequestModel.Accept);
+            }
             Response.Redirect(Pages.CLIENT_OVERVIEW);
         }
 
@@ -140,8 +162,42 @@ namespace MiBo.pages.cln
             {
                 var request = new CheckoutRequestModel();
                 request = (CheckoutRequestModel)Session["CheckoutRequestModel"];
+                request.Accept.TotalAmt = (Decimal) Session["TotalAmt"];
+                request.Accept.GenId = genId;
                 return request;
             }
+        }
+
+        public void makePay(Accept acc)
+        {
+            string ipaddress;
+            ipaddress = Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (ipaddress == "" || ipaddress == null)
+            {
+                ipaddress = Request.ServerVariables["REMOTE_ADDR"];
+            }
+            string SECURE_SECRET = "A3EFDFABA8653DF2342E8DAC29B51AF0";
+            // Khoi tao lop thu vien va gan gia tri cac tham so gui sang cong thanh toan
+            VPCRequest conn = new VPCRequest("http://mtf.onepay.vn/onecomm-pay/vpc.op");
+            conn.SetSecureSecret(SECURE_SECRET);
+            // Add the Digital Order Fields for the functionality you wish to use
+            // Core Transaction Fields
+            conn.AddDigitalOrderField("Title", "Mibo.vn - Cong thanh toan OnePay");
+            conn.AddDigitalOrderField("vpc_Locale", "vn");//Chon ngon ngu hien thi tren cong thanh toan (vn/en)
+            conn.AddDigitalOrderField("vpc_Version", "2");
+            conn.AddDigitalOrderField("vpc_Command", "pay");
+            conn.AddDigitalOrderField("vpc_Merchant", "ONEPAY");
+            conn.AddDigitalOrderField("vpc_AccessCode", "D67342C2");
+            conn.AddDigitalOrderField("vpc_MerchTxnRef", DataHelper.GetUniqueKey());
+            conn.AddDigitalOrderField("vpc_OrderInfo", "Tin Hoc Nguyen Phong - Mibo.vn");
+            conn.AddDigitalOrderField("vpc_Amount", acc.TotalAmt.ToString()+"00");
+            conn.AddDigitalOrderField("vpc_Currency", "VND");
+            conn.AddDigitalOrderField("vpc_ReturnURL", "http://localhost:2593/pages/cln/pay-process.aspx");
+            // Dia chi IP cua khach hang
+            conn.AddDigitalOrderField("vpc_TicketNo", ipaddress);
+            // Chuyen huong trinh duyet sang cong thanh toan
+            String url = conn.Create3PartyQueryString();
+            Page.Response.Redirect(url);
         }
     }
 }

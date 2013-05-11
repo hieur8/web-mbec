@@ -12,11 +12,14 @@
                         <div class="my-account">
                             <div class="page-title title-buttons">
                                 <h1>
-                                    Đơn hàng #<%# Eval("AcceptSlipNo")%>
-                                    - <b>
+                                    Đơn hàng #<%# Eval("AcceptSlipNo")%>- <b>
                                         <%# Eval("SlipStatusName") %></b>
+                                        <asp:LinkButton ID='CheckOut' Width='122' Visible='<%# Equals("03", Eval("SlipStatus")) %>' class='btn btn-orange' runat='server' OnCommand='CheckOut_Command' CommandArgument='<%#Eval("AcceptSlipNo")%>'><span>Thanh toán</span></asp:LinkButton>
                                 </h1>
-                            </div>
+                                </div>
+                                <br />
+                                <asp:Label Visible='<%# Equals("03", Eval("SlipStatus")) %>' ID="Label1" runat="server" Text="Trường hợp bạn đã thanh toán nhưng trạng thái hóa đơn vẫn là <b>Chờ thanh toán</b><br/>Xin vui lòng liên hệ đến 0976.585.888 để chúng tôi cập nhật lại trạng thái. Xin cám ơn !"></asp:Label>
+                            
                             <p class="order-date">
                                 Ngày đặt hàng:
                                 <%# Eval("AcceptDate")%></p>
@@ -122,7 +125,16 @@
                                     <tfoot>
                                         <tr class="grand_total last">
                                             <td colspan="4" class="a-right">
-                                                <strong>Tông tiền</strong>
+                                                <strong>Phí vận chuyển</strong>
+                                            </td>
+                                            <td class="last a-right">
+                                                <strong><span class="price">
+                                                    <%# Eval("ShipAmount")%></span></strong>
+                                            </td>
+                                        </tr>
+                                        <tr class="grand_total last">
+                                            <td colspan="4" class="a-right">
+                                                <strong>Tổng tiền</strong>
                                             </td>
                                             <td class="last a-right">
                                                 <strong><span class="price">
