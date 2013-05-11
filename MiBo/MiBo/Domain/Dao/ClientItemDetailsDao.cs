@@ -22,10 +22,10 @@ namespace MiBo.Domain.Dao
             return IsExist<Item>(itemCd, false);
         }
 
-        public IList<Item> GetListItemsByCategoryCd(string categoryCd,string itemCd)
+        public IList<Item> GetListItemsByBrandCd(string brandCd, string itemCd)
         {
             var listResult = from tbl in EntityManager.Items
-                             where tbl.CategoryCd == categoryCd
+                             where tbl.BrandCd == brandCd
                              && tbl.DeleteFlag == false
                              && tbl.ItemCd != itemCd
                              select tbl;

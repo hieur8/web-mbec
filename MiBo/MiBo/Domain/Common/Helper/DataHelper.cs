@@ -260,7 +260,7 @@ namespace MiBo.Domain.Common.Helper
         /// <param name="data">String</param>
         /// <param name="size">Int32</param>
         /// <returns>String</returns>
-        public static string ToSubString(string data, int size)
+        public static string ToSubString(string data, int size, bool withSpace)
         {
             // Local variable declaration
             var result = string.Empty;
@@ -269,8 +269,8 @@ namespace MiBo.Domain.Common.Helper
             result = Convert.ToString(data);
             // Check length
             if (result.Length < size) return data;
-            // Get index word " " 
-            index = result.IndexOf(" ", size, StringComparison.CurrentCulture);
+            // Get index word " "
+            if (withSpace) index = result.IndexOf(" ", size, StringComparison.CurrentCulture);
             if (index < 0) index = size;
             // Convert
             return result.Substring(0, index) + " ...";
@@ -823,7 +823,7 @@ namespace MiBo.Domain.Common.Helper
         {
             var linkPath = string.Format("http://opi.yahoo.com/online?u={0}&m=t&t=1", user);
             var icon = string.Empty;
-            
+
             try
             {
                 using (var wc = new WebClient())

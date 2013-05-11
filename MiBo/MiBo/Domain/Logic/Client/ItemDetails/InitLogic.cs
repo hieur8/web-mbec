@@ -204,7 +204,7 @@ namespace MiBo.Domain.Logic.Client.ItemDetails
 
             // Get data
             var item = clientItemDetailsDao.GetItem(inputObject);
-            var listRelation = clientItemDetailsDao.GetListItemsByCategoryCd(item.CategoryCd,inputObject.ItemCd);
+            var listRelation = clientItemDetailsDao.GetListItemsByBrandCd(item.BrandCd, inputObject.ItemCd);
             var strHotline = mParameterCom.GetString(Logics.PR_HOTLINE, false);
 
             // Update data

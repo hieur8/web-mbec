@@ -86,7 +86,7 @@ namespace MiBo.Domain.Logic.Client.Index
             {
                 newItem = new OutputItemModel();
                 newItem.ItemCd = DataHelper.ToString(obj.ItemCd);
-                newItem.ItemName = DataHelper.ToSubString(obj.ItemName, 20);
+                newItem.ItemName = DataHelper.ToSubString(obj.ItemName, 20, false);
                 newItem.Tooltip = DataHelper.ToString(obj.ItemName);
                 newItem.ItemImage = DataHelper.ToString(obj.ItemImage);
                 newItem.BrandCd = DataHelper.ToString(obj.BrandCd);
@@ -105,7 +105,7 @@ namespace MiBo.Domain.Logic.Client.Index
                 hotItem = new OutputItemModel();
 
                 hotItem.ItemCd = DataHelper.ToString(obj.ItemCd);
-                hotItem.ItemName = DataHelper.ToSubString(obj.ItemName, 20);
+                hotItem.ItemName = DataHelper.ToSubString(obj.ItemName, 20, false);
                 hotItem.Tooltip = DataHelper.ToString(obj.ItemName);
                 hotItem.ItemImage = DataHelper.ToString(obj.ItemImage);
                 hotItem.BrandCd = DataHelper.ToString(obj.BrandCd);
@@ -124,7 +124,7 @@ namespace MiBo.Domain.Logic.Client.Index
                 offerItem = new OutputItemModel();
 
                 offerItem.ItemCd = DataHelper.ToString(obj.ItemCd);
-                offerItem.ItemName = DataHelper.ToSubString(obj.ItemName, 20);
+                offerItem.ItemName = DataHelper.ToSubString(obj.ItemName, 20, false);
                 offerItem.Tooltip = DataHelper.ToString(obj.ItemName);
                 offerItem.ItemImage = DataHelper.ToString(obj.ItemImage);
                 offerItem.BrandCd = DataHelper.ToString(obj.BrandCd);
