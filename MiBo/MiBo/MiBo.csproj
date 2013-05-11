@@ -109,6 +109,7 @@
     <Content Include="pages\cln\order-details.aspx" />
     <Content Include="pages\cln\order-history.aspx" />
     <Content Include="pages\cln\overview.aspx" />
+    <Content Include="pages\cln\pay-process.aspx" />
     <Content Include="pages\cln\PayInfo.aspx" />
     <Content Include="pages\cln\privacy-policy.aspx" />
     <Content Include="pages\cln\profile-edit.aspx" />
@@ -749,6 +750,7 @@
     <Compile Include="Domain\Common\Utils\MParameterCom.cs" />
     <Compile Include="Domain\Common\Utils\StorageFileCom.cs" />
     <Compile Include="Domain\Common\Utils\UserCom.cs" />
+    <Compile Include="Domain\Common\Utils\VPCRequest.cs" />
     <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
     <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
     <Compile Include="Domain\Dao\AdminAcceptListDao.cs" />
@@ -1437,6 +1439,13 @@
     <Compile Include="pages\cln\overview.aspx.designer.cs">
       <DependentUpon>overview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\cln\pay-process.aspx.cs">
+      <DependentUpon>pay-process.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\cln\pay-process.aspx.designer.cs">
+      <DependentUpon>pay-process.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\cln\PayInfo.aspx.cs">
       <DependentUpon>PayInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1543,7 +1552,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2593</DevelopmentServerPort>
+          <DevelopmentServerPort>54031</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

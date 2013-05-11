@@ -251,8 +251,7 @@
                     <ul class="firstcol">
                         <li class="staticlinks"><a href="#">Liên hệ</a></li>
                         <li class="staticlinks"><a href="#certification">FAQ</a></li>
-                        <li class="staticlinks"><a href="#">Chính sách mua hàng</a></li>
-                        <li class="staticlinks"><a href="Changes.aspx">Chính sách đổi trả</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -262,6 +261,7 @@
                 <div class="content-text">
                     <ul class="firstcol">
                         <li class="staticlinks"><a href="PayInfo.aspx">Hình thức thanh toán</a></li>
+                        <li class="staticlinks"><a href="Changes.aspx">Chính sách đổi trả</a></li>
                         <li class="staticlinks"><a href="privacy-policy.aspx">Chính sách bảo mật</a></li>
                         <li class="staticlinks"><a href="terms-of-use.aspx">Điều khoản sử dụng</a></li>
                     </ul>
