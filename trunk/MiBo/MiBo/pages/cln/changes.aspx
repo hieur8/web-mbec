@@ -3,9 +3,12 @@
     <style type="text/css">
 
  table.MsoNormalTable
-	{line-height:115%;
-	font-size:11.0pt;
-	font-family:"Times New Roman","serif";
+	{
+		max-width: 100%;
+background-color: transparent;
+border-collapse: collapse;
+border-spacing: 0;
+
 	}
     </style>
 </asp:Content>
@@ -25,7 +28,7 @@
         chú nhận hàng của nhân viên giao nhận của MIBO.</p>
     <p>
         Hiện tại MIBO.VN chưa chấp nhận đổi sang sản phẩm khác. Bạn vui lòng trả lại sản 
-        phẩm theo <a href="http://tiki.vn/faq/#faq-item-34">hướng dẫn đổi/ trả</a>, sau 
+        phẩm theo <a href="http://mibo.vn/faq/#faq-item-34">hướng dẫn đổi/ trả</a>, sau 
         đó đặt lại đơn hàng mới cho sản phẩm mình thích.</p>
     <p>
         <strong><span>Trả sản phẩm</span></strong>:&nbsp;Nếu bạn nhận được sản phẩm bị lỗi, 
@@ -34,7 +37,7 @@
     <p>
         Trường hợp bạn cảm thấy sản phẩm bạn nhận được bị hư hỏng do bao bì đóng gói 
         không đạt tiêu chuẩn, hãy phản hồi lại cho MIBO.VN trong
-        <a href="http://tiki.vn/media/custom/events/others/doi_tra_hang_tiki.docx">phiếu 
+        <a href="http://mibo.vn/media/custom/events/others/doi_tra_hang_mibo.docx">phiếu 
         đăng ký đổi trả</a>.</p>
     <p>
         Trường hợp bạn nhận được sản phẩm mình không đặt mua, hãy liên hệ với MIBO.VN để 
@@ -47,7 +50,7 @@
         <strong><span>Để được đổi - trả, sản phẩm phải đáp ứng các yêu cầu sau:</span></strong></p>
     <p>
         •&nbsp;Sản phẩm còn trong thời hạn đổi/ trả và được đăng ký đổi/ trả theo đúng
-        <a href="http://tiki.vn/faq/#faq-item-34">hướng dẫn</a>.</p>
+        <a href="http://mibo.vn/faq/#faq-item-34">hướng dẫn</a>.</p>
     <p>
         •&nbsp;Sản phẩm còn nguyên trạng như khi đến tay khách hàng, còn nguyên tem mác (nếu 
         có), chưa có dấu hiệu bị sử dụng.</p>
@@ -71,7 +74,7 @@
     <p>
         Nếu sản phẩm bạn mua từ MIBO.VN và khi nhận được bạn thấy nó bị hư hỏng, lỗi, 
         vẫn còn hạn đổi/ trả, bạn có thể làm theo
-        <a href="http://tiki.vn/faq/#faq-item-34">Hướng dẫn đổi/ trả</a> để được thay 
+        <a href="http://mibo.vn/faq/#faq-item-34">Hướng dẫn đổi/ trả</a> để được thay 
         thế bằng sản phẩm mới.</p>
     <p class="MsoNormal">
         <![if !supportLists]><span>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><![endif]>
@@ -80,7 +83,7 @@
     <p>
         Để đăng ký đổi/ trả sản phẩm, khách hàng vui lòng đăng ký thông qua<strong><span>
         </span></strong>
-        <a href="http://tiki.vn/media/custom/events/others/doi_tra_hang_tiki.docx"><b>
+        <a href="http://mibo.vn/media/custom/events/others/doi_tra_hang_mibo.docx"><b>
         phiếu đăng ký đổi/ trả</b></a>. MIBO.VN sẽ không chịu trách nhiệm tiếp nhận, xử 
         lý, bồi hoàn cho các đơn hàng/sản phẩm không thông qua đăng ký này.</p>
     <p>
@@ -88,7 +91,7 @@
     <p>
         1. Khách hàng điền các thông tin yêu cầu trong phiếu đăng ký đổi/ trả được đính 
         kèm cùng với đơn hàng (trường hợp bị mất phiếu, bạn có thể tải lại
-        <a href="http://tiki.vn/media/custom/events/others/doi_tra_hang_tiki.docx">tại 
+        <a href="http://mibo.vn/media/custom/events/others/doi_tra_hang_mibo.docx">tại 
         đây</a>).</p>
     <p>
         2. Đóng gói các sản phẩm cần đổi/ trả vào hộp.</p>
@@ -111,7 +114,7 @@
     <p>
         Trong trường hợp sản phẩm cần đổi/ trả do lỗi từ MIBO.VN, bạn sẽ được bồi hoàn 
         chi phí vận chuyển vào tổng số tiền bồi hoàn của đơn hàng đổi trả. Thông tin chi 
-        tiết về vấn đề này vui lòng xem <a href="http://tiki.vn/faq/#faq-item-35">ở đây</a>.</p>
+        tiết về vấn đề này vui lòng xem <a href="http://mibo.vn/faq/#faq-item-35">ở đây</a>.</p>
     <p>
         <strong><span>(*) Trường hợp nhân viên giao nhận MIBO.VN đến nhận hàng đổi/ trả:</span></strong></p>
     <p>
@@ -124,7 +127,7 @@
         •&nbsp;Đối với đơn hàng đổi/ trả do MIBO.VN vận chuyển, bạn có thể phải trả 10.000 
         VND phí quản lý. Nhân viên MIBO.VN đến nhận đơn hàng đổi/ trả sẽ không thu bất 
         cứ chi phí nào , chi tiết về cách thanh toán phí quản lý vui lòng xem ở
-        <a href="http://tiki.vn/faq/#faq-item-35">đây</a>.</p>
+        <a href="http://mibo.vn/faq/#faq-item-35">đây</a>.</p>
     <p>
         •&nbsp;Thời gian đổi trả sẽ được tính từ lúc bạn yêu cầu nhân viên giao nhận của 
         MIBO.VN đến nhận đơn hàng đổi/ trả. Tuy nhiên, sau 2 lần nhân viên MIBO.VN đến 
@@ -145,98 +148,38 @@
     <p>
         <strong><span>Bồi hoàn chi phí vận chuyển/quản lý:</span></strong></p>
     <div align="center">
-        <table border="1" cellpadding="0" class="MsoNormalTable" style="mso-cellspacing:1.5pt;
- margin-left:.5in;mso-yfti-tbllook:1184">
-            <tr>
-                <td>
-                    <p align="center" class="MsoNormal">
-                        Cách thức đổi trả<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p align="center" class="MsoNormal">
-                        Nguyên nhân<br />
-                        lỗi sản phẩm<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p align="center" class="MsoNormal">
-                        Bồi hoàn chi phí<br />
-                        vận chuyển/quản lý<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p align="center" class="MsoNormal">
-                        Cách nhận bồi hoàn<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-            <tr>
-                <td rowspan="2">
-                    <p class="MsoNormal">
-                        Qua nhân viên giao nhận<br />
-                        của MIBO.VN<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Do MIBO.VN<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Có<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Không khấu trừ chi phí quản lý<br />
-                        vào số tiền bồi hoàn<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="MsoNormal">
-                        Do khách hàng<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Không<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Tự động khấu trừ chi phí quản<br />
-                        lý vào số tiền bồi hoàn<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-            <tr>
-                <td rowspan="2">
-                    <p class="MsoNormal">
-                        Qua bưu điện<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Do MIBO.VN<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Có<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Scan hoặc chụp ảnh lại hoá đơn<br />
-                        vận chuyển hàng đổi/ trả rồi gửi<br />
-                        cho MIBO.VN theo email <strong><span>support@mibo.vn</span></strong><span><o:p></o:p></span></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="MsoNormal">
-                        Do khách hàng<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Không<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Không<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-        </table>
+        <table border="1" cellspacing="5" cellpadding="5" class="MsoNormalTable" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;">Cách thức đổi trả</td>
+<td style="text-align: center;">Nguyên nhân<br>lỗi sản phẩm</td>
+<td style="text-align: center;">Bồi hoàn chi phí<br>vận chuyển/quản lý</td>
+<td style="text-align: center;">Cách nhận bồi hoàn</td>
+</tr>
+<tr>
+<td rowspan="2">Qua nhân viên giao nhận<br>của mibo.vn</td>
+<td>Do mibo.vn</td>
+<td>Có</td>
+<td>Không khấu trừ chi phí quản lý<br>vào số tiền bồi hoàn</td>
+</tr>
+<tr>
+<td>Do khách hàng</td>
+<td>Không</td>
+<td>Tự động khấu trừ chi phí quản<br>lý vào số tiền bồi hoàn</td>
+</tr>
+<tr>
+<td rowspan="2">Qua bưu điện</td>
+<td>Do mibo.vn</td>
+<td>Có</td>
+<td>Scan hoặc chụp ảnh lại hoá đơn<br>vận chuyển hàng đổi/ trả rồi gửi<br>cho mibo.vn theo email <strong>support@mibo.vn</strong></td>
+</tr>
+<tr>
+<td>Do khách hàng</td>
+<td>Không</td>
+<td>Không</td>
+</tr>
+</tbody>
+</table>
     </div>
     <p>
         &nbsp;</p>
@@ -244,104 +187,48 @@
         <strong><span>Chi phí rủi ro liên quan đến đơn hàng đổi/ trả:</span></strong></p>
     <p>
         Chi phí rủi ro là loại chi phí mà bạn có thể phải chịu nếu không đáp ứng được 
-        các <a href="http://tiki.vn/faq/#faq-item-33">điều kiện đổi trả</a>. Chi phí rủi 
+        các <a href="http://mibo.vn/faq/#faq-item-33">điều kiện đổi trả</a>. Chi phí rủi 
         ro được khấu trừ vào tổng số tiền bồi hoàn.</p>
     <div align="center">
-        <table border="1" cellpadding="0" class="MsoNormalTable" style="mso-cellspacing:1.5pt;
- margin-left:.5in;mso-yfti-tbllook:1184">
-            <tr>
-                <td>
-                    <p align="center" class="MsoNormal">
-                        Nếu bạn đổi/ trả...<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p align="center" class="MsoNormal">
-                        Thì bạn sẽ chia sẻ chi phí rủi ro<br />
-                        tương ứng...<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p align="center" class="MsoNormal">
-                        Bạn nhận được<br />
-                        bồi hoàn tương ứng...<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="MsoNormal">
-                        Các sản phẩm có dấu hiệu đã qua sử dụng<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        50% giá trị sản phẩm<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        50% giá trị sản phẩm<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="MsoNormal">
-                        Sản phẩm bị hư hỏng, mất phụ kiện&nbsp;hoặc<br />
-                        không còn ở trạng thái ban đầu khi giao hàng<br />
-                        mà <strong><span>không</span></strong> do lỗi của MIBO.VN<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        50% giá trị sản phẩm<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        50% giá trị sản phẩm<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="MsoNormal">
-                        Giá trị đơn hàng đổi/ trả thấp hơn mức được miễn<br />
-                        phí giao hàng<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Phí vận chuyển của đơn hàng<br />
-                        sau khi đã trừ đi sản phẩm<br />
-                        đổi/ trả<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        Giá trị còn lại của sản phẩm<br />
-                        sau khi đã trừ đi phí vận chuyển<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="MsoNormal">
-                        Sản phẩm không đăng ký đổi/ trả<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        5% giá trị sản phẩm<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        95% giá trị sản phẩm<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="MsoNormal">
-                        Sản phẩm thuộc nhóm không áp dụng đổi/ trả<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        100% giá trị sản phẩm<span><o:p></o:p></span></p>
-                </td>
-                <td>
-                    <p class="MsoNormal">
-                        0% giá trị sản phẩm<span><o:p></o:p></span></p>
-                </td>
-            </tr>
-        </table>
+        <table border="1" cellspacing="5" cellpadding="5" class="MsoNormalTable" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;">Nếu bạn đổi/ trả...</td>
+<td style="text-align: center;">Thì bạn sẽ chia sẻ chi phí rủi ro<br>tương ứng...</td>
+<td style="text-align: center;">Bạn nhận được<br>bồi hoàn tương ứng...</td>
+</tr>
+<tr>
+<td>Sách, tạp chí hoặc các loại ấn phẩm khác<br>có dấu hiệu đã qua sử dụng</td>
+<td>50% giá trị sản phẩm</td>
+<td>50% giá trị sản phẩm</td>
+</tr>
+<tr>
+<td>Sản phẩm bị hư hỏng, mất phụ kiện&nbsp;hoặc<br>không còn ở trạng thái ban đầu khi giao hàng<br>mà <strong>không</strong> do lỗi của mibo.vn</td>
+<td>50% giá trị sản phẩm</td>
+<td>50% giá trị sản phẩm</td>
+</tr>
+<tr>
+<td>Sản phẩm đĩa CD, DVD, video games, băng cát-xét<br>và các sản phẩm cùng chủng loại đã bị mở ra<br>(bao plastic bên ngoài bị xé rách)</td>
+<td>90% giá trị sản phẩm</td>
+<td>10% giá trị sản phẩm</td>
+</tr>
+<tr>
+<td>Giá trị đơn hàng đổi/ trả thấp hơn mức được miễn<br>phí giao hàng</td>
+<td>Phí vận chuyển của đơn hàng<br>sau khi đã trừ đi sản phẩm<br>đổi/ trả</td>
+<td>Giá trị còn lại của sản phẩm<br>sau khi đã trừ đi phí vận chuyển</td>
+</tr>
+<tr>
+<td>Sản phẩm không đăng ký đổi/ trả</td>
+<td>5% giá trị sản phẩm</td>
+<td>95% giá trị sản phẩm</td>
+</tr>
+<tr>
+<td>Sản phẩm thuộc nhóm không áp dụng đổi/ trả</td>
+<td>100% giá trị sản phẩm</td>
+<td>0% giá trị sản phẩm</td>
+</tr>
+</tbody>
+</table>
     </div>
     <p>
         &nbsp;</p>
