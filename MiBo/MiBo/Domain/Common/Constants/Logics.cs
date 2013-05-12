@@ -91,5 +91,6 @@
         public const string RL_GIFT_ENTRY = "role-gift-entry";
         public const string RL_SYSTEMS = "role-systems";
         public const string RL_OFFERS = "role-offers";
+        public const string RL_BANNERS = "role-banners";
     }
 }

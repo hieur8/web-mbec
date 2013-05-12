@@ -128,6 +128,29 @@ namespace MiBo.Domain.Common.Utils
         }
 
         /// <summary>
+        /// Get single file name
+        /// </summary>
+        /// <param name="fileId">FileId</param>
+        /// <param name="IgnoreDeleteFlag">ignoreDeleteFlag</param>
+        /// <returns>FileName</returns>
+        public string GetFileName(string fileId, bool ignoreDeleteFlag)
+        {
+            // Check param
+            if (DataCheckHelper.IsNull(fileId))
+                throw new ParamInvalidException();
+
+            // Get infomation
+            var listResult = GetList(fileId, ignoreDeleteFlag);
+
+            // Check null
+            if (DataCheckHelper.IsNull(listResult))
+                return string.Empty;
+
+            // Return value
+            return listResult[0].FileName;
+        }
+
+        /// <summary>
         /// Get all files
         /// </summary>
         /// <param name="fileId">FileId</param>
@@ -247,7 +270,10 @@ namespace MiBo.Domain.Common.Utils
             {"items", new List<ImageSizeModel>() {
                 new ImageSizeModel("small", 60, 60),
                 new ImageSizeModel("normal", 170, 170),
-                new ImageSizeModel("larger", 400, 400)}}
+                new ImageSizeModel("larger", 400, 400)}},
+            {"banners", new List<ImageSizeModel>() {
+                new ImageSizeModel("small", 765, 383)}}
+
         };
     }
 }

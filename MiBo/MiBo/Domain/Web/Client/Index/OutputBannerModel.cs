@@ -5,5 +5,6 @@
         public string BannerCd { get; set; }
         public string BannerName { get; set; }
         public string Image { get; set; }
+        public string Notes { get; set; }
     }
 }

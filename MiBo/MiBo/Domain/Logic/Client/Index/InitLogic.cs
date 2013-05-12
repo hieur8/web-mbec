@@ -62,6 +62,7 @@ namespace MiBo.Domain.Logic.Client.Index
             OutputItemModel newItem = null;
             OutputItemModel hotItem = null;
             OutputItemModel offerItem = null;
+            StorageFileCom storageFileCom = null;
 
             // Variable initialize
             responseModel = new InitResponseModel();
@@ -69,6 +70,7 @@ namespace MiBo.Domain.Logic.Client.Index
             listNewItems = new List<OutputItemModel>();
             listHotItems = new List<OutputItemModel>();
             listOfferItems = new List<OutputItemModel>();
+            storageFileCom = new StorageFileCom();
 
             // Get value
             foreach (var obj in resultObject.ListBanners)
@@ -77,7 +79,8 @@ namespace MiBo.Domain.Logic.Client.Index
 
                 banner.BannerCd = DataHelper.ToString(obj.BannerCd);
                 banner.BannerName = DataHelper.ToString(obj.BannerName);
-                banner.Image = DataHelper.ToString(obj.FileId);
+                banner.Image = DataHelper.ToString(storageFileCom.GetFileName(obj.FileId, false));
+                banner.Notes = DataHelper.ToString(obj.Notes);
 
                 listBanners.Add(banner);
             }

@@ -71,6 +71,7 @@
     <Content Include="Global.asax" />
     <Content Include="admin.htm" />
     <Content Include="pages\administer\accept-list.aspx" />
+    <Content Include="pages\administer\banner-entry.aspx" />
     <Content Include="pages\administer\banner-list.aspx" />
     <Content Include="pages\administer\brand-entry.aspx" />
     <Content Include="pages\administer\brand-list.aspx" />
@@ -120,13 +121,13 @@
     <Content Include="pages\common\error.aspx" />
     <Content Include="pages\media\email\accept-new.html" />
     <Content Include="pages\media\email\active.html" />
-    <Content Include="pages\media\images\banners\S1.jpg" />
-    <Content Include="pages\media\images\banners\S2.jpg" />
-    <Content Include="pages\media\images\banners\S3.jpg" />
-    <Content Include="pages\media\images\banners\S4.jpg" />
-    <Content Include="pages\media\images\banners\S5.jpg" />
-    <Content Include="pages\media\images\banners\S6.jpg" />
-    <Content Include="pages\media\images\banners\S7.jpg" />
+    <Content Include="pages\media\images\banners\small\S1.jpg" />
+    <Content Include="pages\media\images\banners\small\S2.jpg" />
+    <Content Include="pages\media\images\banners\small\S3.jpg" />
+    <Content Include="pages\media\images\banners\small\S4.jpg" />
+    <Content Include="pages\media\images\banners\small\S5.jpg" />
+    <Content Include="pages\media\images\banners\small\S6.jpg" />
+    <Content Include="pages\media\images\banners\small\S7.jpg" />
     <Content Include="pages\media\images\items\larger\bcfcb87bda1ed406f9d9949fb53deb5d.jpg" />
     <Content Include="pages\media\images\items\larger\cae3a1d95cec0de91ec13db789d746c8.jpg" />
     <Content Include="pages\media\images\items\larger\ce42a95453428b3e253af21b42101b74.jpg" />
@@ -754,6 +755,8 @@
     <Compile Include="Domain\Common\Validate\AbstractValidation.cs" />
     <Compile Include="Domain\Common\Validate\ValidRequired.cs" />
     <Compile Include="Domain\Dao\AdminAcceptListDao.cs" />
+    <Compile Include="Domain\Dao\AdminBannerEntryDao.cs" />
+    <Compile Include="Domain\Dao\AdminBannerListDao.cs" />
     <Compile Include="Domain\Dao\AdminBrandEntryDao.cs" />
     <Compile Include="Domain\Dao\AdminBrandListDao.cs" />
     <Compile Include="Domain\Dao\AdminCategoryEntryDao.cs" />
@@ -790,6 +793,12 @@
     <Compile Include="Domain\Logic\Admin\AcceptList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\UpdateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\AcceptList\UpdateOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BannerEntry\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BannerEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BannerEntry\SaveLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BannerEntry\SaveOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BannerList\InitLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\BannerList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\BrandEntry\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\BrandEntry\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\BrandEntry\SaveLogic.cs" />
@@ -842,6 +851,8 @@
     <Compile Include="Domain\Logic\Admin\ItemList\InitOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferEntry\InitLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferEntry\InitOperateLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferEntry\SaveByBrandLogic.cs" />
+    <Compile Include="Domain\Logic\Admin\OfferEntry\SaveByBrandOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferEntry\SaveLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferEntry\SaveOperateLogic.cs" />
     <Compile Include="Domain\Logic\Admin\OfferItemEntry\InitLogic.cs" />
@@ -923,6 +934,9 @@
     <Compile Include="Domain\Model\Admin\AcceptList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\AcceptList\UpdateDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\BannerEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\BannerEntry\SaveDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\BannerList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\BrandEntry\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\BrandEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\BrandList\FilterDataModel.cs" />
@@ -949,6 +963,7 @@
     <Compile Include="Domain\Model\Admin\ItemList\FilterDataModel.cs" />
     <Compile Include="Domain\Model\Admin\ItemList\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\OfferEntry\InitDataModel.cs" />
+    <Compile Include="Domain\Model\Admin\OfferEntry\SaveByBrandDataModel.cs" />
     <Compile Include="Domain\Model\Admin\OfferEntry\SaveDataModel.cs" />
     <Compile Include="Domain\Model\Admin\OfferItemEntry\InitDataModel.cs" />
     <Compile Include="Domain\Model\Admin\OfferItemEntry\SaveDataModel.cs" />
@@ -994,6 +1009,14 @@
     <Compile Include="Domain\Web\Admin\AcceptList\OutputAcceptModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\UpdateRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\AcceptList\UpdateResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\BannerEntry\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\BannerEntry\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\BannerEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\BannerEntry\SaveRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\BannerEntry\SaveResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\BannerList\InitRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\BannerList\InitResponseModel.cs" />
+    <Compile Include="Domain\Web\Admin\BannerList\OutputBannerModel.cs" />
     <Compile Include="Domain\Web\Admin\BrandEntry\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\BrandEntry\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\BrandEntry\OutputDetailsModel.cs" />
@@ -1054,6 +1077,8 @@
     <Compile Include="Domain\Web\Admin\OfferEntry\InitRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferEntry\InitResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferEntry\OutputDetailsModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferEntry\SaveByBrandRequestModel.cs" />
+    <Compile Include="Domain\Web\Admin\OfferEntry\SaveByBrandResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferEntry\SaveRequestModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferEntry\SaveResponseModel.cs" />
     <Compile Include="Domain\Web\Admin\OfferItemEntry\InitRequestModel.cs" />
@@ -1172,6 +1197,13 @@
     </Compile>
     <Compile Include="pages\administer\accept-list.aspx.designer.cs">
       <DependentUpon>accept-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\banner-entry.aspx.cs">
+      <DependentUpon>banner-entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\banner-entry.aspx.designer.cs">
+      <DependentUpon>banner-entry.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\banner-list.aspx.cs">
       <DependentUpon>banner-list.aspx</DependentUpon>
