@@ -44,14 +44,17 @@
             <div class="std">
                 <div class="main-content">
                     <div class="header-banner">
-                        <div style="float: left; margin-right: 9px; border: 1px solid #ddd;margin-left:1px;">
+                        <div style="float: left; margin-right: 9px; border: 1px solid #ddd; margin-left: 1px;">
                             <asp:Repeater ID="rptBanner" runat="server">
                                 <HeaderTemplate>
                                     <div style="float: left;" class="slider">
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <div>
-                                        <img alt="<%# Eval("BannerName") %>" title="<%# Eval("BannerName") %>" src='/pages/media/images/banners/<%# Eval("Image") %>' /></div>
+                                        <a href="#" data-reveal-id='banner<%# Eval("BannerCd") %>'>
+                                            <img alt="<%# Eval("BannerName") %>" title="<%# Eval("BannerName") %>" src='/pages/media/images/banners/small/<%# Eval("Image") %>' />
+                                        </a>
+                                    </div>
                                 </ItemTemplate>
                                 <FooterTemplate>
                                     </div>
@@ -88,7 +91,8 @@
                                     <div class="wrapper">
                                         <a><span class="duty-40x40 duty-3a"></span>
                                             <p class="font-medium">
-                                                7 ngày đổi trả hàng miễn<br /> phí</p>
+                                                7 ngày đổi trả hàng miễn<br />
+                                                phí</p>
                                         </a>
                                     </div>
                                     <div class="wrapper">
@@ -99,9 +103,9 @@
                                     </div>
                                     <hr />
                                     <div class="wrapper">
-                                        <a id="lnkChatYahoo" runat="server" title="Click vào đây để Chat trực tiếp" style="text-decoration: none; padding: 0 6px">
+                                        <a id="lnkChatYahoo" runat="server" title="Click vào đây để Chat trực tiếp" style="text-decoration: none;
+                                            padding: 0 6px">
                                             <img id="icoChatYahoo" runat="server" style="cursor: pointer; width: 72px" border="0"></a>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +152,8 @@
                                                 </ul>
                                             </FooterTemplate>
                                         </asp:Repeater>
-                                        <a class="btn btn-orange" href="/items.aspx?show=new" id="lnkAllNew" runat="server"><span>Xem tất cả</span></a>
+                                        <a class="btn btn-orange" href="/items.aspx?show=new" id="lnkAllNew" runat="server">
+                                            <span>Xem tất cả</span></a>
                                     </div>
                                 </div>
                                 <div id="idTab2" style="padding: 4px;">
@@ -185,7 +190,8 @@
                                                 </ul>
                                             </FooterTemplate>
                                         </asp:Repeater>
-                                        <a class="btn btn-orange" href="/items.aspx?show=offer" id="lnkAllOffer" runat="server">Xem tất cả</a>
+                                        <a class="btn btn-orange" href="/items.aspx?show=offer" id="lnkAllOffer" runat="server">
+                                            Xem tất cả</a>
                                     </div>
                                 </div>
                                 <div id="idTab3" style="padding: 4px;">
@@ -231,6 +237,13 @@
                 </div>
             </div>
         </div>
+        <asp:Repeater ID="rptBannerInfo" runat="server">
+            <ItemTemplate>
+                <div id='banner<%# Eval("BannerCd") %>' class="reveal-modal">
+                    <%# Eval("Notes") %>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
         <script type="text/javascript">
             $('div').remove('.jquery-slider-timer-bar');
         </script>

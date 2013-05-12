@@ -11,5 +11,6 @@ namespace MiBo.Domain.Model.Admin.OfferEntry
         public DateTime? EndDate { get; set; }
         public string OfferDiv { get; set; }
         public IList<MCode> ListOfferDiv { get; set; }
+        public IList<MCode> ListBrand { get; set; }
     }
 }

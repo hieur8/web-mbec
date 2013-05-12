@@ -13,7 +13,7 @@ namespace MiBo.Domain.Dao
         {
             // Get value
             var listResult = from tbl in EntityManager.Offers
-                             orderby tbl.SortKey ascending
+                             orderby tbl.UpdateDate ascending
                              select tbl;
 
             // Return value

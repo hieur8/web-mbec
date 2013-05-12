@@ -26,6 +26,8 @@ namespace MiBo.pages.common
                 lnkGifts.Visible = true;
             if (PageHelper.AuthRole(Logics.RL_GIFT_ENTRY))
                 lnkGiftEntry.Visible = true;
+            if (PageHelper.AuthRole(Logics.RL_BANNERS))
+                mBanners.Visible = true;
             if (PageHelper.AuthRole(Logics.RL_SYSTEMS))
                 mSystems.Visible = true;
             if (PageHelper.AuthRole(Logics.RL_USERS))

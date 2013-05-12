@@ -128,10 +128,15 @@
                             <li><a runat="server" visible="false" id="lnkGiftEntry" href="/pages/administer/gift-entry.aspx">Tạo thẻ quà tặng</a></li>
                         </ul>
                     </li>
+                    <li id="mBanners" runat="server" visible="false"><a id="mnuBanners" href="#" class="nav-top-item">Quản lý banner</a>
+                        <ul>
+                            <li><a id="lnkBanners" href="/pages/administer/banner-list.aspx">Danh sách banner</a></li>
+                            <li><a id="lnkBannerEntry" href="/pages/administer/banner-entry.aspx">Thêm/sửa banner</a></li>
+                        </ul>
+                    </li>
                     <li id="mSystems" runat="server" visible="false"><a id="mnuSystems" href="#" class="nav-top-item">Quản lý hệ thống</a>
                         <ul>
                             <li><a id="lnkParmas" href="/pages/administer/param-list.aspx">Tham số hệ thống</a></li>
-
                         </ul>
                     </li>
                     <li id="mUsers" runat="server" visible="false"><a id="mnuUsers" href="#" class="nav-top-item">Quản lý tài khoản</a>

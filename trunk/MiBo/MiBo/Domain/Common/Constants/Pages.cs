@@ -37,5 +37,7 @@
         public const string ADMIN_OFFER_LIST = "/pages/administer/offer-list.aspx";
         public const string ADMIN_OFFER_ITEM_ENTRY = "/pages/administer/offer-item-entry.aspx";
         public const string ADMIN_OFFER_ITEM_LIST = "/pages/administer/offer-item-list.aspx";
+        public const string ADMIN_BANNER_ENTRY = "/pages/administer/banner-entry.aspx";
+        public const string ADMIN_BANNER_LIST = "/pages/administer/banner-list.aspx";
     }
 }

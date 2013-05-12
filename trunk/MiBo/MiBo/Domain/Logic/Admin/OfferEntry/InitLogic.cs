@@ -72,6 +72,10 @@ namespace MiBo.Domain.Logic.Admin.OfferEntry
             details.ListOfferDiv = cbOfferDiv.ListItems;
             details.OfferDiv = cbOfferDiv.SeletedValue;
 
+            var cbBrand = MCodeCom.ToComboItems(resultObject.ListBrand, null);
+            details.ListBrand = cbBrand.ListItems;
+            details.BrandCd = cbBrand.SeletedValue;
+
             // Set value
             response.Details = new List<OutputDetailsModel>() { details };
 
@@ -144,12 +148,14 @@ namespace MiBo.Domain.Logic.Admin.OfferEntry
             // Get data
             var offerCd = adminOfferEntryDao.GetOfferCd();
             var listOfferDiv = mCodeCom.GetListCode(Logics.GROUP_OFFER_DIV, null, false, false);
+            var listBrand = mCodeCom.GetListBrand(false, false);
 
             // Set value
             getResult.OfferCd = offerCd;
             getResult.StartDate = currentDate;
             getResult.EndDate = currentDate;
             getResult.ListOfferDiv = listOfferDiv;
+            getResult.ListBrand = listBrand;
 
             // Return value
             return getResult;

@@ -10,5 +10,7 @@ namespace MiBo.Domain.Web.Admin.OfferEntry
         public string EndDate { get; set; }
         public string OfferDiv { get; set; }
         public IList<ComboItem> ListOfferDiv { get; set; }
+        public string BrandCd { get; set; }
+        public IList<ComboItem> ListBrand { get; set; }
     }
 }
