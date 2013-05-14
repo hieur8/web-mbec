@@ -217,6 +217,7 @@
     <Content Include="pages\resources\images\green-dream_23.gif" />
     <Content Include="pages\resources\images\home-icon.png" />
     <Content Include="pages\resources\images\icons\add.png" />
+    <Content Include="pages\resources\images\icons\checkout.png" />
     <Content Include="pages\resources\images\icons\cross_circle.png" />
     <Content Include="pages\resources\images\icons\cross_grey_small.png" />
     <Content Include="pages\resources\images\icons\delete.png" />

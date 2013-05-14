@@ -48,6 +48,11 @@ namespace MiBo.pages.administer
             Redirect(Pages.ADMIN_ACCEPT_ENTRY);
         }
 
+        protected void btnCheckOut_Command(object sender, CommandEventArgs e)
+        {
+            
+        }
+
         private InitRequestModel InitRequestModel
         {
             get

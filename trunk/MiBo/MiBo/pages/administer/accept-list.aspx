@@ -155,9 +155,12 @@
                             <asp:HiddenField ID="hidAcceptSlipNo" runat="server" Value='<%# Eval("AcceptSlipNo") %>' />
                         </td>
                         <td>
-                            <asp:ImageButton OnCommand="btnAction_Command" CommandName="edit" CommandArgument='<%# Eval("AcceptSlipNo") %>'
+                            <!--<asp:ImageButton OnCommand="btnAction_Command" CommandName="edit" CommandArgument=''
                                 AlternateText="Cập nhật" ToolTip='Cập nhật' ImageUrl="/pages/resources/images/icons/edit.png"
-                                ID="btnEdit" runat="server" />
+                                ID="btnEdit" runat="server" />-->
+                            <asp:ImageButton OnCommand="btnCheckOut_Command" CommandName="checkout" CommandArgument='<%# Eval("AcceptSlipNo") %>'
+                                AlternateText="Thanh toán" ToolTip='Thanh toán' ImageUrl="/pages/resources/images/icons/checkout.png"
+                                ID="btnCheckOut" runat="server" Visible='<%# Equals("03", Eval("SlipStatus")) %>' />
                         </td>
                         <td>
                             <%# Eval("AcceptSlipNo")%>
