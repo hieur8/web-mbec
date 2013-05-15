@@ -69,7 +69,7 @@ namespace MiBo.pages.cln
             conn.AddDigitalOrderField("vpc_OrderInfo", "Tin Hoc Nguyen Phong - Mibo.vn");
             conn.AddDigitalOrderField("vpc_Amount", totalAtm);
             conn.AddDigitalOrderField("vpc_Currency", "VND");
-            conn.AddDigitalOrderField("vpc_ReturnURL", "http://localhost:2593/pages/cln/pay-process.aspx");
+            conn.AddDigitalOrderField("vpc_ReturnURL", "http://mibo.vn/pay-process.aspx");
             // Dia chi IP cua khach hang
             conn.AddDigitalOrderField("vpc_TicketNo", ipaddress);
             // Chuyen huong trinh duyet sang cong thanh toan
