@@ -5,6 +5,11 @@ using MiBo.Domain.Common.Constants;
 using MiBo.Domain.Common.Controller;
 using MiBo.Domain.Logic.Admin.AcceptList;
 using MiBo.Domain.Web.Admin.AcceptList;
+using System.Net;
+using System.Text;
+using System.IO;
+using MiBo.Domain.Dao;
+using MiBo.Domain.Common.Dao;
 
 namespace MiBo.pages.administer
 {
@@ -50,7 +55,37 @@ namespace MiBo.pages.administer
 
         protected void btnCheckOut_Command(object sender, CommandEventArgs e)
         {
-            
+            if (e.CommandArgument == null) return;
+            ClientCheckoutDao clientCheckoutDao = new ClientCheckoutDao();
+            Accept accept = clientCheckoutDao.getAcceptById(e.CommandArgument.ToString().Trim());
+            if (accept == null) return;
+            string postData = "";
+            string seperator = "";
+            string resQS = "";
+            int paras = 7;
+            string vpcURL = "http://mtf.onepay.vn/onecomm-pay/Vpcdps.op";
+
+
+            string[,] MyArray =
+			{
+			{"vpc_AccessCode","D67342C2"},
+			{"vpc_Command","queryDR"	},           
+			{"vpc_MerchTxnRef",accept.GenId},			
+            {"vpc_Merchant","ONEPAY"},						
+            {"vpc_Password","op123456"},
+			{"vpc_User","op01"},
+			{"vpc_Version","1"}							
+			};
+            for (int i = 0; i < paras; i++)
+            {
+                postData = postData + seperator + Server.UrlEncode(MyArray[i, 0]) + "=" + Server.UrlEncode(MyArray[i, 1]);
+                seperator = "&";
+            }
+
+            resQS = doPost(vpcURL, postData);
+            Session["isCheckPay"] = true;
+            Session["AcceptSlipNo"] = accept.AcceptSlipNo;
+            Response.Redirect("checkpay.aspx?" + Server.UrlDecode(resQS));
         }
 
         private InitRequestModel InitRequestModel
@@ -101,6 +136,48 @@ namespace MiBo.pages.administer
                 requestModel.ListAccepts = listAccepts;
                 return requestModel;
             }
+        }
+        public static string doPost(string vpc_Host, string postData)
+        {
+            string page = "Response:";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(vpc_Host);
+
+            //  WebRequest request = WebRequest.Create(vpc_Host);
+            request.Method = "POST";
+
+            // Create POST data and convert it to a byte array.
+            //string postData = "This is a test that posts this string to a Web server.";
+            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+            // Set the ContentType property of the WebRequest.         
+            request.UserAgent = "HTTP Client";
+            request.ContentType = "application/x-www-form-urlencoded";
+            // Set the ContentLength property of the WebRequest.
+            request.ContentLength = byteArray.Length;
+            // Get the request stream.
+            Stream dataStream = request.GetRequestStream();
+            // Write the data to the request stream.
+            dataStream.Write(byteArray, 0, byteArray.Length);
+            // Close the Stream object.
+            dataStream.Close();
+            // Get the response.
+            //    WebResponse response = request.GetResponse();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            // Display the status.
+            //   Response.WriteLine(((HttpWebResponse)response).StatusDescription);
+            // Get the stream containing content returned by the server.
+            dataStream = response.GetResponseStream();
+            // Open the stream using a StreamReader for easy access.
+            StreamReader reader = new StreamReader(dataStream);
+            // Read the content.
+            string responseFromServer = reader.ReadToEnd();
+            page = page + responseFromServer;
+            // Display the content.
+            //  Response.WriteLine(responseFromServer);
+            // Clean up the streams.
+            reader.Close();
+            dataStream.Close();
+            response.Close();
+            return page;
         }
     }
 }

@@ -77,6 +77,7 @@
     <Content Include="pages\administer\brand-list.aspx" />
     <Content Include="pages\administer\category-entry.aspx" />
     <Content Include="pages\administer\category-list.aspx" />
+    <Content Include="pages\administer\checkpay.aspx" />
     <Content Include="pages\administer\gift-entry.aspx" />
     <Content Include="pages\administer\gift-list.aspx" />
     <Content Include="pages\administer\group-entry.aspx" />
@@ -1240,6 +1241,13 @@
     </Compile>
     <Compile Include="pages\administer\category-list.aspx.designer.cs">
       <DependentUpon>category-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\administer\checkpay.aspx.cs">
+      <DependentUpon>checkpay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\administer\checkpay.aspx.designer.cs">
+      <DependentUpon>checkpay.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\administer\gift-entry.aspx.cs">
       <DependentUpon>gift-entry.aspx</DependentUpon>
