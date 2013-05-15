@@ -17,7 +17,6 @@ namespace MiBo.pages.cln
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Session["isPrePay"] == null)
             {
                 if (Session["isFirstPay"] == null)
@@ -26,6 +25,7 @@ namespace MiBo.pages.cln
                     Response.Redirect(Pages.CLIENT_INDEX);
                 }
             }
+            
             if (Session["AcceptSlipNo"] == null)
             {
                 Response.Redirect(Pages.CLIENT_INDEX);
@@ -57,10 +57,8 @@ namespace MiBo.pages.cln
 
             if (hashvalidateResult == "CORRECTED" && txnResponseCode.Trim() == "0")
             {
-                ClientCheckoutDao clientCheckoutDao = new ClientCheckoutDao();
-                clientCheckoutDao.updateStatus(Session["AcceptSlipNo"].ToString(), "02");
-                vpc_Result.Text = "<center><h1>Đặt hàng thành công</h1><br/>Đơn hàng của bạn đã được gởi đến bộ phận bán hàng của Mibo. Bạn cũng có thể theo dõi đơn hàng của bạn <a href='order-history.aspx'>tại đây</a></center>";
 
+                paySuccess();
             }
             else if (hashvalidateResult == "INVALIDATED" && txnResponseCode.Trim() == "0")
             {
@@ -75,7 +73,15 @@ namespace MiBo.pages.cln
             {
                 vpc_Result.Text = "<center><h1>Đặt hàng không thành công</h1> ! <br/>Có lỗi trong quá trình thanh toán. vui lòng thử lại <a href='checkout.aspx'>tại đây</a></center>";
             }
+            Session["isPrePay"] = null;
+            Session["isFirstPay"] = null;
+            Session["AcceptSlipNo"] = null;
         }
 
+        public void paySuccess(){
+            ClientCheckoutDao clientCheckoutDao = new ClientCheckoutDao();
+            clientCheckoutDao.updateStatus(Session["AcceptSlipNo"].ToString(), "02");
+            vpc_Result.Text = "<center><h1>Đặt hàng thành công</h1><br/>Đơn hàng của bạn đã được gởi đến bộ phận bán hàng của Mibo. Bạn cũng có thể theo dõi đơn hàng của bạn <a href='order-history.aspx'>tại đây</a></center>";
+        }
     }
 }
