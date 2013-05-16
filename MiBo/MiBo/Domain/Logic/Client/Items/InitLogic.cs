@@ -89,8 +89,8 @@ namespace MiBo.Domain.Logic.Client.Items
             // Set value
             responseModel.DiscountMember = DataHelper.ToString(Formats.PERCENT, resultObject.DiscountMember);
             responseModel.Hotline = DataHelper.ToString(resultObject.Hotline);
-            responseModel.ChatYahooIM = DataHelper.GetYahooIM(resultObject.ChatYahoo);
-            responseModel.ChatYahooIcon = DataHelper.GetYahooIcon(resultObject.ChatYahoo);
+            //responseModel.ChatYahooIM = DataHelper.GetYahooIM(resultObject.ChatYahoo);
+            //responseModel.ChatYahooIcon = DataHelper.GetYahooIcon(resultObject.ChatYahoo);
             responseModel.Title = DataHelper.ToString(resultObject.Title);
             responseModel.ListItems = listItems;
 
