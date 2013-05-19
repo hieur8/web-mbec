@@ -235,7 +235,7 @@
                                             ID="pay1" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
-                                        <asp:RadioButton GroupName="rbPay" Text="Thanh toán trực truyến Internet Banking (Onepay)"
+                                        <asp:RadioButton GroupName="rbPay" Text="Thanh toán trực truyến bằng thẻ ATM - Internet Banking<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Khi bạn chọn phương thức này tức bạn đã chấp nhận những <a target='new' href='/pages/resources/DieuKhoanThanhToanOnline.pdf'>điều khoản thanh toán</a> trực tuyến của chúng tôi."
                                             ID="pay2" runat="server" class="radio" />
                                     </li>
                                     <li class="control">
