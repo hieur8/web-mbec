@@ -152,7 +152,7 @@
                                                 </ul>
                                             </FooterTemplate>
                                         </asp:Repeater>
-                                        <a class="btn btn-orange" href="/items.aspx?show=new" id="lnkAllNew" runat="server">
+                                        <a href="/items.aspx?show=new" id="lnkAllNew" runat="server">
                                             <span>Xem tất cả</span></a>
                                     </div>
                                 </div>
@@ -190,8 +190,8 @@
                                                 </ul>
                                             </FooterTemplate>
                                         </asp:Repeater>
-                                        <a class="btn btn-orange" href="/items.aspx?show=offer" id="lnkAllOffer" runat="server">
-                                            Xem tất cả</a>
+                                        <a href="/items.aspx?show=new" id="lnkAllOffer" runat="server">
+                                            <span>Xem tất cả</span></a>
                                     </div>
                                 </div>
                                 <div id="idTab3" style="padding: 4px;">

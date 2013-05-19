@@ -78,7 +78,7 @@ namespace MiBo.pages.cln
             }
             else if (accept.PaymentMethods == "02")
             {
-                lblPay.Text = "Thanh toán trực truyến Internet Banking (Onepay)";
+                lblPay.Text = "Thanh toán trực truyến bằng thẻ ATM - Internet Banking";
             }
             IList<CartItem> cart = (IList<CartItem>)Session["Cart"];
             CartCom cartCom = new CartCom(cart);
