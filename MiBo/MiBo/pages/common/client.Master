@@ -309,9 +309,8 @@
         </table>
             
         </div>
-        <div class="right-ft-card-follow">
-            <a href="http://202.9.84.88/documents/payment/5vn.html" target="_blank">
-                <img src="/pages/resources/images/5.VMAJ_ATMnoidia_logongang_550x50_viet.png"></a>
+        <div class="right-ft-card-follow" style="height:20px;width:300px" onClick='window.open( "http://202.9.84.88/documents/payment/4vn.html","myWindow","status = 0,toolbar=0,location=0,menubar=0,directories=0,scrollbars=1,height = 600, width = 730, resizable = 0")'>
+            <img src="/pages/resources/images/4.ATMnoidia_logongang_300x50_viet.png" />
         </div>
     </div>
     </form>
