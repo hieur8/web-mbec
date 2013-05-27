@@ -16,6 +16,8 @@ namespace MiBo.Domain.Web.Admin.OfferEntry
         public string OfferDiv { get; set; }
         [ValidRequired(MessageParam = "Giảm (%)")]
         public string Percent { get; set; }
+        [ValidRequired(MessageParam = "Nhóm khuyến mãi")]
+        public string OfferGroupCd { get; set; }
         public string Notes { get; set; }
     }
 }

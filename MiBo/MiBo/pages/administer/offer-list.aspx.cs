@@ -80,6 +80,7 @@ namespace MiBo.pages.administer
                     if (!((CheckBox)row.FindControl("chkEdit")).Checked) continue;
                     offer = new OutputOfferModel();
                     offer.OfferCd = ((HiddenField)row.FindControl("hidOfferCd")).Value;
+                    offer.OfferGroupCd = ((TextBox)row.FindControl("txtOfferGroupCd")).Text;
                     offer.ItemCd = ((TextBox)row.FindControl("txtItemCd")).Text;
                     offer.StartDate = ((TextBox)row.FindControl("txtStartDate")).Text;
                     offer.EndDate = ((TextBox)row.FindControl("txtEndDate")).Text;

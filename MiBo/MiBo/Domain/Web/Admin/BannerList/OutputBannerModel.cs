@@ -4,7 +4,7 @@
     {
         public string BannerCd { get; set; }
         public string BannerName { get; set; }
-        public string Notes { get; set; }
+        public string OfferGroupCd { get; set; }
         public string SortKey { get; set; }
         public string DeleteFlag { get; set; }
         public string DeleteFlagName { get; set; }

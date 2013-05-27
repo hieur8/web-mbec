@@ -129,6 +129,8 @@ namespace MiBo.Domain.Logic.Admin.OfferList
                     throw new ExecuteException("E_MSG_00004", string.Format("Ngày kết thúc ({0})", i + 1));
                 if (DataCheckHelper.IsNull(obj.Percent))
                     throw new ExecuteException("E_MSG_00004", string.Format("Giảm ({0})", i + 1));
+                if (DataCheckHelper.IsNull(obj.OfferGroupCd))
+                    throw new ExecuteException("E_MSG_00004", string.Format("Nhóm khuyến mãi ({0})", i + 1));
                 if (DataCheckHelper.IsNull(obj.DeleteFlag))
                     throw new ExecuteException("E_MSG_00004", string.Format("Dữ liệu ({0})", i + 1));
                 if (!mCodeCom.IsExist(Logics.GROUP_DELETE_FLAG, dFlag, false))

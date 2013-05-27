@@ -72,7 +72,7 @@ namespace MiBo.Domain.Logic.Admin.BannerList
 
                 banner.BannerCd = DataHelper.ToString(obj.BannerCd);
                 banner.BannerName = DataHelper.ToString(obj.BannerName);
-                banner.Notes = DataHelper.ToString(obj.Notes);
+                banner.OfferGroupCd = DataHelper.ToString(obj.OfferGroupCd);
                 banner.SortKey = DataHelper.ToString(obj.SortKey);
                 banner.DeleteFlag = DataHelper.ToString(obj.DeleteFlag);
                 deleteFlagName = mCodeCom.GetCodeName(Logics.GROUP_DELETE_FLAG, banner.DeleteFlag);

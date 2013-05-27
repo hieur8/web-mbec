@@ -75,6 +75,7 @@
         public const string CD_SHOW_ITEMS_OFFER = "offer";
         public const string CD_SHOW_ITEMS_NEW = "new";
         public const string CD_SHOW_ITEMS_HOT = "hot";
+        public const string CD_SHOW_ITEMS_GROUP = "group";
 
         // Description for group user
         public const string GP_ADMINISTRATORS = "administrators";

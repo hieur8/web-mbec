@@ -11,7 +11,7 @@
                 "bLengthChange": false,
                 "aaSorting": [],
                 "sScrollX": "100%",
-                "sScrollXInner": "1860",
+                "sScrollXInner": "2040",
                 "bScrollCollapse": true,
                 "sPaginationType": "full_numbers"
             });
@@ -75,6 +75,9 @@
                     Loại khuyến mãi
                 </th>
                 <th width="180">
+                    Nhóm khuyến mãi
+                </th>
+                <th width="180">
                     Mã sản phẩm
                 </th>
                 <th width="180">
@@ -118,6 +121,10 @@
                         </td>
                         <td>
                             <%# Eval("OfferDivName")%>
+                        </td>
+                        <td>
+                            <asp:TextBox ctrl="data" Width="80" Text='<%# Eval("OfferGroupCd")%>' ID="txtOfferGroupCd" runat="server"
+                                CssClass="text-input"></asp:TextBox>
                         </td>
                         <td>
                             <asp:TextBox ctrl="data" Width="80" Text='<%# Eval("ItemCd")%>' ID="txtItemCd" runat="server"

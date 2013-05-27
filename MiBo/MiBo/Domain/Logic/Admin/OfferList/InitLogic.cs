@@ -72,6 +72,7 @@ namespace MiBo.Domain.Logic.Admin.OfferList
             {
                 offer = new OutputOfferModel();
                 offer.OfferCd = DataHelper.ToString(obj.OfferCd);
+                offer.OfferGroupCd = DataHelper.ToString(obj.OfferGroupCd);
                 offer.ItemCd = DataHelper.ToString(obj.ItemCd);
                 offer.StartDate = DataHelper.ToString(Formats.DATE, obj.StartDate);
                 offer.EndDate = DataHelper.ToString(Formats.DATE, obj.EndDate);

@@ -14,6 +14,7 @@ namespace MiBo.Domain.Web.Admin.OfferList
         public string Percent { get; set; }
         public string DeleteFlag { get; set; }
         public string UpdateDate { get; set; }
+        public string OfferGroupCd { get; set; }
         public string Notes { get; set; }
         public IList<ComboItem> ListDeleteFlag { get; set; }
     }

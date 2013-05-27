@@ -56,6 +56,7 @@ namespace MiBo.pages.administer
             {
                 var request = new SaveRequestModel();
                 request.OfferCd = ((TextBox)fvwGroupDatails.FindControl("txtOfferCd")).Text;
+                request.OfferGroupCd = ((TextBox)fvwGroupDatails.FindControl("txtOfferGroupCd")).Text;
                 request.ItemCd = ((TextBox)fvwGroupDatails.FindControl("txtItemCd")).Text;
                 request.StartDate = ((TextBox)fvwGroupDatails.FindControl("txtStartDate")).Text;
                 request.EndDate = ((TextBox)fvwGroupDatails.FindControl("txtEndDate")).Text;
@@ -72,6 +73,7 @@ namespace MiBo.pages.administer
             {
                 var request = new SaveByBrandRequestModel();
                 request.OfferCd = ((TextBox)fvwGroupDatails.FindControl("txtOfferCd1")).Text;
+                request.OfferGroupCd = ((TextBox)fvwGroupDatails.FindControl("txtOfferGroupCd1")).Text;
                 request.BrandCd = ((DropDownList)fvwGroupDatails.FindControl("ddlBrand")).SelectedValue;
                 request.StartDate = ((TextBox)fvwGroupDatails.FindControl("txtStartDate1")).Text;
                 request.EndDate = ((TextBox)fvwGroupDatails.FindControl("txtEndDate1")).Text;

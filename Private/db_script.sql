@@ -423,6 +423,7 @@ GO
 CREATE TABLE [Offers]
 (
     [OfferCd] VARCHAR(255),
+	[OfferGroupCd] VARCHAR(255),
     [ItemCd] VARCHAR(255),
     [StartDate] DATETIME,
     [EndDate] DATETIME,
@@ -529,6 +530,7 @@ CREATE TABLE [Banners]
     [BannerName] VARCHAR(255),
 	[BannerSearchName] VARCHAR(255),
     [FileId] VARCHAR(255),
+	[OfferGroupCd] VARCHAR(255),
     [Notes] NVARCHAR(MAX),
     [SortKey] DECIMAL,
     [CreateUser] VARCHAR(255),

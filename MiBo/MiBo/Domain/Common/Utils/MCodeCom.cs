@@ -174,6 +174,42 @@ namespace MiBo.Domain.Common.Utils
         }
 
         /// <summary>
+        /// Convert output combo items list
+        /// </summary>
+        /// <param name="target">List string</param>
+        /// <param name="selectedValue">Selected value</param>
+        /// <returns>List ListItem</returns>
+        public static ComboModel ToComboItems(IList<string> target, string selectedValue)
+        {
+            // Local variable declaration
+            ComboModel comboModel = null;
+            IList<ComboItem> listComboItems = null;
+
+            // Variable initialize
+            listComboItems = new List<ComboItem>();
+            comboModel = new ComboModel();
+
+            // Get data
+            var val = string.Empty;
+            foreach (var obj in target)
+            {
+                var combo = new ComboItem();
+                combo.Code = DataHelper.ToString(obj);
+                combo.Name = DataHelper.ToString(obj);
+                if (combo.Code == selectedValue
+                    || (DataCheckHelper.IsNull(selectedValue) && target.IndexOf(obj) == 0))
+                    val = combo.Code;
+                listComboItems.Add(combo);
+            }
+
+            // Set value
+            comboModel.SeletedValue = val;
+            comboModel.ListItems = listComboItems;
+
+            return comboModel;
+        }
+
+        /// <summary>
         /// Get list category
         /// </summary>
         /// <param name="nullValue">NullValue</param>

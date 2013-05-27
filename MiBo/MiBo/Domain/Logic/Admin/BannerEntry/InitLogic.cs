@@ -73,7 +73,7 @@ namespace MiBo.Domain.Logic.Admin.BannerEntry
 
             details.BannerCd = DataHelper.ToString(banner.BannerCd);
             details.BannerName = DataHelper.ToString(banner.BannerName);
-            details.Notes = DataHelper.ToString(banner.Notes);
+            details.OfferGroupCd = DataHelper.ToString(banner.OfferGroupCd);
             details.SortKey = DataHelper.ToString(banner.SortKey);
             details.FileId = DataHelper.ToString(banner.FileId);
             details.DeleteFlag = DataHelper.ToString(banner.DeleteFlag);
@@ -81,6 +81,10 @@ namespace MiBo.Domain.Logic.Admin.BannerEntry
             var cbDeleteFlag = MCodeCom.ToComboItems(resultObject.ListDeleteFlag, details.DeleteFlag);
             details.ListDeleteFlag = cbDeleteFlag.ListItems;
             details.DeleteFlag = cbDeleteFlag.SeletedValue;
+
+            var cbOfferGroup = MCodeCom.ToComboItems(resultObject.ListOfferGroup, details.OfferGroupCd);
+            details.ListOfferGroup = cbOfferGroup.ListItems;
+            details.OfferGroupCd = cbOfferGroup.SeletedValue;
 
             // Set value
             response.Details = new List<OutputDetailsModel>() { details };
@@ -166,12 +170,14 @@ namespace MiBo.Domain.Logic.Admin.BannerEntry
 
             // Get data
             var listDeleteFlag = mCodeCom.GetListCode(Logics.GROUP_DELETE_FLAG, null, false, false);
+            var listOfferGroup = adminBannerEntryDao.GetListOfferGroup();
             var banner = new Banner();
             if (!IsAdd) banner = adminBannerEntryDao.GetSingleBanner(inputObject.BannerCd);
             else banner.FileId = DataHelper.GetUniqueKey();
 
             // Set value
             getResult.ListDeleteFlag = listDeleteFlag;
+            getResult.ListOfferGroup = listOfferGroup;
             getResult.Banner = banner;
 
             // Return value

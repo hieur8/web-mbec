@@ -40,6 +40,8 @@ namespace MiBo.Domain.Dao
                 return GetListOfferItems();
             if (inputObject.ShowCd == Logics.CD_SHOW_ITEMS_HOT)
                 return GetListHotItems();
+            if (inputObject.ShowCd == Logics.CD_SHOW_ITEMS_GROUP)
+                return GetListGroupItems(inputObject.OfferGroupCd);
 
             // Get price
             var price = (from tbl in EntityManager.Prices
@@ -107,6 +109,31 @@ namespace MiBo.Domain.Dao
                              select tbl;
 
             return listResult.Take(10).ToList();
+        }
+
+        public IList<Item> GetListGroupItems(string groupCd)
+        {
+            // Get sysdate
+            var currentDate = DateTime.Now;
+
+            // Get list offers
+            var listOffers = from tbl in EntityManager.Offers
+                             where tbl.OfferGroupCd == groupCd
+                             && tbl.StartDate <= currentDate
+                             && tbl.EndDate > currentDate
+                             && tbl.DeleteFlag == false
+                             orderby tbl.SortKey ascending
+                             select tbl.ItemCd;
+
+            // Get data
+            var listResult = from tbl in EntityManager.Items
+                             where listOffers.Contains(tbl.ItemCd)
+                             && tbl.DeleteFlag == false
+                             orderby tbl.Viewer descending
+                             select tbl;
+
+            // Return value
+            return listResult.ToList();
         }
 
         public IList<Item> GetListOfferItems()

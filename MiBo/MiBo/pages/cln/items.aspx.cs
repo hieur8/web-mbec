@@ -48,6 +48,7 @@ namespace MiBo.pages.cln
                 request.GenderCd = Request["gender"];
                 request.BrandCd = Request["brand"];
                 request.ShowCd = Request["show"];
+                request.OfferGroupCd = Request["ogc"];
 
                 request.Limit = Request["limit"];
                 request.Offset = Request["offset"];

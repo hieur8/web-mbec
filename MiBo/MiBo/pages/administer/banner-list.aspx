@@ -9,7 +9,7 @@
                 "bLengthChange": false,
                 "aaSorting": [],
                 "sScrollX": "100%",
-                "sScrollXInner": "1180",
+                "sScrollXInner": "1360",
                 "bScrollCollapse": true,
                 "sPaginationType": "full_numbers"
             });
@@ -39,8 +39,8 @@
                 <th width="100">
                     Thứ tự
                 </th>
-                <th width="150">
-                    Ghi chú
+                <th width="180">
+                    Nhóm khuyến mãi
                 </th>
                 <th width="150">
                     Ngày cập nhật
@@ -69,7 +69,7 @@
                             <%# Eval("SortKey")%>
                         </td>
                         <td>
-                            <%# Eval("Notes")%>
+                            <%# Eval("OfferGroupCd")%>
                         </td>
                         <td>
                             <%# Eval("UpdateDate")%>

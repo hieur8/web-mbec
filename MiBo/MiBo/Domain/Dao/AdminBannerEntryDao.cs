@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using MiBo.Domain.Common.Dao;
 using MiBo.Domain.Common.Helper;
 using MiBo.Domain.Model.Admin.BannerEntry;
+using System.Collections.Generic;
 
 namespace MiBo.Domain.Dao
 {
@@ -17,6 +19,17 @@ namespace MiBo.Domain.Dao
             return GetSingle<Banner>(bannerCd, true);
         }
 
+        public IList<string> GetListOfferGroup()
+        {
+            // Get value
+            var listResult = from tbl in EntityManager.Offers
+                             where tbl.DeleteFlag == false
+                             select tbl.OfferGroupCd;
+
+            // Return value
+            return listResult.Distinct().ToList();
+        }
+
         public void InsertBanner(SaveDataModel inputObject)
         {
             // Get sysdate
@@ -27,7 +40,8 @@ namespace MiBo.Domain.Dao
             entity.BannerCd = inputObject.BannerCd;
             entity.BannerName = inputObject.BannerName;
             entity.FileId = inputObject.FileId;
-            entity.Notes = inputObject.Notes;
+            entity.OfferGroupCd = inputObject.OfferGroupCd;
+            entity.Notes = string.Empty;
             entity.SortKey = inputObject.SortKey;
             entity.CreateUser = PageHelper.UserName;
             entity.CreateDate = currentDate;
@@ -48,7 +62,7 @@ namespace MiBo.Domain.Dao
             // Set item
             var entity = GetSingle<Banner>(inputObject.BannerCd, true);
             entity.BannerName = inputObject.BannerName;
-            entity.Notes = inputObject.Notes;
+            entity.OfferGroupCd = inputObject.OfferGroupCd;
             entity.SortKey = inputObject.SortKey;
             entity.UpdateUser = PageHelper.UserName;
             entity.UpdateDate = currentDate;

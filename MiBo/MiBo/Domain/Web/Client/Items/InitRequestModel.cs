@@ -11,5 +11,6 @@ namespace MiBo.Domain.Web.Client.Items
         public string BrandCd { get; set; }
         public string PriceCd { get; set; }
         public string ShowCd { get; set; }
+        public string OfferGroupCd { get; set; }
     }
 }
