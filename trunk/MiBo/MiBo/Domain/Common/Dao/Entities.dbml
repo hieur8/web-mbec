@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MiBoDB" Class="EntitiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=HIEU-PC\SQLEXPRESS;Initial Catalog=MiBoDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MiBoDBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=MiBoDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MiBoDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.AcceptDetailIOs" Member="AcceptDetailIOs">
     <Type Name="AcceptDetailIO">
       <Column Name="AcceptSlipNo" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -142,6 +142,7 @@
       <Column Name="BannerName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="BannerSearchName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="FileId" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="OfferGroupCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SortKey" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="CreateUser" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
@@ -433,6 +434,7 @@
   <Table Name="dbo.Offers" Member="Offers">
     <Type Name="Offer">
       <Column Name="OfferCd" Type="System.String" DbType="VarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OfferGroupCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="ItemCd" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />

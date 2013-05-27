@@ -109,11 +109,14 @@
                         </table>
                         <table>
                             <tr>
+                                <td width="120">
+                                    <span class="label">Nhóm khuyến mãi</span>
+                                </td>
                                 <td>
-                                    <label>
-                                        Mô tả</label>
-                                    <asp:TextBox Text='<%# Eval("Notes") %>' CssClass="showEditer" ID="txtContents" runat="server"
-                                        TextMode="MultiLine" Rows="5"></asp:TextBox>
+                                    <asp:DropDownList DataSource='<%# Eval("ListOfferGroup") %>' SelectedValue='<%# Bind("OfferGroupCd") %>'
+                                        DataValueField="Code" DataTextField="Name" ID="ddlOfferGroup" runat="server"
+                                        CssClass="input-search text-input">
+                                    </asp:DropDownList>
                                 </td>
                             </tr>
                         </table>

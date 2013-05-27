@@ -51,6 +51,7 @@ namespace MiBo.Domain.Dao
 
             // Set item
             var entity = GetSingle<Offer>(param.OfferCd, true);
+            entity.OfferGroupCd = param.OfferGroupCd;
             entity.ItemCd = param.ItemCd;
             entity.StartDate = param.StartDate;
             entity.EndDate = param.EndDate;

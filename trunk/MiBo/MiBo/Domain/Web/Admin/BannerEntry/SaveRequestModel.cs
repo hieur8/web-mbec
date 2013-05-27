@@ -11,7 +11,8 @@ namespace MiBo.Domain.Web.Admin.BannerEntry
         public string BannerName { get; set; }
         [ValidRequired(MessageParam = "Mã hình ảnh")]
         public string FileId { get; set; }
-        public string Notes { get; set; }
+        [ValidRequired(MessageParam = "Nhóm khuyến mãi")]
+        public string OfferGroupCd { get; set; }
         public string SortKey { get; set; }
         public string DeleteFlag { get; set; }
     }

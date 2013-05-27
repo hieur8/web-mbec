@@ -50,11 +50,17 @@
                     <fieldset>
                         <table>
                             <tr>
-                                <td width="120">
+                                <td width="140">
                                     <span class="label">Mã khuyến mãi</span>
                                 </td>
-                                <td width="180">
+                                <td width="130">
                                     <asp:TextBox Width="100" ID="txtOfferCd" runat="server" CssClass="text-input" Enabled="false" Text='<%# Eval("OfferCd") %>'></asp:TextBox>
+                                </td>
+                                <td width="170">
+                                    <span class="label">Nhóm khuyến mãi</span>
+                                </td>
+                                <td width="130">
+                                    <asp:TextBox Width="100" ID="txtOfferGroupCd" runat="server" CssClass="text-input"></asp:TextBox>
                                 </td>
                                 <td width="120">
                                     <span class="label">Mã sản phẩm</span>
@@ -66,13 +72,13 @@
                         </table>
                         <table>
                             <tr>
-                                <td width="120">
+                                <td width="140">
                                     <span class="label">Ngày bắt đầu</span>
                                 </td>
-                                <td width="180">
+                                <td width="130">
                                     <asp:TextBox Width="100" ID="txtStartDate" runat="server" CssClass="text-input" Text='<%# Eval("StartDate") %>'></asp:TextBox>
                                 </td>
-                                <td width="120">
+                                <td width="170">
                                     <span class="label">Ngày kết thúc</span>
                                 </td>
                                 <td>
@@ -82,16 +88,16 @@
                         </table>
                         <table>
                             <tr>
-                                <td width="120">
+                                <td width="140">
                                     <span class="label">Loại</span>
                                 </td>
-                                <td width="180">
+                                <td width="130">
                                     <asp:DropDownList DataSource='<%# Eval("ListOfferDiv") %>' SelectedValue='<%# Bind("OfferDiv") %>'
                                         DataValueField="Code" DataTextField="Name" ID="ddlOfferDiv" runat="server"
                                         CssClass="input-search text-input">
                                     </asp:DropDownList>
                                 </td>
-                                <td width="120">
+                                <td width="170">
                                     <span class="label">Giảm (%)</span>
                                 </td>
                                 <td>
@@ -130,6 +136,12 @@
                                 </td>
                                 <td width="180">
                                     <asp:TextBox Width="100" ID="txtOfferCd1" runat="server" CssClass="text-input" Enabled="false" Text='<%# Eval("OfferCd") %>'></asp:TextBox>
+                                </td>
+                                <td width="120">
+                                    <span class="label">Nhóm khuyến mãi</span>
+                                </td>
+                                <td width="180">
+                                    <asp:TextBox Width="100" ID="txtOfferGroupCd1" runat="server" CssClass="text-input"></asp:TextBox>
                                 </td>
                                 <td width="120">
                                     <span class="label">Thương hiệu</span>

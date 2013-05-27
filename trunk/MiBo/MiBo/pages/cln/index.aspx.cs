@@ -20,8 +20,6 @@ namespace MiBo.pages.cln
             icoChatYahoo.Attributes["src"] = "/pages/resources/images/" + response.ChatYahooIcon;
             rptBanner.DataSource = response.ListBanners;
             rptBanner.DataBind();
-            rptBannerInfo.DataSource = response.ListBanners;
-            rptBannerInfo.DataBind();
             rptNewItem.DataSource = response.ListNewItems;
             rptNewItem.DataBind();
             rptOfferItem.DataSource = response.ListOfferItems;

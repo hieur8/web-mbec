@@ -63,7 +63,7 @@ namespace MiBo.pages.administer
                 request.BannerCd = ((TextBox)fvwBannerDatails.FindControl("txtBannerCd")).Text;
                 request.BannerName = ((TextBox)fvwBannerDatails.FindControl("txtBannerName")).Text;
                 request.SortKey = ((TextBox)fvwBannerDatails.FindControl("txtSortKey")).Text;
-                request.Notes = ((TextBox)fvwBannerDatails.FindControl("txtContents")).Text;
+                request.OfferGroupCd = ((DropDownList)fvwBannerDatails.FindControl("ddlOfferGroup")).SelectedValue;
                 request.DeleteFlag = ((DropDownList)fvwBannerDatails.FindControl("ddlDeleteFlag")).SelectedValue;
 
                 return request;

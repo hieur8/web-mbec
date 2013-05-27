@@ -8,5 +8,6 @@ namespace MiBo.Domain.Model.Admin.BannerEntry
         public string BannerCd { get; set; }
         public Banner Banner { get; set; }
         public IList<MCode> ListDeleteFlag { get; set; }
+        public IList<string> ListOfferGroup { get; set; }
     }
 }

@@ -15,7 +15,13 @@ namespace MiBo.Domain.Dao
             var listResult = from tbl in EntityManager.Offers
                              select Convert.ToInt64(tbl.OfferCd);
 
-            return Convert.ToString(listResult.Max() + 1);
+            var count = listResult.Count();
+            var max = decimal.Zero;
+
+            if (count == decimal.Zero) max = decimal.One;
+            else max = listResult.Max() + 1;
+
+            return Convert.ToString(max);
         }
 
         public IList<string> GetItemByBrand(string brandCd)
@@ -58,6 +64,7 @@ namespace MiBo.Domain.Dao
             entity.OfferDiv = inputObject.OfferDiv;
             entity.Percent = inputObject.Percent;
             entity.SortKey = decimal.Zero;
+            entity.OfferGroupCd = inputObject.OfferGroupCd;
             entity.Notes = inputObject.Notes;
             entity.CreateUser = PageHelper.UserName;
             entity.CreateDate = currentDate;
@@ -90,6 +97,7 @@ namespace MiBo.Domain.Dao
                 entity.OfferDiv = inputObject.OfferDiv;
                 entity.Percent = inputObject.Percent;
                 entity.SortKey = decimal.Zero;
+                entity.OfferGroupCd = inputObject.OfferGroupCd;
                 entity.Notes = inputObject.Notes;
                 entity.CreateUser = PageHelper.UserName;
                 entity.CreateDate = currentDate;

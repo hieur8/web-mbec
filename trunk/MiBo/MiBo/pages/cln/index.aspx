@@ -51,7 +51,7 @@
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <div>
-                                        <a href="#" data-reveal-id='banner<%# Eval("BannerCd") %>'>
+                                        <a href='/items.aspx?show=group&ogc=<%# Eval("OfferGroupCd") %>'>
                                             <img alt="<%# Eval("BannerName") %>" title="<%# Eval("BannerName") %>" src='/pages/media/images/banners/small/<%# Eval("Image") %>' />
                                         </a>
                                     </div>
@@ -190,7 +190,7 @@
                                                 </ul>
                                             </FooterTemplate>
                                         </asp:Repeater>
-                                        <a href="/items.aspx?show=new" id="lnkAllOffer" runat="server">
+                                        <a href="/items.aspx?show=offer" id="lnkAllOffer" runat="server">
                                             <span>Xem tất cả</span></a>
                                     </div>
                                 </div>
@@ -237,13 +237,6 @@
                 </div>
             </div>
         </div>
-        <asp:Repeater ID="rptBannerInfo" runat="server">
-            <ItemTemplate>
-                <div id='banner<%# Eval("BannerCd") %>' class="reveal-modal">
-                    <%# Eval("Notes") %>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
         <script type="text/javascript">
             $('div').remove('.jquery-slider-timer-bar');
         </script>

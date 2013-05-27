@@ -80,7 +80,7 @@ namespace MiBo.Domain.Logic.Client.Index
                 banner.BannerCd = DataHelper.ToString(obj.BannerCd);
                 banner.BannerName = DataHelper.ToString(obj.BannerName);
                 banner.Image = DataHelper.ToString(storageFileCom.GetFileName(obj.FileId, false));
-                banner.Notes = DataHelper.ToString(obj.Notes);
+                banner.OfferGroupCd = DataHelper.ToString(obj.OfferGroupCd);
 
                 listBanners.Add(banner);
             }

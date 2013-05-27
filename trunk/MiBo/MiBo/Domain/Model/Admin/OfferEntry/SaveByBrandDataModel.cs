@@ -10,6 +10,7 @@ namespace MiBo.Domain.Model.Admin.OfferEntry
         public DateTime EndDate { get; set; }
         public string OfferDiv { get; set; }
         public decimal Percent { get; set; }
+        public string OfferGroupCd { get; set; }
         public string Notes { get; set; }
     }
 }

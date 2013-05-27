@@ -173,6 +173,8 @@ namespace MiBo.Domain.Logic.Client.Items
                 title = clientItemsDao.GetAgeName(inputObject.AgeCd);
             else if (!DataCheckHelper.IsNull(inputObject.GenderCd))
                 title = clientItemsDao.GetGenderName(inputObject.GenderCd);
+            else if (!DataCheckHelper.IsNull(inputObject.OfferGroupCd))
+                title = "Khuyến mãi";
             else title = "Tất cả";
 
             // Set value
