@@ -67,7 +67,7 @@ namespace MiBo.pages.cln
             conn.AddDigitalOrderField("vpc_AccessCode", "GWJBCBJX");
             conn.AddDigitalOrderField("vpc_MerchTxnRef", genId);
             conn.AddDigitalOrderField("vpc_OrderInfo", "Tin Hoc Nguyen Phong - Mibo.vn");
-            conn.AddDigitalOrderField("vpc_Amount", totalAtm + "00");
+            conn.AddDigitalOrderField("vpc_Amount", totalAtm);
             conn.AddDigitalOrderField("vpc_Currency", "VND");
             conn.AddDigitalOrderField("vpc_ReturnURL", "http://mibo.vn/pay-process.aspx");
             // Dia chi IP cua khach hang
