@@ -176,9 +176,9 @@ namespace MiBo.pages.cln
             {
                 ipaddress = Request.ServerVariables["REMOTE_ADDR"];
             }
-            string SECURE_SECRET = "A3EFDFABA8653DF2342E8DAC29B51AF0";
+            string SECURE_SECRET = "0C1D637C06AC75FDE9D7B4B550A3A641";
             // Khoi tao lop thu vien va gan gia tri cac tham so gui sang cong thanh toan
-            VPCRequest conn = new VPCRequest("http://mtf.onepay.vn/onecomm-pay/vpc.op");
+            VPCRequest conn = new VPCRequest("https://onepay.vn/onecomm-pay/vpc.op");
             conn.SetSecureSecret(SECURE_SECRET);
             // Add the Digital Order Fields for the functionality you wish to use
             // Core Transaction Fields
@@ -186,8 +186,8 @@ namespace MiBo.pages.cln
             conn.AddDigitalOrderField("vpc_Locale", "vn");//Chon ngon ngu hien thi tren cong thanh toan (vn/en)
             conn.AddDigitalOrderField("vpc_Version", "2");
             conn.AddDigitalOrderField("vpc_Command", "pay");
-            conn.AddDigitalOrderField("vpc_Merchant", "ONEPAY");
-            conn.AddDigitalOrderField("vpc_AccessCode", "D67342C2");
+            conn.AddDigitalOrderField("vpc_Merchant", "NGUYENPHONG");
+            conn.AddDigitalOrderField("vpc_AccessCode", "GWJBCBJX");
             conn.AddDigitalOrderField("vpc_MerchTxnRef", genId);
             conn.AddDigitalOrderField("vpc_OrderInfo", "Tin Hoc Nguyen Phong - Mibo.vn");
             conn.AddDigitalOrderField("vpc_Amount", acc.TotalAmt.ToString()+"00");

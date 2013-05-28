@@ -150,10 +150,11 @@
                                             </ItemTemplate>
                                             <FooterTemplate>
                                                 </ul>
+                                                <a href="/items.aspx?show=new" id="lnkAllNew" runat="server">
+                                            <span>Xem tất cả</span></a>
                                             </FooterTemplate>
                                         </asp:Repeater>
-                                        <a href="/items.aspx?show=new" id="lnkAllNew" runat="server">
-                                            <span>Xem tất cả</span></a>
+                                        
                                     </div>
                                 </div>
                                 <div id="idTab2" style="padding: 4px;">
@@ -165,6 +166,7 @@
                                             <ItemTemplate>
                                                 <li class="item first"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>' title="<%# Eval("ItemName") %>"
                                                     class="product-image">
+                                                    <div class="ico_giam_gia_small" align="center"><span>Khuyến mãi</span></div>
                                                     <img width="170" height="170" border="0" src='/pages/media/images/items/normal/<%# Eval("ItemImage") %>'
                                                         alt='<%# Eval("ItemName") %>'>
                                                 </a>&nbsp;<div class="align-prodname-price-review">
@@ -188,10 +190,11 @@
                                             </ItemTemplate>
                                             <FooterTemplate>
                                                 </ul>
+                                                <a href="/items.aspx?show=offer" id="lnkAllOffer" runat="server">
+                                            <span>Xem tất cả</span></a>
                                             </FooterTemplate>
                                         </asp:Repeater>
-                                        <a href="/items.aspx?show=offer" id="lnkAllOffer" runat="server">
-                                            <span>Xem tất cả</span></a>
+                                        
                                     </div>
                                 </div>
                                 <div id="idTab3" style="padding: 4px;">
