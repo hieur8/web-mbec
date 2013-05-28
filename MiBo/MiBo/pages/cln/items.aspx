@@ -33,6 +33,13 @@
                             <ItemTemplate>
                                 <li class="item first" style="padding-left: 10px; padding-right: 10px"><a href='/item-details.aspx?pid=<%# Eval("ItemCd") %>'
                                     title="<%# Eval("ItemName") %>" class="product-image">
+                                    <%
+                                        if (Request["show"] != null && Request["show"].ToString().Equals("offer"))
+                                        {
+                                        
+                                         %>
+                                         <div class="ico_giam_gia_small" align="center"><span>Khuyến mãi</span></div>
+                                         <% } %>
                                     <img src='/pages/media/images/items/normal/<%# Eval("ItemImage") %>' alt='<%# Eval("ItemName") %>'>
                                 </a>
                                     <div class="align-prodname-price-review">

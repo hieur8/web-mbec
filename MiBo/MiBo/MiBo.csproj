@@ -233,6 +233,7 @@
     <Content Include="pages\resources\images\icons\restore.png" />
     <Content Include="pages\resources\images\icons\tick_circle.png" />
     <Content Include="pages\resources\images\icons\view.png" />
+    <Content Include="pages\resources\images\ico_giam_gia_small.png" />
     <Content Include="pages\resources\images\i_msg-error.gif" />
     <Content Include="pages\resources\images\i_msg-note.gif" />
     <Content Include="pages\resources\images\i_msg-success.gif" />

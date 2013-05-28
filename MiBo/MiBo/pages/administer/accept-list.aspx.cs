@@ -68,10 +68,10 @@ namespace MiBo.pages.administer
 
             string[,] MyArray =
 			{
-			{"vpc_AccessCode","D67342C2"},
+			{"vpc_AccessCode","GWJBCBJX"},
 			{"vpc_Command","queryDR"	},           
 			{"vpc_MerchTxnRef",accept.GenId},			
-            {"vpc_Merchant","ONEPAY"},						
+            {"vpc_Merchant","NGUYENPHONG"},						
             {"vpc_Password","op123456"},
 			{"vpc_User","op01"},
 			{"vpc_Version","1"}							
