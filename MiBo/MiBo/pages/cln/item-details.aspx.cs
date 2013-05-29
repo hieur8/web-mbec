@@ -10,6 +10,7 @@ namespace MiBo.pages.cln
     public partial class item_details : BasePage
     {
         public string firstImage = "";
+        public bool hasOffer = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
@@ -19,8 +20,11 @@ namespace MiBo.pages.cln
             fvwItemDetails.DataSource = response.Details;
             fvwItemDetails.DataBind();
             firstImage = response.Details[0].ListImages[0].ItemImage;
+            if (response.Details[0].ListOfferItems.Count > 0)
+            {
+                hasOffer = true;
+            }
         }
-
         protected void lnkBuy_Command(object sender, CommandEventArgs e)
         {
             Session["ItemCd"] = e.CommandArgument;

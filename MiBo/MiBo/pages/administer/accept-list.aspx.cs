@@ -63,7 +63,7 @@ namespace MiBo.pages.administer
             string seperator = "";
             string resQS = "";
             int paras = 7;
-            string vpcURL = "http://mtf.onepay.vn/onecomm-pay/Vpcdps.op";
+            string vpcURL = "http://onepay.vn/onecomm-pay/Vpcdps.op";
 
 
             string[,] MyArray =

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true"
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/pages/common/client.Master" AutoEventWireup="true"
     CodeBehind="item-details.aspx.cs" Inherits="MiBo.pages.cln.item_details" %>
 
 <asp:Content ID="ContentHead" ContentPlaceHolderID="head" runat="server">
@@ -260,9 +260,13 @@
                         </div>
                         </div>
                         <div class="col-right sidebar">
+                        <% 
+                            if (hasOffer == true)
+                            {
+                         %>
                             <div class="block block-compare">
                                 <div class="block-title">
-                                    <strong><span>Sản phẩm khuyến mãi</span></strong>
+                                    <strong><span>Quà tặng kèm</span></strong>
                                 </div>
                                 <div class="block-content">
                                     <br />
@@ -292,6 +296,7 @@
                                     </asp:Repeater>
                                 </div>
                             </div>
+                            <% } %>
                             <div class="block block-compare">
                                 <div class="block-title">
                                     <strong><span>Sản phẩm liên quan</span></strong>
