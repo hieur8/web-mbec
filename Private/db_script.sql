@@ -853,3 +853,82 @@ CREATE TABLE [GiftCard]
     PRIMARY KEY ([GiftCd])
 )
 GO
+
+-- =============================================
+-- Create table [BookTypes]
+-- =============================================
+IF OBJECT_ID('[BookTypes]', 'U') IS NOT NULL
+  DROP TABLE [BookTypes]
+GO
+
+CREATE TABLE [BookTypes]
+(
+    [BookTypeCd] VARCHAR(255),
+    [BookTypeName] NVARCHAR(255),
+	[BookTypeSearchName] VARCHAR(255),
+    [Notes] NVARCHAR(MAX),
+    [SortKey] DECIMAL,
+    [CreateUser] VARCHAR(255),
+    [CreateDate] DATETIME,
+    [UpdateUser] VARCHAR(255),
+    [UpdateDate] DATETIME,
+    [DeleteFlag] BIT,
+    PRIMARY KEY ([BookTypeCd])
+)
+GO
+
+-- =============================================
+-- Create table [Publishers]
+-- =============================================
+IF OBJECT_ID('[Publishers]', 'U') IS NOT NULL
+  DROP TABLE [Publishers]
+GO
+
+CREATE TABLE [Publishers]
+(
+    [PublisherCd] VARCHAR(255),
+	[PublisherName] NVARCHAR(255),
+	[PublisherSearchName] VARCHAR(255),
+    [FileId] VARCHAR(255),
+    [Notes] NVARCHAR(MAX),
+    [SortKey] DECIMAL,
+    [CreateDate] DATETIME,
+    [UpdateUser] VARCHAR(255),
+    [UpdateDate] DATETIME,
+    [DeleteFlag] BIT,
+    PRIMARY KEY ([PublisherCd])
+)
+GO
+
+-- =============================================
+-- Create table [Books]
+-- =============================================
+IF OBJECT_ID('[Books]', 'U') IS NOT NULL
+  DROP TABLE [Books]
+GO
+
+CREATE TABLE [Books]
+(
+    [BookCd] VARCHAR(255),
+	[Title] NVARCHAR(255),
+	[SearchTitle] VARCHAR(255),
+	[Author] NVARCHAR(255),
+	[NumOfPage] DECIMAL,
+	[Dimension] VARCHAR(255),
+	[CoverType] NVARCHAR(255),
+    [SalesPrice] DECIMAL,
+    [CoverPrice] DECIMAL,
+    [BookTypeCd] VARCHAR(255),
+    [PublisherCd] VARCHAR(255),
+	[Viewer] DECIMAL,
+	[FileId] VARCHAR(255),
+    [Notes] NVARCHAR(MAX),
+    [CreateDate] DATETIME,
+    [UpdateUser] VARCHAR(255),
+    [UpdateDate] DATETIME,
+    [DeleteFlag] BIT,
+    PRIMARY KEY ([BookCd]),
+    FOREIGN KEY ([BookTypeCd]) REFERENCES [BookTypes]([BookTypeCd]),
+    FOREIGN KEY ([PublisherCd]) REFERENCES [Publishers]([PublisherCd])
+)
+GO
